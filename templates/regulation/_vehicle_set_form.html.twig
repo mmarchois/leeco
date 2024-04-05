@@ -1,0 +1,286 @@
+{% set restrictedDetailsClass = {
+    heavyGoodsVehicle: 'restricted-details-heavyGoodsVehicle' ~ index,
+    dimensions: 'restricted-details-dimensions' ~ index,
+    critair: 'restricted-details-critair' ~ index,
+    other: 'restricted-details-other' ~ index,
+} %}
+{% set exemptedDetailsOtherClass = 'exempted-details-other' ~ index %}
+
+<fieldset
+    class="fr-fieldset {% if form.allVehicles.vars.errors|length > 0 %}fr-fieldset--error{% endif %}"
+    role="radiogroup"
+    aria-labelledby="allVehicles-legend-{{ index }} {% if form.allVehicles.vars.errors|length > 0 %}{{ form.allVehicles.vars.id }}_error{% endif %}"
+    data-controller="form-reveal"
+>
+    {{ form_label(form.allVehicles, null, {
+        element: 'legend',
+        label_attr: { 'id': 'allVehicles-legend-' ~ index, 'class': 'fr-fieldset__legend' }
+    }) }}
+
+    {% for option in form.allVehicles %}
+        <div class="fr-fieldset__element">
+            <div class="fr-radio-group fr-radio-rich {% if option.vars.value == 'no' %}app-someVehicles__radiogroup{% endif %}" data-testid="allVehicles-{{ index }}-{{ option.vars.value }}">
+                {{ form_widget(option, {
+                    attr: {
+                        'data-controller': 'condition',
+                        'data-condition-equals-value': 'no',
+                        'data-action': 'change->condition#dispatchFromInputChange condition:yes->form-reveal#open condition:no->form-reveal#close',
+                    },
+                }) }}
+                {{ form_label(option, null, { help: (option.vars.label ~ '.help')|trans }) }}
+                <div class="fr-radio-rich__pictogram app-vehicle-image">
+                    <svg class="fr-artwork" aria-hidden="true" viewBox="0 0 26 26" width="26px" height="26px">
+                        <use class="fr-artwork-major" xlink:href="{{ asset('images/restriction/all_vehicles.' ~ option.vars.value ~ '.svg') }}#artwork-major"></use>
+                    </svg>
+                    <img class="app-vehicle-image__close" aria-hidden="true" src="{{ asset('images/restriction/close.svg') }}" />
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="fr-fieldset__element fr-mt-n4v" data-form-reveal-target="section" {% if form.allVehicles.vars.value != 'no' %}hidden{% endif %}>
+        <div class="app-card app-card--content-only app-someVehicles__form">
+            <div class="app-card__content">
+                <fieldset class="fr-x-fieldset--raw" data-form-reveal-target="formControl">
+                    <fieldset class="fr-fieldset" aria-labelledby="restrictedTypes-legend-{{ index }}">
+                        {{ form_label(form.restrictedTypes, null, {
+                            element: 'legend',
+                            label_attr: { id: 'restrictedTypes-legend-' ~ index, class: 'fr-fieldset__legend fr-fieldset__legend--regular' },
+                        }) }}
+
+                        <ul class="fr-fieldset__item fr-tags-group">
+                            {% for vehicleType in form.restrictedTypes %}
+                                <li>
+                                    {% set btnId = vehicleType.vars.id ~ '-btn' %}
+                                    {% set iconName = app_vehicle_type_icon_name(vehicleType.vars.value) %}
+                                    {% set isChecked = vehicleType.vars.value in form.restrictedTypes.vars.value ? "true" : "false" %}
+
+                                    <label for="{{ btnId }}" data-controller="chip-button">
+                                        <button
+                                            id="{{ btnId }}"
+                                            type="button"
+                                            class="fr-tag {% if iconName %}fr-tag--icon-left fr-icon-x-{{ iconName }}{% endif %}"
+                                            aria-pressed="{{ isChecked }}"
+                                            data-chip-button-target="button"
+                                        >
+                                            {{ vehicleType.vars.label|trans }}
+                                        </button>
+
+                                        {% set widget_attr = {
+                                            hidden: true,
+                                            'data-chip-button-target': 'checkbox',
+                                            'data-condition-target': 'checkbox',
+                                        } %}
+
+                                        {% if vehicleType.vars.value in restrictedDetailsClass|keys %}
+                                            {% set widget_attr = widget_attr|merge({
+                                                'data-controller': 'condition form-reveal',
+                                                'data-form-reveal-section-outlet': '.' ~ restrictedDetailsClass[vehicleType.vars.value] ~ '[data-controller~=section]',
+                                                'data-form-reveal-form-control-outlet': '.' ~ restrictedDetailsClass[vehicleType.vars.value] ~ '[data-controller~=form-control]',
+                                                'data-action': 'change->condition#dispatchFromCheckboxChange condition:yes->form-reveal#open condition:no->form-reveal#close',
+                                            }) %}
+                                        {% endif %}
+
+                                        {{ form_widget(vehicleType, { attr: widget_attr }) }}
+                                    </label>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </fieldset>
+                    <fieldset
+                        data-controller="section form-control"
+                        class="fr-fieldset {{ restrictedDetailsClass['critair'] }}"
+                        id="critairTypes"
+                        aria-labelledby="critairTypes-legend"
+                        {% if 'critair' not in form.restrictedTypes.vars.value %}hidden disabled{% endif %}
+                    >
+                        {{ form_label(form.critairTypes, null, {
+                            element: 'legend',
+                            label_attr: { id: 'critairTypes-legend', class: 'fr-fieldset__legend fr-fieldset__legend--regular' },
+                        }) }}
+                        {{ form_widget(form.critairTypes) }}
+                        {{ form_errors(form.critairTypes) }}
+                    </fieldset>
+
+                    <fieldset
+                        data-controller="section form-control"
+                        class="fr-fieldset fr-x-max-w-32w {{ restrictedDetailsClass['heavyGoodsVehicle'] }}"
+                        aria-labelledby="heavyGoodsVehicle-details-legend-{{ index }}"
+                        {% if 'heavyGoodsVehicle' not in form.restrictedTypes.vars.value %}hidden disabled{% endif %}
+                    >
+                        <legend class="fr-fieldset__legend" id="heavyGoodsVehicle-details-legend-{{ index }}">
+                            {{ 'regulation.vehicle_set.type.heavyGoodsVehicle'|trans }}
+                        </legend>
+                        <div class="fr-fieldset__element">
+                            {{ form_row(form.heavyweightMaxWeight, {
+                                group_class: 'fr-input-group',
+                                widget_class: 'fr-input',
+                                widget_suffix: 'common.unit.tons'|trans,
+                            }) }}
+                        </div>
+                    </fieldset>
+
+                    {% set hasDimensionsErrors = form.restrictedTypes.vars.errors|filter(e => app_is_fieldset_error(e, 'dimensions'))|length > 0 %}
+
+                    <fieldset
+                        data-controller="section form-control"
+                        class="fr-fieldset fr-x-max-w-32w {{ restrictedDetailsClass['dimensions'] }} {% if hasDimensionsErrors %}fr-fieldset--error{% endif %}"
+                        aria-labelledby="dimensions-details-legend-{{ index }}"
+                        {% if 'dimensions' not in form.restrictedTypes.vars.value %}hidden disabled{% endif %}
+                    >
+                        <legend class="fr-fieldset__legend" id="dimensions-details-legend-{{ index }}">
+                            {{ 'regulation.vehicle_set.type.dimensions'|trans }}
+                        </legend>
+                        <div class="fr-fieldset__element">
+                            {{ form_row(form.maxWidth, {
+                                group_class: 'fr-input-group',
+                                widget_class: 'fr-input',
+                                widget_suffix: 'common.unit.meters'|trans,
+                            }) }}
+                        </div>
+                        <div class="fr-fieldset__element">
+                            {{ form_row(form.maxLength, {
+                                group_class: 'fr-input-group',
+                                widget_class: 'fr-input',
+                                widget_suffix: 'common.unit.meters'|trans,
+                            }) }}
+                        </div>
+                        <div class="fr-fieldset__element">
+                            {{ form_row(form.maxHeight, {
+                                group_class: 'fr-input-group',
+                                widget_class: 'fr-input',
+                                widget_suffix: 'common.unit.meters'|trans,
+                            }) }}
+                        </div>
+                    </fieldset>
+
+                    {{ form_row(form.otherRestrictedTypeText, {
+                        row_attr: {
+                            'data-controller': 'section',
+                            'class': restrictedDetailsClass['other'],
+                            hidden: 'other' not in form.restrictedTypes.vars.value,
+                        },
+                        attr: {
+                            'data-controller': 'form-control',
+                            'class': restrictedDetailsClass['other'],
+                            disabled: 'other' not in form.restrictedTypes.vars.value,
+                        },
+                        group_class: 'fr-input-group',
+                        widget_class: 'fr-input',
+                    }) }}
+                </fieldset>
+                {{ form_errors(form.restrictedTypes) }}
+            </div>
+        </div>
+    </div>
+
+    {{ form_errors(form.allVehicles) }}
+</fieldset>
+
+<fieldset
+    class="fr-fieldset"
+    aria-labelledby="exemptedVehicles-legend-{{ index }}"
+    data-controller="form-reveal"
+    data-form-reveal-is-permanent-button-value="false"
+>
+    <legend id="exemptedVehicles-legend-{{ index }}" class="fr-fieldset__legend">
+        {{ 'regulation.vehicle_set.exempted_vehicles'|trans }}
+    </legend>
+
+    <button
+        type="button"
+        id="defineExemptedVehiclesBtn-{{ index }}"
+        class="fr-btn fr-btn--tertiary-no-outline fr-btn--icon-left fr-icon-add-line fr-x-btn--with-hint"
+        data-form-reveal-target="button"
+        data-action="click->form-reveal#open"
+        {% if form.exemptedTypes.vars.value|length > 0 %}hidden{% endif %}
+    >
+        {{ 'regulation.vehicle_set.exempted_vehicles.add'|trans }}
+        <span class="fr-hint-text">
+            {{ 'regulation.vehicle_set.exempted_vehicles.add.help'|trans }}
+        </span>
+    </button>
+
+    <div
+        class="fr-fieldset__element"
+        data-form-reveal-target="section"
+        {% if form.exemptedTypes.vars.value|length == 0 %}hidden{% endif %}
+    >
+        <div class="app-card app-card--no-header">
+            <div class="app-card__content">
+                <fieldset
+                    class="fr-fieldset"
+                    aria-labelledby="exemptedTypes-legend-{{ index }}"
+                    data-form-reveal-target="formControl"
+                >
+                    {{ form_label(form.exemptedTypes, null, {
+                        element: 'legend',
+                        label_attr: { id: 'exemptedTypes-legend-' ~ index, class: 'fr-fieldset__legend fr-fieldset__legend--regular' },
+                    }) }}
+
+                    <ul class="fr-fieldset__item fr-tags-group">
+                        {% for vehicleType in form.exemptedTypes %}
+                            <li>
+                                {% set btnId = vehicleType.vars.id ~ '-btn' %}
+                                {% set iconName = app_vehicle_type_icon_name(vehicleType.vars.value) %}
+                                {% set isChecked = vehicleType.vars.value in form.exemptedTypes.vars.value ? "true" : "false" %}
+                                <label for="{{ btnId }}" data-controller="chip-button">
+                                    <button
+                                        id="{{ btnId }}"
+                                        type="button"
+                                        class="fr-tag {% if iconName %}fr-tag--icon-left fr-icon-x-{{ iconName }}{% endif %}"
+                                        aria-pressed="{{ isChecked }}"
+                                        data-chip-button-target="button"
+                                    >
+                                        {{ vehicleType.vars.label|trans }}
+
+                                        {% set widget_attr = {
+                                            hidden: true,
+                                            'data-chip-button-target': 'checkbox',
+                                            'data-condition-target': 'checkbox',
+                                        } %}
+
+                                        {% if vehicleType.vars.value == 'other' %}
+                                            {% set widget_attr = widget_attr|merge({
+                                                    'data-controller': 'condition form-reveal',
+                                                    'data-form-reveal-section-outlet': '.' ~ exemptedDetailsOtherClass ~ '[data-controller~=section]',
+                                                    'data-form-reveal-form-control-outlet': '.' ~ exemptedDetailsOtherClass ~ ' [data-controller~=form-control]',
+                                                    'data-action': 'change->condition#dispatchFromCheckboxChange condition:yes->form-reveal#open condition:no->form-reveal#close',
+                                            }) %}
+                                        {% endif %}
+
+                                        {{ form_widget(vehicleType, { attr: widget_attr }) }}
+                                    </button>
+                                </label>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                    {{ form_row(form.otherExemptedTypeText, {
+                        row_attr: {
+                            'data-controller': 'section',
+                            'class': exemptedDetailsOtherClass,
+                            hidden: 'other' not in form.exemptedTypes.vars.value
+                        },
+                        attr: {
+                            'data-controller': 'form-control',
+                            disabled: 'other' not in form.exemptedTypes.vars.value,
+                        },
+                        group_class: 'fr-input-group',
+                        widget_class: 'fr-input',
+                    }) }}
+                </fieldset>
+            </div>
+
+            <div class="app-card__actions">
+                <button
+                    type="button"
+                    class="fr-btn fr-btn--sm fr-btn--tertiary fr-icon-delete-line"
+                    title="{{ 'regulation.measure.exempted_vehicles.delete'|trans }}"
+                    aria-label="{{ 'regulation.measure.exempted_vehicles.delete'|trans }}"
+                    data-action="click->form-reveal#close"
+                ></button>
+            </div>
+        </div>
+    </div>
+</fieldset>

@@ -1,0 +1,55 @@
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                url: '%env(resolve:DATABASE_URL)%'
+                platform_service: App\Infrastructure\Persistence\Doctrine\DBAL\CustomPostgreSQLPlatformService
+                schema_manager_factory: 'doctrine.dbal.default_schema_manager_factory'
+            bdtopo:
+                url: '%env(BDTOPO_DATABASE_URL)%'
+    orm:
+        auto_generate_proxy_classes: true
+        default_entity_manager: default
+        entity_managers:
+            default:
+                connection: default
+                naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+                auto_mapping: true
+                dql:
+                    string_functions:
+                        FIRST: App\Infrastructure\Persistence\Doctrine\DBAL\FirstFunction
+                mappings:
+                    Domain:
+                        is_bundle: false
+                        type: xml
+                        dir: '%kernel.project_dir%/src/Infrastructure/Persistence/Doctrine/Mapping'
+                        prefix: 'App\Domain'
+                        alias: 'App\Domain'
+            bdtopo:
+                connection: bdtopo
+
+when@test:
+    doctrine:
+        dbal:
+            # "TEST_TOKEN" is typically set by ParaTest
+            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+
+when@prod:
+    doctrine:
+        orm:
+            auto_generate_proxy_classes: false
+            query_cache_driver:
+                type: pool
+                pool: doctrine.system_cache_pool
+            result_cache_driver:
+                type: pool
+                pool: doctrine.result_cache_pool
+
+    framework:
+        cache:
+            pools:
+                doctrine.result_cache_pool:
+                    adapter: cache.app
+                doctrine.system_cache_pool:
+                    adapter: cache.system

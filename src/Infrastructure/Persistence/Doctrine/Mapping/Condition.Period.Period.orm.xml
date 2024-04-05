@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity
+    name="App\Domain\Condition\Period\Period"
+    table="period">
+    <id name="uuid" type="guid" column="uuid"/>
+    <field name="startDateTime" type="datetimetz" column="start_datetime" nullable="true"/>
+    <field name="endDateTime" type="datetimetz" column="end_datetime" nullable="true"/>
+    <field name="recurrenceType" type="string" column="recurrence_type" nullable="false"/>
+    <one-to-many field="timeSlots" target-entity="App\Domain\Condition\Period\TimeSlot" mapped-by="period"/>
+    <one-to-one field="dailyRange" target-entity="App\Domain\Condition\Period\DailyRange" mapped-by="period" fetch="EAGER"/>
+    <many-to-one field="measure" target-entity="App\Domain\Regulation\Measure" inversed-by="periods">
+        <join-column name="measure_uuid" referenced-column-name="uuid" on-delete="CASCADE" nullable="false" />
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

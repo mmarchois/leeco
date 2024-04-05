@@ -1,0 +1,12 @@
+{% set text = 'regulation.status_badge.' ~ status ~ '.text' %}
+{% set hint = 'regulation.status_badge.' ~ status ~ '.hint' %}
+
+<span class="fr-badge {% if status == 'draft' %}fr-badge--info{% else %}fr-badge--success{% endif %}" data-testid="status-badge">
+    {{ text|trans }}
+</span>
+
+{% if withHint|default(false) %}
+    <p class="fr-text--sm fr-x-text--mention-grey fr-mt-1v">
+        {{ hint|trans }}
+    </p>
+{% endif %}

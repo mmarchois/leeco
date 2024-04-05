@@ -1,0 +1,117 @@
+{% set duplicateCsrfToken = csrf_token('duplicate-regulation') %}
+{% set deleteCsrfToken = csrf_token('delete-regulation') %}
+{% set displayOrganization = app.user.getOrganizations|length > 1 %}
+
+<div class="fr-table fr-table--layout-fixed fr-table--no-caption">
+    <table class="app-regulation-table">
+        <caption>{{ 'regulation.list.title'|trans }}</caption>
+        <thead>
+            <tr>
+                <th scope="col" class="app-regulation-table__identifier">{{ 'regulation'|trans }}</th>
+                {% if displayOrganization %}
+                    <th scope="col" class="app-regulation-table__identifier fr-hidden fr-x-revert-sm">{{ 'regulation.organization'|trans }}</th>
+                {% endif %}
+                <th scope="col">{{ 'regulation.locations'|trans }}</th>
+                <th scope="col" class="fr-hidden fr-x-revert-sm">{{ 'regulation.period'|trans }}</th>
+                <th scope="col" class="fr-hidden fr-x-revert-sm">{{ 'regulation.status'|trans }}</th>
+                <th scope="col" class="app-regulation-table__actions">{{ 'common.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for regulation in pagination.items %}
+                {% set location = regulation.location %}
+                {% set isUpcoming = regulation.startDate ? app_is_client_future_day(regulation.startDate) : null %}
+                {% set hasPassed = regulation.endDate ? app_is_client_past_day(regulation.endDate) : null %}
+                <tr>
+                    <td>
+                        {{ regulation.identifier }}
+                    </td>
+                    {% if displayOrganization %}
+                        <td class="fr-hidden fr-x-revert-sm">
+                            {{ regulation.organizationName }}
+                        </td>
+                    {% endif %}
+                    <td>
+                        {% if location %}
+                            {% if location.cityLabel %}
+                                {{ location.cityLabel }}<br/>
+                                <b>{{ location.roadName }}</b>
+                            {% else %}
+                                {{ location.administrator }} ({{location.roadNumber}})<br/>
+                            {% endif %}
+                            {% if regulation.numLocations > 1%}
+                                <em>{{ 'regulation.locations.more'|trans({'%count%': regulation.numLocations - 1}) }}</em>
+                            {% endif %}
+                        {% endif %}
+                    </td>
+                    <td class="fr-hidden fr-x-revert-sm">
+                        {% if regulation.startDate %}
+                            {% set startDate = regulation.startDate %}
+                            {% set endDate = regulation.endDate %}
+                            {% if startDate and endDate %}
+                                {{ 'common.date.from'|trans({ '%date%': app_datetime(startDate) }) }}
+                                {{ 'common.date.to'|trans({ '%date%': app_datetime(endDate) }) }}
+                            {% else %}
+                                {{ 'common.date.starting'|trans({ '%date%': app_datetime(startDate) }) }}
+                            {% endif %}
+                            <br />
+                            <b>
+                                {% if isUpcoming %}
+                                    {{ 'common.date.upcoming'|trans }}
+                                {% elseif hasPassed %}
+                                    {{ 'common.date.passed'|trans }}
+                                {% else %}
+                                    {{ 'common.date.ongoing'|trans }}
+                                {% endif %}
+                            </b>
+                        {% endif %}
+                    </td>
+                    <td class="fr-hidden fr-x-revert-sm">
+                        {% include 'regulation/_status_badge.html.twig' with { status: regulation.status } only %}
+                    </td>
+                    <td>
+                        <div class="fr-btns-group fr-btns-group--inline-sm">
+                            {% if regulation.status == 'published' %}
+                                <a title="{{ 'common.see'|trans }}" href="{{ path('app_regulation_detail', { uuid: regulation.uuid }) }}" class="fr-btn fr-icon-eye-line fr-btn--tertiary-no-outline">
+                                    {{ 'common.see'|trans }}
+                                </a>
+                            {% else %}
+                                <a title="{{ 'common.update'|trans }}" href="{{ path('app_regulation_detail', { uuid: regulation.uuid }) }}" class="fr-btn fr-icon-edit-line fr-btn--tertiary-no-outline">
+                                    {{ 'common.update'|trans }}
+                                </a>
+                            {% endif %}
+                            <form
+                                method="delete"
+                                action="{{ path('app_regulation_delete', { uuid: regulation.uuid }) }}"
+                                data-controller="form-submit"
+                                data-action="modal-trigger:submit->form-submit#submit"
+                                class="fr-hidden fr-unhidden-md"
+                            >
+                                <button
+                                    class="fr-btn fr-btn--tertiary-no-outline fr-icon-delete-bin-line"
+                                    data-controller="modal-trigger"
+                                    data-modal-trigger-modal-outlet="#regulation-delete-modal"
+                                    data-modal-trigger-key-value="{{ regulation.uuid }}"
+                                    data-action="modal-trigger#showModal:prevent"
+                                    aria-controls="regulation-delete-modal"
+                                    aria-label="{{ 'regulation.delete'|trans({'%identifier%': regulation.identifier}) }}"
+                                    title="{{ 'regulation.delete'|trans({'%identifier%': regulation.identifier}) }}"
+                                ></button>
+                                <input type="hidden" name="token" value="{{ deleteCsrfToken }}" />
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr data-testid="empty-row">
+                    <td class="fr-x-hidden-sm" colspan="3">
+                        <p><em>{{ 'regulation.list.empty'|trans }}</em></p>
+                    </td>
+                    <td class="fr-hidden fr-x-revert-sm" colspan="{% if displayOrganization %}6{% else %}5{% endif %}">
+                        <p><em>{{ 'regulation.list.empty'|trans }}</em></p>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
