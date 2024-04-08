@@ -1,0 +1,51 @@
+{% embed 'common/_header.html.twig' with { brand_url: path('app_home') } only %}
+    {% block nav_content %}
+        <ul class="j-raw-list j-nav-right">
+            <li>
+                <a href="{{ path('app_home') }}" {% if app.current_route == 'app_home' %}aria-current="page"{% endif %}>
+                    {{ 'nav.home'|trans }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('app_events_list') }}" {% if app.current_route starts with 'app_events' %}aria-current="page"{% endif %}>
+                    {{ 'nav.events'|trans }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('app_posts_list') }}" {% if app.current_route starts with 'app_posts' %}aria-current="page"{% endif %}>
+                    {{ 'nav.posts'|trans }}
+                </a>
+            </li>
+        </ul>
+
+        <hr>
+
+        <ul class="j-raw-list j-cluster" style="--cluster-gap: calc(2 * var(--w))">
+            <li>
+                <a class="j-btn" href="{{ path('app_login') }}">
+                    {{ 'nav.login'|trans }}
+                </a>
+            </li>
+            <li>
+                <a class="j-btn j-btn--secondary" href="{{ path('app_register') }}">
+                    {{ 'nav.register'|trans }}
+                </a>
+            </li>
+        </ul>
+
+        <hr>
+
+        <ul class="j-raw-list" data-mobile-only>
+            <li>
+                <a href="{{ path('app_privacy') }}">
+                    {{ 'nav.privacy'|trans }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('app_cgu') }}">
+                    {{ 'nav.terms'|trans }}
+                </a>
+            </li>
+        </ul>
+    {% endblock %}
+{% endembed %}

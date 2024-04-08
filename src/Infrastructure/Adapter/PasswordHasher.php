@@ -19,4 +19,9 @@ final class PasswordHasher implements PasswordHasherInterface
     {
         return $this->encoderFactory->getPasswordHasher(SymfonyUser::class)->hash($password);
     }
+
+    public function verify(string $hashedPassword, #[\SensitiveParameter] string $plainPassword): bool
+    {
+        return $this->encoderFactory->getPasswordHasher(SymfonyUser::class)->verify($hashedPassword, $plainPassword);
+    }
 }

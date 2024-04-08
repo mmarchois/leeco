@@ -24,12 +24,10 @@
         <exclude>
             <directory suffix=".php">src/Infrastructure/Persistence/Doctrine/Mapping</directory>
             <directory suffix=".php">src/Infrastructure/Persistence/Doctrine/Migrations</directory>
-            <directory suffix=".php">src/Infrastructure/Persistence/Doctrine/BdTopoMigrations</directory>
             <file>src/Infrastructure/Adapter/CommandBus.php</file>
             <file>src/Infrastructure/Adapter/IdFactory.php</file>
             <file>src/Infrastructure/Adapter/QueryBus.php</file>
             <directory suffix=".php">src/Infrastructure/Persistence/Doctrine/Fixtures</directory>
-            <directory suffix=".php">src/Infrastructure/Controller/Admin</directory>
             <file>src/Kernel.php</file>
         </exclude>
     </coverage>

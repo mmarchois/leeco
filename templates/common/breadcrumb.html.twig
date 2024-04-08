@@ -1,20 +1,15 @@
-<nav role="navigation" class="fr-breadcrumb" aria-label="{{ 'common.breadcrumb.here'|trans }}">
-    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">
-        {{ 'common.breadcrumb.see'|trans }}
-    </button>
-    <div class="fr-collapse" id="breadcrumb-1">
-        <ol class="fr-breadcrumb__list">
+<div class="j-breadcrumb" style="--box-padding: var(--w)">
+    <div class="j-container">
+        <ul class="j-raw-list">
             {% for item in items %}
-                {% if loop.last %}
-                    <li>
-                        <a class="fr-breadcrumb__link" aria-current="page">{{ item.title }}</a>
-                    </li>
-                {% else %}
-                    <li>
-                        <a class="fr-breadcrumb__link" href="{{ path(item.path) }}">{{ item.title }}</a>
-                    </li>
-                {% endif %}
+                <li>
+                    {% if item.path is defined %}
+                        <a href="{{ item.path }}">{{ item.title }}</a>
+                    {% else %}
+                        {{ item.title }}
+                    {% endif %}
+                </li>
             {% endfor %}
-        </ol>
+        </ul>
     </div>
-</nav>
+</div>

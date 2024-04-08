@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="common.team">
+                <source>common.team</source>
+                <target>L’équipe Moment.</target>
+            </trans-unit>
+            <trans-unit id="common.best_regards">
+                <source>common.best_regards</source>
+                <target>Cordialement,</target>
+            </trans-unit>
+            <trans-unit id="confirm_user_account.subjet">
+                <source>confirm_user_account.subjet</source>
+                <target>Confirmez votre compte</target>
+            </trans-unit>
+            <trans-unit id="confirm_user_account.welcome">
+                <source>confirm_user_account.welcome</source>
+                <target>Bonjour,</target>
+            </trans-unit>
+            <trans-unit id="confirm_user_account.thanks">
+                <source>confirm_user_account.thanks</source>
+                <target>Merci d’avoir rejoint Moment !</target>
+            </trans-unit>
+            <trans-unit id="confirm_user_account.confirm_email">
+                <source>confirm_user_account.confirm_email</source>
+                <target>Pour finaliser la création de votre compte, merci de cliquer sur le lien ci-dessous:</target>
+            </trans-unit>
+            <trans-unit id="confirm_user_account.confirm_email_button">
+                <source>confirm_user_account.confirm_email_button</source>
+                <target>Je confirme mon adresse e-mail</target>
+            </trans-unit>
+            <trans-unit id="confirm_user_account.help">
+                <source>confirm_user_account.help</source>
+                <target>Si vous rencontrez des difficultés pour vous connecter à votre compte, contactez-nous à contact@moment.com.</target>
+            </trans-unit>
+            <trans-unit id="forgot_password.subjet">
+                <source>forgot_password.subjet</source>
+                <target>Changer de mot de passe</target>
+            </trans-unit>
+            <trans-unit id="forgot_password.title">
+                <source>forgot_password.title</source>
+                <target>Vous avez demandé la réinitialisation du mot de passe associé à votre compte. Pour le modifier, cliquez ci-dessous :</target>
+            </trans-unit>
+            <trans-unit id="forgot_password.reset">
+                <source>forgot_password.reset</source>
+                <target>Modifier mon mot de passe</target>
+            </trans-unit>
+            <trans-unit id="events.user_registration.subjet">
+                <source>events.user_registration.subjet</source>
+                <target>Confirmation d'inscription à l'événement</target>
+            </trans-unit>
+            <trans-unit id="events.user_registration.confirmed">
+                <source>events.user_registration.confirmed</source>
+                <target>Votre inscription à l'événement "%title%" est confirmé !</target>
+            </trans-unit>
+            <trans-unit id="events.user_registration.information">
+                <source>events.user_registration.information</source>
+                <target>Vous retrouverez toutes les informations relatives à votre événement ci-dessous :</target>
+            </trans-unit>
+            <trans-unit id="events.user_registration.information.location">
+                <source>events.user_registration.information.location</source>
+                <target>Où : %location%</target>
+            </trans-unit>
+            <trans-unit id="events.user_registration.information.when">
+                <source>events.user_registration.information.when</source>
+                <target>Quand : </target>
+            </trans-unit>
+            <trans-unit id="events.user_registration.information.owner">
+                <source>events.user_registration.information.owner</source>
+                <target>Organisé par : %firstName%</target>
+            </trans-unit>
+            <trans-unit id="events.comment.subjet">
+                <source>events.comment.subjet</source>
+                <target>Vous avez reçu un commentaire concernant votre événement</target>
+            </trans-unit>
+            <trans-unit id="events.comment.title">
+                <source>events.comment.title</source>
+                <target>Vous avez reçu un commentaire concernant l'événement : "%title%"</target>
+            </trans-unit>
+            <trans-unit id="events.comment.message_from">
+                <source>events.comment.message_from</source>
+                <target>Message de %firstName%</target>
+            </trans-unit>
+            <trans-unit id="events.comment.answer">
+                <source>events.comment.answer</source>
+                <target>Vous pouvez lui répondre directement à l'adresse e-mail suivante : %email%</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Integration\Infrastructure\Controller;
 
-use App\Infrastructure\Persistence\Doctrine\Fixtures\UserFixture;
-
 final class LoginControllerTest extends AbstractWebTestCase
 {
     public function testLoginSuccessfully(): void
@@ -15,34 +13,38 @@ final class LoginControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Connexion à DiaLog', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Connexion - DiaLog', $crawler);
+        $this->assertSame('Se connecter', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Se connecter - Moment', $crawler);
+
         $saveButton = $crawler->selectButton('Se connecter');
         $form = $saveButton->form();
-
-        $form['email'] = UserFixture::MAIN_ORG_USER_EMAIL;
-        $form['password'] = UserFixture::PASSWORD;
+        $form['email'] = 'mathieu.marchois@gmail.com';
+        $form['password'] = 'password123';
         $client->submit($form);
+
         $this->assertResponseStatusCodeSame(302);
-        $crawler = $client->followRedirect();
-        $this->assertSame('Mathieu MARCHOIS Votre avis Se déconnecter', $crawler->filter('[data-testid="user-links"]')->text());
+        $client->followRedirect();
+        $this->assertResponseStatusCodeSame(200);
+        $this->assertRouteSame('app_dashboard');
     }
 
-    public function testLoginAsAdminSuccessfully(): void
+    public function testLoginWithNonVerifiedAccount(): void
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/login');
 
         $this->assertResponseStatusCodeSame(200);
+
         $saveButton = $crawler->selectButton('Se connecter');
         $form = $saveButton->form();
+        $form['email'] = 'gregory.pelletier@fairness.coop';
+        $form['password'] = 'password234';
 
-        $form['email'] = UserFixture::MAIN_ORG_ADMIN_EMAIL;
-        $form['password'] = UserFixture::PASSWORD;
         $client->submit($form);
         $this->assertResponseStatusCodeSame(302);
         $crawler = $client->followRedirect();
-        $this->assertSame('Mathieu FERNANDEZ Votre avis Administration Se déconnecter', $crawler->filter('[data-testid="user-links"]')->text());
+
+        $this->assertSame('Vous devez valider votre compte grâce au mail de confirmation reçu.', $crawler->filter('p.error')->text());
     }
 
     public function testLoginWithUnknownAccount(): void
@@ -54,13 +56,24 @@ final class LoginControllerTest extends AbstractWebTestCase
 
         $saveButton = $crawler->selectButton('Se connecter');
         $form = $saveButton->form();
-        $form['email'] = 'mathieu@fairness.coop';
+        $form['email'] = 'bad.user@fairness.coop';
         $form['password'] = 'password';
 
         $client->submit($form);
         $this->assertResponseStatusCodeSame(302);
         $crawler = $client->followRedirect();
 
-        $this->assertSame('Identifiants invalides.', $crawler->filter('p.fr-message--error')->text());
+        $this->assertSame('Identifiants invalides.', $crawler->filter('p.error')->text());
+    }
+
+    public function testLoggedLogin(): void
+    {
+        $client = $this->login();
+        $client->request('GET', '/login');
+
+        $this->assertResponseStatusCodeSame(302);
+        $client->followRedirect();
+        $this->assertResponseStatusCodeSame(200);
+        $this->assertRouteSame('app_dashboard');
     }
 }

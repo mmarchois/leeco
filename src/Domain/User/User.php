@@ -4,20 +4,16 @@ declare(strict_types=1);
 
 namespace App\Domain\User;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-
 class User
 {
-    private string $fullName;
-    private string $email;
-    private string $password;
-    private Collection $organizations;
-
     public function __construct(
         private string $uuid,
+        private string $firstName,
+        private string $lastName,
+        private string $email,
+        private string $password,
+        private bool $isVerified = false,
     ) {
-        $this->organizations = new ArrayCollection();
     }
 
     public function getUuid(): string
@@ -25,16 +21,14 @@ class User
         return $this->uuid;
     }
 
-    public function getFullName(): string
+    public function getFirstName(): string
     {
-        return $this->fullName;
+        return $this->firstName;
     }
 
-    public function setFullName(string $fullName): self
+    public function getLastName(): string
     {
-        $this->fullName = $fullName;
-
-        return $this;
+        return $this->lastName;
     }
 
     public function getEmail(): string
@@ -42,43 +36,23 @@ class User
         return $this->email;
     }
 
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
     public function getPassword(): string
     {
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function verified(): void
+    {
+        $this->isVerified = true;
+    }
+
+    public function updatePassword(string $password): void
     {
         $this->password = $password;
-
-        return $this;
-    }
-
-    public function getOrganizations(): Collection
-    {
-        return $this->organizations;
-    }
-
-    public function addOrganization(Organization $organization): void
-    {
-        if (!$this->organizations->contains($organization)) {
-            $this->organizations->add($organization);
-            $organization->addUser($this);
-        }
-    }
-
-    public function removeOrganization(Organization $organization): void
-    {
-        if ($this->organizations->contains($organization)) {
-            $this->organizations->removeElement($organization);
-            $organization->removeUser($this);
-        }
     }
 }

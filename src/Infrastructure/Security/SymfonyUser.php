@@ -4,20 +4,34 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Security;
 
-use App\Domain\User\Organization;
+use App\Domain\User\User;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class SymfonyUser implements UserInterface, PasswordAuthenticatedUserInterface
+final class SymfonyUser implements UserInterface, PasswordAuthenticatedUserInterface
 {
+    private string $uuid;
+    private string $email;
+    private string $firstName;
+    private string $lastName;
+    private string $password;
+    private ?string $avatar;
+    private bool $isVerified;
+    private bool $isComplete;
+    private array $roles;
+
     public function __construct(
-        private string $uuid,
-        private string $email,
-        private string $fullName,
-        private string $password,
-        private array $organizations,
-        private array $roles,
+        User $user,
     ) {
+        $this->uuid = $user->getUuid();
+        $this->email = $user->getEmail();
+        $this->firstName = $user->getFirstName();
+        $this->lastName = $user->getLastName();
+        $this->password = $user->getPassword();
+        $this->isVerified = $user->isVerified();
+        $this->isComplete = $user->isComplete();
+        $this->avatar = $user->getAvatar();
+        $this->roles = [$user->getRole()];
     }
 
     public function getUuid(): string
@@ -30,9 +44,29 @@ class SymfonyUser implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->roles;
     }
 
-    public function getFullName(): string
+    public function getFirstName(): string
     {
-        return $this->fullName;
+        return $this->firstName;
+    }
+
+    public function isComplete(): bool
+    {
+        return $this->isComplete;
+    }
+
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
     }
 
     public function getSalt(): ?string
@@ -55,20 +89,15 @@ class SymfonyUser implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
-    public function getOrganizations(): array
-    {
-        return $this->organizations;
-    }
-
-    public function getOrganizationUuids(): array
-    {
-        return array_map(
-            function (Organization $organization) { return $organization->getUuid(); },
-            $this->organizations,
-        );
-    }
-
     public function eraseCredentials(): void
     {
+    }
+
+    public function update(User $user): void
+    {
+        $this->email = $user->getEmail();
+        $this->firstName = $user->getFirstName();
+        $this->lastName = $user->getLastName();
+        $this->password = $user->getPassword();
     }
 }

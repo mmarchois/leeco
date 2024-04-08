@@ -2,1853 +2,706 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="fr" datatype="plaintext" original="file.ext">
         <body>
-            <trans-unit id="common.javascript_required">
-                <source>common.javascript_required</source>
-                <target>Pour accéder à toutes les fonctionnalités de DiaLog, vous devez activer JavaScript. Voici les <![CDATA[<a href="https://www.enable-javascript.com/fr/" target="_blank" rel="noreferrer">]]>instructions pour activer JavaScript dans votre navigateur<![CDATA[</a>]]>.</target>
-            </trans-unit>
-            <trans-unit id="common.results">
-                <source>common.results</source>
-                <target>Résultats</target>
-            </trans-unit>
-            <trans-unit id="common.accessRequest">
-                <source>common.accessRequest</source>
-                <target>Créer un compte</target>
-            </trans-unit>
-            <trans-unit id="common.blog">
-                <source>common.blog</source>
-                <target>Blog</target>
-            </trans-unit>
-            <trans-unit id="common.and">
-                <source>common.and</source>
-                <target>et</target>
-            </trans-unit>
-            <trans-unit id="common.enabled">
-                <source>common.enabled</source>
-                <target>Activé</target>
-            </trans-unit>
-            <trans-unit id="common.disabled">
-                <source>common.disabled</source>
-                <target>Désactivé</target>
-            </trans-unit>
             <trans-unit id="common.title">
                 <source>common.title</source>
-                <target>DiaLog</target>
+                <target>Moment</target>
             </trans-unit>
-            <trans-unit id="common.site_name">
-                <source>common.site_name</source>
-                <target>DiaLog</target>
+            <trans-unit id="common.tagline">
+                <source>common.tagline</source>
+                <target>La communauté où les 60 ans et plus se rencontrent !</target>
             </trans-unit>
-            <trans-unit id="common.feedback">
-                <source>common.feedback</source>
-                <target>Votre avis</target>
+            <trans-unit id="common.form.password.display">
+                <source>common.form.password.display</source>
+                <target>Afficher le mot de passe</target>
             </trans-unit>
-            <trans-unit id="common.login">
-                <source>common.login</source>
-                <target>Se connecter</target>
+            <trans-unit id="common.form.mandatory_fields">
+                <source>common.form.mandatory_fields</source>
+                <target>Les champs signalés par une <![CDATA[<span class="j-required">étoile</span>]]> sont obligatoires.</target>
             </trans-unit>
-            <trans-unit id="common.logout">
-                <source>common.logout</source>
-                <target>Se déconnecter</target>
-            </trans-unit>
-            <trans-unit id="common.close">
-                <source>common.close</source>
-                <target>Fermer</target>
-            </trans-unit>
-            <trans-unit id="common.menu">
-                <source>common.menu</source>
-                <target>Menu</target>
-            </trans-unit>
-            <trans-unit id="common.slogan">
-                <source>common.slogan</source>
-                <target>Digitaliser, diagnostiquer, diffuser l’information réglementaire de
-                    logistique.</target>
-            </trans-unit>
-            <trans-unit id="common.see">
-                <source>common.see</source>
-                <target>Voir le détail</target>
-            </trans-unit>
-            <trans-unit id="common.duplicate">
-                <source>common.duplicate</source>
-                <target>Dupliquer</target>
-            </trans-unit>
-            <trans-unit id="common.delete">
-                <source>common.delete</source>
-                <target>Supprimer</target>
-            </trans-unit>
-            <trans-unit id="common.do_not_delete">
-                <source>common.do_not_delete</source>
-                <target>Ne pas supprimer</target>
-            </trans-unit>
-            <trans-unit id="common.or">
-                <source>common.or</source>
-                <target>ou</target>
-            </trans-unit>
-            <trans-unit id="common.ministry">
-                <source>common.ministry</source>
-                <target>République <![CDATA[<br/>]]> Française</target>
-            </trans-unit>
-            <trans-unit id="common.baseline">
-                <source>common.baseline</source>
-                <target>Intégration de la réglementation de circulation dans les solutions
-                    numériques</target>
-            </trans-unit>
-            <trans-unit id="common.back_to_home">
-                <source>common.back_to_home</source>
+            <trans-unit id="nav.brand.title">
+                <source>nav.brand.title</source>
                 <target>Retour à l'accueil</target>
             </trans-unit>
-            <trans-unit id="common.breadcrumb.here">
-                <source>common.breadcrumb.here</source>
-                <target>Vous êtes ici :</target>
-            </trans-unit>
-            <trans-unit id="common.breadcrumb.see">
-                <source>common.breadcrumb.see</source>
-                <target>Voir le fil d'Ariane</target>
-            </trans-unit>
-            <trans-unit id="common.save">
-                <source>common.save</source>
-                <target>Sauvegarder</target>
-            </trans-unit>
-            <trans-unit id="common.update">
-                <source>common.update</source>
-                <target>Modifier</target>
-            </trans-unit>
-            <trans-unit id="common.send">
-                <source>common.send</source>
-                <target>Envoyer</target>
-            </trans-unit>
-            <trans-unit id="common.cancel">
-                <source>common.cancel</source>
-                <target>Annuler</target>
-            </trans-unit>
-            <trans-unit id="common.privacy">
-                <source>common.privacy</source>
-                <target>Vie privée</target>
-            </trans-unit>
-            <trans-unit id="common.permanent">
-                <source>common.permanent</source>
-                <target>permanent</target>
-            </trans-unit>
-            <trans-unit id="common.back">
-                <source>common.back</source>
-                <target>Précédent</target>
-            </trans-unit>
-            <trans-unit id="common.publish">
-                <source>common.publish</source>
-                <target>Publier</target>
-            </trans-unit>
-            <trans-unit id="common.do_not_publish">
-                <source>common.do_not_publish</source>
-                <target>Ne pas publier</target>
-            </trans-unit>
-            <trans-unit id="common.published">
-                <source>common.published</source>
-                <target>Publiée</target>
-            </trans-unit>
-            <trans-unit id="common.draft">
-                <source>common.draft</source>
-                <target>Brouillon</target>
-            </trans-unit>
-            <trans-unit id="common.licence">
-                <source>common.licence</source>
-                <target>Sauf mention contraire, tous les contenus de ce site sont sous <![CDATA[<a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence etalab-2.0</a>]]></target>
-            </trans-unit>
-            <trans-unit id="common.form.save">
-                <source>common.form.save</source>
-                <target>Enregistrer</target>
-            </trans-unit>
-            <trans-unit id="common.actions">
-                <source>common.actions</source>
-                <target>Actions</target>
-            </trans-unit>
-            <trans-unit id="common.form.continue">
-                <source>common.form.continue</source>
-                <target>Continuer</target>
-            </trans-unit>
-            <trans-unit id="common.form.validate">
-                <source>common.form.validate</source>
-                <target>Valider</target>
-            </trans-unit>
-            <trans-unit id="common.date.from">
-                <source>common.date.from</source>
-                <target>du %date%</target>
-            </trans-unit>
-            <trans-unit id="common.date.to">
-                <source>common.date.to</source>
-                <target>au %date%</target>
-            </trans-unit>
-            <trans-unit id="common.date.starting">
-                <source>common.date.starting</source>
-                <target>à partir du %date%</target>
-            </trans-unit>
-            <trans-unit id="common.date.since">
-                <source>common.date.since</source>
-                <target>depuis le %date%</target>
-            </trans-unit>
-            <trans-unit id="common.date.upcoming">
-                <source>common.date.upcoming</source>
-                <target>à venir</target>
-            </trans-unit>
-            <trans-unit id="common.date.ongoing">
-                <source>common.date.ongoing</source>
-                <target>en cours</target>
-            </trans-unit>
-            <trans-unit id="common.date.passed">
-                <source>common.date.passed</source>
-                <target>passé</target>
-            </trans-unit>
-            <trans-unit id="common.unit.tons">
-                <source>common.unit.tons</source>
-                <target>tonnes</target>
-            </trans-unit>
-            <trans-unit id="common.unit.meters">
-                <source>common.unit.meters</source>
-                <target>mètres</target>
-            </trans-unit>
-            <trans-unit id="accessibility.status">
-                <source>accessibility.status</source>
-                <target>Accessibilité : non conforme</target>
-            </trans-unit>
-            <trans-unit id="ecodesign_statement.link">
-                <source>ecodesign_statement.link</source>
-                <target>Écoconception</target>
-            </trans-unit>
-            <trans-unit id="ecodesign_statement.breadcrumb">
-                <source>ecodesign_statement.breadcrumb</source>
-                <target>Déclaration d'écoconception</target>
-            </trans-unit>
-            <trans-unit id="legal.title">
-                <source>legal.title</source>
-                <target>Mentions légales</target>
-            </trans-unit>
-            <trans-unit id="source_code.title">
-                <source>source_code.title</source>
-                <target>Code source</target>
-            </trans-unit>
-            <trans-unit id="regulation.list.title">
-                <source>regulation.list.title</source>
-                <target>Arrêtés de circulation</target>
-            </trans-unit>
-            <trans-unit id="regulation">
-                <source>regulation</source>
-                <target>Arrêté</target>
-            </trans-unit>
-            <trans-unit id="regulation.delete">
-                <source>regulation.delete</source>
-                <target>Supprimer l'arrêté %identifier%</target>
-            </trans-unit>
-            <trans-unit id="regulation.status_badge.draft.text">
-                <source>regulation.status_badge.draft.text</source>
-                <target>Brouillon</target>
-            </trans-unit>
-            <trans-unit id="regulation.status_badge.draft.hint">
-                <source>regulation.status_badge.draft.hint</source>
-                <target>Visible par votre organisation seulement</target>
-            </trans-unit>
-            <trans-unit id="regulation.status_badge.published.text">
-                <source>regulation.status_badge.published.text</source>
-                <target>Publié</target>
-            </trans-unit>
-            <trans-unit id="regulation.status_badge.published.hint">
-                <source>regulation.status_badge.published.hint</source>
-                <target>Données envoyées aux GPS</target>
-            </trans-unit>
-            <trans-unit id="regulation.status">
-                <source>regulation.status</source>
-                <target>Statut</target>
-            </trans-unit>
-            <trans-unit id="regulation.export">
-                <source>regulation.export</source>
-                <target>Export</target>
-            </trans-unit>
-            <trans-unit id="regulation.export.doc">
-                <source>regulation.export.doc</source>
-                <target>Télécharger le document</target>
-            </trans-unit>
-            <trans-unit id="regulation.export.doc.mention">
-                <source>regulation.export.doc.mention</source>
-                <target>DOCX - moins de 100ko</target>
-            </trans-unit>
-            <trans-unit id="regulation.city">
-                <source>regulation.city</source>
-                <target>Commune</target>
-            </trans-unit>
-            <trans-unit id="regulation.list.total_temporary">
-                <source>regulation.list.total_temporary</source>
-                <target>Temporaires (%count%)</target>
-            </trans-unit>
-            <trans-unit id="regulation.list.total_permanent">
-                <source>regulation.list.total_permanent</source>
-                <target>Permanents (%count%)</target>
-            </trans-unit>
-            <trans-unit id="regulation.list.empty">
-                <source>regulation.list.empty</source>
-                <target>Aucun arrêté</target>
-            </trans-unit>
-            <trans-unit id="regulation.list.add_button">
-                <source>regulation.list.add_button</source>
-                <target>Ajouter un arrêté</target>
-            </trans-unit>
-            <trans-unit id="regulation.breadcrumb">
-                <source>regulation.breadcrumb</source>
-                <target>Arrêtés de circulation</target>
-            </trans-unit>
-            <trans-unit id="regulation.detail.breadcrumb">
-                <source>regulation.detail.breadcrumb</source>
-                <target>Arrêté %identifier%</target>
-            </trans-unit>
-            <trans-unit id="regulation.create.title">
-                <source>regulation.create.title</source>
-                <target>Nouvel arrêté</target>
-            </trans-unit>
-            <trans-unit id="regulation.temporary">
-                <source>regulation.temporary</source>
-                <target>Arrêté temporaire</target>
-            </trans-unit>
-            <trans-unit id="regulation.permanent">
-                <source>regulation.permanent</source>
-                <target>Arrêté permanent</target>
-            </trans-unit>
-            <trans-unit id="regulation.category.roadMaintenance">
-                <source>regulation.category.roadMaintenance</source>
-                <target>Travaux</target>
-            </trans-unit>
-            <trans-unit id="regulation.category.other">
-                <source>regulation.category.other</source>
-                <target>Autre</target>
-            </trans-unit>
-            <trans-unit id="regulation.category.event">
-                <source>regulation.category.event</source>
-                <target>Évènement</target>
-            </trans-unit>
-            <trans-unit id="regulation.category.permanentRegulation">
-                <source>regulation.category.permanentRegulation</source>
-                <target>Réglementation permanente</target>
-            </trans-unit>
-            <trans-unit id="regulation.category.incident">
-                <source>regulation.category.incident</source>
-                <target>Incident ou péril</target>
-            </trans-unit>
-            <trans-unit id="regulation.category.placeholder">
-                <source>regulation.category.placeholder</source>
-                <target>Sélectionner la nature de l'arrếté</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info">
-                <source>regulation.general_info</source>
-                <target>Informations générales</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.identifier">
-                <source>regulation.general_info.identifier</source>
-                <target>Identifiant</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.other_category_text">
-                <source>regulation.general_info.other_category_text</source>
-                <target>Préciser la nature de l'arrêté</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.identifier.help">
-                <source>regulation.general_info.identifier.help</source>
-                <target>Numéro ou nom de l'arrêté (identifiant unique)</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.organization">
-                <source>regulation.general_info.organization</source>
-                <target>Organisation compétente</target>
-            </trans-unit>
-            <trans-unit id="regulation.organization">
-                <source>regulation.organization</source>
-                <target>Organisation</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.organization.help">
-                <source>regulation.general_info.organization.help</source>
-                <target>Commune, département ou entité responsable de l'arrêté</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.category">
-                <source>regulation.general_info.category</source>
-                <target>Nature de l'arrêté</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.description">
-                <source>regulation.general_info.description</source>
-                <target>Description</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.description.help">
-                <source>regulation.general_info.description.help</source>
-                <target>Décrivez brièvement les raisons de la perturbation. (Exemple : "travaux sur
-                    la voie")</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.start_date">
-                <source>regulation.general_info.start_date</source>
-                <target>Date de début</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.start_date.help">
-                <source>regulation.general_info.start_date.help</source>
-                <target>Début d'effet de l'arrêté</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.end_date">
-                <source>regulation.general_info.end_date</source>
-                <target>Date de fin</target>
-            </trans-unit>
-            <trans-unit id="regulation.general_info.end_date.help">
-                <source>regulation.general_info.end_date.help</source>
-                <target>Laisser vide si l'arrêté est permanent.</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.type">
-                <source>regulation.location.type</source>
-                <target>Type de route ou voie</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.referencePoint.from">
-                <source>regulation.location.referencePoint.from</source>
-                <target>Début</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.referencePoint.to">
-                <source>regulation.location.referencePoint.to</source>
-                <target>Fin</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.road.side">
-                <source>regulation.location.road.side</source>
-                <target>Côté</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.road.side.help">
-                <source>regulation.location.road.side.help</source>
-                <target>Côté de la route où se situe le PR</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.referencePoint">
-                <source>regulation.location.referencePoint</source>
-                <target>Section où la mesure s'applique</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.referencePoint.help">
-                <source>regulation.location.referencePoint.help</source>
-                <target>La restriction s'applique à toutes les voies de la chaussée</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.road.side.D">
-                <source>regulation.location.road.side.D</source>
-                <target>Chaussée droite (D)</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.road.side.G">
-                <source>regulation.location.road.side.G</source>
-                <target>Chaussée gauche (G)</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.road.side.U">
-                <source>regulation.location.road.side.U</source>
-                <target>Chaussée unique (U)</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.referencePoint.pointNumber">
-                <source>regulation.location.referencePoint.pointNumber</source>
-                <target>PR</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.referencePoint.pointNumber.help">
-                <source>regulation.location.referencePoint.pointNumber.help</source>
-                <target>Indiquez le numéro du point</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.referencePoint.abscissa">
-                <source>regulation.location.referencePoint.abscissa</source>
-                <target>Abscisse</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.referencePoint.abscissa.help">
-                <source>regulation.location.referencePoint.abscissa.help</source>
-                <target>Distance en mètres à partir du PR</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.type.placeholder">
-                <source>regulation.location.type.placeholder</source>
-                <target>Sélectionner un type de route...</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.road.type.departmentalRoad">
-                <source>regulation.location.road.type.departmentalRoad</source>
-                <target>Route départementale</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.road.type.lane">
-                <source>regulation.location.road.type.lane</source>
-                <target>Voie</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.administrator">
-                <source>regulation.location.administrator</source>
-                <target>Département ou gestionnaire</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.administrator.help">
-                <source>regulation.location.administrator.help</source>
-                <target>Indiquez le gestionnaire de la route, par exemple Ille-et-Vilaine (35) ou
-                    Ville de Paris.</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.administrator.placeholder">
-                <source>regulation.location.administrator.placeholder</source>
-                <target>Sélectionner un département...</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.roadNumber">
-                <source>regulation.location.roadNumber</source>
-                <target>Numéro de la départementale</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.roadNumber.results_label">
-                <source>regulation.location.roadNumber.results_label</source>
-                <target>Numéros des départementales suggérés</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.isEntireStreet">
-                <source>regulation.location.isEntireStreet</source>
-                <target>Voie entière</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.city">
-                <source>regulation.location.city</source>
-                <target>Ville ou commune</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.city.results_label">
-                <source>regulation.location.city.results_label</source>
-                <target>Noms de communes suggérés</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.roadName">
-                <source>regulation.location.roadName</source>
-                <target>Voie</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.roadName.help">
-                <source>regulation.location.roadName.help</source>
-                <target>Indiquez la voie concernée, par exemple Rue de la République.</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.roadName.results_label">
-                <source>regulation.location.roadName.results_label</source>
-                <target>Noms de voies suggérés</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.houseNumbers.legend">
-                <source>regulation.location.houseNumbers.legend</source>
-                <target>Numéros</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.from_house_number">
-                <source>regulation.location.from_house_number</source>
-                <target>Numéro de début</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.to_house_number">
-                <source>regulation.location.to_house_number</source>
-                <target>Numéro de fin</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.reference_point">
-                <source>regulation.location.reference_point</source>
-                <target>du PR %fromPointNumber%+%fromAbscissa% au PR %toPointNumber%+%toAbscissa%</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.house_number_from_to">
-                <source>regulation.location.house_number_from_to</source>
-                <target>du n° %from% au n° %to%</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.house_number_from">
-                <source>regulation.location.house_number_from</source>
-                <target>à partir du n° %from%</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.house_number_to">
-                <source>regulation.location.house_number_to</source>
-                <target>jusqu'au n° %to%</target>
-            </trans-unit>
-            <trans-unit id="regulation.back">
-                <source>regulation.back</source>
-                <target>Revenir aux arrêtés</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.all_vehicles_forbidden">
-                <source>regulation.location.all_vehicles_forbidden</source>
-                <target>Circulation interdite pour tous les véhicules</target>
-            </trans-unit>
-            <trans-unit id="regulation.location.add">
-                <source>regulation.location.add</source>
-                <target>Ajouter une localisation</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.add">
-                <source>regulation.measure.add</source>
-                <target>Ajouter une mesure</target>
-            </trans-unit>
-            <trans-unit id="regulation.detail.draft">
-                <source>regulation.detail.draft</source>
-                <target>Sauvegarder le brouillon</target>
-            </trans-unit>
-            <trans-unit id="regulation.detail.published">
-                <source>regulation.detail.published</source>
-                <target>Valider la réglementation</target>
-            </trans-unit>
-            <trans-unit id="regulation.publish_modal.title">
-                <source>regulation.publish_modal.title</source>
-                <target>Publier cet arrêté ?</target>
-            </trans-unit>
-            <trans-unit id="regulation.duplicated.success">
-                <source>regulation.duplicated.success</source>
-                <target>
-                    <![CDATA[<h3 class="fr-alert__title">]]>Copiée avec succès<![CDATA[</h3>]]>
-                    <![CDATA[<p>]]>Vous pouvez modifier les informations que vous souhaitez
-                    dans cette copie de la réglementation.<![CDATA[</p>]]>
-                </target>
-            </trans-unit>
-            <trans-unit id="regulation.duplicated.identifier_error">
-                <source>regulation.duplicated.identifier_error</source>
-                <target>
-                    <![CDATA[<h3 class="fr-alert__title">]]>L'identifiant de l'arrêté est déjà utilisé<![CDATA[</h3>]]>
-                </target>
-            </trans-unit>
-            <trans-unit id="regulation.detail.published.description">
-                <source>regulation.detail.published.description</source>
-                <target>La réglementation sera communiquée aux GPS (bientôt).</target>
-            </trans-unit>
-            <trans-unit id="regulation.detail.draft.description">
-                <source>regulation.detail.draft.description</source>
-                <target>La réglementation ne sera pas encore diffusée.</target>
-            </trans-unit>
-            <trans-unit id="regulation.identifier">
-                <source>regulation.identifier</source>
-                <target>Identifiant</target>
-            </trans-unit>
-            <trans-unit id="regulation.location">
-                <source>regulation.location</source>
-                <target>Localisation</target>
-            </trans-unit>
-            <trans-unit id="regulation.locations">
-                <source>regulation.locations</source>
-                <target>Localisations</target>
-            </trans-unit>
-            <trans-unit id="regulation.locations.description">
-                <source>regulation.locations.description</source>
-                <target>Où est prévue la perturbation ?</target>
-            </trans-unit>
-            <trans-unit id="regulation.measures">
-                <source>regulation.measures</source>
-                <target>Dispositif</target>
-            </trans-unit>
-            <trans-unit id="regulation.period">
-                <source>regulation.period</source>
-                <target>Période</target>
-            </trans-unit>
-            <trans-unit id="regulation.locations.more">
-                <source>regulation.locations.more</source>
-                <target>+ 1 localisation |+ %count% localisations</target>
-            </trans-unit>
-            <trans-unit id="regulation.present">
-                <source>regulation.present</source>
-                <target>Réglementation en cours</target>
-            </trans-unit>
-            <trans-unit id="regulation.past">
-                <source>regulation.past</source>
-                <target>Réglementation passée</target>
-            </trans-unit>
-            <trans-unit id="regulation.future">
-                <source>regulation.future</source>
-                <target>Réglementation à venir</target>
-            </trans-unit>
-            <trans-unit id="regulation.stepper.steps">
-                <source>regulation.stepper.steps</source>
-                <target>Étape %step% sur 4</target>
-            </trans-unit>
-            <trans-unit id="regulation.stepper.step1">
-                <source>regulation.stepper.step1</source>
-                <target>Restriction</target>
-            </trans-unit>
-            <trans-unit id="regulation.stepper.step2">
-                <source>regulation.stepper.step2</source>
-                <target>Localisation</target>
-            </trans-unit>
-            <trans-unit id="regulation.stepper.step4">
-                <source>regulation.stepper.step4</source>
-                <target>Véhicules concernés</target>
-            </trans-unit>
-            <trans-unit id="regulation.stepper.next">
-                <source>regulation.stepper.next</source>
-                <target>Étape suivante :</target>
-            </trans-unit>
-            <trans-unit id="regulation.identifier.copy">
-                <source>regulation.identifier.copy</source>
-                <target>%identifier% (copie)</target>
-            </trans-unit>
-            <trans-unit id="pagination.first">
-                <source>pagination.first</source>
-                <target>Première page</target>
-            </trans-unit>
-            <trans-unit id="pagination.last">
-                <source>pagination.last</source>
-                <target>Dernière page</target>
-            </trans-unit>
-            <trans-unit id="pagination.next">
-                <source>pagination.next</source>
-                <target>Page suivante</target>
-            </trans-unit>
-            <trans-unit id="pagination.previous">
-                <source>pagination.previous</source>
-                <target>Page précédente</target>
-            </trans-unit>
-            <trans-unit id="pagination.page">
-                <source>pagination.page</source>
-                <target>Page %page%</target>
-            </trans-unit>
-            <trans-unit id="feedback.meta.title">
-                <source>feedback.meta.title</source>
-                <target>Votre avis</target>
-            </trans-unit>
-            <trans-unit id="feedback.content.label">
-                <source>feedback.content.label</source>
-                <target>Message</target>
-            </trans-unit>
-            <trans-unit id="feedback.content.help">
-                <source>feedback.content.help</source>
-                <target>Votre avis compte ! Nous avons besoin de vos retours et de vos suggestions
-                    pour continuer de faire évoluer DiaLog.</target>
-            </trans-unit>
-            <trans-unit id="feedback.consenttobecontacted.label">
-                <source>feedback.consenttobecontacted.label</source>
-                <target>J'accepte d'être recontacté·e par un membre de l'équipe DiaLog</target>
-            </trans-unit>
-            <trans-unit id="feedback.send.success">
-                <source>feedback.send.success</source>
-                <target>
-                    <![CDATA[<h3 class="fr-alert__title">]]>Votre message a été envoyé avec succès ! Merci ! <![CDATA[</h3>]]>
-                    <![CDATA[<p>]]>Nous avons bien reçu votre
-                    demande.<![CDATA[</p>]]>
-                </target>
-            </trans-unit>
-            <trans-unit id="landing.menu.button.home">
-                <source>landing.menu.button.home</source>
+            <trans-unit id="nav.title">
+                <source>nav.title</source>
+                <target>Navigation principale</target>
+            </trans-unit>
+            <trans-unit id="nav.mobile.open">
+                <source>nav.mobile.open</source>
+                <target>Ouvrir la navigation principale</target>
+            </trans-unit>
+            <trans-unit id="nav.mobile.close">
+                <source>nav.mobile.close</source>
+                <target>Fermer la navigation principale</target>
+            </trans-unit>
+            <trans-unit id="nav.mobile.search">
+                <source>nav.mobile.search</source>
+                <target>Rechercher</target>
+             </trans-unit>
+            <trans-unit id="nav.profile">
+                <source>nav.profile</source>
+                <target>Mon profil</target>
+            </trans-unit>
+            <trans-unit id="nav.home">
+                <source>nav.home</source>
                 <target>Accueil</target>
             </trans-unit>
-            <trans-unit id="landing.menu.button.authorities">
-                <source>landing.menu.button.authorities</source>
-                <target>Collectivités</target>
+            <trans-unit id="nav.events">
+                <source>nav.events</source>
+                <target>Événements</target>
             </trans-unit>
-            <trans-unit id="landing.menu.button.digital_services">
-                <source>landing.menu.button.digital_services</source>
-                <target>Services numériques</target>
+            <trans-unit id="nav.posts">
+                <source>nav.posts</source>
+                <target>Articles</target>
             </trans-unit>
-            <trans-unit id="landing.menu.button.road_users">
-                <source>landing.menu.button.road_users</source>
-                <target>Usagers de la route</target>
+            <trans-unit id="nav.login">
+                <source>nav.login</source>
+                <target>Se connecter</target>
             </trans-unit>
-            <trans-unit id="landing.jumbotron.title">
-                <source>landing.jumbotron.title</source>
-                <target>Numériser la réglementation de circulation routière avec DiaLog</target>
+            <trans-unit id="nav.register">
+                <source>nav.register</source>
+                <target>Créer un compte</target>
             </trans-unit>
-            <trans-unit id="landing.jumbotron.description1">
-                <source>landing.jumbotron.description1</source>
-                <target><![CDATA[<b>]]>Faciliter<![CDATA[</b>]]> l'application de la réglementation.</target>
+            <trans-unit id="nav.dashboard">
+                <source>nav.dashboard</source>
+                <target>Mon espace</target>
             </trans-unit>
-            <trans-unit id="landing.jumbotron.description2">
-                <source>landing.jumbotron.description2</source>
-                <target><![CDATA[<b>]]>Sécuriser<![CDATA[</b>]]> la circulation routière grâce à une diffusion plus large de la
-                    réglementation.</target>
+            <trans-unit id="nav.logout">
+                <source>nav.logout</source>
+                <target>Se déconnecter</target>
             </trans-unit>
-            <trans-unit id="landing.jumbotron.description3">
-                <source>landing.jumbotron.description3</source>
-                <target><![CDATA[<b>]]>Mettre en oeuvre<![CDATA[</b>]]> les Zones à Faibles Emissions.</target>
+            <trans-unit id="nav.help">
+                <source>nav.help</source>
+                <target>Aide</target>
             </trans-unit>
-            <trans-unit id="landing.jumbotron.illustration">
-                <source>landing.jumbotron.illustration</source>
-                <target>Illustration GPS</target>
+            <trans-unit id="nav.privacy">
+                <source>nav.privacy</source>
+                <target>Politique de confidentialité</target>
             </trans-unit>
-            <trans-unit id="landing.jumbotron.logged">
-                <source>landing.jumbotron.logged</source>
-                <target>Accéder aux arrếtés</target>
+            <trans-unit id="nav.terms">
+                <source>nav.terms</source>
+                <target>Conditions générales d'utilisation</target>
             </trans-unit>
-            <trans-unit id="landing.for-who.title">
-                <source>landing.for-who.title</source>
-                <target>Pour qui ?</target>
+            <trans-unit id="nav.terms.short">
+                <source>nav.terms.short</source>
+                <target>CGU</target>
             </trans-unit>
-            <trans-unit id="landing.for-city.title">
-                <source>landing.for-city.title</source>
-                <target>Pour les collectivités</target>
+            <trans-unit id="nav.legals">
+                <source>nav.legals</source>
+                <target>Mentions légales</target>
             </trans-unit>
-            <trans-unit id="landing.for-city.description">
-                <source>landing.for-city.description</source>
-                <target>Gagnez du temps sur la rédaction de vos arrêtés et communiquez plus
-                    efficacement avec les usagers de la route.</target>
+            <trans-unit id="nav.cookies">
+                <source>nav.cookies</source>
+                <target>Cookies</target>
             </trans-unit>
-            <trans-unit id="landing.for-gps.title">
-                <source>landing.for-gps.title</source>
-                <target>Pour les services numériques</target>
+            <trans-unit id="nav.footer">
+                <source>nav.footer</source>
+                <target>Navigation de pied de page</target>
             </trans-unit>
-            <trans-unit id="landing.for-gps.description">
-                <source>landing.for-gps.description</source>
-                <target>Accédez à la réglementation de circulation et de stationnement des
-                    territoires partenaires, dans des formats adaptés à vos besoins.</target>
+            <trans-unit id="footer.freepik_disclaimer">
+                <source>footer.freepik_disclaimer</source>
+                <target>Illustrations made by Freepik from storyset.com</target>
             </trans-unit>
-            <trans-unit id="landing.road-users.title">
-                <source>landing.road-users.title</source>
-                <target>Pour les usagers de la route</target>
+            <trans-unit id="footer.events">
+                <source>footer.events</source>
+                <target>Événements</target>
             </trans-unit>
-            <trans-unit id="landing.road-users.description">
-                <source>landing.road-users.description</source>
-                <target>Soyez mieux informés des conditions de circulation.</target>
+            <trans-unit id="footer.flatsharing">
+                <source>footer.flatsharing</source>
+                <target>Colocation</target>
             </trans-unit>
-            <trans-unit id="landing.how-it-works.title">
-                <source>landing.how-it-works.title</source>
-                <target>Comment ça marche ?</target>
-            </trans-unit>
-            <trans-unit id="landing.how-it-works.description">
-                <source>landing.how-it-works.description</source>
-                <target>
-                    DiaLog permet aux collectivités gérant la voirie de numériser leurs arrêtés de
-                    circulation et de stationnement. Ces données sont ensuite transmises aux
-                    services numériques. Les données de circulation sont ainsi consultables et
-                    réutilisables facilement par tous.
-                </target>
-            </trans-unit>
-            <trans-unit id="landing.who-are-we.title">
-                <source>landing.who-are-we.title</source>
+            <trans-unit id="footer.about_us">
+                <source>footer.about_us</source>
                 <target>Qui sommes-nous ?</target>
             </trans-unit>
-            <trans-unit id="landing.who-are-we.description1">
-                <source>landing.who-are-we.description1</source>
-                <target>
-                    DiaLog a été créé et est opéré par la <![CDATA[<strong>]]>Direction Générale des Infrastructures de
-                    Transport et des Mobilités <![CDATA[</strong>]]> (DGITM), administration centrale chargée des
-                    transports.
-                </target>
+            <trans-unit id="footer.articles">
+                <source>footer.articles</source>
+                <target>Articles</target>
             </trans-unit>
-            <trans-unit id="landing.who-are-we.description2">
-                <source>landing.who-are-we.description2</source>
-                <target>
-                    Lancée en mars 2022, DiaLog se constitue actuellement d’une équipe de 6
-                    personnes, réparties entre Lille, Paris, Rennes ou Lyon. Le service numérique
-                    est en cours de construction et d’amélioration continue.
-                </target>
+            <trans-unit id="footer.join">
+                <source>footer.join</source>
+                <target>Rejoindre</target>
             </trans-unit>
-            <trans-unit id="landing.who-are-we.experiment">
-                <source>landing.who-are-we.experiment</source>
-                <target>Participer à l'expérimentation</target>
+            <trans-unit id="footer.contact">
+                <source>footer.contact</source>
+                <target>Contact</target>
             </trans-unit>
-            <trans-unit id="landing.who-are-we.contact">
-                <source>landing.who-are-we.contact</source>
-                <target>Nous contacter</target>
+            <trans-unit id="home.jumbotron.line1">
+                <source>home.jumbotron.line1</source>
+                <target>Participez à des événements près de chez vous et rencontrez des personnes partageant les mêmes envies et centres d’intérêts.</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.metatitle">
-                <source>landing.authorities.metatitle</source>
-                <target>Collectivités</target>
+            <trans-unit id="home.jumbotron.line2">
+                <source>home.jumbotron.line2</source>
+                <target>Qui sait, vous pourriez très bien vous entendre voire rencontrer votre futur·e colocataire ? ;)</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.jumbotron.title">
-                <source>landing.authorities.jumbotron.title</source>
-                <target>Numériser votre réglementation de circulation routière avec DiaLog</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.jumbotron.cta">
-                <source>landing.authorities.jumbotron.cta</source>
-                <target>Créer un compte pour ma commune</target>
-            </trans-unit>
-            <trans-unit id="landing.diagram.authorities">
-                <source>landing.diagram.authorities</source>
-                <target>Collectivités</target>
-            </trans-unit>
-            <trans-unit id="landing.diagram.dialog">
-                <source>landing.diagram.dialog</source>
-                <target>DiaLog</target>
-            </trans-unit>
-            <trans-unit id="landing.diagram.digital_services">
-                <source>landing.diagram.digital_services</source>
-                <target>Services numériques</target>
-            </trans-unit>
-            <trans-unit id="landing.diagram.road_users">
-                <source>landing.diagram.road_users</source>
-                <target>Usagers de la route</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.why">
-                <source>landing.authorities.why</source>
-                <target>Pourquoi DiaLog ?</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.why_fast">
-                <source>landing.authorities.why_fast</source>
-                <target>Rapide</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.why_efficient">
-                <source>landing.authorities.why_efficient</source>
-                <target>Efficace</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.why_free">
-                <source>landing.authorities.why_free</source>
-                <target>Gratuit</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.value_prop">
-                <source>landing.authorities.value_prop</source>
-                <target>Facilitez la vie de votre service voirie</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.save_time">
-                <source>landing.authorities.save_time</source>
-                <target>Gagnez du temps</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.save_time.create_orders">
-                <source>landing.authorities.save_time.create_orders</source>
-                <target><![CDATA[<strong>]]>Rédigez<![CDATA[</strong>]]> vos arrêtés via l'outil DiaLog ou <![CDATA[<strong>]]>connectez<![CDATA[</strong>]]> votre outil de gestion
-                    (outil interne...) pour éviter la double saisie</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.save_time.send_to_gps">
-                <source>landing.authorities.save_time.send_to_gps</source>
-                <target><![CDATA[<strong>]]>Transmettez<![CDATA[</strong>]]> vos données automatiquement aux services numériques</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.simpler_interactions">
-                <source>landing.authorities.simpler_interactions</source>
-                <target>Simplifiez vos échanges</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.simpler_interactions.other_authorities">
-                <source>landing.authorities.simpler_interactions.other_authorities</source>
-                <target><![CDATA[<strong>]]>Coordonnez-vous<![CDATA[</strong>]]> facilement avec votre métropole ou les communes voisines</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.simpler_interactions.other_services">
-                <source>landing.authorities.simpler_interactions.other_services</source>
-                <target><![CDATA[<strong>]]>Partagez<![CDATA[</strong>]]> la réglementation aux autres services (géomatique...)</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.how_it_works">
-                <source>landing.authorities.how_it_works</source>
-                <target>Comment ça marche ?</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.how_it_works.description">
-                <source>landing.authorities.how_it_works.description</source>
-                <target>DiaLog permet aux collectivités gérant la voirie de numériser leurs arrêtés
-                    de circulation et de stationnement. Ces données sont ensuite publiées aux
-                    services numériques. Les données de circulations sont ainsi consultables et
-                    réutilisables facilement par tous.</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.steps.register">
-                <source>landing.authorities.steps.register</source>
-                <target>Créer un compte DiaLog</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.steps.register.cta">
-                <source>landing.authorities.steps.register.cta</source>
+            <trans-unit id="home.jumbotron.cta">
+                <source>home.jumbotron.cta</source>
                 <target>Créer un compte</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.steps.add_regulation_orders">
-                <source>landing.authorities.steps.add_regulation_orders</source>
-                <target>Renseigner mes arrêtés</target>
+            <trans-unit id="home.upcoming_events">
+                <source>home.upcoming_events</source>
+                <target>Événements à venir</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.steps.add_regulation_orders.description">
-                <source>landing.authorities.steps.add_regulation_orders.description</source>
-                <target>Numérisez facilement votre réglementation (arrêtés de circulation
-                    temporaires, permanents), dans un langage naturel.</target>
+            <trans-unit id="home.upcoming_events.see_more">
+                <source>home.upcoming_events.see_more</source>
+                <target>Voir plus d'événements</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.steps.broadcast">
-                <source>landing.authorities.steps.broadcast</source>
-                <target>Diffuser mes données</target>
+            <trans-unit id="home.why_register">
+                <source>home.why_register</source>
+                <target>Pourquoi s'inscrire ?</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.steps.broadcast.description">
-                <source>landing.authorities.steps.broadcast.description</source>
-                <target>Publiez vos arrêtés pour les rendre accessibles à tous les services
-                    numériques connectés à DiaLog.</target>
+            <trans-unit id="home.why_register.find_events">
+                <source>home.why_register.find_events</source>
+                <target>Découvrir des événements gratuits près de chez soi</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.pilots">
-                <source>landing.authorities.pilots</source>
-                <target>Rejoignez les communes pilotes</target>
+            <trans-unit id="home.why_register.find_events.description">
+                <source>home.why_register.find_events.description</source>
+                <target>Chaque membre de la communauté Moment peut proposer des activités, apéros ou sorties conviviales pour faire connaissance.</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.pilots.join">
-                <source>landing.authorities.pilots.join</source>
-                <target>Participez à l'expérimentation</target>
+            <trans-unit id="home.why_register.meet_people">
+                <source>home.why_register.meet_people</source>
+                <target>Faire de nouvelles rencontres</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.pilots.join.description">
-                <source>landing.authorities.pilots.join.description</source>
-                <target>Rejoignez les communes qui utilisent DiaLog en avant première, pour nous
-                    aider à concevoir la plateforme la plus utile.</target>
+            <trans-unit id="home.why_register.meet_people.description">
+                <source>home.why_register.meet_people.description</source>
+                <target>La communauté Moment rassemble les 60 ans et plus ouverts à de nouvelles amitiés. Venez les rencontrer ! 🙂</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.pilots.join.cta">
-                <source>landing.authorities.pilots.join.cta</source>
+            <trans-unit id="home.why_register.share_flat">
+                <source>home.why_register.share_flat</source>
+                <target>Partager un logement entre ami·e·s</target>
+            </trans-unit>
+            <trans-unit id="home.why_register.share_flat.description">
+                <source>home.why_register.share_flat.description</source>
+                <target>A terme, Moment a vocation à faciliter la création de colocations entre 60 ans et plus dans toute la France. Partagez votre logement et vos loisirs entre ami·e·s au quotidien !</target>
+            </trans-unit>
+            <trans-unit id="home.why_register.register">
+                <source>home.why_register.register</source>
                 <target>Créer un compte</target>
             </trans-unit>
-            <trans-unit id="landing.authorities.pilots.toulouse">
-                <source>landing.authorities.pilots.toulouse</source>
-                <target>Toulouse (Haute-Garonne)</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.pilots.toulouse.alt">
-                <source>landing.authorities.pilots.toulouse.alt</source>
-                <target>Place du Capitole à Toulouse</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.pilots.savenay">
-                <source>landing.authorities.pilots.savenay</source>
-                <target>Savenay (Loire-Atlantique)</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.pilots.savenay.alt">
-                <source>landing.authorities.pilots.savenay.alt</source>
-                <target>Clocher de l'église Saint-Martin de Savenay</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.pilots.saintrome">
-                <source>landing.authorities.pilots.saintrome</source>
-                <target>Saint-Rome (Haute-Garonne)</target>
-            </trans-unit>
-            <trans-unit id="landing.authorities.pilots.saintrome.alt">
-                <source>landing.authorities.pilots.saintrome.alt</source>
-                <target>Maison typique de Saint-Rome</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.metatitle">
-                <source>landing.digital_services.metatitle</source>
-                <target>Services numériques</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.jumbotron.title">
-                <source>landing.digital_services.jumbotron.title</source>
-                <target>La réglementation de circulation accessible, à jour et standardisée</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.jumbotron.description">
-                <source>landing.digital_services.jumbotron.description</source>
-                <target>DiaLog est la <![CDATA[<strong>]]>base de données nationale<![CDATA[</strong>]]> des réglementations de circulation
-                    et de stationnement.</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.jumbotron.cta">
-                <source>landing.digital_services.jumbotron.cta</source>
-                <target>Accéder aux données</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.quality.title">
-                <source>landing.digital_services.quality.title</source>
-                <target>Qualité</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.quality.description">
-                <source>landing.digital_services.quality.description</source>
-                <target>Données renseignées et validées directement par les collectivités</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.up_to_date.title">
-                <source>landing.digital_services.up_to_date.title</source>
-                <target>À jour</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.up_to_date.description">
-                <source>landing.digital_services.up_to_date.description</source>
-                <target>Restrictions permanentes et temporaires (travaux, événements...)</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.open_data.title">
-                <source>landing.digital_services.open_data.title</source>
-                <target>Open Data</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.open_data.description">
-                <source>landing.digital_services.open_data.description</source>
-                <target>Diffusion au format standardisé, sous licence libre</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.how_it_works.title">
-                <source>landing.digital_services.how_it_works.title</source>
-                <target>Comment ça marche ?</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.how_it_works.description">
-                <source>landing.digital_services.how_it_works.description</source>
-                <target>DiaLog permet aux collectivités gérant la voirie de numériser leurs arrêtés
-                    de circulation et de stationnement. Ces données sont ensuite publiées aux
-                    services numériques. Les données de circulations sont ainsi consultables et
-                    réutilisables facilement par tous.</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.qualitative_data.title">
-                <source>landing.digital_services.qualitative_data.title</source>
-                <target>Des données qualitatives</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.qualitative_data.description1">
-                <source>landing.digital_services.qualitative_data.description1</source>
-                <target><![CDATA[<strong>]]>Récupérez la bonne information<![CDATA[</strong>]]> : les données sont renseignées directement
-                    par les gestionnaires d’infrastructure. Ces derniers s’assurent de la qualité et
-                    de la validation des informations.</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.qualitative_data.description2">
-                <source>landing.digital_services.qualitative_data.description2</source>
-                <target><![CDATA[<strong>]]>À jour<![CDATA[</strong>]]> : DiaLog permet le recueil des restrictions de circulation
-                    permanentes et temporaires. Bénéficiez d’une visibilité sur les travaux et
-                    évènements à venir sur les réseaux couverts !</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.qualitative_data.description3">
-                <source>landing.digital_services.qualitative_data.description3</source>
-                <target><![CDATA[<strong>]]>Au bon format :<![CDATA[</strong>]]> les données sont accessibles au format XML via le <![CDATA[<a href="https://transport.data.gouv.fr" target="_blank" rel="noopener">]]>point
-                    d’accès national aux données de transport<![CDATA[</a>]]>. Dialog utilise le standard <![CDATA[<a href="https://www.datex2.eu" target="_blank" rel="noopener">]]>DATEX II<![CDATA[</a>]]>
-                    afin d’être facilement intégrable dans votre solution numérique. D’autres
-                    formats sont en cours d’élaboration.</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.qualitative_data.contact">
-                <source>landing.digital_services.qualitative_data.contact</source>
-                <target>Vous voulez intégrer les données DiaLog dans votre service numérique ?</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.qualitative_data.contact.cta">
-                <source>landing.digital_services.qualitative_data.contact.cta</source>
-                <target>Contactez-nous</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.why-digitise.title">
-                <source>landing.digital_services.why-digitise.title</source>
-                <target>Pourquoi numériser la réglementation ?</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.why-digitise.description">
-                <source>landing.digital_services.why-digitise.description</source>
-                <target>La <![CDATA[<a href="https://www.vie-publique.fr/loi/278460-loi-22-aout-2021-climat-et-resilience-convention-citoyenne-climat" target="_blank" rel="noopener"> ]]>Loi Climat et Résilience <![CDATA[</a>]]> oblige les calculateurs d’itinéraire
-                    spécialisés poids lourd à <![CDATA[<strong>]]>intégrer les informations concernant les poids lourds.<![CDATA[</strong>]]>
-                    Cette obligation permet de <![CDATA[<strong>]]>mieux informer les chauffeurs<![CDATA[</strong>]]> concernant les
-                    itinéraires adaptés à leur véhicule afin de :</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.why-digitise.argument1">
-                <source>landing.digital_services.why-digitise.argument1</source>
-                <target>Limiter les incidents</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.why-digitise.argument2">
-                <source>landing.digital_services.why-digitise.argument2</source>
-                <target>Assurer la sécurité des usagers de la route et des riverains</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.why-digitise.argument3">
-                <source>landing.digital_services.why-digitise.argument3</source>
-                <target>Pérenniser l’infrastructure routière.</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.why-digitise.questions">
-                <source>landing.digital_services.why-digitise.questions</source>
-                <target>Vous avez des questions complémentaires au sujet de DiaLog et de l’article
-                    122 de la loi Climat et Résilience ?</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.why-digitise.contact.cta">
-                <source>landing.digital_services.why-digitise.contact.cta</source>
-                <target>Contactez-nous</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.title">
-                <source>landing.digital_services.deployment.title</source>
-                <target>Un déploiement continu</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.description">
-                <source>landing.digital_services.deployment.description</source>
-                <target>Dialog se donne 3 ans pour devenir la <![CDATA[<strong>]]>solution de référence d’accès à la
-                    réglementation routière<![CDATA[</strong>]]> :</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.test.title">
-                <source>landing.digital_services.deployment.test.title</source>
-                <target>Expérimentation</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.test.start">
-                <source>landing.digital_services.deployment.test.start</source>
-                <target>Début en 2022</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.test.step1">
-                <source>landing.digital_services.deployment.test.step1</source>
-                <target><![CDATA[<strong>]]>Construction<![CDATA[</strong>]]> du produit</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.test.step2">
-                <source>landing.digital_services.deployment.test.step2</source>
-                <target><![CDATA[<strong>]]>Test<![CDATA[</strong>]]> avec des territoires pilotes</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.test.step3">
-                <source>landing.digital_services.deployment.test.step3</source>
-                <target><![CDATA[<strong>]]>Validation<![CDATA[</strong>]]> du fonctionnement de la plateforme</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.france.title">
-                <source>landing.digital_services.deployment.france.title</source>
-                <target>Déploiement en France</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.france.start">
-                <source>landing.digital_services.deployment.france.start</source>
-                <target>Courant 2023</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.france.step1">
-                <source>landing.digital_services.deployment.france.step1</source>
-                <target>Déploiement opérationnel sur les <![CDATA[<strong>]]>territoires concernés par les JO<![CDATA[</strong>]]> de 2024</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.france.step2">
-                <source>landing.digital_services.deployment.france.step2</source>
-                <target>
-                    Déploiement dans les <![CDATA[<strong>]]>10 plus grandes villes du territoire<![CDATA[</strong>]]> métropolitain</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.europe.title">
-                <source>landing.digital_services.deployment.europe.title</source>
-                <target>Déploiement en Europe</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.europe.start">
-                <source>landing.digital_services.deployment.europe.start</source>
-                <target>Courant 2024</target>
-            </trans-unit>
-            <trans-unit id="landing.digital_services.deployment.europe.step1">
-                <source>landing.digital_services.deployment.europe.step1</source>
-                <target>Couverture au minimum du réseau transeuropéen global (RTE-T)</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.metatitle">
-                <source>landing.road_users.metatitle</source>
-                <target>Usagers</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.jumbotron.title">
-                <source>landing.road_users.jumbotron.title</source>
-                <target>Vous êtes sur la bonne voie !</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.jumbotron.description">
-                <source>landing.road_users.jumbotron.description</source>
-                <target>DiaLog permet de <![CDATA[<strong>]]>rendre la réglementation routière facile d'accès<![CDATA[</strong>]]> pour les
-                    autorités publiques.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.how_it_works">
-                <source>landing.road_users.how_it_works</source>
-                <target>Comment ça marche ?</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.how_it_works.description">
-                <source>landing.road_users.how_it_works.description</source>
-                <target>DiaLog permet aux autorités qui conçoivent la réglementation de mieux la
-                    rendre accessible en la numérisant. Ainsi, ces informations peuvent être
-                    réutilisées par les applications de navigation par GPS.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.how_it_works.item1">
-                <source>landing.road_users.how_it_works.item1</source>
-                <target>Vous êtes <![CDATA[<strong>]]>mieux guidé<![CDATA[</strong>]]> par votre GPS favori.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.how_it_works.item2">
-                <source>landing.road_users.how_it_works.item2</source>
-                <target>Les règles de circulation du réseau routier sont <![CDATA[<strong>]]>mieux coordonnées<![CDATA[</strong>]]>.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.how_it_works.item3">
-                <source>landing.road_users.how_it_works.item3</source>
-                <target>Vous avez accès à de nouveaux services pour <![CDATA[<strong>]]>faciliter votre circulation<![CDATA[</strong>]]>.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.how_it_works.quote.part1">
-                <source>landing.road_users.how_it_works.quote.part1</source>
-                <target>La réglementation routière en France, ce n'est pas que les limitations de
-                    vitesse ou les sens interdits. Ce sont aussi les travaux, les événements festifs
-                    ou sportifs, les Zones à Faible Emissions (ZFE) ou les Zones à Trafic Limité
-                    (ZTL).</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.how_it_works.quote.part2">
-                <source>landing.road_users.how_it_works.quote.part2</source>
-                <target>Tous les conducteurs ont pu rencontrer un jour des blocages liés à ces
-                    règles sur leur chemin.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.how_it_works.quote.author">
-                <source>landing.road_users.how_it_works.quote.author</source>
-                <target>Mathieu Fernandez, intrapreneur de DiaLog</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.state_support.title">
-                <source>landing.road_users.state_support.title</source>
-                <target>Un dispositif soutenu par l'Etat</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.state_support.description">
-                <source>landing.road_users.state_support.description</source>
-                <target>DiaLog est un <![CDATA[<strong>]]>projet porté par le Ministère des Transports<![CDATA[</strong>]]>. Il a été initié
-                    en 2022 pour faciliter l'application de la <![CDATA[<a href="https://www.vie-publique.fr/loi/278460-loi-22-aout-2021-climat-et-resilience-convention-citoyenne-climat" target="_blank" rel="noopener">]]>loi Climat et Résilience<![CDATA[</a>]]>. Ainsi, ce
-                    service permet de <![CDATA[<strong>]]>construire une base de données nationale de la réglementation
-                    de circulation<![CDATA[</strong>]]> pour <![CDATA[<strong>]]>tous les véhicules<![CDATA[</strong>]]>. Les applications numériques (type GPS)
-                    vont ainsi pouvoir se mettre en conformité avec leur <![CDATA[<strong>]]>obligation d'intégrer la
-                    réglementation relative aux poids lourds<![CDATA[</strong>]]>.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.learn_more.title">
-                <source>landing.road_users.learn_more.title</source>
-                <target>Pour en savoir plus</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.title">
-                <source>landing.road_users.road_network.title</source>
-                <target>Comment sont gérées les routes en France ?</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.city.title">
-                <source>landing.road_users.road_network.city.title</source>
-                <target>Voies communales</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.city.description.part1">
-                <source>landing.road_users.road_network.city.description.part1</source>
-                <target>Elles appartiennent aux communes. C'est le conseil municipal de la commune
-                    concernée qui prend les décisions concernant la construction, l'entretien, les
-                    travaux.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.city.description.part2">
-                <source>landing.road_users.road_network.city.description.part2</source>
-                <target>Dans certains cas, cette responsabilité est confiée à une Métropole ou une
-                    communauté de communes, d'agglomération ou urbaine. On compte prprès de 700 000 km
-                    de ces routes sur l'ensemble du territoire, gérées par plus de 36 000 communes.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.departement.title">
-                <source>landing.road_users.road_network.departement.title</source>
-                <target>Voies départementales</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.departement.description.part1">
-                <source>landing.road_users.road_network.departement.description.part1</source>
-                <target>Elles sont entretenues et gérées par les Conseils Départementaux. Elles
-                    représentent un maillage de proximité entre les agglomérations, et sont
-                    reconnaissables par leurs bornes kilométriques jaunes.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.departement.description.part2">
-                <source>landing.road_users.road_network.departement.description.part2</source>
-                <target>On en dénombre environ 380 000 km en France, gérées par les 96 départements.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.national.title">
-                <source>landing.road_users.road_network.national.title</source>
-                <target>Voies nationales</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.national.description.part1">
-                <source>landing.road_users.road_network.national.description.part1</source>
-                <target>Ce sont les routes de plus gros gabarit. Elles sont gérées par l'État et ses
-                    services, ou par des sociétés concessionnaires. Elles permettent de traverser
-                    l'ensemble du territoire métropolitain et d'outre-mer.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.national.description.part2">
-                <source>landing.road_users.road_network.national.description.part2</source>
-                <target>Reconnaissables à leurs bornes kilométriques rouges, les routes du réseau
-                    national comptent environ 21 000 km de voies. Celles qui sont gérées par des
-                    sociétés concessionnaires sont soumises à péage, mais leur réglementation reste
-                    du ressort des services de l'Etat.</target>
-            </trans-unit>
-            <trans-unit id="landing.road_users.road_network.learn_more">
-                <source>landing.road_users.road_network.learn_more</source>
-                <target>Pour aller plus loin, consulter la page des <![CDATA[<a href="https://www.ecologie.gouv.fr/acteurs-route-en-france" target="_blank" rel="noopener">]]>acteurs routiers<![CDATA[</a>]]> sur le site du
-                    Ministère de l'Ecologie.</target>
-            </trans-unit>
-            <trans-unit id="regulation.delete_modal.title">
-                <source>regulation.delete_modal.title</source>
-                <target>Supprimer cet arrêté ?</target>
-            </trans-unit>
-            <trans-unit id="location.delete_modal.title">
-                <source>location.delete_modal.title</source>
-                <target>Supprimer cette localisation ?</target>
-            </trans-unit>
-            <trans-unit id="measure.delete_modal.title">
-                <source>measure.delete_modal.title</source>
-                <target>Supprimer cette mesure ?</target>
+            <trans-unit id="why_jeunot.title">
+                <source>why_jeunot.title</source>
+                <target>Pourquoi Moment ?</target>
+            </trans-unit>
+            <trans-unit id="why_jeunot.mission">
+                <source>why_jeunot.mission</source>
+                <target>La mission Moment</target>
+            </trans-unit>
+            <trans-unit id="why_jeunot.mission.description">
+                <source>why_jeunot.mission.description</source>
+                <target>Proposer un nouvel accompagnement dans le "mieux vieillir" et réduire l'impact de l'âgisme que notre société nous impose.</target>
+            </trans-unit>
+            <trans-unit id="why_jeunot.ambition">
+                <source>why_jeunot.ambition</source>
+                <target>Notre ambition</target>
+            </trans-unit>
+            <trans-unit id="why_jeunot.ambition.description">
+                <source>why_jeunot.ambition.description</source>
+                <target>À terme, nous souhaitons permettre à des milliers de 60 ans et plus de sortir de l’isolement en vivant de grandes amitiés notamment via la colocation.</target>
+            </trans-unit>
+            <trans-unit id="why_jeunot.about">
+                <source>why_jeunot.about</source>
+                <target>En savoir plus sur Moment</target>
+            </trans-unit>
+            <trans-unit id="privacy.title">
+                <source>privacy.title</source>
+                <target>Politique de confidentialité</target>
+            </trans-unit>
+            <trans-unit id="cookies.title">
+                <source>cookies.title</source>
+                <target>Politique de gestion des cookies</target>
+            </trans-unit>
+            <trans-unit id="legals.title">
+                <source>legals.title</source>
+                <target>Mentions légales</target>
+            </trans-unit>
+            <trans-unit id="cgu.title">
+                <source>cgu.title</source>
+                <target>Conditions Générales d'utilisation</target>
+            </trans-unit>
+            <trans-unit id="about.title">
+                <source>about.title</source>
+                <target>À propos</target>
+            </trans-unit>
+            <trans-unit id="about.description">
+                <source>about.description</source>
+                <target>Moment est un projet entrepreneurial à visée sociale, né en 2020 et qui continue à grandir grâce à sa communauté.</target>
             </trans-unit>
             <trans-unit id="login.title">
                 <source>login.title</source>
-                <target>Connexion à DiaLog</target>
-            </trans-unit>
-            <trans-unit id="login.email">
-                <source>login.email</source>
-                <target>Adresse e-mail</target>
-            </trans-unit>
-            <trans-unit id="login.password">
-                <source>login.password</source>
-                <target>Mot de passe</target>
-            </trans-unit>
-            <trans-unit id="login.email_format">
-                <source>login.email_format</source>
-                <target>Format attendu : nom@domaine.fr</target>
-            </trans-unit>
-            <trans-unit id="login.display">
-                <source>login.display</source>
-                <target>Afficher</target>
+                <target>Se connecter</target>
             </trans-unit>
             <trans-unit id="login.submit">
                 <source>login.submit</source>
                 <target>Se connecter</target>
             </trans-unit>
-            <trans-unit id="login.no_account.title">
-                <source>login.no_account.title</source>
-                <target>Vous n'avez pas de compte ?</target>
-            </trans-unit>
-            <trans-unit id="login.no_account.access_request">
-                <source>login.no_account.access_request</source>
-                <target>Demander la création d'un compte</target>
-            </trans-unit>
-            <trans-unit id="login.legend">
-                <source>login.legend</source>
-                <target>Se connecter avec son compte</target>
-            </trans-unit>
-            <trans-unit id="home.breadcrumb">
-                <source>home.breadcrumb</source>
-                <target>Accueil</target>
-            </trans-unit>
-            <trans-unit id="error.home_link">
-                <source>error.home_link</source>
-                <target>Page d'accueil</target>
-            </trans-unit>
-            <trans-unit id="error.404.title">
-                <source>error.404.title</source>
-                <target>Page non trouvée</target>
-            </trans-unit>
-            <trans-unit id="error.404.description">
-                <source>error.404.description</source>
-                <target>La page que vous cherchez est introuvable. Excusez-nous pour la gène
-                    occasionnée.</target>
-            </trans-unit>
-            <trans-unit id="error.404.more_description">
-                <source>error.404.more_description</source>
-                <target>Si vous avez tapé l'adresse web dans le navigateur, vérifiez qu'elle est
-                    correcte. La page n’est peut-être plus disponible. Dans ce cas, pour continuer
-                    votre visite vous pouvez consulter notre page d’accueil. Sinon contactez-nous
-                    pour que l’on puisse vous rediriger vers la bonne information.</target>
-            </trans-unit>
-            <trans-unit id="error.status_code.title">
-                <source>error.status_code.title</source>
-                <target>Une erreur est survenue</target>
-            </trans-unit>
-            <trans-unit id="error.status_code.description">
-                <source>error.status_code.description</source>
-                <target>La page que vous cherchez est inaccessible. Excusez-nous pour la gène
-                    occasionnée.</target>
-            </trans-unit>
-            <trans-unit id="error.status_code.detail">
-                <source>error.status_code.detail</source>
-                <target>Erreur %status%</target>
-            </trans-unit>
-            <trans-unit id="error.403.title">
-                <source>error.403.title</source>
-                <target>Vous n'avez pas les droits requis pour accéder à cette page</target>
-            </trans-unit>
-            <trans-unit id="error.contact">
-                <source>error.contact</source>
-                <target>Contactez-nous</target>
-            </trans-unit>
-            <trans-unit id="login.meta.title">
-                <source>login.meta.title</source>
-                <target>Connexion</target>
-            </trans-unit>
-            <trans-unit id="regulation.list.meta.title">
-                <source>regulation.list.meta.title</source>
-                <target>Arrêtés de circulation</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure_list">
-                <source>regulation.measure_list</source>
-                <target>Liste des restrictions</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure">
-                <source>regulation.measure</source>
-                <target>Restriction</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure_list_item.help">
-                <source>regulation.measure_list_item.help</source>
-                <target>Quelle perturbation est prévue ?</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.type">
-                <source>regulation.measure.type</source>
-                <target>Type de restriction</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.type.placeholder">
-                <source>regulation.measure.type.placeholder</source>
-                <target>Sélectionner un type de restriction...</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.type.noEntry">
-                <source>regulation.measure.type.noEntry</source>
-                <target>Circulation interdite</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.type.alternateRoad">
-                <source>regulation.measure.type.alternateRoad</source>
-                <target>Circulation alternée</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.type.oneWayTraffic">
-                <source>regulation.measure.type.oneWayTraffic</source>
-                <target>Circulation à sens unique</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.type.speedLimitation">
-                <source>regulation.measure.type.speedLimitation</source>
-                <target>Limitation de vitesse</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.card.title">
-                <source>regulation.measure.card.title</source>
-                <target>Mesure</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.card.description">
-                <source>regulation.measure.card.description</source>
-                <target>Indiquez le type de restriction et ses localisations</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.maxSpeed">
-                <source>regulation.measure.maxSpeed</source>
-                <target>Vitesse limitée à %maxSpeed% km/h</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.maxSpeed.title">
-                <source>regulation.measure.maxSpeed.title</source>
-                <target>Vitesse maximale autorisée</target>
-            </trans-unit>
-            <trans-unit id="regulation.measure.maxSpeed.unit">
-                <source>regulation.measure.maxSpeed.unit</source>
-                <target> Km/h</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.days.monday">
-                <source>regulation.period.days.monday</source>
-                <target>Lundi</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.days.tuesday">
-                <source>regulation.period.days.tuesday</source>
-                <target>Mardi</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.days.wednesday">
-                <source>regulation.period.days.wednesday</source>
-                <target>Mercredi</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.days.thursday">
-                <source>regulation.period.days.thursday</source>
-                <target>Jeudi</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.days.friday">
-                <source>regulation.period.days.friday</source>
-                <target>Vendredi</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.days.saturday">
-                <source>regulation.period.days.saturday</source>
-                <target>Samedi</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.days.sunday">
-                <source>regulation.period.days.sunday</source>
-                <target>Dimanche</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.days">
-                <source>regulation.period.days</source>
-                <target>Jours applicables</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.time">
-                <source>regulation.period.time</source>
-                <target>Créneau horaire</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.startDate">
-                <source>regulation.period.startDate</source>
-                <target>Date de début</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.endDate">
-                <source>regulation.period.endDate</source>
-                <target>Date de fin</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.startTime">
-                <source>regulation.period.startTime</source>
-                <target>Heure de début</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.many_days">
-                <source>regulation.period.many_days</source>
-                <target>du %firstDay% au %lastDay%</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.one_day">
-                <source>regulation.period.one_day</source>
-                <target>le %firstDay%</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.all_days">
-                <source>regulation.period.all_days</source>
-                <target>tous les jours</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.endTime">
-                <source>regulation.period.endTime</source>
-                <target>Heure de fin</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.recurrenceType">
-                <source>regulation.period.recurrenceType</source>
-                <target>Quels jours sont concernés ?</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.recurrenceType.everyDay">
-                <source>regulation.period.recurrenceType.everyDay</source>
-                <target>Tous les jours</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.recurrenceType.week">
-                <source>regulation.period.recurrenceType.week</source>
-                <target>La semaine</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.recurrenceType.weekend">
-                <source>regulation.period.recurrenceType.weekend</source>
-                <target>Le weekend</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.recurrenceType.certainDays">
-                <source>regulation.period.recurrenceType.certainDays</source>
-                <target>Certains jours</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.recurrenceType.partOfTheWeek">
-                <source>regulation.period.recurrenceType.partOfTheWeek</source>
-                <target>Une partie de la semaine</target>
-            </trans-unit>
-            <trans-unit id="regulation.period_list">
-                <source>regulation.period_list</source>
-                <target>Jours et horaires</target>
-            </trans-unit>
-            <trans-unit id="regulation.period_list.help">
-                <source>regulation.period_list.help</source>
-                <target>Pour cette restriction seulement, vous pouvez spécifier les jours et
-                    créneaux applicables. Par défaut la restriction s'applique tous les jours sur la
-                    période de validité de l'arrêté.</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.title">
-                <source>regulation.period.title</source>
-                <target>Quelle est la date ou période d’application ?</target>
-            </trans-unit>
-            <trans-unit id="regulation.period.add">
-                <source>regulation.period.add</source>
-                <target>Ajouter une plage</target>
-            </trans-unit>
-            <trans-unit id="regulation.timeSlot.add">
-                <source>regulation.timeSlot.add</source>
-                <target>Définir des horaires</target>
-            </trans-unit>
-            <trans-unit id="regulation.timeSlot.add.help">
-                <source>regulation.timeSlot.add.help</source>
-                <target>Par exemple de 9h00 à 12h00 et de 14h00 à 18h00</target>
-            </trans-unit>
-            <trans-unit id="regulation.timeSlots.add">
-                <source>regulation.timeSlots.add</source>
-                <target>Ajouter un nouvel horaire</target>
-            </trans-unit>
-            <trans-unit id="regulation.timeSlots.remove">
-                <source>regulation.timeSlots.remove</source>
-                <target>Supprimer un créneau horaire</target>
-            </trans-unit>
-            <trans-unit id="regulation.timeSlot.startTime">
-                <source>regulation.timeSlot.startTime</source>
-                <target>Heure de début</target>
-            </trans-unit>
-            <trans-unit id="regulation.timeSlot.endTime">
-                <source>regulation.timeSlot.endTime</source>
-                <target>Heure de fin</target>
-            </trans-unit>
-            <trans-unit id="regulation.timeSlots">
-                <source>regulation.timeSlots</source>
-                <target>Définir des horaires</target>
-            </trans-unit>
-            <trans-unit id="regulation.timeSlots.help">
-                <source>regulation.timeSlots.help</source>
-                <target>Par exemple de 9h00 à 12h00 et de 14h00 à 18h00</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.all_vehicles">
-                <source>regulation.vehicle_set.all_vehicles</source>
-                <target>Véhicules concernés</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.all_vehicles.help">
-                <source>regulation.vehicle_set.all_vehicles.help</source>
-                <target>Sélectionnez les véhicules concernés par la restriction.</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.all_vehicles.yes">
-                <source>regulation.vehicle_set.all_vehicles.yes</source>
-                <target>Tous les véhicules</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.all_vehicles.yes.help">
-                <source>regulation.vehicle_set.all_vehicles.yes.help</source>
-                <target>Tous les véhicules sont concernés</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.all_vehicles.no">
-                <source>regulation.vehicle_set.all_vehicles.no</source>
-                <target>Certains véhicules</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.all_vehicles.no.help">
-                <source>regulation.vehicle_set.all_vehicles.no.help</source>
-                <target>Les véhicules concernés : poids lourds, matières dangereuses, Crit'Air 4 et
-                    5...</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.restricted_types">
-                <source>regulation.vehicle_set.restricted_types</source>
-                <target>Types de véhicules concernés</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.restricted_types.help">
-                <source>regulation.vehicle_set.restricted_types.help</source>
-                <target>Spécifiez les véhicules pour lesquels la restriction s'applique :</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.heavyweightMaxWeight">
-                <source>regulation.vehicle_set.heavyweightMaxWeight</source>
-                <target>Poids maximum</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.heavyweightMaxWeight.help">
-                <source>regulation.vehicle_set.heavyweightMaxWeight.help</source>
-                <target>Spécifier le poids maximum autorisé</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.maxWidth">
-                <source>regulation.vehicle_set.maxWidth</source>
-                <target>Largeur maximum</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.maxLength">
-                <source>regulation.vehicle_set.maxLength</source>
-                <target>Longueur maximum</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.maxHeight">
-                <source>regulation.vehicle_set.maxHeight</source>
-                <target>Hauteur maximum</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.other_restricted_type_text">
-                <source>regulation.vehicle_set.other_restricted_type_text</source>
-                <target>Autres</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.other_restricted_type_text.help">
-                <source>regulation.vehicle_set.other_restricted_type_text.help</source>
-                <target>Spécifiez les véhicles pour lesquels la restriction s'applique :</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.exempted_vehicles">
-                <source>regulation.vehicle_set.exempted_vehicles</source>
-                <target>Sauf...</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.exempted_vehicles.add">
-                <source>regulation.vehicle_set.exempted_vehicles.add</source>
-                <target>Définir une exception</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.exempted_vehicles.add.help">
-                <source>regulation.vehicle_set.exempted_vehicles.add.help</source>
-                <target>Par exemple, vélo, bus, véhicules sanitaires...</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.exempted_types">
-                <source>regulation.vehicle_set.exempted_types</source>
-                <target>Indiquez les exceptions à la restriction</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.other_exempted_type_text">
-                <source>regulation.vehicle_set.other_exempted_type_text</source>
-                <target>Autres</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.other_exempted_type_text.help">
-                <source>regulation.vehicle_set.other_exempted_type_text.help</source>
-                <target>Spécifiez les véhicles pour lesquels la restriction ne s'applique pas :</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.exempted_vehicles.delete">
-                <source>regulation.measure.exempted_vehicles.delete</source>
-                <target>Supprimer les exceptions</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.heavyGoodsVehicle">
-                <source>regulation.vehicle_set.type.heavyGoodsVehicle</source>
-                <target>Poids lourds</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.dimensions">
-                <source>regulation.vehicle_set.type.dimensions</source>
-                <target>Gabarit</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.hazardousmaterials">
-                <source>regulation.vehicle_set.type.hazardousmaterials</source>
-                <target>Matières dangeureuses</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.critair">
-                <source>regulation.vehicle_set.critair</source>
-                <target>Catégorie Crit'Air</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.critair.help">
-                <source>regulation.vehicle_set.critair.help</source>
-                <target>Spécifier les catégories Crit'Air pour lesquelles la restriction s'applique
-                    :</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.critair">
-                <source>regulation.vehicle_set.type.critair</source>
-                <target>Crit'Air</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.critair2">
-                <source>regulation.vehicle_set.type.critair2</source>
-                <target>Crit'Air 2</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.critair3">
-                <source>regulation.vehicle_set.type.critair3</source>
-                <target>Crit'Air 3</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.critair4">
-                <source>regulation.vehicle_set.type.critair4</source>
-                <target>Crit'Air 4</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.critair5">
-                <source>regulation.vehicle_set.type.critair5</source>
-                <target>Crit'Air 5</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.hazardousMaterials">
-                <source>regulation.vehicle_set.type.hazardousMaterials</source>
-                <target>Matières dangeureuses</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.pedestrians">
-                <source>regulation.vehicle_set.type.pedestrians</source>
-                <target>Piétons</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.commercial">
-                <source>regulation.vehicle_set.type.commercial</source>
-                <target>Transports en commun</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.bicycle">
-                <source>regulation.vehicle_set.type.bicycle</source>
-                <target>Vélos</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.emergencyServices">
-                <source>regulation.vehicle_set.type.emergencyServices</source>
-                <target>Véhicules d'urgence</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.other">
-                <source>regulation.vehicle_set.type.other</source>
-                <target>Autres</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.taxi">
-                <source>regulation.vehicle_set.type.taxi</source>
-                <target>Taxis / VTC</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicle_set.type.carSharing">
-                <source>regulation.vehicle_set.type.carSharing</source>
-                <target>Covoiturage</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicles.all">
-                <source>regulation.vehicles.all</source>
-                <target>pour tous les véhicules</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicles.prefix">
-                <source>regulation.vehicles.prefix</source>
-                <target>pour les</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicles.and">
-                <source>regulation.vehicles.and</source>
-                <target>et</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicles.except">
-                <source>regulation.vehicles.except</source>
-                <target>sauf</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicles.maxCharacteristics.prefix">
-                <source>regulation.vehicles.maxCharacteristics.prefix</source>
-                <target>véhicules de plus de</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicles.maxCharacteristics.weight">
-                <source>regulation.vehicles.maxCharacteristics.weight</source>
-                <target>%value% tonnes</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicles.maxCharacteristics.width">
-                <source>regulation.vehicles.maxCharacteristics.width</source>
-                <target>%value% mètres de large</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicles.maxCharacteristics.length">
-                <source>regulation.vehicles.maxCharacteristics.length</source>
-                <target>%value% mètres de long</target>
-            </trans-unit>
-            <trans-unit id="regulation.vehicles.maxCharacteristics.height">
-                <source>regulation.vehicles.maxCharacteristics.height</source>
-                <target>%value% mètres de haut</target>
-            </trans-unit>
-            <trans-unit id="statistics.title">
-                <source>statistics.title</source>
-                <target>Statistiques</target>
-            </trans-unit>
-            <trans-unit id="statistics.users">
-                <source>statistics.users</source>
-                <target>Nombre total d'utilisateurs</target>
-            </trans-unit>
-            <trans-unit id="statistics.organizations">
-                <source>statistics.organizations</source>
-                <target>Nombre total d'organisations</target>
-            </trans-unit>
-            <trans-unit id="statistics.totalRegulationOrderRecords">
-                <source>statistics.totalRegulationOrderRecords</source>
-                <target>Nombre total d'arrếtés</target>
-            </trans-unit>
-            <trans-unit id="statistics.publishedRegulationOrderRecords">
-                <source>statistics.publishedRegulationOrderRecords</source>
-                <target>Nombre total d'arrếtés publiés</target>
-            </trans-unit>
-            <trans-unit id="statistics.permanentRegulationOrderRecords">
-                <source>statistics.permanentRegulationOrderRecords</source>
-                <target>Nombre total d'arrếtés permanents</target>
-            </trans-unit>
-            <trans-unit id="statistics.temporaryRegulationOrderRecords">
-                <source>statistics.temporaryRegulationOrderRecords</source>
-                <target>Nombre total d'arrếtés temporaires</target>
-            </trans-unit>
-            <trans-unit id="common.form.time.hour">
-                <source>common.form.time.hour</source>
-                <target>Heures</target>
-            </trans-unit>
-            <trans-unit id="common.form.time.minute">
-                <source>common.form.time.minute</source>
-                <target>Minutes</target>
-            </trans-unit>
-            <trans-unit id="accessRequest.displayPassword">
-                <source>accessRequest.displayPassword</source>
-                <target>Afficher</target>
-            </trans-unit>
-            <trans-unit id="accessRequest.fullName">
-                <source>accessRequest.fullName</source>
-                <target>Nom et prénom</target>
-            </trans-unit>
-            <trans-unit id="accessRequest.email">
-                <source>accessRequest.email</source>
-                <target>Adresse e-mail</target>
-            </trans-unit>
-            <trans-unit id="accessRequest.email.help">
-                <source>accessRequest.email.help</source>
-                <target>Format attendu : nom@domaine.fr</target>
-            </trans-unit>
-            <trans-unit id="accessRequest.organizationName">
-                <source>accessRequest.organizationName</source>
-                <target>Nom de l'organisation</target>
-            </trans-unit>
-            <trans-unit id="accessRequest.comment">
-                <source>accessRequest.comment</source>
-                <target>Message</target>
-            </trans-unit>
-            <trans-unit id="accessRequest.organizationSiret">
-                <source>accessRequest.organizationSiret</source>
-                <target>Numéro SIRET de l'organisation</target>
-            </trans-unit>
-            <trans-unit id="accessRequest.organizationSiret.help">
-                <source>accessRequest.organizationSiret.help</source>
-                <target>Format attendu : 14 chiffres</target>
-            </trans-unit>
-            <trans-unit id="accessRequest.password">
-                <source>accessRequest.password</source>
+            <trans-unit id="login.remember_me">
+                <source>login.remember_me</source>
+                <target>Rester connecté-e</target>
+            </trans-unit>
+            <trans-unit id="login.email">
+                <source>login.email</source>
+                <target>Adresse e-mail / Courriel</target>
+            </trans-unit>
+            <trans-unit id="login.password">
+                <source>login.password</source>
                 <target>Mot de passe</target>
             </trans-unit>
-            <trans-unit id="accessRequest.password.help">
-                <source>accessRequest.password.help</source>
-                <target>Format attendu : 12 caractères minimum</target>
+            <trans-unit id="login.forgot_password">
+                <source>login.forgot_password</source>
+                <target>J'ai oublié mon mot de passe</target>
             </trans-unit>
-            <trans-unit id="accessRequest.consentToBeContacted">
-                <source>accessRequest.consentToBeContacted</source>
-                <target>J’accepte que l’équipe DiaLog me recontacte afin d’améliorer la plateforme</target>
+            <trans-unit id="login.description">
+                <source>login.description</source>
+                <target>Vous avez déjà un compte chez Moment ? Renseignez vos identifiants pour vous inscrire aux événements et participer aux groupes de discussion.</target>
             </trans-unit>
-            <trans-unit id="accessRequest.send.success">
-                <source>accessRequest.send.success</source>
-                <target>Votre demande de création de compte a bien été prise en compte. Nous
-                    reviendrons vers vous dans les plus brefs délais.</target>
+            <trans-unit id="login.not_registered">
+                <source>login.not_registered</source>
+                <target>Vous n'avez pas encore de compte ?</target>
             </trans-unit>
-            <trans-unit id="accessRequest.send.success.help">
-                <source>accessRequest.send.success.help</source>
-                <target>La validation du compte n’est pas faite automatiquement, cela peut prendre
-                    quelques heures.</target>
+            <trans-unit id="login.error.not_verified_account">
+                <source>login.error.not_verified_account</source>
+                <target>Vous devez valider votre compte grâce au mail de confirmation reçu.</target>
             </trans-unit>
-            <trans-unit id="accessRequest.send.error">
-                <source>accessRequest.send.error</source>
-                <target>Une demande de création de compte a déjà été créée avec cette adresse
-                    e-mail.</target>
+            <trans-unit id="register.title">
+                <source>register.title</source>
+                <target>Créer un compte</target>
             </trans-unit>
-            <trans-unit id="accessRequest.meta.title">
-                <source>accessRequest.meta.title</source>
-                <target>Demande de création de compte</target>
+            <trans-unit id="register.firstName">
+                <source>register.firstName</source>
+                <target>Prénom</target>
             </trans-unit>
-            <trans-unit id="accessRequest.meta.subtitle">
-                <source>accessRequest.meta.subtitle</source>
-                <target>Vous pouvez demander la création d’un compte pour votre commune ou
-                    collectivité.</target>
+            <trans-unit id="register.lastName">
+                <source>register.lastName</source>
+                <target>Nom</target>
             </trans-unit>
-            <trans-unit id="api.cifs.incident.description">
-                <source>api.cifs.incident.description</source>
-                <target>%street% : circulation interdite tous les jours pour tous les véhicles</target>
+            <trans-unit id="register.lastName.help">
+                <source>register.lastName.help</source>
+                <target>Seuls les administrateurs du site pourront voir votre nom.</target>
+            </trans-unit>
+            <trans-unit id="register.email">
+                <source>register.email</source>
+                <target>Adresse e-mail / Courriel</target>
+            </trans-unit>
+            <trans-unit id="register.password">
+                <source>register.password</source>
+                <target>Mot de passe</target>
+            </trans-unit>
+            <trans-unit id="register.password.help">
+                <source>register.password.help</source>
+                <target>Votre mot de passe doit faire au moins 10 caractères et contenir au moins une minuscule et une majuscule.</target>
+            </trans-unit>
+            <trans-unit id="register.repeated_password">
+                <source>register.repeated_password</source>
+                <target>Confirmer votre mot de passe</target>
+            </trans-unit>
+            <trans-unit id="register.repeated_password.help">
+                <source>register.repeated_password.help</source>
+                <target>Retaper le mot de passe entré ci-dessus.</target>
+            </trans-unit>
+            <trans-unit id="register.birthday">
+                <source>register.birthday</source>
+                <target>Date de naissance</target>
+            </trans-unit>
+            <trans-unit id="register.howYouHeardAboutUs">
+                <source>register.howYouHeardAboutUs</source>
+                <target>Comment nous avez-vous connu ?</target>
+            </trans-unit>
+            <trans-unit id="register.description">
+                <source>register.description</source>
+                <target>En créant un compte, vous aurez accès aux événements près de chez vous. C’est entièrement gratuit et sans engagement ! Vos données personnelles sont protégées et ne sont pas revendues.</target>
+            </trans-unit>
+            <trans-unit id="register.submit">
+                <source>register.submit</source>
+                <target>Créer mon compte</target>
+            </trans-unit>
+            <trans-unit id="register.succeeded.title">
+                <source>register.succeeded.title</source>
+                <target>Vérifiez vos emails</target>
+            </trans-unit>
+            <trans-unit id="register.succeeded.verified">
+                <source>register.succeeded.verified</source>
+                <target>Votre compte a bien été vérifié, vous pouvez maintenant vous connecter.</target>
+            </trans-unit>
+            <trans-unit id="register.succeeded.description">
+                <source>register.succeeded.description</source>
+                <target>Pour valider la création de votre compte et accéder à votre profil, confirmez votre adresse mail en cliquant sur le lien reçu à votre adresse.</target>
+            </trans-unit>
+            <trans-unit id="register.succeeded.email_not_received">
+                <source>register.succeeded.email_not_received</source>
+                <target>Si vous n'avez pas reçu d'email, vous pouvez en renvoyer un en cliquant sur le bouton ci-dessous.</target>
+            </trans-unit>
+            <trans-unit id="register.succeeded.send_link">
+                <source>register.succeeded.send_link</source>
+                <target>Renvoyer un lien</target>
+            </trans-unit>
+            <trans-unit id="register.already_registered">
+                <source>register.already_registered</source>
+                <target>Vous avez déjà un compte ?</target>
+            </trans-unit>
+            <trans-unit id="forgot_password.title">
+                <source>forgot_password.title</source>
+                <target>Mot de passe oublié ?</target>
+            </trans-unit>
+            <trans-unit id="forgot_password.submit">
+                <source>forgot_password.submit</source>
+                <target>Envoyer un lien de réinitialisation</target>
+            </trans-unit>
+            <trans-unit id="forgot_password.description">
+                <source>forgot_password.description</source>
+                <target>Entrez votre mail ci-dessous. Nous vous enverrons un lien de réinitialisation de votre mot de passe.</target>
+            </trans-unit>
+            <trans-unit id="forgot_password.succeeded">
+                <source>forgot_password.succeeded</source>
+                <target>Si cette adresse e-mail est enregistrée chez Moment, vous recevrez un lien pour réinitialiser votre mot de passe.</target>
+            </trans-unit>
+            <trans-unit id="forgot_password.back_to_login">
+                <source>forgot_password.back_to_login</source>
+                <target>Retour à la connexion</target>
+            </trans-unit>
+            <trans-unit id="reset_password.succeeded">
+                <source>reset_password.succeeded</source>
+                <target>Votre mot de passe a bien été changé. Vous pouvez dès à présent vous connecter en utilisant votre nouveau mot de passe.</target>
+            </trans-unit>
+            <trans-unit id="reset_password.password.old">
+                <source>reset_password.password.old</source>
+                <target>Mot de passe actuel</target>
+            </trans-unit>
+            <trans-unit id="reset_password.password">
+                <source>reset_password.password</source>
+                <target>Nouveau mot de passe</target>
+            </trans-unit>
+            <trans-unit id="reset_password.repeated_password">
+                <source>reset_password.repeated_password</source>
+                <target>Retaper votre nouveau mot de passe</target>
+            </trans-unit>
+            <trans-unit id="reset_password.submit">
+                <source>reset_password.submit</source>
+                <target>Changer mon mot de passe</target>
+            </trans-unit>
+            <trans-unit id="reset_password.title">
+                <source>reset_password.title</source>
+                <target>Changer mon mot de passe</target>
+            </trans-unit>
+            <trans-unit id="reset_password.token.error">
+                <source>reset_password.token.error</source>
+                <target>Le changement de mot de passe a échoué, veuillez faire une nouvelle demande.</target>
+            </trans-unit>
+            <trans-unit id="events.title">
+                <source>events.title</source>
+                <target>Événements</target>
+            </trans-unit>
+            <trans-unit id="events.jumbotron.line1">
+                <source>events.jumbotron.line1</source>
+                <target>Les Jeunots se rencontrent régulièrement pour partager autour de leurs centres d’intérêt (ou en découvrir de nouveaux) et tisser de nouvelles amitiés !</target>
+            </trans-unit>
+            <trans-unit id="events.jumbotron.line2">
+                <source>events.jumbotron.line2</source>
+                <target>Et si vous partiez à la rencontre de Jeunots près de chez vous ? 😉</target>
+            </trans-unit>
+            <trans-unit id="events.next_events.title">
+                <source>events.next_events.title</source>
+                <target>Événements à venir</target>
+            </trans-unit>
+            <trans-unit id="events.list.attendee">
+                <source>events.list.attendee</source>
+                <target>{0} Aucun participant | {1} 1 participant | ]1,Inf[ %count% participants</target>
+            </trans-unit>
+            <trans-unit id="events.register.title">
+                <source>events.register.title</source>
+                <target>Inscription à l'événement</target>
+            </trans-unit>
+            <trans-unit id="events.register.back">
+                <source>events.register.back</source>
+                <target>Retour à l'événement</target>
+            </trans-unit>
+            <trans-unit id="events.register.infos">
+                <source>events.register.infos</source>
+                <target>Rappel des informations pratiques</target>
+            </trans-unit>
+            <trans-unit id="events.register.comment">
+                <source>events.register.comment</source>
+                <target>Commentaire</target>
+            </trans-unit>
+            <trans-unit id="events.register.comment.help">
+                <source>events.register.comment.help</source>
+                <target>Si vous avez une remarque, une question, un besoin, vous pouvez le communiquer à l'organisateur ici. À noter que les organisateurs sont des bénévoles.</target>
+            </trans-unit>
+            <trans-unit id="events.register.comment.placeholder">
+                <source>events.register.comment.placeholder</source>
+                <target>Écrire votre commentaire ici...</target>
+            </trans-unit>
+            <trans-unit id="events.register.submit">
+                <source>events.register.submit</source>
+                <target>Valider mon inscription</target>
+            </trans-unit>
+            <trans-unit id="events.register.cancel">
+                <source>events.register.cancel</source>
+                <target>Annuler</target>
+            </trans-unit>
+            <trans-unit id="events.register.failed">
+                <source>events.register.failed</source>
+                <target>Vous ne pouvez pas vous inscrire à l'événement. Il se peut que vous soyez déjà inscrit ou qu'il n'y ai plus de place disponible.</target>
+            </trans-unit>
+            <trans-unit id="events.register.full">
+                <source>events.register.full</source>
+                <target>Cet événement est complet.</target>
+            </trans-unit>
+            <trans-unit id="events.register.succeeded.title">
+                <source>events.register.succeeded.title</source>
+                <target>Vous êtes bien inscrit·e !</target>
+            </trans-unit>
+            <trans-unit id="events.register.succeeded.detail.prefix">
+                <source>events.register.succeeded.detail.prefix</source>
+                <target>Votre inscription est confirmée à</target>
+            </trans-unit>
+            <trans-unit id="events.register.succeeded.detail.suffix">
+                <source>events.register.succeeded.detail.suffix</source>
+                <target>Vous recevrez plus d’informations dans les jours précédant l’événement. Pensez à surveiller vos e-mails ! 💌</target>
+            </trans-unit>
+            <trans-unit id="events.register.succeeded.have_questions">
+                <source>events.register.succeeded.have_questions</source>
+                <target>Vous avez des questions ?</target>
+            </trans-unit>
+            <trans-unit id="events.register.succeeded.contact_owner">
+                <source>events.register.succeeded.contact_owner</source>
+                <target>Contacter l'organisateur</target>
+            </trans-unit>
+            <trans-unit id="events.register.succeeded.not_available">
+                <source>events.register.succeeded.not_available</source>
+                <target>Vous n'êtes plus disponible ?</target>
+            </trans-unit>
+            <trans-unit id="events.register.succeeded.back_to_events">
+                <source>events.register.succeeded.back_to_events</source>
+                <target>Retour au calendrier</target>
+            </trans-unit>
+            <trans-unit id="events.cancel_registration">
+                <source>events.cancel_registration</source>
+                <target>Annuler mon inscription</target>
+            </trans-unit>
+            <trans-unit id="events.cancel_registration.success">
+                <source>events.cancel_registration.success</source>
+                <target>Votre désinscription a bien été prise en compte !</target>
+            </trans-unit>
+            <trans-unit id="events.detail.owner.title">
+                <source>events.detail.owner.title</source>
+                <target>Cet événement est organisé par</target>
+            </trans-unit>
+            <trans-unit id="events.detail.owner.age">
+                <source>events.detail.owner.age</source>
+                <target>%age% ans</target>
+            </trans-unit>
+            <trans-unit id="events.detail.owner.view">
+                <source>events.detail.owner.view</source>
+                <target>Voir le profil de %firstName%</target>
+            </trans-unit>
+            <trans-unit id="events.detail.registrations">
+                <source>events.detail.registrations</source>
+                <!-- TODO: pluralize -->
+                <target>%nbAttendees% inscrits - <![CDATA[<strong>]]>%nbAvailablePlaces% places disponibles<![CDATA[</strong>]]></target>
+            </trans-unit>
+            <trans-unit id="events.detail.register.anonymousWarning">
+                <source>events.detail.register.anonymousWarning</source>
+                <target>Vous devez être connecté·e pour vous inscrire et recevoir les informations de rendez-vous.</target>
+            </trans-unit>
+            <trans-unit id="events.detail.register.anonymousCta">
+                <source>events.detail.register.anonymousCta</source>
+                <target>Créer un compte</target>
+            </trans-unit>
+            <trans-unit id="events.detail.register">
+                <source>events.detail.register</source>
+                <target>S'inscrire à cet événement</target>
+            </trans-unit>
+            <trans-unit id="events.detail.registered">
+                <source>events.detail.registered</source>
+                <target>Vous êtes inscrit·e à cet événement.</target>
+            </trans-unit>
+            <trans-unit id="events.detail.upcoming_events">
+                <source>events.detail.upcoming_events</source>
+                <target>Autres événements à venir</target>
+            </trans-unit>
+            <trans-unit id="events.detail.upcoming_events.back_to_event_list">
+                <source>events.detail.upcoming_events.back_to_event_list</source>
+                <target>Revenir au calendrier</target>
+            </trans-unit>
+            <trans-unit id="events.grid.empty">
+                <source>events.grid.empty</source>
+                <target>Aucun événement</target>
+            </trans-unit>
+            <trans-unit id="events.registered">
+                <source>events.registered</source>
+                <target>Inscrit·e !</target>
+            </trans-unit>
+            <trans-unit id="dashboard.title">
+                <source>dashboard.title</source>
+                <target>Mon espace</target>
+            </trans-unit>
+            <trans-unit id="dashboard.complete_profile.cta">
+                <source>dashboard.complete_profile.cta</source>
+                <target>Compléter mon profil</target>
+            </trans-unit>
+            <trans-unit id="dashboard.latest_posts">
+                <source>dashboard.latest_posts</source>
+                <target>Nos derniers articles</target>
+            </trans-unit>
+            <trans-unit id="dashboard.sell_all_posts">
+                <source>dashboard.sell_all_posts</source>
+                <target>Voir tous les articles</target>
+            </trans-unit>
+            <trans-unit id="dashboard.complete_profile">
+                <source>dashboard.complete_profile</source>
+                <target>Vous êtes quasiment prêt·e à partir à la rencontre d’autres jeunots.<![CDATA[<br/>]]>Votre compte a été confirmé. Vous pouvez désormais compléter votre profil !</target>
+            </trans-unit>
+            <trans-unit id="dashboard.description">
+                <source>dashboard.description</source>
+                <target>A quels événements avez-vous envie de participer ?</target>
+            </trans-unit>
+            <trans-unit id="dashboard.welcome">
+                <source>dashboard.welcome</source>
+                <target>Bonjour %firstName% !</target>
+            </trans-unit>
+            <trans-unit id="dashboard.new_event">
+                <source>dashboard.new_event</source>
+                <target>Vous avez envie de créer un événement ?</target>
+            </trans-unit>
+            <trans-unit id="dashboard.new_event.description">
+                <source>dashboard.new_event.description</source>
+                <target>Vous avez des idées ? Discutons-en ! Écrivez-nous à : <![CDATA[<a href="mailto:contact@moment.fr">]]>contact@moment.fr<![CDATA[</a>]]></target>
+            </trans-unit>
+            <trans-unit id="dashboard.upcoming_events">
+                <source>dashboard.upcoming_events</source>
+                <target>Vos événements à venir</target>
+            </trans-unit>
+            <trans-unit id="dashboard.upcoming_events.see_more">
+                <source>dashboard.upcoming_events.see_more</source>
+                <target>Voir plus d'événements</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.title">
+                <source>profile.edit.title</source>
+                <target>Modifier mon profil</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.password">
+                <source>profile.edit.password</source>
+                <target>Mot de passe</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.password.change">
+                <source>profile.edit.password.change</source>
+                <target>Modifier mon mot de passe</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.password.title">
+                <source>profile.edit.password.title</source>
+                <target>Modifier mon mot de passe</target>
+            </trans-unit>
+            <trans-unit id="profile.detail.title">
+                <source>profile.detail.title</source>
+                <target>Mon profil</target>
+            </trans-unit>
+            <trans-unit id="profile.detail.otherUser.title">
+                <source>profile.detail.otherUser.title</source>
+                <target>Profil de %username%</target>
+            </trans-unit>
+            <trans-unit id="profile.detail.picture">
+                <source>profile.detail.picture</source>
+                <target>Photo de profil</target>
+            </trans-unit>
+            <trans-unit id="profile.detail.registration">
+                <source>profile.detail.registration</source>
+                <target>Inscrit.e depuis %date%</target>
+            </trans-unit>
+            <trans-unit id="profile.detail.age">
+                <source>profile.detail.age</source>
+                <target>%age% ans</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.public">
+                <source>profile.edit.public</source>
+                <target>Mes informations publiques</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.private">
+                <source>profile.edit.private</source>
+                <target>Mes informations privées</target>
+            </trans-unit>
+            <trans-unit id="profile.firstName">
+                <source>profile.firstName</source>
+                <target>Prénom</target>
+            </trans-unit>
+            <trans-unit id="profile.lastName">
+                <source>profile.lastName</source>
+                <target>Nom de famille</target>
+            </trans-unit>
+            <trans-unit id="profile.email">
+                <source>profile.email</source>
+                <target>Adresse e-mail / Courriel</target>
+            </trans-unit>
+            <trans-unit id="profile.gender">
+                <source>profile.gender</source>
+                <target>Mon genre</target>
+            </trans-unit>
+            <trans-unit id="profile.gender.placeholder">
+                <source>profile.gender.placeholder</source>
+                <target>Sélectionner mon genre</target>
+            </trans-unit>
+            <trans-unit id="profile.gender.male">
+                <source>profile.gender.male</source>
+                <target>Homme</target>
+            </trans-unit>
+            <trans-unit id="profile.gender.female">
+                <source>profile.gender.female</source>
+                <target>Femme</target>
+            </trans-unit>
+            <trans-unit id="profile.gender.other">
+                <source>profile.gender.other</source>
+                <target>Autre</target>
+            </trans-unit>
+            <trans-unit id="profile.gender.no-binary">
+                <source>profile.gender.no-binary</source>
+                <target>Non-binaire</target>
+            </trans-unit>
+            <trans-unit id="profile.biography">
+                <source>profile.biography</source>
+                <target>A propos de moi</target>
+            </trans-unit>
+            <trans-unit id="profile.birthday">
+                <source>profile.birthday</source>
+                <target>Date de naissance</target>
+            </trans-unit>
+            <trans-unit id="profile.city">
+                <source>profile.city</source>
+                <target>Ma ville</target>
+            </trans-unit>
+            <trans-unit id="profile.myAge">
+                <source>profile.myAge</source>
+                <target>Mon âge</target>
+            </trans-unit>
+            <trans-unit id="profile.file">
+                <source>profile.file</source>
+                <target>Photo de profil</target>
+            </trans-unit>
+            <trans-unit id="profile.file.help">
+                <source>profile.file.help</source>
+                <target>Formats autorisés : .jpg, .jpeg, .png, .webp. Taille maximale : 1Mo</target>
+            </trans-unit>
+            <trans-unit id="profile.displayMyAge">
+                <source>profile.displayMyAge</source>
+                <target>Afficher mon âge sur mon profil</target>
+            </trans-unit>
+            <trans-unit id="profile.submit">
+                <source>profile.submit</source>
+                <target>Enregistrer</target>
+            </trans-unit>
+            <trans-unit id="profile.cancel">
+                <source>profile.cancel</source>
+                <target>Annuler</target>
+            </trans-unit>
+            <trans-unit id="profile.delete">
+                <source>profile.delete</source>
+                <target>Supprimer mon compte</target>
+            </trans-unit>
+            <trans-unit id="posts.title">
+                <source>posts.title</source>
+                <target>Articles</target>
+            </trans-unit>
+            <trans-unit id="posts.jumbotron.line1">
+                <source>posts.jumbotron.line1</source>
+                <target>Retrouvez ici toute l'actualité Moment à travers une série d'articles.</target>
             </trans-unit>
         </body>
     </file>

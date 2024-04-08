@@ -1,0 +1,36 @@
+{% set mainPath = app.user ? 'app_regulations_list' : 'app_landing' %}
+<!doctype html>
+<html lang="fr">
+  <head>
+    {% set _nonce = csp_nonce('script') %}
+    {% set _nonce = csp_nonce('style') %}
+    <meta name="csp-nonce" content="{{ _nonce }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{{ 'common.title'|trans }}{% endblock %}</title>
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+  </head>
+
+  <body>
+    {% if app.user and app.current_route != 'app_home' %}
+        {% include 'common/header_authenticated.html.twig' %}
+    {% else %}
+        {% include 'common/header_anonymous.html.twig' %}
+    {% endif %}
+
+    {% include 'common/flashes.html.twig' with {flashes: app.flashes} only %}
+
+    {% block main_tag %}<main>{% endblock %}
+        {% block main %}{% endblock %}
+    </main>
+
+    {% include 'common/footer.html.twig' %}
+  </body>
+</html>

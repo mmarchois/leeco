@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ 'register.title'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    {% include 'common/jumbotron_simple.html.twig' with { title: 'register.title'|trans, description: 'register.description'|trans } only %}
+
+    <div class="j-container j-stack j-box" style="--box-padding: calc(2 * var(--w))">
+        <p>{{ 'common.form.mandatory_fields'|trans|raw }}</p>
+
+        {{ form_start(form) }}
+            {{ form_row(form.firstName, { row_attr: { class: 'j-input-group' } }) }}
+            {{ form_row(form.lastName, { row_attr: { class: 'j-input-group' } }) }}
+            {{ form_row(form.email, { row_attr: { class: 'j-input-group' } }) }}
+            {{ form_row(form.password.first, { row_attr: { class: 'j-input-group' } }) }}
+            {{ form_row(form.password.second, { row_attr: { class: 'j-input-group' } }) }}
+            {{ form_row(form.birthday, { row_attr: { class: 'j-input-group' } }) }}
+            {{ form_row(form.howYouHeardAboutUs, { row_attr: { class: 'j-input-group' } }) }}
+            {{ form_row(form.save, { attr: { class: 'j-btn j-btn--action' } }) }}
+        {{ form_end(form) }}
+        <p>
+            {{ 'register.already_registered'|trans }}
+            <a href="{{ path('app_login') }}">{{ 'login.title'|trans }}</a>
+        </p>
+    </div>
+{% endblock main %}

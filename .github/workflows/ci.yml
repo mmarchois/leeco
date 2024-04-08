@@ -1,0 +1,81 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgresql:
+        image: postgres:15.3-alpine
+        env:
+          POSTGRES_USER: moment
+          POSTGRES_PASSWORD: moment
+          POSTGRES_DB: moment
+        ports:
+          - 5432:5432
+
+      mailer:
+        image: schickling/mailcatcher
+        ports:
+          - 1025:1025
+          - 1080:1080
+
+      redis:
+        image: redis:5-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup PHP with PECL extension
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys:
+            ${{ runner.os }}-node-
+
+      - name: Init CI environment variables
+        # HACK: Symfony won't read from 'env: { DATABASE_URL: ... }', so we need to edit
+        # .env directly.
+        run: |
+          echo "DATABASE_URL=postgresql://moment:moment@localhost:5432/moment" >> .env
+          echo "REDIS_URL=redis://localhost:6379" >> .env
+          echo "MAILER_DSN=smtp://localhost:1025" >> .env
+          echo "APP_UPLOADS_SOURCE=memory.storage" >> .env
+
+      # Required for E2E testing
+      - name: Install Symfony CLI
+        run: |
+          curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
+          sudo apt install symfony-cli
+
+      - name: CI
+        run: make ci CI=1 BIN_PHP="php" BIN_CONSOLE="php bin/console" BIN_COMPOSER="composer" BIN_NPM="npm" BIN_NPX="npx"
+
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.xml

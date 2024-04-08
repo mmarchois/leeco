@@ -4,37 +4,66 @@ declare(strict_types=1);
 
 namespace App\Test\Unit\Infrastructure\Security;
 
-use App\Domain\User\Organization;
+use App\Domain\User\Enum\UserRoleEnum;
+use App\Domain\User\User;
 use App\Infrastructure\Security\SymfonyUser;
 use PHPUnit\Framework\TestCase;
 
-class SymfonyUserTest extends TestCase
+final class SymfonyUserTest extends TestCase
 {
     public function testUser()
     {
-        $organization = (new Organization('133fb411-7754-4749-9590-ce05a2abe108'))
-            ->setName('Mairie de Saint-Ouen Sur Seine');
+        $user = $this->createMock(User::class);
+        $user
+            ->expects(self::once())
+            ->method('getUuid')
+            ->willReturn('2d3724f1-2910-48b4-ba56-81796f6e100b');
+        $user
+            ->expects(self::once())
+            ->method('getEmail')
+            ->willReturn('mathieu.marchois@gmail.com');
+        $user
+            ->expects(self::once())
+            ->method('getFirstName')
+            ->willReturn('Mathieu');
+        $user
+            ->expects(self::once())
+            ->method('getLastName')
+            ->willReturn('MARCHOIS');
+        $user
+            ->expects(self::once())
+            ->method('getPassword')
+            ->willReturn('password');
+        $user
+            ->expects(self::once())
+            ->method('getAvatar')
+            ->willReturn('profil.jpeg');
+        $user
+            ->expects(self::once())
+            ->method('isVerified')
+            ->willReturn(false);
+        $user
+            ->expects(self::once())
+            ->method('isComplete')
+            ->willReturn(false);
+        $user
+            ->expects(self::once())
+            ->method('getRole')
+            ->willReturn(UserRoleEnum::ROLE_USER->value);
 
-        $organizations = [$organization];
+        $symfonyUser = new SymfonyUser($user);
 
-        $user = new SymfonyUser(
-            '2d3724f1-2910-48b4-ba56-81796f6e100b',
-            'mathieu.marchois@beta.gouv.fr',
-            'Mathieu MARCHOIS',
-            'password',
-            $organizations,
-            ['ROLE_USER'],
-        );
-
-        $this->assertSame('2d3724f1-2910-48b4-ba56-81796f6e100b', $user->getUuid());
-        $this->assertSame(['ROLE_USER'], $user->getRoles());
-        $this->assertSame('Mathieu MARCHOIS', $user->getFullName());
-        $this->assertSame(null, $user->getSalt());
-        $this->assertSame('mathieu.marchois@beta.gouv.fr', $user->getUsername());
-        $this->assertSame('mathieu.marchois@beta.gouv.fr', $user->getUserIdentifier());
-        $this->assertSame('password', $user->getPassword());
-        $this->assertSame($organizations, $user->getOrganizations());
-        $this->assertSame(['133fb411-7754-4749-9590-ce05a2abe108'], $user->getOrganizationUuids());
-        $this->assertEmpty($user->eraseCredentials());
+        $this->assertSame('2d3724f1-2910-48b4-ba56-81796f6e100b', $symfonyUser->getUuid());
+        $this->assertSame(['ROLE_USER'], $symfonyUser->getRoles());
+        $this->assertSame('Mathieu', $symfonyUser->getFirstName());
+        $this->assertSame('MARCHOIS', $symfonyUser->getLastName());
+        $this->assertSame(null, $symfonyUser->getSalt());
+        $this->assertSame('mathieu.marchois@gmail.com', $symfonyUser->getUsername());
+        $this->assertSame('mathieu.marchois@gmail.com', $symfonyUser->getUserIdentifier());
+        $this->assertSame('password', $symfonyUser->getPassword());
+        $this->assertSame('profil.jpeg', $symfonyUser->getAvatar());
+        $this->assertEmpty($symfonyUser->eraseCredentials());
+        $this->assertFalse($symfonyUser->isVerified());
+        $this->assertFalse($symfonyUser->isComplete());
     }
 }

@@ -1,3 +1,10 @@
+# Allow referring to environment variables defined in .env.
+# See: https://lithic.tech/blog/2020-05/makefile-dot-env
+ifneq (,$(wildcard ./.env))
+	include .env
+	export
+endif
+
 .PHONY: assets
 
 # Allow non-Docker overrides for CI.
@@ -8,7 +15,6 @@ BIN_CONSOLE = ${_SYMFONY} console
 BIN_COMPOSER = ${_SYMFONY} composer
 BIN_NPM = ${_DOCKER_EXEC_PHP} npm
 BIN_NPX = ${_DOCKER_EXEC_PHP} npx
-_DOCKER_COMPOSE_ADDOK = docker-compose -f ./docker-compose-addok.yml
 
 ##
 ## ----------------
@@ -18,7 +24,7 @@ _DOCKER_COMPOSE_ADDOK = docker-compose -f ./docker-compose-addok.yml
 
 all: help
 
-help: ## Display this message
+help: ## Table des matières
 	@grep -E '(^[a-zA-Z0-9_\-\.]+:.*?##.*$$)|(^##)' Makefile | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m## /[33m/'
 
 install: build start install_deps dbinstall assets ## Bootstrap project
@@ -27,7 +33,7 @@ install_deps: ## Install dependencies
 	make composer CMD="install -n --prefer-dist"
 	$(BIN_NPM) ci
 
-update_deps:
+update_deps: ## Update dependencies
 	make composer CMD="update"
 	$(BIN_NPM) update
 
@@ -57,10 +63,10 @@ rm: ## Remove containers
 ##
 
 dbinstall: ## Setup databases
-	#make dbmigrate
-	#make console CMD="doctrine:database:create --env=test --if-not-exists"
-	#make dbmigrate ARGS="--env=test"
-	#make dbfixtures
+	make dbmigrate
+	make console CMD="doctrine:database:create --env=test --if-not-exists"
+	make dbmigrate ARGS="--env=test"
+	make dbfixtures
 
 dbmigration: ## Generate new db migration
 	${BIN_CONSOLE} doctrine:migrations:diff
@@ -69,7 +75,7 @@ dbmigrate: ## Run db migration
 	${BIN_CONSOLE} doctrine:migrations:migrate -n --all-or-nothing ${ARGS}
 
 dbshell: ## Connect to the database
-	docker-compose exec database psql postgresql://moment:moment@database:5432/moment
+	docker-compose exec database psql ${DATABASE_URL}
 
 dbfixtures: ## Load tests fixtures
 	make console CMD="doctrine:fixtures:load --env=test -n --purge-with-truncate"
@@ -98,7 +104,7 @@ watch: ## Watch assets
 assets: ## Build assets
 	$(BIN_NPM) run build
 
-shell: ## Connect to the container
+shell: ## Connect to the PHP container
 	docker-compose exec php bash
 
 ##
@@ -131,7 +137,11 @@ check: ## Run checks
 	make psr_lint
 	make twig_lint
 	make phpstan
+	${BIN_NPM} run check
 	${BIN_CONSOLE} doctrine:schema:validate
+
+format: php_lint ## Format code
+	${BIN_NPM} run format
 
 ##
 ## ----------------
@@ -143,7 +153,7 @@ test: ## Run the test suite
 	${BIN_PHP} ${OPTIONS} ./bin/phpunit ${ARGS}
 
 test_cov: ## Run the test suite (with code coverage)
-	make test OPTIONS="-d xdebug.mode=coverage" ARGS="${ARGS} --coverage-html coverage --coverage-clover coverage.xml"
+	make test OPTIONS="-d xdebug.mode=coverage" ARGS="--coverage-html coverage --coverage-clover coverage.xml"
 
 test_unit: ## Run unit tests only
 	${BIN_PHP} ./bin/phpunit --testsuite=Unit ${ARGS}
@@ -164,16 +174,3 @@ ci: ## Run CI steps
 	make dbfixtures
 	make check
 	make test_cov
-
-##
-## ----------------
-## Prod
-## ----------------
-##
-
-scalingo-node-postbuild: ## Scalingo postbuild hook for the Node buildpack
-	make assets
-
-scalingo-postdeploy: ## Scalingo postdeploy hook
-	@echo 'Executing migrations...'
-	${BIN_CONSOLE} doctrine:migrations:migrate --no-interaction

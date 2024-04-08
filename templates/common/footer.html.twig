@@ -1,54 +1,102 @@
+<footer>
+    <div class="j-container" style="--container-width: calc(120 * var(--w))">
+        <div class="j-cluster j-box" style="--cluster-justify: space-between; --cluster-gap: calc(4 * var(--w)); --box-padding: calc(4 * var(--w)) 0">
+            <div class="j-max-w" style="--max-w: 20ch">
+                <img src="{{ asset('images/logo-blanc.svg') }}" alt="{{ 'common.title'|trans }}" width="200px">
 
-<footer class="fr-footer" role="contentinfo" id="footer">
-    <div class="fr-container">
-        <div class="fr-footer__body">
-            <div class="fr-footer__brand fr-enlarge-link">
-                <a href="{{ path(mainPath) }}" title="{{ 'common.back_to_home'|trans }}">
-                    <p class="fr-logo">{{ 'common.ministry'|trans|raw }}</p>
-                </a>
+                <div>
+                    {{ 'common.tagline'|trans }}
+                </div>
             </div>
-            <div class="fr-footer__content">
-                <p class="fr-footer__content-desc">{{ 'common.slogan'|trans }}</p>
-                <ul class="fr-footer__content-list">
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" href="https://legifrance.gouv.fr" target="_blank">legifrance.gouv.fr</a>
-                    </li>
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" href="https://gouvernement.fr" target="_blank">gouvernement.fr</a>
-                    </li>
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" href="https://service-public.fr" target="_blank">service-public.fr</a>
-                    </li>
-                    <li class="fr-footer__content-item">
-                        <a class="fr-footer__content-link" href="https://data.gouv.fr" target="_blank">data.gouv.fr</a>
-                    </li>
-                </ul>
+            <div class="j-cluster" style="--cluster-gap: calc(4 * var(--w))">
+                <div class="j-stack">
+                    <div class="j-h3">
+                        {{ 'common.title'|trans }}
+                    </div>
+                    <ul class="j-raw-list j-stack j-text-small">
+                        <li>
+                            <a href="{{ path('app_events_list') }}">
+                                {{ 'nav.events'|trans }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                {{ 'footer.flatsharing'|trans }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                {{ 'footer.about_us'|trans }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_posts_list') }}">
+                                {{ 'footer.articles'|trans }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="j-stack">
+                    <div class="j-h3">
+                        {{ 'footer.join'|trans }}
+                    </div>
+                    <ul class="j-raw-list j-cluster j-text-small" style="--cluster-gap: var(--w)">
+                        <li>
+                            <a href="{{ path('app_login') }}" class="j-btn j-btn--secondary j-btn--yellow">
+                                {{ 'nav.login'|trans }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_register') }}" class="j-btn j-btn--yellow">
+                                {{ 'nav.register'|trans }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="j-stack">
+                    <div class="j-h3">
+                        {{ 'footer.contact'|trans }}
+                    </div>
+                    <div>
+                        <a href="mailto:contact@moment.fr" class="j-text-small">
+                            contact@moment.fr
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="fr-footer__bottom">
-            <ul class="fr-footer__bottom-list">
-                <li class="fr-footer__bottom-item">
-                    <a href="{{ path('app_accessibility_statement') }}" class="fr-footer__bottom-link">{{ 'accessibility.status'|trans }}</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a href="{{ path('app_ecodesign_statement') }}" class="fr-footer__bottom-link">{{ 'ecodesign_statement.link'|trans }}</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="{{ path('app_legal') }}">{{ 'legal.title'|trans }}</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="#">{{ 'common.privacy'|trans }}</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="{{ path('app_stats') }}">{{ 'statistics.title'|trans }}</a>
-                </li>
-                <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="https://github.com/MTES-MCT/dialog" target="_blank" rel="noreferrer">{{ 'source_code.title'|trans }}</a>
-                </li>
-            </ul>
-            <div class="fr-footer__bottom-copy">
-                <p>{{ 'common.licence'|trans|raw }}</p>
-            </div>
+
+        <hr/>
+
+        <div class="j-cluster j-box" style="--cluster-justify: space-between; --cluster-align: center; --cluster-gap: calc(2 * var(--w)); --box-padding: calc(2 * var(--w)) 0">
+            <small lang="en">{{ 'footer.freepik_disclaimer'|trans }}</small>
+
+            <hr class="j-mobile-only">
+
+            <nav id="footer-nav" class="j-text-small" aria-label="{{ 'nav.footer'|trans }}">
+                <ul class="j-raw-list">
+                    <li>
+                        <a href="{{ path('app_legals') }}">
+                            {{ 'nav.legals'|trans }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_cgu') }}">
+                            {{ 'nav.terms.short'|trans }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_privacy') }}">
+                            {{ 'nav.privacy'|trans }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_cookies') }}">
+                            {{ 'nav.cookies'|trans }}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </footer>
