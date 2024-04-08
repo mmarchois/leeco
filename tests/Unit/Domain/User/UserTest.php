@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit\Domain\User;
 
-use App\Domain\User\Enum\GenderEnum;
 use App\Domain\User\User;
 use PHPUnit\Framework\TestCase;
 

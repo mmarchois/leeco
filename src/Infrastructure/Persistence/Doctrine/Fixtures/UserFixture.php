@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Persistence\Doctrine\Fixtures;
 
-use App\Domain\User\Enum\GenderEnum;
-use App\Domain\User\Enum\UserRoleEnum;
 use App\Domain\User\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;

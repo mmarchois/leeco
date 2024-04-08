@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit\Application\User\Command;
 
-use App\Application\DateUtilsInterface;
 use App\Application\IdFactoryInterface;
 use App\Application\PasswordHasherInterface;
 use App\Application\User\Command\RegisterUserCommand;
@@ -23,7 +22,6 @@ final class RegisterUserCommandHandlerTest extends TestCase
     private MockObject $passwordHasher;
     private MockObject $idFactory;
     private MockObject $isUserAlreadyRegistered;
-    private MockObject $dateUtils;
     private RegisterUserCommand $command;
 
     public function setUp(): void
@@ -31,7 +29,6 @@ final class RegisterUserCommandHandlerTest extends TestCase
         $this->userRepository = $this->createMock(UserRepositoryInterface::class);
         $this->passwordHasher = $this->createMock(PasswordHasherInterface::class);
         $this->idFactory = $this->createMock(IdFactoryInterface::class);
-        $this->dateUtils = $this->createMock(DateUtilsInterface::class);
         $this->isUserAlreadyRegistered = $this->createMock(IsUserAlreadyRegistered::class);
 
         $command = new RegisterUserCommand();
@@ -39,8 +36,6 @@ final class RegisterUserCommandHandlerTest extends TestCase
         $command->lastName = 'MARCHOIS';
         $command->email = '  mathieu.marchois@gmail.com   ';
         $command->password = 'password';
-        $command->birthday = new \DateTime('1989-09-17');
-        $command->howYouHeardAboutUs = 'Par les réseaux sociaux';
 
         $this->command = $command;
     }
@@ -65,22 +60,13 @@ final class RegisterUserCommandHandlerTest extends TestCase
             ->method('hash')
             ->willReturn('hashedPassword');
 
-        $this->dateUtils
-            ->expects(self::once())
-            ->method('getNow')
-            ->willReturn($registration);
-
         $user = new User(
             '0b507871-8b5e-4575-b297-a630310fc06e',
             'Mathieu',
             'MARCHOIS',
             'mathieu.marchois@gmail.com',
             'hashedPassword',
-            UserRoleEnum::ROLE_USER->value,
-            new \DateTime('1989-09-17'),
-            $registration,
             false,
-            'Par les réseaux sociaux',
         );
 
         $this->userRepository
@@ -94,7 +80,6 @@ final class RegisterUserCommandHandlerTest extends TestCase
             $this->passwordHasher,
             $this->idFactory,
             $this->isUserAlreadyRegistered,
-            $this->dateUtils,
         );
 
         $this->assertEquals($user, ($handler)($this->command));
@@ -122,16 +107,11 @@ final class RegisterUserCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('add');
 
-        $this->dateUtils
-            ->expects(self::never())
-            ->method('getNow');
-
         $handler = new RegisterUserCommandHandler(
             $this->userRepository,
             $this->passwordHasher,
             $this->idFactory,
             $this->isUserAlreadyRegistered,
-            $this->dateUtils,
         );
 
         ($handler)($this->command);
