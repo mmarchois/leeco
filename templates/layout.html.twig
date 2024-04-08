@@ -1,4 +1,3 @@
-{% set mainPath = app.user ? 'app_regulations_list' : 'app_landing' %}
 <!doctype html>
 <html lang="fr">
   <head>
@@ -19,18 +18,9 @@
   </head>
 
   <body>
-    {% if app.user and app.current_route != 'app_home' %}
-        {% include 'common/header_authenticated.html.twig' %}
-    {% else %}
-        {% include 'common/header_anonymous.html.twig' %}
-    {% endif %}
-
     {% include 'common/flashes.html.twig' with {flashes: app.flashes} only %}
-
-    {% block main_tag %}<main>{% endblock %}
+    <main>
         {% block main %}{% endblock %}
     </main>
-
-    {% include 'common/footer.html.twig' %}
   </body>
 </html>
