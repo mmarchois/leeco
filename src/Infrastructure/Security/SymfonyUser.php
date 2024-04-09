@@ -76,12 +76,4 @@ final class SymfonyUser implements UserInterface, PasswordAuthenticatedUserInter
     public function eraseCredentials(): void
     {
     }
-
-    public function update(User $user): void
-    {
-        $this->email = $user->getEmail();
-        $this->firstName = $user->getFirstName();
-        $this->lastName = $user->getLastName();
-        $this->password = $user->getPassword();
-    }
 }

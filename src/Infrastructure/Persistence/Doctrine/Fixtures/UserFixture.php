@@ -21,6 +21,15 @@ final class UserFixture extends Fixture
             true,
         );
 
+        $user2 = new User(
+            '1b27c32f-c07b-48a5-9bd1-83bd02281e20',
+            'Raphaël',
+            'MARCHOIS',
+            'raphael.marchois@gmail.com',
+            'password123',
+            true,
+        );
+
         $userNotVerified = new User(
             'cbb1f1ac-8343-474c-8e8a-b7c98384da9a',
             'Hélène',
@@ -31,10 +40,12 @@ final class UserFixture extends Fixture
         );
 
         $manager->persist($user);
+        $manager->persist($user2);
         $manager->persist($userNotVerified);
         $manager->flush();
 
         $this->addReference('user', $user);
+        $this->addReference('user2', $user2);
         $this->addReference('userNotVerified', $userNotVerified);
     }
 }

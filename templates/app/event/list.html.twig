@@ -1,0 +1,34 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ 'events.title'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ 'events.title'|trans }}</h1>
+
+    <table data-testid="event-list">
+        <thead>
+            <tr>
+                <th>{{ 'events.list.event'|trans }}</th>
+                <th>{{ 'events.list.date'|trans }}</th>
+                <th>{{ 'common.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in paginatedEvents.items %}
+                <tr>
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.date|date('d/m/Y') }}</td>
+                    <td>Action</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">
+                        {{ 'events.list.empty'|trans }}
+                    </td>
+                </tr>
+            {% endfor %}
+        <tbody>
+    </table>
+{% endblock main %}
