@@ -8,7 +8,6 @@ use App\Application\IdFactoryInterface;
 use App\Application\PasswordHasherInterface;
 use App\Application\User\Command\RegisterUserCommand;
 use App\Application\User\Command\RegisterUserCommandHandler;
-use App\Domain\User\Enum\UserRoleEnum;
 use App\Domain\User\Exception\UserAlreadyRegisteredException;
 use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Domain\User\Specification\IsUserAlreadyRegistered;

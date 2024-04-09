@@ -6,18 +6,6 @@
                 <source>login.error.user_already_registered</source>
                 <target>Un compte est déjà associé à cette adresse e-mail.</target>
             </trans-unit>
-            <trans-unit id="register.error.minimum_age_to_register">
-                <source>register.error.minimum_age_to_register</source>
-                <target>La mission de Moment étant de contribuer au “mieux vieillir”, la plateforme est réservée aux plus de 55 ans.</target>
-            </trans-unit>
-            <trans-unit id="profile.error.old_password">
-                <source>profile.error.old_password</source>
-                <target>Votre ancien mot de passe ne correspond pas</target>
-            </trans-unit>
-            <trans-unit id="profile.error.file">
-                <source>profile.error.file</source>
-                <target>Merci de fournir un format d'image valide (.jpg, .jpeg, .png, .webp)</target>
-            </trans-unit>
         </body>
     </file>
 </xliff>

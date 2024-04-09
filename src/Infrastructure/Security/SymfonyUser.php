@@ -16,7 +16,6 @@ final class SymfonyUser implements UserInterface, PasswordAuthenticatedUserInter
     private string $lastName;
     private string $password;
     private bool $isVerified;
-    private array $roles;
 
     public function __construct(
         User $user,

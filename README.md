@@ -1,7 +1,7 @@
 # Moment
 
-[![CI](https://github.com/fairnesscoop/moment/actions/workflows/ci.yml/badge.svg)](https://github.com/fairnesscoop/moment/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/fairnesscoop/moment/branch/main/graph/badge.svg?token=QNKMUJHQDK)](https://codecov.io/gh/fairnesscoop/moment)
+[![CI](https://github.com/mmarchois/moment/actions/workflows/ci.yml/badge.svg)](https://github.com/mmarchois/moment/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/mmarchois/moment/graph/badge.svg?token=6CID087H72)](https://codecov.io/gh/mmarchois/moment)
 
 ## Environnement technique
 
