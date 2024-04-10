@@ -158,6 +158,26 @@
                 <source>reset_password.token.error</source>
                 <target>Le changement de mot de passe a échoué, veuillez faire une nouvelle demande.</target>
             </trans-unit>
+            <trans-unit id="events.title">
+                <source>events.title</source>
+                <target>Vos évènements</target>
+            </trans-unit>
+            <trans-unit id="events.list.empty">
+                <source>events.list.empty</source>
+                <target>Vous n'avez pas encore d'évènement.</target>
+            </trans-unit>
+            <trans-unit id="events.list.event">
+                <source>events.list.event</source>
+                <target>Évènement</target>
+            </trans-unit>
+            <trans-unit id="events.list.date">
+                <source>events.list.date</source>
+                <target>Date</target>
+            </trans-unit>
+            <trans-unit id="common.actions">
+                <source>common.actions</source>
+                <target>Actions</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
