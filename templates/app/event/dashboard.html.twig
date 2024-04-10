@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ event.title }} - {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ event.title }}</h1>
+{% endblock main %}

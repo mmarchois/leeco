@@ -17,7 +17,7 @@ final class IsEventAlreadyExistTest extends TestCase
         $eventRepository = $this->createMock(EventRepositoryInterface::class);
         $eventRepository
             ->expects(self::once())
-            ->method('findEventByTitleAndOwner')
+            ->method('findOneByTitleAndOwner')
             ->with('Mariage H&M', '6202205c-d16f-4dc8-b8da-b3cd31539a08')
             ->willReturn($event);
 
@@ -30,7 +30,7 @@ final class IsEventAlreadyExistTest extends TestCase
         $eventRepository = $this->createMock(EventRepositoryInterface::class);
         $eventRepository
             ->expects(self::once())
-            ->method('findEventByTitleAndOwner')
+            ->method('findOneByTitleAndOwner')
             ->with('Mariage H&M', '6202205c-d16f-4dc8-b8da-b3cd31539a08')
             ->willReturn(null);
 

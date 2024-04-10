@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Persistence\Doctrine\Repository\Event;
 
+use App\Application\Event\View\EventView;
 use App\Application\Event\View\SummarizedEventView;
 use App\Domain\Event\Event;
 use App\Domain\Event\Repository\EventRepositoryInterface;
@@ -59,7 +60,7 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
         return $result;
     }
 
-    public function findEventByTitleAndOwner(string $title, string $ownerUuid): ?Event
+    public function findOneByTitleAndOwner(string $title, string $ownerUuid): ?Event
     {
         return $this->createQueryBuilder('e')
             ->where('e.owner = :ownerUuid')
@@ -67,6 +68,28 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
             ->setParameters([
                 'ownerUuid' => $ownerUuid,
                 'title' => $title,
+            ])
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    public function findOneByUuidAndOwner(string $uuid, string $ownerUuid): ?EventView
+    {
+        return $this->createQueryBuilder('e')
+            ->select(sprintf(
+                'NEW %s(
+                    e.uuid,
+                    e.title
+                )',
+                EventView::class,
+            ))
+            ->where('e.uuid = :uuid')
+            ->andWhere('e.owner = :ownerUuid')
+            ->setParameters([
+                'uuid' => $uuid,
+                'ownerUuid' => $ownerUuid,
             ])
             ->setMaxResults(1)
             ->getQuery()

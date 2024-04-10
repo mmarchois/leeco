@@ -20,7 +20,11 @@
                 <tr>
                     <td>{{ event.title }}</td>
                     <td>{{ event.date|date('d/m/Y') }}</td>
-                    <td>Action</td>
+                    <td>
+                        <a href="{{ path('app_events_dashboard', { uuid: event.uuid }) }}">
+                            {{ 'common.see'|trans }}
+                        </a>
+                    </td>
                 </tr>
             {% else %}
                 <tr>
