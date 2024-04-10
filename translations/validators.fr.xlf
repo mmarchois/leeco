@@ -6,6 +6,10 @@
                 <source>login.error.user_already_registered</source>
                 <target>Un compte est déjà associé à cette adresse e-mail.</target>
             </trans-unit>
+            <trans-unit id="events.error.already_exist">
+                <source>events.error.already_exist</source>
+                <target>Un évènement avec ce nom existe déjà.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -12,4 +12,9 @@ final class DateUtilsMock implements DateUtilsInterface
     {
         return new \DateTimeImmutable('2023-08-25');
     }
+
+    public function addDaysToDate(\DateTimeInterface $date, int $days): \DateTimeImmutable
+    {
+        return new \DateTimeImmutable('2023-09-30');
+    }
 }
