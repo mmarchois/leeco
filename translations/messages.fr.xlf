@@ -6,6 +6,10 @@
                 <source>common.title</source>
                 <target>Moment</target>
             </trans-unit>
+            <trans-unit id="common.save">
+                <source>common.save</source>
+                <target>Sauvegarder</target>
+            </trans-unit>
             <trans-unit id="common.form.password.display">
                 <source>common.form.password.display</source>
                 <target>Afficher le mot de passe</target>
@@ -177,6 +181,18 @@
             <trans-unit id="common.actions">
                 <source>common.actions</source>
                 <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="events.add.title">
+                <source>events.add.title</source>
+                <target>Ajouter un évènement</target>
+            </trans-unit>
+            <trans-unit id="events.form.title">
+                <source>events.form.title</source>
+                <target>Nom de l'évènement</target>
+            </trans-unit>
+            <trans-unit id="events.form.date">
+                <source>events.form.date</source>
+                <target>Date de l'évènement</target>
             </trans-unit>
         </body>
     </file>

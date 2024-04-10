@@ -19,6 +19,13 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
         parent::__construct($registry, Event::class);
     }
 
+    public function add(Event $event): Event
+    {
+        $this->getEntityManager()->persist($event);
+
+        return $event;
+    }
+
     public function findEventsByOwner(string $ownerUuid, int $pageSize, int $page): array
     {
         $qb = $this->createQueryBuilder('e')
@@ -50,5 +57,20 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
         }
 
         return $result;
+    }
+
+    public function findEventByTitleAndOwner(string $title, string $ownerUuid): ?Event
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.owner = :ownerUuid')
+            ->andWhere('e.title = :title')
+            ->setParameters([
+                'ownerUuid' => $ownerUuid,
+                'title' => $title,
+            ])
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
     }
 }

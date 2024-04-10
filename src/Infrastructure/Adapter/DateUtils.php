@@ -12,4 +12,10 @@ final class DateUtils implements DateUtilsInterface
     {
         return new \DateTimeImmutable('now');
     }
+
+    public function addDaysToDate(\DateTimeInterface $date, int $days): \DateTimeImmutable
+    {
+        return (new \DateTimeImmutable($date->format('Y-m-d')))
+            ->add(new \DateInterval(sprintf('P%dD', $days)));
+    }
 }
