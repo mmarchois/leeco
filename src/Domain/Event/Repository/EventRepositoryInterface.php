@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Event\Repository;
 
+use App\Application\Event\View\EventView;
 use App\Domain\Event\Event;
 
 interface EventRepositoryInterface
@@ -12,5 +13,7 @@ interface EventRepositoryInterface
 
     public function findEventsByOwner(string $ownerUuid, int $pageSize, int $page): array;
 
-    public function findEventByTitleAndOwner(string $title, string $ownerUuid): ?Event;
+    public function findOneByTitleAndOwner(string $title, string $ownerUuid): ?Event;
+
+    public function findOneByUuidAndOwner(string $uuid, string $ownerUuid): ?EventView;
 }

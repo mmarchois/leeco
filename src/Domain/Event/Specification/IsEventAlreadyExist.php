@@ -16,6 +16,6 @@ final class IsEventAlreadyExist
 
     public function isSatisfiedBy(string $userUuid, string $title): bool
     {
-        return $this->eventRepository->findEventByTitleAndOwner($title, $userUuid) instanceof Event;
+        return $this->eventRepository->findOneByTitleAndOwner($title, $userUuid) instanceof Event;
     }
 }

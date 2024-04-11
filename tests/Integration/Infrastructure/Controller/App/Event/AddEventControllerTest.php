@@ -23,9 +23,11 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $form['event_form[title]'] = 'Mariage cousins';
         $form['event_form[date]'] = '2023-02-14';
         $client->submit($form);
-        $client->followRedirect();
+        $crawler = $client->followRedirect();
+
         $this->assertResponseStatusCodeSame(200);
-        $this->assertRouteSame('app_events_list');
+        $this->assertRouteSame('app_events_dashboard');
+        $this->assertSame('Mariage cousins', $crawler->filter('h1')->text());
     }
 
     public function testInvalidData(): void
