@@ -16,4 +16,6 @@ interface EventRepositoryInterface
     public function findOneByTitleAndOwner(string $title, string $ownerUuid): ?Event;
 
     public function findOneByUuidAndOwner(string $uuid, string $ownerUuid): ?EventView;
+
+    public function findOneByUuid(string $uuid): ?Event;
 }

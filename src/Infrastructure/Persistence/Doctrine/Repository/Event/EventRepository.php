@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Infrastructure\Persistence\Doctrine\Repository\Event;
 
 use App\Application\Event\View\EventView;
-use App\Application\Event\View\SummarizedEventView;
 use App\Domain\Event\Event;
 use App\Domain\Event\Repository\EventRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -36,7 +35,7 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
                     e.title,
                     e.date
                 )',
-                SummarizedEventView::class,
+                EventView::class,
             ))
             ->orderBy('e.date', 'DESC')
             ->where('e.owner = :ownerUuid')
@@ -81,7 +80,8 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
             ->select(sprintf(
                 'NEW %s(
                     e.uuid,
-                    e.title
+                    e.title,
+                    e.date
                 )',
                 EventView::class,
             ))
@@ -90,6 +90,19 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
             ->setParameters([
                 'uuid' => $uuid,
                 'ownerUuid' => $ownerUuid,
+            ])
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    public function findOneByUuid(string $uuid): ?Event
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.uuid = :uuid')
+            ->setParameters([
+                'uuid' => $uuid,
             ])
             ->setMaxResults(1)
             ->getQuery()
