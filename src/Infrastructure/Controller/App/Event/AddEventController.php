@@ -39,8 +39,8 @@ final class AddEventController
     )]
     public function __invoke(Request $request): Response
     {
-        $ownerUuid = $this->authenticatedUser->getUser()->getUuid();
-        $command = new SaveEventCommand($ownerUuid);
+        $userUuid = $this->authenticatedUser->getUser()->getUuid();
+        $command = new SaveEventCommand($userUuid);
         $form = $this->formFactory->create(EventFormType::class, $command, [
             'action' => $this->router->generate('app_events_add'),
         ]);
@@ -55,7 +55,7 @@ final class AddEventController
             } catch (EventAlreadyExistException) {
                 $commandFailed = true;
                 $form->get('title')->addError(
-                    new FormError($this->translator->trans('events.error.already_exist', [], 'validators')),
+                    new FormError($this->translator->trans('event.error.already_exist', [], 'validators')),
                 );
             }
         }

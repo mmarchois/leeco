@@ -1,10 +1,10 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}
-    {{ 'events.edit.title'|trans({ '%title%': event.title }) }} - {{ parent() }}
+    {{ 'event.edit.title'|trans({ '%title%': event.title }) }} - {{ parent() }}
 {% endblock %}
 
 {% block main %}
-    <h1>{{ 'events.edit.title'|trans({ '%title%': event.title }) }}</h1>
+    <h1>{{ 'event.edit.title'|trans({ '%title%': event.title }) }}</h1>
     {{ form(form) }}
 {% endblock main %}

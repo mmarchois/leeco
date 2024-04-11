@@ -11,11 +11,11 @@ interface EventRepositoryInterface
 {
     public function add(Event $event): Event;
 
-    public function findEventsByOwner(string $ownerUuid, int $pageSize, int $page): array;
+    public function findEventsByOwner(string $userUuid, int $pageSize, int $page): array;
 
-    public function findOneByTitleAndOwner(string $title, string $ownerUuid): ?Event;
+    public function findOneByTitleAndOwner(string $title, string $userUuid): ?Event;
 
-    public function findOneByUuidAndOwner(string $uuid, string $ownerUuid): ?EventView;
+    public function findOneByUuidAndOwner(string $uuid, string $userUuid): ?EventView;
 
     public function findOneByUuid(string $uuid): ?Event;
 }

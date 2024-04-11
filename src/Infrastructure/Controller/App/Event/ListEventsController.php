@@ -34,8 +34,8 @@ final class ListEventsController
             throw new BadRequestHttpException();
         }
 
-        $ownerUuid = $this->authenticatedUser->getUser()->getUuid();
-        $paginatedEvents = $this->queryBus->handle(new GetEventsByOwnerQuery($ownerUuid, $page, $pageSize));
+        $userUuid = $this->authenticatedUser->getUser()->getUuid();
+        $paginatedEvents = $this->queryBus->handle(new GetEventsByOwnerQuery($userUuid, $page, $pageSize));
 
         return new Response(
             content: $this->twig->render(
