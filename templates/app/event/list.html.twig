@@ -24,6 +24,9 @@
                         <a href="{{ path('app_events_dashboard', { uuid: event.uuid }) }}">
                             {{ 'common.see'|trans }}
                         </a>
+                        <a href="{{ path('app_events_edit', { uuid: event.uuid }) }}">
+                            {{ 'common.edit'|trans }}
+                        </a>
                     </td>
                 </tr>
             {% else %}

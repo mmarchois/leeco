@@ -6,4 +6,7 @@
 
 {% block main %}
     <h1>{{ event.title }}</h1>
+     <a href="{{ path('app_events_edit', { uuid: event.uuid }) }}">
+        {{ 'common.edit'|trans }}
+    </a>
 {% endblock main %}

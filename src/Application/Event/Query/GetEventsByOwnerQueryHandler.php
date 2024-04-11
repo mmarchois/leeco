@@ -7,14 +7,14 @@ namespace App\Application\Event\Query;
 use App\Domain\Event\Repository\EventRepositoryInterface;
 use App\Domain\Pagination;
 
-final class GetSummarizedEventsByOwnerQueryHandler
+final class GetEventsByOwnerQueryHandler
 {
     public function __construct(
         private EventRepositoryInterface $eventRepository,
     ) {
     }
 
-    public function __invoke(GetSummarizedEventsByOwnerQuery $query): Pagination
+    public function __invoke(GetEventsByOwnerQuery $query): Pagination
     {
         ['events' => $events, 'count' => $count] = $this->eventRepository->findEventsByOwner(
             $query->ownerUuid,

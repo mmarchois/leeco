@@ -41,4 +41,14 @@ class Event
     {
         return $this->owner;
     }
+
+    public function update(
+        string $title,
+        \DateTimeInterface $date,
+        \DateTimeInterface $expirationDate,
+    ): void {
+        $this->title = $title;
+        $this->date = $date;
+        $this->expirationDate = $expirationDate;
+    }
 }

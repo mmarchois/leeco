@@ -14,6 +14,10 @@
                 <source>common.see</source>
                 <target>Voir</target>
             </trans-unit>
+            <trans-unit id="common.edit">
+                <source>common.edit</source>
+                <target>Modifier</target>
+            </trans-unit>
             <trans-unit id="common.form.password.display">
                 <source>common.form.password.display</source>
                 <target>Afficher le mot de passe</target>
@@ -197,6 +201,10 @@
             <trans-unit id="events.form.date">
                 <source>events.form.date</source>
                 <target>Date de l'évènement</target>
+            </trans-unit>
+            <trans-unit id="events.edit.title">
+                <source>events.edit.title</source>
+                <target>Modifier l'évènement "%title%"</target>
             </trans-unit>
         </body>
     </file>

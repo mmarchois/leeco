@@ -16,7 +16,7 @@ final class GetEventByOwnerQueryHandlerTest extends TestCase
     public function testGetEvent(): void
     {
         $eventRepository = $this->createMock(EventRepositoryInterface::class);
-        $expectedResult = new EventView('33795ae7-395a-440a-9fa8-f72343d62eb0', 'Mariage H&M');
+        $expectedResult = new EventView('33795ae7-395a-440a-9fa8-f72343d62eb0', 'Mariage H&M', new \DateTime('2023-01-01'));
 
         $eventRepository
             ->expects(self::once())
