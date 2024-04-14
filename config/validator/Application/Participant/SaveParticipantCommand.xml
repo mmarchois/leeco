@@ -2,19 +2,25 @@
 <constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping https://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
-    <class name="App\Application\Event\Command\SaveEventCommand">
-        <property name="title">
+    <class name="App\Application\Participant\Command\SaveParticipantCommand">
+        <property name="firstName">
             <constraint name="NotBlank" />
             <constraint name="Length">
                 <option name="max">100</option>
             </constraint>
         </property>
-        <property name="date">
+        <property name="lastName">
             <constraint name="NotBlank" />
-            <constraint name="Type">
-                <option name="type">\DateTimeInterface</option>
+            <constraint name="Length">
+                <option name="max">100</option>
             </constraint>
-            <constraint name="GreaterThan">today</constraint>
+        </property>
+        <property name="email">
+            <constraint name="NotBlank" />
+            <constraint name="Email" />
+            <constraint name="Length">
+                <option name="max">100</option>
+            </constraint>
         </property>
     </class>
 </constraint-mapping>

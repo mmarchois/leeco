@@ -21,7 +21,7 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();
         $form['event_form[title]'] = 'Mariage cousins';
-        $form['event_form[date]'] = '2023-02-14';
+        $form['event_form[date]'] = '2035-10-14'; // Deliberately set a date far in the future
         $client->submit($form);
         $crawler = $client->followRedirect();
 
@@ -37,6 +37,7 @@ final class AddEventControllerTest extends AbstractWebTestCase
 
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();
+
         // Empty data
         $form['event_form[title]'] = '';
         $form['event_form[date]'] = '';
@@ -54,6 +55,13 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(422);
         $this->assertSame('Cette chaîne est trop longue. Elle doit avoir au maximum 100 caractères.', $crawler->filter('#event_form_title_error')->text());
         $this->assertSame('Veuillez entrer une date valide.', $crawler->filter('#event_form_date_error')->text());
+
+        // Date in the past
+        $form['event_form[date]'] = '2024-01-01';
+        $crawler = $client->submit($form);
+
+        $this->assertResponseStatusCodeSame(422);
+        $this->assertStringStartsWith('Cette valeur doit être supérieure à', $crawler->filter('#event_form_date_error')->text());
     }
 
     public function testEventAlreadyExist(): void
@@ -65,7 +73,7 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $form = $saveButton->form();
 
         $form['event_form[title]'] = 'Mariage H&M';
-        $form['event_form[date]'] = '2023-01-01';
+        $form['event_form[date]'] = '2035-10-25'; // Deliberately set a date far in the future
         $crawler = $client->submit($form);
 
         $this->assertResponseStatusCodeSame(422);
