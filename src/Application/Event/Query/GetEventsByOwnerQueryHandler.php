@@ -17,7 +17,7 @@ final class GetEventsByOwnerQueryHandler
     public function __invoke(GetEventsByOwnerQuery $query): Pagination
     {
         ['events' => $events, 'count' => $count] = $this->eventRepository->findEventsByOwner(
-            $query->ownerUuid,
+            $query->userUuid,
             $query->pageSize,
             $query->page,
         );

@@ -26,7 +26,7 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
         return $event;
     }
 
-    public function findEventsByOwner(string $ownerUuid, int $pageSize, int $page): array
+    public function findEventsByOwner(string $userUuid, int $pageSize, int $page): array
     {
         $qb = $this->createQueryBuilder('e')
             ->select(sprintf(
@@ -38,8 +38,8 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
                 EventView::class,
             ))
             ->orderBy('e.date', 'DESC')
-            ->where('e.owner = :ownerUuid')
-            ->setParameter('ownerUuid', $ownerUuid)
+            ->where('e.owner = :userUuid')
+            ->setParameter('userUuid', $userUuid)
             ->setFirstResult($pageSize * ($page - 1))
             ->setMaxResults($pageSize);
 
@@ -59,13 +59,13 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
         return $result;
     }
 
-    public function findOneByTitleAndOwner(string $title, string $ownerUuid): ?Event
+    public function findOneByTitleAndOwner(string $title, string $userUuid): ?Event
     {
         return $this->createQueryBuilder('e')
-            ->where('e.owner = :ownerUuid')
+            ->where('e.owner = :userUuid')
             ->andWhere('e.title = :title')
             ->setParameters([
-                'ownerUuid' => $ownerUuid,
+                'userUuid' => $userUuid,
                 'title' => $title,
             ])
             ->setMaxResults(1)
@@ -74,7 +74,7 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
         ;
     }
 
-    public function findOneByUuidAndOwner(string $uuid, string $ownerUuid): ?EventView
+    public function findOneByUuidAndOwner(string $uuid, string $userUuid): ?EventView
     {
         return $this->createQueryBuilder('e')
             ->select(sprintf(
@@ -86,10 +86,10 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
                 EventView::class,
             ))
             ->where('e.uuid = :uuid')
-            ->andWhere('e.owner = :ownerUuid')
+            ->andWhere('e.owner = :userUuid')
             ->setParameters([
                 'uuid' => $uuid,
-                'ownerUuid' => $ownerUuid,
+                'userUuid' => $userUuid,
             ])
             ->setMaxResults(1)
             ->getQuery()

@@ -16,10 +16,10 @@ final class EventFormType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'events.form.title',
+                'label' => 'event.form.title',
             ])
             ->add('date', DateType::class, [
-                'label' => 'events.form.date',
+                'label' => 'event.form.date',
                 'widget' => 'single_text',
             ])
             ->add('save', SubmitType::class, [

@@ -6,7 +6,10 @@
 
 {% block main %}
     <h1>{{ event.title }}</h1>
-     <a href="{{ path('app_events_edit', { uuid: event.uuid }) }}">
+    <a href="{{ path('app_events_edit', { uuid: event.uuid }) }}">
         {{ 'common.edit'|trans }}
+    </a>
+    <a href="{{ path('app_participants_list', { uuid: event.uuid }) }}">
+        {{ 'participant.list'|trans }}
     </a>
 {% endblock main %}

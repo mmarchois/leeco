@@ -1,17 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}
-    {{ 'events.title'|trans }} - {{ parent() }}
+    {{ 'event.title'|trans }} - {{ parent() }}
 {% endblock %}
 
 {% block main %}
-    <h1>{{ 'events.title'|trans }}</h1>
+    <h1>{{ 'event.title'|trans }}</h1>
 
     <table data-testid="event-list">
         <thead>
             <tr>
-                <th>{{ 'events.list.event'|trans }}</th>
-                <th>{{ 'events.list.date'|trans }}</th>
+                <th>{{ 'event.list.event'|trans }}</th>
+                <th>{{ 'event.list.date'|trans }}</th>
                 <th>{{ 'common.actions'|trans }}</th>
             </tr>
         </thead>
@@ -32,7 +32,7 @@
             {% else %}
                 <tr>
                     <td colspan="3">
-                        {{ 'events.list.empty'|trans }}
+                        {{ 'event.list.empty'|trans }}
                     </td>
                 </tr>
             {% endfor %}

@@ -19,7 +19,7 @@ final class GetEventByOwnerQueryHandler
     {
         $event = $this->eventRepository->findOneByUuidAndOwner(
             $query->eventUuid,
-            $query->ownerUuid,
+            $query->userUuid,
         );
 
         if (!$event) {

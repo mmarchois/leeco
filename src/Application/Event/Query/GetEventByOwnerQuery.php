@@ -9,7 +9,7 @@ use App\Application\QueryInterface;
 final readonly class GetEventByOwnerQuery implements QueryInterface
 {
     public function __construct(
-        public string $ownerUuid,
+        public string $userUuid,
         public string $eventUuid,
     ) {
     }
