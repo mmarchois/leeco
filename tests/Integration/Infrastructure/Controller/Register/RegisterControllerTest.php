@@ -22,7 +22,7 @@ final class RegisterControllerTest extends AbstractWebTestCase
         $form = $saveButton->form();
         $form['register_user_form[firstName]'] = 'Hélène';
         $form['register_user_form[lastName]'] = 'Marchois';
-        $form['register_user_form[email]'] = 'helene@fairness.coop';
+        $form['register_user_form[email]'] = 'helene@gmail.com';
         $form['register_user_form[password][first]'] = 'password123';
         $form['register_user_form[password][second]'] = 'password123';
         $client->submit($form);

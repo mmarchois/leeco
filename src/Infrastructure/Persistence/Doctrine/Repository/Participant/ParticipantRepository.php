@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Infrastructure\Persistence\Doctrine\Repository\Participant;
 
 use App\Application\Participant\View\ParticipantView;
+use App\Domain\Event\Event;
 use App\Domain\Participant\Participant;
 use App\Domain\Participant\Repository\ParticipantRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -17,6 +18,13 @@ final class ParticipantRepository extends ServiceEntityRepository implements Par
         ManagerRegistry $registry,
     ) {
         parent::__construct($registry, Participant::class);
+    }
+
+    public function add(Participant $participant): Participant
+    {
+        $this->getEntityManager()->persist($participant);
+
+        return $participant;
     }
 
     public function findParticipantsByEvent(string $userUuid, string $eventUuid, int $pageSize, int $page): array
@@ -58,5 +66,20 @@ final class ParticipantRepository extends ServiceEntityRepository implements Par
         }
 
         return $result;
+    }
+
+    public function findOneByEventAndEmail(Event $event, string $email): ?Participant
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.email = :email')
+            ->andWhere('p.event = :event')
+            ->setParameters([
+                'email' => $email,
+                'event' => $event,
+            ])
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
     }
 }

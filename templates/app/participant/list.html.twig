@@ -6,14 +6,14 @@
 
 {% block main %}
     <h1>{{ 'participant.list.title'|trans({'%title%': event.title }) }} ({{paginatedParticipants.totalItems}})</h1>
-
+    <a href="{{ path('app_participants_add', {uuid: event.uuid }) }}">{{ 'participant.add.title'|trans }}</a>
     <table data-testid="participant-list">
         <thead>
             <tr>
                 <th>{{ 'participant.list.firstName'|trans }}</th>
                 <th>{{ 'participant.list.lastName'|trans }}</th>
                 <th>{{ 'participant.list.email'|trans }}</th>
-                <th>{{ 'participant.list.accessCode'|trans }}</th>
+                <th>{{ 'participant.list.password'|trans }}</th>
                 <th>{{ 'common.actions'|trans }}</th>
             </tr>
         </thead>
@@ -26,9 +26,9 @@
                     <td>
                         {{ participant.accessCode }}
                         {% if participant.accessSent %}
-                            - {{ 'participant.list.accessCode.sent'|trans }}
+                            - {{ 'participant.list.password.sent'|trans }}
                         {% else %}
-                            - {{ 'participant.list.accessCode.unSent'|trans }}
+                            - {{ 'participant.list.password.unSent'|trans }}
                         {% endif %}
                     </td>
                     <td></td>

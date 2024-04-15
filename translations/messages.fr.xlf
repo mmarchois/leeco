@@ -226,21 +226,37 @@
                 <source>participant.list.email</source>
                 <target>Email</target>
             </trans-unit>
-            <trans-unit id="participant.list.accessCode">
-                <source>participant.list.accessCode</source>
+            <trans-unit id="participant.list.password">
+                <source>participant.list.password</source>
                 <target>Code d'accès</target>
             </trans-unit>
-            <trans-unit id="participant.list.accessCode.sent">
-                <source>participant.list.accessCode.sent</source>
+            <trans-unit id="participant.list.password.sent">
+                <source>participant.list.password.sent</source>
                 <target>Envoyé</target>
             </trans-unit>
-            <trans-unit id="participant.list.accessCode.unSent">
-                <source>participant.list.accessCode.unSent</source>
+            <trans-unit id="participant.list.password.unSent">
+                <source>participant.list.password.unSent</source>
                 <target>Non envoyé</target>
             </trans-unit>
             <trans-unit id="participant.list.empty">
                 <source>participant.list.empty</source>
                 <target>Vous n'avez pas encore de participant sur cet évènement.</target>
+            </trans-unit>
+            <trans-unit id="participant.add.title">
+                <source>participant.add.title</source>
+                <target>Ajouter un participant</target>
+            </trans-unit>
+            <trans-unit id="participant.form.firstName">
+                <source>participant.form.firstName</source>
+                <target>Prénom</target>
+            </trans-unit>
+            <trans-unit id="participant.form.lastName">
+                <source>participant.form.lastName</source>
+                <target>Nom</target>
+            </trans-unit>
+            <trans-unit id="participant.form.email">
+                <source>participant.form.email</source>
+                <target>Email</target>
             </trans-unit>
         </body>
     </file>
