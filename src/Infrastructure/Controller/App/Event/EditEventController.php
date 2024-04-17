@@ -44,10 +44,8 @@ final class EditEventController extends AbstractEventController
     )]
     public function __invoke(Request $request, string $uuid): Response
     {
-        $userUuid = $this->authenticatedUser->getUser()->getUuid();
         $event = $this->getEvent($uuid);
-
-        $command = SaveEventCommand::createFromView($event, $userUuid);
+        $command = SaveEventCommand::create($event);
         $form = $this->formFactory->create(EventFormType::class, $command, [
             'action' => $this->router->generate('app_events_edit', ['uuid' => $uuid]),
         ]);

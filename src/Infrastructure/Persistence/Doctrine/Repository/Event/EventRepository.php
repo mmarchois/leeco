@@ -74,33 +74,12 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
         ;
     }
 
-    public function findOneByUuidAndOwner(string $uuid, string $userUuid): ?EventView
-    {
-        return $this->createQueryBuilder('e')
-            ->select(sprintf(
-                'NEW %s(
-                    e.uuid,
-                    e.title,
-                    e.date
-                )',
-                EventView::class,
-            ))
-            ->where('e.uuid = :uuid')
-            ->andWhere('e.owner = :userUuid')
-            ->setParameters([
-                'uuid' => $uuid,
-                'userUuid' => $userUuid,
-            ])
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-
     public function findOneByUuid(string $uuid): ?Event
     {
         return $this->createQueryBuilder('e')
+            ->addSelect('o')
             ->where('e.uuid = :uuid')
+            ->innerJoin('e.owner', 'o')
             ->setParameters([
                 'uuid' => $uuid,
             ])

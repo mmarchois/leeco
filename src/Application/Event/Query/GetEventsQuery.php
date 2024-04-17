@@ -6,7 +6,7 @@ namespace App\Application\Event\Query;
 
 use App\Application\QueryInterface;
 
-final readonly class GetEventsByOwnerQuery implements QueryInterface
+final readonly class GetEventsQuery implements QueryInterface
 {
     public function __construct(
         public string $userUuid,

@@ -37,19 +37,17 @@ final class ListParticipantsController extends AbstractEventController
             throw new BadRequestHttpException();
         }
 
-        $userUuid = $this->authenticatedUser->getUser()->getUuid();
         $event = $this->getEvent($uuid);
-
         $paginatedParticipants = $this->queryBus->handle(
-            new GetParticipantsByEventQuery($userUuid, $uuid, $page, $pageSize),
+            new GetParticipantsByEventQuery($event->getUuid(), $page, $pageSize),
         );
 
         return new Response(
             content: $this->twig->render(
                 name: 'app/participant/list.html.twig',
                 context : [
-                    'event' => $event,
                     'paginatedParticipants' => $paginatedParticipants,
+                    'event' => $event,
                 ],
             ),
         );

@@ -9,7 +9,6 @@ use App\Application\DateUtilsInterface;
 use App\Application\IdFactoryInterface;
 use App\Domain\Event\Event;
 use App\Domain\Event\Exception\EventAlreadyExistException;
-use App\Domain\Event\Exception\EventNotFoundException;
 use App\Domain\Event\Repository\EventRepositoryInterface;
 use App\Domain\Event\Specification\IsEventAlreadyExist;
 use App\Domain\User\Exception\UserNotFoundException;
@@ -34,12 +33,8 @@ final readonly class SaveEventCommandHandler implements CommandInterface
         $expirationDate = $this->dateUtils->addDaysToDate($date, 30);
 
         // Update event
-        if ($command->uuid) {
-            $event = $this->eventRepository->findOneByUuid($command->uuid);
-            if (!$event instanceof Event) {
-                throw new EventNotFoundException();
-            }
 
+        if ($event = $command->event) {
             if ($title !== $event->getTitle() && $this->isEventAlreadyExist->isSatisfiedBy($command->userUuid, $title)) {
                 throw new EventAlreadyExistException();
             }

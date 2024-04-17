@@ -7,9 +7,6 @@ namespace App\Application\Participant\Command;
 use App\Application\CommandInterface;
 use App\Application\DateUtilsInterface;
 use App\Application\IdFactoryInterface;
-use App\Domain\Event\Event;
-use App\Domain\Event\Exception\EventNotFoundException;
-use App\Domain\Event\Repository\EventRepositoryInterface;
 use App\Domain\Participant\AccessCodeGenerator;
 use App\Domain\Participant\Exception\ParticipantAlreadyExistException;
 use App\Domain\Participant\Participant;
@@ -21,7 +18,6 @@ final readonly class SaveParticipantCommandHandler implements CommandInterface
     public function __construct(
         private IdFactoryInterface $idFactory,
         private DateUtilsInterface $dateUtils,
-        private EventRepositoryInterface $eventRepository,
         private ParticipantRepositoryInterface $participantRepository,
         private AccessCodeGenerator $accessCodeGenerator,
         private IsParticipantAlreadyRegistered $isParticipantAlreadyRegistered,
@@ -30,14 +26,9 @@ final readonly class SaveParticipantCommandHandler implements CommandInterface
 
     public function __invoke(SaveParticipantCommand $command): string
     {
-        $event = $this->eventRepository->findOneByUuid($command->eventUuid);
-        if (!$event instanceof Event) {
-            throw new EventNotFoundException();
-        }
-
         $email = trim(strtolower($command->email));
 
-        if ($this->isParticipantAlreadyRegistered->isSatisfiedBy($event, $email)) {
+        if ($this->isParticipantAlreadyRegistered->isSatisfiedBy($command->event, $email)) {
             throw new ParticipantAlreadyExistException();
         }
 
@@ -49,7 +40,7 @@ final readonly class SaveParticipantCommandHandler implements CommandInterface
                 email: $email,
                 accessCode: $this->accessCodeGenerator->generate(),
                 createdAt: $this->dateUtils->getNow(),
-                event: $event,
+                event: $command->event,
                 accessSent: false,
             ),
         );

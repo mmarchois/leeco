@@ -18,6 +18,10 @@
                 <source>common.edit</source>
                 <target>Modifier</target>
             </trans-unit>
+            <trans-unit id="common.delete">
+                <source>common.delete</source>
+                <target>Supprimer</target>
+            </trans-unit>
             <trans-unit id="common.form.password.display">
                 <source>common.form.password.display</source>
                 <target>Afficher le mot de passe</target>

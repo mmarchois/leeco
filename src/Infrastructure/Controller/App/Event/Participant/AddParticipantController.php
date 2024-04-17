@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Routing\Requirement\Requirement;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -39,12 +40,14 @@ final class AddParticipantController extends AbstractEventController
     #[Route(
         '/events/{uuid}/participants/add',
         name: 'app_participants_add',
+        requirements: ['uuid' => Requirement::UUID],
         methods: ['GET', 'POST'],
     )]
     public function __invoke(Request $request, string $uuid): Response
     {
         $event = $this->getEvent($uuid);
-        $command = new SaveParticipantCommand($uuid);
+
+        $command = new SaveParticipantCommand($event);
         $form = $this->formFactory->create(ParticipantFormType::class, $command, [
             'action' => $this->router->generate('app_participants_add', ['uuid' => $uuid]),
         ]);
@@ -69,7 +72,6 @@ final class AddParticipantController extends AbstractEventController
                 name: 'app/participant/add.html.twig',
                 context : [
                     'form' => $form->createView(),
-                    'event' => $event,
                 ],
             ),
             status: ($form->isSubmitted() && !$form->isValid()) || $commandFailed
