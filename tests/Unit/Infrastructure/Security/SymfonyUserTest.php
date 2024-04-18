@@ -50,5 +50,25 @@ final class SymfonyUserTest extends TestCase
         $this->assertSame('password', $symfonyUser->getPassword());
         $this->assertEmpty($symfonyUser->eraseCredentials());
         $this->assertFalse($symfonyUser->isVerified());
+
+        $user2 = $this->createMock(User::class);
+        $user2
+            ->expects(self::once())
+            ->method('getEmail')
+            ->willReturn('mathieu@gmail.com');
+        $user2
+            ->expects(self::once())
+            ->method('getFirstName')
+            ->willReturn('Mathieuu');
+        $user2
+            ->expects(self::once())
+            ->method('getLastName')
+            ->willReturn('MARCHOISS');
+
+        $symfonyUser->update($user2);
+        $this->assertSame('Mathieuu', $symfonyUser->getFirstName());
+        $this->assertSame('MARCHOISS', $symfonyUser->getLastName());
+        $this->assertSame('mathieu@gmail.com', $symfonyUser->getUsername());
+        $this->assertSame('mathieu@gmail.com', $symfonyUser->getUserIdentifier());
     }
 }

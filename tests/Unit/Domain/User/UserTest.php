@@ -32,5 +32,10 @@ final class UserTest extends TestCase
 
         $user->updatePassword('newPassword');
         $this->assertSame('newPassword', $user->getPassword());
+
+        $user->update('Mathieuu', 'Marchoiss', 'mathieu@gmail.com');
+        $this->assertSame('Mathieuu', $user->getFirstName());
+        $this->assertSame('Marchoiss', $user->getLastName());
+        $this->assertSame('mathieu@gmail.com', $user->getEmail());
     }
 }

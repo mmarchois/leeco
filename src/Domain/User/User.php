@@ -55,4 +55,11 @@ class User
     {
         $this->password = $password;
     }
+
+    public function update(string $firstName, string $lastName, string $email): void
+    {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->email = $email;
+    }
 }
