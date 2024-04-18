@@ -1,11 +1,11 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}
-    {{ 'event.title'|trans }} - {{ parent() }}
+    {{ 'event.list.title'|trans }} - {{ parent() }}
 {% endblock %}
 
 {% block main %}
-    <h1>{{ 'event.title'|trans }}</h1>
+    <h1>{{ 'event.list.title'|trans }}</h1>
     <a href="{{ path('app_events_add' )}}">{{ 'event.add.title'|trans }}</a>
     <table data-testid="event-list">
         <thead>

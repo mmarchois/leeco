@@ -23,7 +23,7 @@ final class EventFixture extends Fixture implements DependentFixtureInterface
 
         $event2 = new Event(
             '2203014c-5d51-4e20-b607-2b48ffb3f0c7',
-            'Mariage A&A',
+            'Enterrement vie de garcon',
             new \DateTime('2023-05-05'),
             new \DateTime('2023-05-30'),
             $this->getReference('user'),
