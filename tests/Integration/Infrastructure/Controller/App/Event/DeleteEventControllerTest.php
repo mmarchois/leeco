@@ -17,7 +17,7 @@ final class DeleteEventControllerTest extends AbstractWebTestCase
         $client->request('DELETE', '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/delete', [
             'token' => $this->generateCsrfToken($client, 'delete-event'),
         ]);
-        $this->assertResponseStatusCodeSame(302);
+        $this->assertResponseStatusCodeSame(303);
         $client->followRedirect();
 
         $this->assertResponseStatusCodeSame(200);
@@ -42,6 +42,16 @@ final class DeleteEventControllerTest extends AbstractWebTestCase
         ]);
 
         $this->assertResponseStatusCodeSame(404);
+    }
+
+    public function testInvalidCsrfToken(): void
+    {
+        $client = $this->login();
+        $client->request('DELETE', '/app/events/1d288130-7317-42b6-b2a7-7fd6cd0918de/delete', [
+            'token' => 'abc',
+        ]);
+
+        $this->assertResponseStatusCodeSame(400);
     }
 
     public function testDeleteInvalidUri(): void

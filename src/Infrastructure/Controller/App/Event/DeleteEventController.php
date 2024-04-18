@@ -11,6 +11,7 @@ use App\Domain\Event\Exception\EventNotOwnedByUserException;
 use App\Infrastructure\Security\AuthenticatedUser;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -46,12 +47,15 @@ final class DeleteEventController
         try {
             $userUuid = $this->authenticatedUser->getUser()->getUuid();
             $this->commandBus->handle(new DeleteEventCommand($uuid, $userUuid));
+
+            return new RedirectResponse(
+                url: $this->urlGenerator->generate('app_events_list'),
+                status: Response::HTTP_SEE_OTHER,
+            );
         } catch (EventNotFoundException) {
             throw new NotFoundHttpException();
         } catch (EventNotOwnedByUserException) {
             throw new AccessDeniedHttpException();
         }
-
-        return new RedirectResponse($this->urlGenerator->generate('app_events_list'));
     }
 }

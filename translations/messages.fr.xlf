@@ -216,7 +216,7 @@
             </trans-unit>
             <trans-unit id="participant.list">
                 <source>participant.list</source>
-                <target>Voir les participants</target>
+                <target>Participants</target>
             </trans-unit>
             <trans-unit id="participant.list.firstName">
                 <source>participant.list.firstName</source>
