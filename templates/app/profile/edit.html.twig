@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ 'profile.edit.title'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ 'profile.edit.title'|trans }}</h1>
+    {{ form(form) }}
+    <a href="{{ path('app_edit_password') }}">{{ 'profile.password.title'|trans }}</a>
+    <form
+        method="delete"
+        action="{{ path('app_delete_account') }}"
+    >
+        <button title="{{ 'common.delete'|trans }}">
+            {{ 'profile.edit.delete_account'|trans }}
+        </button>
+        <input type="hidden" name="token" value="{{ csrf_token('delete-user-account') }}" />
+    </form>
+{% endblock main %}

@@ -178,9 +178,9 @@
                 <source>reset_password.token.error</source>
                 <target>Le changement de mot de passe a échoué, veuillez faire une nouvelle demande.</target>
             </trans-unit>
-            <trans-unit id="event.title">
-                <source>event.title</source>
-                <target>Vos évènements</target>
+            <trans-unit id="event.list.title">
+                <source>event.list.title</source>
+                <target>Mes évènements</target>
             </trans-unit>
             <trans-unit id="event.list.empty">
                 <source>event.list.empty</source>
@@ -196,7 +196,7 @@
             </trans-unit>
             <trans-unit id="event.add.title">
                 <source>event.add.title</source>
-                <target>Ajouter un évènement</target>
+                <target>Créer un évènement</target>
             </trans-unit>
             <trans-unit id="event.form.title">
                 <source>event.form.title</source>
@@ -265,6 +265,30 @@
             <trans-unit id="participant.edit.title">
                 <source>participant.edit.title</source>
                 <target>Modifier le participant "%firstName% %lastName%"</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.title">
+                <source>profile.edit.title</source>
+                <target>Modifier mon profil</target>
+            </trans-unit>
+            <trans-unit id="profile.form.firstName">
+                <source>profile.form.firstName</source>
+                <target>Prénom</target>
+            </trans-unit>
+            <trans-unit id="profile.form.lastName">
+                <source>profile.form.lastName</source>
+                <target>Nom</target>
+            </trans-unit>
+            <trans-unit id="profile.form.email">
+                <source>profile.form.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="profile.password.title">
+                <source>profile.password.title</source>
+                <target>Modifier mon mot de passe</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.delete_account">
+                <source>profile.edit.delete_account</source>
+                <target>Supprimer mon compte</target>
             </trans-unit>
         </body>
     </file>

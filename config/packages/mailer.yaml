@@ -4,4 +4,4 @@ framework:
         envelope:
             sender: '%env(MAILER_SENDER)%'
         headers:
-            From: 'Jeunot <%env(MAILER_SENDER)%>'
+            From: 'Moment <%env(MAILER_SENDER)%>'

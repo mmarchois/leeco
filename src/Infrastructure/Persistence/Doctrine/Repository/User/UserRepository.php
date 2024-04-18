@@ -23,6 +23,11 @@ final class UserRepository extends ServiceEntityRepository implements UserReposi
         return $user;
     }
 
+    public function delete(User $user): void
+    {
+        $this->getEntityManager()->remove($user);
+    }
+
     public function findOneByEmail(string $email): ?User
     {
         return $this->createQueryBuilder('u')
