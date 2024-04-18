@@ -5,8 +5,6 @@
 {% endblock %}
 
 {% block main %}
-    {% set deleteCsrfToken = csrf_token('delete-participant') %}
-
     <h1>{{ 'participant.list.title'|trans({'%title%': event.title }) }} ({{ paginatedParticipants.totalItems }})</h1>
     <a href="{{ path('app_participants_add', {uuid: event.uuid }) }}">{{ 'participant.add.title'|trans }}</a>
     <table data-testid="participant-list">
@@ -42,7 +40,7 @@
                             <button title="{{ 'common.delete'|trans }}">
                                 {{ 'common.delete'|trans }}
                             </button>
-                            <input type="hidden" name="token" value="{{ deleteCsrfToken }}" />
+                            <input type="hidden" name="token" value="{{ csrf_token('delete-participant') }}" />
                         </form>
                     </td>
                 </tr>

@@ -8,6 +8,6 @@ final class AccessCodeGenerator
 {
     public function generate(): string
     {
-        return bin2hex(random_bytes(6));
+        return base64_encode(random_bytes(8));
     }
 }

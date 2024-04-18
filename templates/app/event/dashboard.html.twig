@@ -9,6 +9,15 @@
     <a href="{{ path('app_events_edit', { uuid: event.uuid }) }}">
         {{ 'common.edit'|trans }}
     </a>
+    <form
+        method="delete"
+        action="{{ path('app_events_delete', { uuid: event.uuid }) }}"
+    >
+        <button title="{{ 'common.delete'|trans }}">
+            {{ 'common.delete'|trans }}
+        </button>
+        <input type="hidden" name="token" value="{{ csrf_token('delete-event') }}" />
+    </form>
     <a href="{{ path('app_participants_list', { uuid: event.uuid }) }}">
         {{ 'participant.list'|trans }}
     </a>

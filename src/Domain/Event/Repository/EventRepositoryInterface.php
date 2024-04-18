@@ -10,6 +10,8 @@ interface EventRepositoryInterface
 {
     public function add(Event $event): Event;
 
+    public function delete(Event $event): void;
+
     public function findEventsByOwner(string $userUuid, int $pageSize, int $page): array;
 
     public function findOneByTitleAndOwner(string $title, string $userUuid): ?Event;
