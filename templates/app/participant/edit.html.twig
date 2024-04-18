@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ 'participant.edit.title'|trans({ '%firstName%': participant.firstName, '%lastName%': participant.lastName }) }} - {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ 'participant.edit.title'|trans({ '%firstName%': participant.firstName, '%lastName%': participant.lastName }) }}</h1>
+    {{ form(form) }}
+{% endblock main %}

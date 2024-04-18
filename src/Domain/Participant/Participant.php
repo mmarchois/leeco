@@ -59,4 +59,11 @@ class Participant
     {
         return $this->createdAt;
     }
+
+    public function update(string $firstName, string $lastName, string $email): void
+    {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->email = $email;
+    }
 }

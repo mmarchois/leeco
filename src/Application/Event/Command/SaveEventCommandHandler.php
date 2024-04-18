@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Application\Event\Command;
 
-use App\Application\CommandInterface;
 use App\Application\DateUtilsInterface;
 use App\Application\IdFactoryInterface;
 use App\Domain\Event\Event;
@@ -15,7 +14,7 @@ use App\Domain\User\Exception\UserNotFoundException;
 use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Domain\User\User;
 
-final readonly class SaveEventCommandHandler implements CommandInterface
+final readonly class SaveEventCommandHandler
 {
     public function __construct(
         private IdFactoryInterface $idFactory,

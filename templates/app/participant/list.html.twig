@@ -34,6 +34,7 @@
                         {% endif %}
                     </td>
                     <td>
+                        <a href="{{ path('app_participants_edit', { uuid: participant.uuid, eventUuid: event.uuid }) }}">{{ 'common.edit'|trans }}</a>
                         <form
                             method="delete"
                             action="{{ path('fragment_participant_delete', { eventUuid: event.uuid, uuid: participant.uuid }) }}"
@@ -43,7 +44,6 @@
                             </button>
                             <input type="hidden" name="token" value="{{ deleteCsrfToken }}" />
                         </form>
-
                     </td>
                 </tr>
             {% else %}

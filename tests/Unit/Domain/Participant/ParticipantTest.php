@@ -34,5 +34,10 @@ final class ParticipantTest extends TestCase
         $this->assertSame($event, $participant->getEvent());
         $this->assertSame($createdAt, $participant->getCreatedAt());
         $this->assertFalse($participant->isAccessSent());
+
+        $participant->update('Floran', 'Roisin', 'floran.roisin@gmail.com');
+        $this->assertSame('Floran', $participant->getFirstName());
+        $this->assertSame('Roisin', $participant->getLastName());
+        $this->assertSame('floran.roisin@gmail.com', $participant->getEmail());
     }
 }

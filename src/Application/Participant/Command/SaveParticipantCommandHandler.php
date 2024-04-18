@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Application\Participant\Command;
 
-use App\Application\CommandInterface;
 use App\Application\DateUtilsInterface;
 use App\Application\IdFactoryInterface;
 use App\Domain\Participant\AccessCodeGenerator;
@@ -13,7 +12,7 @@ use App\Domain\Participant\Participant;
 use App\Domain\Participant\Repository\ParticipantRepositoryInterface;
 use App\Domain\Participant\Specification\IsParticipantAlreadyRegistered;
 
-final readonly class SaveParticipantCommandHandler implements CommandInterface
+final readonly class SaveParticipantCommandHandler
 {
     public function __construct(
         private IdFactoryInterface $idFactory,
@@ -27,6 +26,26 @@ final readonly class SaveParticipantCommandHandler implements CommandInterface
     public function __invoke(SaveParticipantCommand $command): string
     {
         $email = trim(strtolower($command->email));
+
+        // Update participant
+
+        if ($command->participant) {
+            if ($email !== $command->participant->getEmail()
+                && $this->isParticipantAlreadyRegistered->isSatisfiedBy($command->event, $email)
+            ) {
+                throw new ParticipantAlreadyExistException();
+            }
+
+            $command->participant->update(
+                $command->firstName,
+                $command->lastName,
+                $email,
+            );
+
+            return $command->participant->getUuid();
+        }
+
+        // Create participant
 
         if ($this->isParticipantAlreadyRegistered->isSatisfiedBy($command->event, $email)) {
             throw new ParticipantAlreadyExistException();
