@@ -26,6 +26,11 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
         return $event;
     }
 
+    public function delete(Event $event): void
+    {
+        $this->getEntityManager()->remove($event);
+    }
+
     public function findEventsByOwner(string $userUuid, int $pageSize, int $page): array
     {
         $qb = $this->createQueryBuilder('e')

@@ -262,6 +262,10 @@
                 <source>participant.form.email</source>
                 <target>Email</target>
             </trans-unit>
+            <trans-unit id="participant.edit.title">
+                <source>participant.edit.title</source>
+                <target>Modifier le participant "%firstName% %lastName%"</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

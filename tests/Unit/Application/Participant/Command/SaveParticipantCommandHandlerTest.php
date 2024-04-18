@@ -39,7 +39,7 @@ final class SaveParticipantCommandHandlerTest extends TestCase
         $command = new SaveParticipantCommand($this->event);
         $command->firstName = 'Mathieu';
         $command->lastName = 'MARCHOIS';
-        $command->email = '  mathieu.marchois@gmail.com   ';
+        $command->email = '  mathieu.marchois@gmail.com   '; // Voluntary add spaces
 
         $this->command = $command;
     }
@@ -137,5 +137,165 @@ final class SaveParticipantCommandHandlerTest extends TestCase
         );
 
         ($handler)($this->command);
+    }
+
+    public function testUpdateEmailDoesntChanged(): void
+    {
+        $participant = $this->createMock(Participant::class);
+        $participant
+            ->expects(self::once())
+            ->method('getEmail')
+            ->willReturn('mathieu.marchois@gmail.com');
+        $participant
+            ->expects(self::once())
+            ->method('getUuid')
+            ->willReturn('94e78189-64bd-46f9-9b7e-d729475af557');
+        $participant
+            ->expects(self::once())
+            ->method('update')
+            ->with('Mathieuu', 'Marchoiss', 'mathieu.marchois@gmail.com');
+
+        $this->isParticipantAlreadyRegistered
+            ->expects(self::never())
+            ->method('isSatisfiedBy');
+
+        $this->idFactory
+            ->expects(self::never())
+            ->method('make');
+
+        $this->accessCodeGenerator
+            ->expects(self::never())
+            ->method('generate');
+
+        $this->dateUtils
+            ->expects(self::never())
+            ->method('getNow');
+
+        $this->participantRepository
+            ->expects(self::never())
+            ->method('add');
+
+        $handler = new SaveParticipantCommandHandler(
+            $this->idFactory,
+            $this->dateUtils,
+            $this->participantRepository,
+            $this->accessCodeGenerator,
+            $this->isParticipantAlreadyRegistered,
+        );
+
+        $command = new SaveParticipantCommand($this->event, $participant);
+        $command->firstName = 'Mathieuu';
+        $command->lastName = 'Marchoiss';
+        $command->email = '  mathIeu.Marchois@gmail.com   '; // Voluntary add spaces
+
+        $this->assertEquals('94e78189-64bd-46f9-9b7e-d729475af557', ($handler)($command));
+    }
+
+    public function testUpdateEmailChanged(): void
+    {
+        $participant = $this->createMock(Participant::class);
+        $participant
+            ->expects(self::once())
+            ->method('getEmail')
+            ->willReturn('mathieu@gmail.com');
+        $participant
+            ->expects(self::once())
+            ->method('getUuid')
+            ->willReturn('94e78189-64bd-46f9-9b7e-d729475af557');
+        $participant
+            ->expects(self::once())
+            ->method('update')
+            ->with('Mathieuu', 'Marchoiss', 'mathieu.marchois@gmail.com');
+
+        $this->isParticipantAlreadyRegistered
+            ->expects(self::once())
+            ->method('isSatisfiedBy')
+            ->with($this->event, 'mathieu.marchois@gmail.com')
+            ->willReturn(false);
+
+        $this->idFactory
+            ->expects(self::never())
+            ->method('make');
+
+        $this->accessCodeGenerator
+            ->expects(self::never())
+            ->method('generate');
+
+        $this->dateUtils
+            ->expects(self::never())
+            ->method('getNow');
+
+        $this->participantRepository
+            ->expects(self::never())
+            ->method('add');
+
+        $handler = new SaveParticipantCommandHandler(
+            $this->idFactory,
+            $this->dateUtils,
+            $this->participantRepository,
+            $this->accessCodeGenerator,
+            $this->isParticipantAlreadyRegistered,
+        );
+
+        $command = new SaveParticipantCommand($this->event, $participant);
+        $command->firstName = 'Mathieuu';
+        $command->lastName = 'Marchoiss';
+        $command->email = '  mathIeu.Marchois@gmail.com   '; // Voluntary add spaces
+
+        $this->assertEquals('94e78189-64bd-46f9-9b7e-d729475af557', ($handler)($command));
+    }
+
+    public function testUpdateParticipantAlreadyExist(): void
+    {
+        $this->expectException(ParticipantAlreadyExistException::class);
+
+        $participant = $this->createMock(Participant::class);
+        $participant
+            ->expects(self::once())
+            ->method('getEmail')
+            ->willReturn('mathieu@gmail.com');
+        $participant
+            ->expects(self::never())
+            ->method('getUuid');
+        $participant
+            ->expects(self::never())
+            ->method('update');
+
+        $this->isParticipantAlreadyRegistered
+            ->expects(self::once())
+            ->method('isSatisfiedBy')
+            ->with($this->event, 'mathieu.marchois@gmail.com')
+            ->willReturn(true);
+
+        $this->idFactory
+            ->expects(self::never())
+            ->method('make');
+
+        $this->accessCodeGenerator
+            ->expects(self::never())
+            ->method('generate');
+
+        $this->dateUtils
+            ->expects(self::never())
+            ->method('getNow');
+
+        $this->participantRepository
+            ->expects(self::never())
+            ->method('add');
+
+        $handler = new SaveParticipantCommandHandler(
+            $this->idFactory,
+            $this->dateUtils,
+            $this->participantRepository,
+            $this->accessCodeGenerator,
+            $this->isParticipantAlreadyRegistered,
+        );
+
+        $command = new SaveParticipantCommand($this->event, $participant);
+        $command->firstName = 'Mathieuu';
+        $command->lastName = 'Marchoiss';
+        $command->email = '  mathIeu.Marchois@gmail.com   '; // Voluntary add spaces
+
+        $this->assertEquals('94e78189-64bd-46f9-9b7e-d729475af557', ($handler)($command));
     }
 }

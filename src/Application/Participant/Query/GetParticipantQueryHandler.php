@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace App\Application\Participant\Command;
+namespace App\Application\Participant\Query;
 
 use App\Domain\Participant\Exception\ParticipantNotBelongsToEventException;
 use App\Domain\Participant\Exception\ParticipantNotFoundException;
 use App\Domain\Participant\Participant;
 use App\Domain\Participant\Repository\ParticipantRepositoryInterface;
 
-final readonly class DeleteParticipantCommandHandler
+final readonly class GetParticipantQueryHandler
 {
     public function __construct(
         private ParticipantRepositoryInterface $participantRepository,
     ) {
     }
 
-    public function __invoke(DeleteParticipantCommand $command): string
+    public function __invoke(GetParticipantQuery $command): Participant
     {
-        $participant = $this->participantRepository->findOneByUuid($command->participantUuid);
+        $participant = $this->participantRepository->findOneByUuid($command->uuid);
         if (!$participant instanceof Participant) {
             throw new ParticipantNotFoundException();
         }
@@ -27,8 +27,6 @@ final readonly class DeleteParticipantCommandHandler
             throw new ParticipantNotBelongsToEventException();
         }
 
-        $this->participantRepository->delete($participant);
-
-        return $command->participantUuid;
+        return $participant;
     }
 }

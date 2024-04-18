@@ -26,8 +26,6 @@ final class ListEventsControllerTest extends AbstractWebTestCase
         $this->assertSame('05/05/2023', $tr1->eq(1)->text());
         $this->assertSame('Voir', $link1->eq(0)->text());
         $this->assertSame('http://localhost/app/events/2203014c-5d51-4e20-b607-2b48ffb3f0c7', $link1->eq(0)->link()->getUri());
-        $this->assertSame('Modifier', $link1->eq(1)->text());
-        $this->assertSame('http://localhost/app/events/2203014c-5d51-4e20-b607-2b48ffb3f0c7/edit', $link1->eq(1)->link()->getUri());
 
         $tr2 = $table->filter('tr')->eq(1)->filter('td');
         $link2 = $tr2->eq(2)->filter('a');
@@ -35,8 +33,6 @@ final class ListEventsControllerTest extends AbstractWebTestCase
         $this->assertSame('05/01/2019', $tr2->eq(1)->text());
         $this->assertSame('Voir', $link2->eq(0)->text());
         $this->assertSame('http://localhost/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613', $link2->eq(0)->link()->getUri());
-        $this->assertSame('Modifier', $link2->eq(1)->text());
-        $this->assertSame('http://localhost/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/edit', $link2->eq(1)->link()->getUri());
     }
 
     public function testListEventsWithOtherUser(): void
