@@ -37,9 +37,9 @@ final class ParticipantFixture extends Fixture implements DependentFixtureInterf
 
         $participant3 = new Participant(
             'e4095f02-1516-42b3-82d1-506f2e74f027',
-            'Anais',
+            'Julien',
             'MARCHOIS',
-            'anais.marchois@gmail.com',
+            'julien.marchois@gmail.com',
             'accessCode3',
             new \DateTime('2023-03-03'),
             $this->getReference('event2'),

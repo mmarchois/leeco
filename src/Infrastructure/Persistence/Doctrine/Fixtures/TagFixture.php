@@ -24,7 +24,7 @@ final class TagFixture extends Fixture implements DependentFixtureInterface
         $tag2 = new Tag(
             '95af7a78-8a14-4f82-b41a-66ef01cbd603',
             'Dîner',
-            new \DateTime('2019-01-05 21:00:00'),
+            new \DateTime('2019-01-05 21:01:00'),
             new \DateTime('2019-01-05 23:30:00'),
             $this->getReference('event'),
         );

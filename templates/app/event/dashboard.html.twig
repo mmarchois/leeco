@@ -21,4 +21,7 @@
     <a href="{{ path('app_participants_list', { uuid: event.uuid }) }}">
         {{ 'participant.list'|trans }}
     </a>
+    <a href="{{ path('app_tags_list', { uuid: event.uuid }) }}">
+        {{ 'tag.list'|trans }}
+    </a>
 {% endblock main %}

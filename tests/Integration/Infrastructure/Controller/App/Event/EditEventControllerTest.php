@@ -72,7 +72,7 @@ final class EditEventControllerTest extends AbstractWebTestCase
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();
 
-        $form['event_form[title]'] = 'Mariage A&A';
+        $form['event_form[title]'] = 'EVG Julien';
         $form['event_form[date]'] = '2035-01-01'; // Deliberately set a date far in the future
         $crawler = $client->submit($form);
 
