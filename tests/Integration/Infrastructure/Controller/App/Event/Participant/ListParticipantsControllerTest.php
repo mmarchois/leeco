@@ -27,11 +27,19 @@ final class ListParticipantsControllerTest extends AbstractWebTestCase
         $this->assertSame('tc.marchois@gmail.com', $tr1->eq(2)->text());
         $this->assertSame('accessCode1 - Non envoyé', $tr1->eq(3)->text());
 
+        $formDelete1 = $tr1->selectButton('Supprimer')->form();
+        $this->assertSame($formDelete1->getUri(), 'http://localhost/_fragments/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/participants/0faf6d38-6887-44b9-9896-7877e31c56c4/delete');
+        $this->assertSame($formDelete1->getMethod(), 'DELETE');
+
         $tr2 = $table->filter('tr')->eq(1)->filter('td');
         $this->assertSame('Floran', $tr2->eq(0)->text());
         $this->assertSame('ROISIN', $tr2->eq(1)->text());
         $this->assertSame('floran.roisin@gmail.com', $tr2->eq(2)->text());
         $this->assertSame('accessCode2 - Envoyé', $tr2->eq(3)->text());
+
+        $formDelete2 = $tr2->selectButton('Supprimer')->form();
+        $this->assertSame($formDelete2->getUri(), 'http://localhost/_fragments/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/participants/6f6973d5-6733-415e-bd35-432a6b50f8cf/delete');
+        $this->assertSame($formDelete2->getMethod(), 'DELETE');
     }
 
     public function testListOtherEvent(): void
@@ -52,6 +60,10 @@ final class ListParticipantsControllerTest extends AbstractWebTestCase
         $this->assertSame('MARCHOIS', $tr1->eq(1)->text());
         $this->assertSame('anais.marchois@gmail.com', $tr1->eq(2)->text());
         $this->assertSame('accessCode3 - Non envoyé', $tr1->eq(3)->text());
+
+        $formDelete1 = $tr1->selectButton('Supprimer')->form();
+        $this->assertSame($formDelete1->getUri(), 'http://localhost/_fragments/events/2203014c-5d51-4e20-b607-2b48ffb3f0c7/participants/e4095f02-1516-42b3-82d1-506f2e74f027/delete');
+        $this->assertSame($formDelete1->getMethod(), 'DELETE');
     }
 
     public function testAccessToAnEventNotOwned(): void
@@ -59,7 +71,7 @@ final class ListParticipantsControllerTest extends AbstractWebTestCase
         $client = $this->login('raphael.marchois@gmail.com');
         $client->request('GET', '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/participants');
 
-        $this->assertResponseStatusCodeSame(404);
+        $this->assertResponseStatusCodeSame(403);
     }
 
     public function testEventNotFound(): void

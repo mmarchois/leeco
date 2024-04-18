@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ 'participant.list.title'|trans({'%title%': event.title }) }} ({{paginatedParticipants.totalItems}})</h1>
+    {% set deleteCsrfToken = csrf_token('delete-participant') %}
+
+    <h1>{{ 'participant.list.title'|trans({'%title%': event.title }) }} ({{ paginatedParticipants.totalItems }})</h1>
     <a href="{{ path('app_participants_add', {uuid: event.uuid }) }}">{{ 'participant.add.title'|trans }}</a>
     <table data-testid="participant-list">
         <thead>
@@ -19,7 +21,7 @@
         </thead>
         <tbody>
             {% for participant in paginatedParticipants.items %}
-                <tr>
+                <tr id="block_participant_{{ participant.uuid }}">
                     <td>{{ participant.firstName }}</td>
                     <td>{{ participant.lastName }}</td>
                     <td>{{ participant.email }}</td>
@@ -31,7 +33,18 @@
                             - {{ 'participant.list.password.unSent'|trans }}
                         {% endif %}
                     </td>
-                    <td></td>
+                    <td>
+                        <form
+                            method="delete"
+                            action="{{ path('fragment_participant_delete', { eventUuid: event.uuid, uuid: participant.uuid }) }}"
+                        >
+                            <button title="{{ 'common.delete'|trans }}">
+                                {{ 'common.delete'|trans }}
+                            </button>
+                            <input type="hidden" name="token" value="{{ deleteCsrfToken }}" />
+                        </form>
+
+                    </td>
                 </tr>
             {% else %}
                 <tr>

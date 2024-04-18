@@ -38,7 +38,7 @@ final class GetParticipantsByEventQueryHandlerTest extends TestCase
         $participantRepository
             ->expects(self::once())
             ->method('findParticipantsByEvent')
-            ->with('37fa0f81-d9dd-4bbd-900b-9cc3b39d21e9', '69b88cdb-6783-4bca-b15c-ced4488e6a63', 20, 1)
+            ->with('37fa0f81-d9dd-4bbd-900b-9cc3b39d21e9', 20, 1)
             ->willReturn([
                 'participants' => $participants,
                 'count' => 2,
@@ -46,7 +46,6 @@ final class GetParticipantsByEventQueryHandlerTest extends TestCase
 
         $query = new GetParticipantsByEventQuery(
             '37fa0f81-d9dd-4bbd-900b-9cc3b39d21e9',
-            '69b88cdb-6783-4bca-b15c-ced4488e6a63',
             1,
             20,
         );

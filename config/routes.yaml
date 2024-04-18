@@ -8,6 +8,12 @@ app_controllers:
     prefix: /app
     trailing_slash_on_root: false
 
+fragment_controllers:
+    resource: ../src/Infrastructure/Controller/Fragments
+    type: attribute
+    prefix: /_fragments
+    trailing_slash_on_root: false
+
 app_logout:
     path: /logout
     methods: GET

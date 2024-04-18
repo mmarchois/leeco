@@ -17,7 +17,6 @@ final class GetParticipantsByEventQueryHandler
     public function __invoke(GetParticipantsByEventQuery $query): Pagination
     {
         ['participants' => $participants, 'count' => $count] = $this->participantRepository->findParticipantsByEvent(
-            $query->userUuid,
             $query->eventUuid,
             $query->pageSize,
             $query->page,

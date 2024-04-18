@@ -89,6 +89,14 @@ final class AddParticipantControllerTest extends AbstractWebTestCase
         $client = $this->login('raphael.marchois@gmail.com');
         $client->request('GET', '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/participants/add');
 
+        $this->assertResponseStatusCodeSame(403);
+    }
+
+    public function testInvalidUri(): void
+    {
+        $client = $this->login();
+        $client->request('GET', '/app/events/aa-aa-aa-aa-aa/participants/add');
+
         $this->assertResponseStatusCodeSame(404);
     }
 

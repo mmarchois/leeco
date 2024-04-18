@@ -9,7 +9,6 @@ use App\Application\QueryInterface;
 final readonly class GetParticipantsByEventQuery implements QueryInterface
 {
     public function __construct(
-        public string $userUuid,
         public string $eventUuid,
         public int $page,
         public int $pageSize,

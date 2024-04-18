@@ -85,7 +85,7 @@ final class EditEventControllerTest extends AbstractWebTestCase
         $client = $this->login('raphael.marchois@gmail.com');
         $client->request('GET', '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/edit');
 
-        $this->assertResponseStatusCodeSame(404);
+        $this->assertResponseStatusCodeSame(403);
     }
 
     public function testEditEventNotFound(): void

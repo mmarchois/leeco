@@ -27,7 +27,12 @@ final class ParticipantRepository extends ServiceEntityRepository implements Par
         return $participant;
     }
 
-    public function findParticipantsByEvent(string $userUuid, string $eventUuid, int $pageSize, int $page): array
+    public function delete(Participant $participant): void
+    {
+        $this->getEntityManager()->remove($participant);
+    }
+
+    public function findParticipantsByEvent(string $eventUuid, int $pageSize, int $page): array
     {
         $qb = $this->createQueryBuilder('p')
             ->select(sprintf(
@@ -42,11 +47,9 @@ final class ParticipantRepository extends ServiceEntityRepository implements Par
                 ParticipantView::class,
             ))
             ->where('e.uuid = :eventUuid')
-            ->andWhere('e.owner = :userUuid')
             ->innerJoin('p.event', 'e')
             ->orderBy('p.lastName', 'ASC')
             ->setParameters([
-                'userUuid' => $userUuid,
                 'eventUuid' => $eventUuid,
             ])
             ->setFirstResult($pageSize * ($page - 1))
@@ -77,6 +80,20 @@ final class ParticipantRepository extends ServiceEntityRepository implements Par
                 'email' => $email,
                 'event' => $event,
             ])
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    public function findOneByUuid(string $uuid): ?Participant
+    {
+        return $this->createQueryBuilder('p')
+            ->select('p')
+            ->addSelect('e')
+            ->where('p.uuid = :uuid')
+            ->innerJoin('p.event', 'e')
+            ->setParameter('uuid', $uuid)
             ->setMaxResults(1)
             ->getQuery()
             ->getOneOrNullResult()

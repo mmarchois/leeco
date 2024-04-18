@@ -10,7 +10,6 @@ use App\Application\Event\Command\SaveEventCommandHandler;
 use App\Application\IdFactoryInterface;
 use App\Domain\Event\Event;
 use App\Domain\Event\Exception\EventAlreadyExistException;
-use App\Domain\Event\Exception\EventNotFoundException;
 use App\Domain\Event\Repository\EventRepositoryInterface;
 use App\Domain\Event\Specification\IsEventAlreadyExist;
 use App\Domain\User\Exception\UserNotFoundException;
@@ -243,13 +242,7 @@ final class SaveEventCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('add');
 
-        $this->eventRepository
-            ->expects(self::once())
-            ->method('findOneByUuid')
-            ->with('fc9df7ca-d73c-4e5d-a889-fd4833a4116e')
-            ->willReturn($event);
-
-        $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557');
+        $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557', $event);
         $command->uuid = 'fc9df7ca-d73c-4e5d-a889-fd4833a4116e';
         $command->title = '  Mariage A&A  '; // Voluntary add spaces
         $command->date = $date;
@@ -302,13 +295,7 @@ final class SaveEventCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('add');
 
-        $this->eventRepository
-            ->expects(self::once())
-            ->method('findOneByUuid')
-            ->with('fc9df7ca-d73c-4e5d-a889-fd4833a4116e')
-            ->willReturn($event);
-
-        $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557');
+        $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557', $event);
         $command->uuid = 'fc9df7ca-d73c-4e5d-a889-fd4833a4116e';
         $command->title = '  Mariage H&M  '; // Voluntary add spaces
         $command->date = $date;
@@ -364,64 +351,7 @@ final class SaveEventCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('add');
 
-        $this->eventRepository
-            ->expects(self::once())
-            ->method('findOneByUuid')
-            ->with('fc9df7ca-d73c-4e5d-a889-fd4833a4116e')
-            ->willReturn($event);
-
-        $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557');
-        $command->uuid = 'fc9df7ca-d73c-4e5d-a889-fd4833a4116e';
-        $command->title = '  Mariage A&A  '; // Voluntary add spaces
-        $command->date = $date;
-
-        $handler = new SaveEventCommandHandler(
-            $this->idFactory,
-            $this->dateUtils,
-            $this->userRepository,
-            $this->eventRepository,
-            $this->isEventAlreadyExist,
-        );
-
-        ($handler)($command);
-    }
-
-    public function testUpdateAnNotFoundEvent(): void
-    {
-        $this->expectException(EventNotFoundException::class);
-
-        $date = new \DateTime('2023-01-01');
-        $expirationDate = new \DateTimeImmutable('2023-01-30');
-
-        $this->isEventAlreadyExist
-            ->expects(self::never())
-            ->method('isSatisfiedBy');
-
-        $this->userRepository
-            ->expects(self::never())
-            ->method('findOneByUuid');
-
-        $this->dateUtils
-            ->expects(self::once())
-            ->method('addDaysToDate')
-            ->with($date, 30)
-            ->willReturn($expirationDate);
-
-        $this->idFactory
-            ->expects(self::never())
-            ->method('make');
-
-        $this->eventRepository
-            ->expects(self::never())
-            ->method('add');
-
-        $this->eventRepository
-            ->expects(self::once())
-            ->method('findOneByUuid')
-            ->with('fc9df7ca-d73c-4e5d-a889-fd4833a4116e')
-            ->willReturn(null);
-
-        $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557');
+        $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557', $event);
         $command->uuid = 'fc9df7ca-d73c-4e5d-a889-fd4833a4116e';
         $command->title = '  Mariage A&A  '; // Voluntary add spaces
         $command->date = $date;

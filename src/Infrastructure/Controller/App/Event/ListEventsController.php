@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Controller\App\Event;
 
-use App\Application\Event\Query\GetEventsByOwnerQuery;
+use App\Application\Event\Query\GetEventsQuery;
 use App\Application\QueryBusInterface;
 use App\Infrastructure\Security\AuthenticatedUser;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,7 +35,7 @@ final class ListEventsController
         }
 
         $userUuid = $this->authenticatedUser->getUser()->getUuid();
-        $paginatedEvents = $this->queryBus->handle(new GetEventsByOwnerQuery($userUuid, $page, $pageSize));
+        $paginatedEvents = $this->queryBus->handle(new GetEventsQuery($userUuid, $page, $pageSize));
 
         return new Response(
             content: $this->twig->render(

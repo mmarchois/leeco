@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Tests\Unit\Application\Event\Query;
 
-use App\Application\Event\Query\GetEventsByOwnerQuery;
-use App\Application\Event\Query\GetEventsByOwnerQueryHandler;
+use App\Application\Event\Query\GetEventsQuery;
+use App\Application\Event\Query\GetEventsQueryHandler;
 use App\Application\Event\View\EventView;
 use App\Domain\Event\Repository\EventRepositoryInterface;
 use App\Domain\Pagination;
 use PHPUnit\Framework\TestCase;
 
-final class GetEventsByOwnerQueryHandlerTest extends TestCase
+final class GetEventsQueryHandlerTest extends TestCase
 {
     public function testGetSummarizedEvents(): void
     {
@@ -31,8 +31,8 @@ final class GetEventsByOwnerQueryHandlerTest extends TestCase
                 'count' => 2,
             ]);
 
-        $query = new GetEventsByOwnerQuery('37fa0f81-d9dd-4bbd-900b-9cc3b39d21e9', 1, 20);
-        $handler = new GetEventsByOwnerQueryHandler($eventRepository);
+        $query = new GetEventsQuery('37fa0f81-d9dd-4bbd-900b-9cc3b39d21e9', 1, 20);
+        $handler = new GetEventsQueryHandler($eventRepository);
 
         $this->assertEquals(new Pagination($events, 2, 1, 20), ($handler)($query));
     }
