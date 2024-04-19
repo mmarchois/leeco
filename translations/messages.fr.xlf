@@ -298,6 +298,10 @@
                 <source>tag.list.title</source>
                 <target>Tags de l'évènement "%title%"</target>
             </trans-unit>
+            <trans-unit id="tag.list.title_name">
+                <source>tag.list.title_name</source>
+                <target>Tag</target>
+            </trans-unit>
             <trans-unit id="tag.list.empty">
                 <source>tag.list.empty</source>
                 <target>Vous n'avez pas encore de tags sur cet évènement.</target>
@@ -309,6 +313,26 @@
             <trans-unit id="tag.list.endDate">
                 <source>tag.list.endDate</source>
                 <target>Date de fin</target>
+            </trans-unit>
+            <trans-unit id="tag.add.title">
+                <source>tag.add.title</source>
+                <target>Ajouter un tag</target>
+            </trans-unit>
+            <trans-unit id="tag.form.title">
+                <source>tag.form.title</source>
+                <target>Nom du tag</target>
+            </trans-unit>
+            <trans-unit id="tag.form.startDate">
+                <source>tag.form.startDate</source>
+                <target>Date de début</target>
+            </trans-unit>
+            <trans-unit id="tag.form.endDate">
+                <source>tag.form.endDate</source>
+                <target>Date de fin</target>
+            </trans-unit>
+            <trans-unit id="tag.edit.title">
+                <source>tag.edit.title</source>
+                <target>Modifier le tag "%title%"</target>
             </trans-unit>
         </body>
     </file>

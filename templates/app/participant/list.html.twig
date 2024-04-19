@@ -1,12 +1,12 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}
-    {{ 'participant.list.title'|trans({'%title%': event.title }) }} - {{ parent() }}
+    {{ 'participant.list.title'|trans({ '%title%': event.title }) }} - {{ parent() }}
 {% endblock %}
 
 {% block main %}
-    <h1>{{ 'participant.list.title'|trans({'%title%': event.title }) }} ({{ paginatedParticipants.totalItems }})</h1>
-    <a href="{{ path('app_participants_add', {uuid: event.uuid }) }}">{{ 'participant.add.title'|trans }}</a>
+    <h1>{{ 'participant.list.title'|trans({ '%title%': event.title }) }} ({{ paginatedParticipants.totalItems }})</h1>
+    <a href="{{ path('app_participants_add', { uuid: event.uuid }) }}">{{ 'participant.add.title'|trans }}</a>
     <table data-testid="participant-list">
         <thead>
             <tr>

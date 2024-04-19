@@ -29,5 +29,13 @@ final class TagTest extends TestCase
         $this->assertSame($startDate, $tag->getStartDate());
         $this->assertSame($endDate, $tag->getEndDate());
         $this->assertSame($event, $tag->getEvent());
+
+        $startDate2 = new \DateTime('2023-11-19 20:00:00');
+        $endDate2 = new \DateTime('2023-11-19 22:00:00');
+        $tag->update('Dîner', $startDate2, $endDate2);
+
+        $this->assertSame('Dîner', $tag->getTitle());
+        $this->assertSame($startDate2, $tag->getStartDate());
+        $this->assertSame($endDate2, $tag->getEndDate());
     }
 }

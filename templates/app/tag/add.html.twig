@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ 'tag.add.title'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ 'tag.add.title'|trans }}</h1>
+    {{ form(form) }}
+{% endblock main %}
