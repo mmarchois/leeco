@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ 'tag.list.title'|trans({'%title%': event.title }) }} - {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ 'tag.list.title'|trans({'%title%': event.title }) }} ({{ paginatedTags.totalItems }})</h1>
+    <table data-testid="tag-list">
+        <thead>
+            <tr>
+                <th>{{ 'tag.list'|trans }}</th>
+                <th>{{ 'tag.list.startDate'|trans }}</th>
+                <th>{{ 'tag.list.endDate'|trans }}</th>
+                <th>{{ 'common.actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tag in paginatedTags.items %}
+                <tr id="block_tag_{{ tag.uuid }}">
+                    <td>{{ tag.title }}</td>
+                    <td>{{ tag.startDate|date('d/m/Y H:i') }}</td>
+                    <td>{{ tag.endDate|date('d/m/Y H:i') }}</td>
+                    <td></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">
+                        {{ 'tag.list.empty'|trans }}
+                    </td>
+                </tr>
+            {% endfor %}
+        <tbody>
+    </table>
+{% endblock main %}

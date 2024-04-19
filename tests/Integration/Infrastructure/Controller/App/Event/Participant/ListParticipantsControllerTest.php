@@ -50,15 +50,15 @@ final class ListParticipantsControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Participants de l\'évènement "Mariage A&A" (1)', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Participants de l\'évènement "Mariage A&A" - Moment', $crawler);
+        $this->assertSame('Participants de l\'évènement "EVG Julien" (1)', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Participants de l\'évènement "EVG Julien" - Moment', $crawler);
 
         $this->assertSame(1, $table->filter('tr')->count());
 
         $tr1 = $table->filter('tr')->eq(0)->filter('td');
-        $this->assertSame('Anais', $tr1->eq(0)->text());
+        $this->assertSame('Julien', $tr1->eq(0)->text());
         $this->assertSame('MARCHOIS', $tr1->eq(1)->text());
-        $this->assertSame('anais.marchois@gmail.com', $tr1->eq(2)->text());
+        $this->assertSame('julien.marchois@gmail.com', $tr1->eq(2)->text());
         $this->assertSame('accessCode3 - Non envoyé', $tr1->eq(3)->text());
 
         $formDelete1 = $tr1->selectButton('Supprimer')->form();

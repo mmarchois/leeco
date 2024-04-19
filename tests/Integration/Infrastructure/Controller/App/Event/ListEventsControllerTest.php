@@ -22,7 +22,7 @@ final class ListEventsControllerTest extends AbstractWebTestCase
 
         $tr1 = $table->filter('tr')->eq(0)->filter('td');
         $link1 = $tr1->eq(2)->filter('a');
-        $this->assertSame('Mariage A&A', $tr1->eq(0)->text());
+        $this->assertSame('EVG Julien', $tr1->eq(0)->text());
         $this->assertSame('05/05/2023', $tr1->eq(1)->text());
         $this->assertSame('Voir', $link1->eq(0)->text());
         $this->assertSame('http://localhost/app/events/2203014c-5d51-4e20-b607-2b48ffb3f0c7', $link1->eq(0)->link()->getUri());
