@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Form\Event;
+namespace App\Infrastructure\Form\Tag;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-final class EventFormType extends AbstractType
+final class TagFormType extends AbstractType
 {
     public function __construct(
         private string $clientTimezone,
@@ -21,11 +21,16 @@ final class EventFormType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'event.form.title',
+                'label' => 'tag.form.title',
             ])
-            ->add('date', DateType::class, [
-                'label' => 'event.form.date',
-                'widget' => 'single_text',
+            ->add('startDate', DateTimeType::class, [
+                'label' => 'tag.form.startDate',
+                'widget' => 'choice',
+                'view_timezone' => $this->clientTimezone,
+            ])
+            ->add('endDate', DateTimeType::class, [
+                'label' => 'tag.form.endDate',
+                'widget' => 'choice',
                 'view_timezone' => $this->clientTimezone,
             ])
             ->add('save', SubmitType::class, [

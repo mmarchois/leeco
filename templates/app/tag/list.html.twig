@@ -1,15 +1,16 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}
-    {{ 'tag.list.title'|trans({'%title%': event.title }) }} - {{ parent() }}
+    {{ 'tag.list.title'|trans({ '%title%': event.title }) }} - {{ parent() }}
 {% endblock %}
 
 {% block main %}
-    <h1>{{ 'tag.list.title'|trans({'%title%': event.title }) }} ({{ paginatedTags.totalItems }})</h1>
+    <h1>{{ 'tag.list.title'|trans({ '%title%': event.title }) }} ({{ paginatedTags.totalItems }})</h1>
+    <a href="{{ path('app_tags_add', { uuid: event.uuid }) }}">{{ 'tag.add.title'|trans }}</a>
     <table data-testid="tag-list">
         <thead>
             <tr>
-                <th>{{ 'tag.list'|trans }}</th>
+                <th>{{ 'tag.list.title_name'|trans }}</th>
                 <th>{{ 'tag.list.startDate'|trans }}</th>
                 <th>{{ 'tag.list.endDate'|trans }}</th>
                 <th>{{ 'common.actions'|trans }}</th>
@@ -19,9 +20,11 @@
             {% for tag in paginatedTags.items %}
                 <tr id="block_tag_{{ tag.uuid }}">
                     <td>{{ tag.title }}</td>
-                    <td>{{ tag.startDate|date('d/m/Y H:i') }}</td>
-                    <td>{{ tag.endDate|date('d/m/Y H:i') }}</td>
-                    <td></td>
+                    <td>{{ app_datetime(tag.startDate) }}</td>
+                    <td>{{ app_datetime(tag.endDate) }}</td>
+                    <td>
+                        <a href="{{ path('app_tags_edit', { uuid: tag.uuid, eventUuid: event.uuid }) }}">{{ 'common.edit'|trans }}</a>
+                    </td>
                 </tr>
             {% else %}
                 <tr>

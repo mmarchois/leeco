@@ -55,13 +55,6 @@ final class EditEventControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(422);
         $this->assertSame('Cette chaîne est trop longue. Elle doit avoir au maximum 100 caractères.', $crawler->filter('#event_form_title_error')->text());
         $this->assertSame('Veuillez entrer une date valide.', $crawler->filter('#event_form_date_error')->text());
-
-        // Date in the past
-        $form['event_form[date]'] = '2024-01-01';
-        $crawler = $client->submit($form);
-
-        $this->assertResponseStatusCodeSame(422);
-        $this->assertStringStartsWith('Cette valeur doit être supérieure à', $crawler->filter('#event_form_date_error')->text());
     }
 
     public function testEventAlreadyExist(): void

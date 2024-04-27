@@ -19,7 +19,7 @@
             {% for event in paginatedEvents.items %}
                 <tr>
                     <td>{{ event.title }}</td>
-                    <td>{{ event.date|date('d/m/Y') }}</td>
+                    <td>{{ app_date(event.date) }}</td>
                     <td>
                         <a href="{{ path('app_events_dashboard', { uuid: event.uuid }) }}">
                             {{ 'common.see'|trans }}

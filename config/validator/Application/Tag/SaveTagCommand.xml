@@ -2,18 +2,25 @@
 <constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping https://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
-    <class name="App\Application\Event\Command\SaveEventCommand">
+    <class name="App\Application\Tag\Command\SaveTagCommand">
         <property name="title">
             <constraint name="NotBlank" />
             <constraint name="Length">
                 <option name="max">100</option>
             </constraint>
         </property>
-        <property name="date">
+        <property name="startDate">
             <constraint name="NotBlank" />
             <constraint name="Type">
                 <option name="type">\DateTimeInterface</option>
             </constraint>
         </property>
+        <property name="endDate">
+            <constraint name="NotBlank" />
+            <constraint name="Type">
+                <option name="type">\DateTimeInterface</option>
+            </constraint>
+        </property>
+        <constraint name="App\Infrastructure\Validator\SaveTagCommandConstraint" />
     </class>
 </constraint-mapping>

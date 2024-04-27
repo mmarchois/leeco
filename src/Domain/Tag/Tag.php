@@ -41,4 +41,14 @@ class Tag
     {
         return $this->event;
     }
+
+    public function update(
+        string $title,
+        \DateTimeInterface $startDate,
+        \DateTimeInterface $endDate,
+    ): void {
+        $this->title = $title;
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
+    }
 }

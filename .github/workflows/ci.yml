@@ -65,6 +65,7 @@ jobs:
           echo "REDIS_URL=redis://localhost:6379" >> .env
           echo "MAILER_DSN=smtp://localhost:1025" >> .env
           echo "APP_UPLOADS_SOURCE=memory.storage" >> .env
+          echo "APP_CLIENT_TIMEZONE=Etc/GMT-1" >> .env
 
       # Required for E2E testing
       - name: Install Symfony CLI

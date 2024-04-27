@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Infrastructure\Persistence\Doctrine\Repository\Tag;
 
 use App\Application\Tag\View\TagView;
+use App\Domain\Event\Event;
 use App\Domain\Tag\Repository\TagRepositoryInterface;
 use App\Domain\Tag\Tag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -17,6 +18,13 @@ final class TagRepository extends ServiceEntityRepository implements TagReposito
         ManagerRegistry $registry,
     ) {
         parent::__construct($registry, Tag::class);
+    }
+
+    public function add(Tag $tag): Tag
+    {
+        $this->getEntityManager()->persist($tag);
+
+        return $tag;
     }
 
     public function findTagsByEvent(string $eventUuid, int $pageSize, int $page): array
@@ -53,5 +61,34 @@ final class TagRepository extends ServiceEntityRepository implements TagReposito
         }
 
         return $result;
+    }
+
+    public function findOneByEventAndTitle(Event $event, string $title): ?Tag
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.event = :event')
+            ->andWhere('t.title = :title')
+            ->setParameters([
+                'event' => $event,
+                'title' => $title,
+            ])
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    public function findOneByUuid(string $uuid): ?Tag
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t')
+            ->addSelect('e')
+            ->where('t.uuid = :uuid')
+            ->innerJoin('t.event', 'e')
+            ->setParameter('uuid', $uuid)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
     }
 }
