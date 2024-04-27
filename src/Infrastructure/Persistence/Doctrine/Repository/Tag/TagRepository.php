@@ -27,6 +27,11 @@ final class TagRepository extends ServiceEntityRepository implements TagReposito
         return $tag;
     }
 
+    public function delete(Tag $tag): void
+    {
+        $this->getEntityManager()->remove($tag);
+    }
+
     public function findTagsByEvent(string $eventUuid, int $pageSize, int $page): array
     {
         $qb = $this->createQueryBuilder('t')

@@ -11,6 +11,8 @@ interface TagRepositoryInterface
 {
     public function add(Tag $tag): Tag;
 
+    public function delete(Tag $tag): void;
+
     public function findOneByUuid(string $uuid): ?Tag;
 
     public function findTagsByEvent(string $eventUuid, int $pageSize, int $page): array;

@@ -24,6 +24,15 @@
                     <td>{{ app_datetime(tag.endDate) }}</td>
                     <td>
                         <a href="{{ path('app_tags_edit', { uuid: tag.uuid, eventUuid: event.uuid }) }}">{{ 'common.edit'|trans }}</a>
+                        <form
+                            method="delete"
+                            action="{{ path('fragment_tag_delete', { eventUuid: event.uuid, uuid: tag.uuid }) }}"
+                        >
+                            <button title="{{ 'common.delete'|trans }}">
+                                {{ 'common.delete'|trans }}
+                            </button>
+                            <input type="hidden" name="token" value="{{ csrf_token('delete-tag') }}" />
+                        </form>
                     </td>
                 </tr>
             {% else %}
