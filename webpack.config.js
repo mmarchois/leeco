@@ -14,6 +14,7 @@ Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
     .setPublicPath('/build')
+    .enablePostCssLoader()
 
     /*
      * ENTRY CONFIG

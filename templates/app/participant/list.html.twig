@@ -5,52 +5,72 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ 'participant.list.title'|trans({ '%title%': event.title }) }} ({{ paginatedParticipants.totalItems }})</h1>
-    <a href="{{ path('app_participants_add', { uuid: event.uuid }) }}">{{ 'participant.add.title'|trans }}</a>
-    <table data-testid="participant-list">
-        <thead>
+
+<h1>{{ 'participant.list.title'|trans({ '%title%': event.title }) }} ({{ paginatedParticipants.totalItems }})</h1>
+<a href="{{ path('app_participants_add', { uuid: event.uuid }) }}">{{ 'participant.add.title'|trans }}</a>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table data-testid="participant-list" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th>{{ 'participant.list.firstName'|trans }}</th>
-                <th>{{ 'participant.list.lastName'|trans }}</th>
-                <th>{{ 'participant.list.email'|trans }}</th>
-                <th>{{ 'participant.list.password'|trans }}</th>
-                <th>{{ 'common.actions'|trans }}</th>
+                <th scope="col" class="px-6 py-3">
+                    {{ 'participant.list.email'|trans }}
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    {{ 'participant.list.firstName'|trans }}
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    {{ 'participant.list.lastName'|trans }}
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    {{ 'participant.list.password'|trans }}
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    {{ 'common.actions'|trans }}
+                </th>
             </tr>
         </thead>
         <tbody>
             {% for participant in paginatedParticipants.items %}
-                <tr id="block_participant_{{ participant.uuid }}">
-                    <td>{{ participant.firstName }}</td>
-                    <td>{{ participant.lastName }}</td>
-                    <td>{{ participant.email }}</td>
-                    <td>
+                <tr id="block_participant_{{ participant.uuid }}" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ participant.email }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ participant.firstName }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ participant.lastName }}
+                    </td>
+                    <td class="px-6 py-4">
                         {{ participant.accessCode }}
                         {% if participant.accessSent %}
-                            - {{ 'participant.list.password.sent'|trans }}
+                            <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ 'participant.list.password.sent'|trans }}</span>
                         {% else %}
-                            - {{ 'participant.list.password.unSent'|trans }}
+                            <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">{{ 'participant.list.password.unSent'|trans }}</span>
                         {% endif %}
                     </td>
-                    <td>
-                        <a href="{{ path('app_participants_edit', { uuid: participant.uuid, eventUuid: event.uuid }) }}">{{ 'common.edit'|trans }}</a>
+                    <td class="px-6 py-4">
+                        <a href="{{ path('app_participants_edit', { uuid: participant.uuid, eventUuid: event.uuid }) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            {{ 'common.edit'|trans }}
+                        </a>
                         <form
                             method="delete"
                             action="{{ path('fragment_participant_delete', { eventUuid: event.uuid, uuid: participant.uuid }) }}"
                         >
-                            <button title="{{ 'common.delete'|trans }}">
-                                {{ 'common.delete'|trans }}
-                            </button>
+                            <button title="{{ 'common.delete'|trans }}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">{{ 'common.delete'|trans }}</button>
                             <input type="hidden" name="token" value="{{ csrf_token('delete-participant') }}" />
                         </form>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">
+                    <td colspan="4">
                         {{ 'participant.list.empty'|trans }}
                     </td>
                 </tr>
             {% endfor %}
-        <tbody>
+        </tbody>
     </table>
+</div>
 {% endblock main %}

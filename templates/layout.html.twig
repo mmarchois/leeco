@@ -1,26 +1,41 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    {% set _nonce = csp_nonce('script') %}
-    {% set _nonce = csp_nonce('style') %}
-    <meta name="csp-nonce" content="{{ _nonce }}">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %}{{ 'common.title'|trans }}{% endblock %}</title>
+<head>
+  {% set _nonce = csp_nonce('script') %}
+  {% set _nonce = csp_nonce('style') %}
+  <meta name="csp-nonce" content="{{ _nonce }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}{{ 'common.title'|trans }}{% endblock %}</title>
 
-    {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
-    {% endblock %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://flowbite-admin-dashboard.vercel.app//app.css">
+<link rel="stylesheet" href="https://d2s3ptptdai04x.cloudfront.net/get-flowbite-pro.aa78764d-df6a-4f70-a577-6d31dfefff78.css?Expires=2013842754&amp;Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9kMnMzcHRwdGRhaTA0eC5jbG91ZGZyb250Lm5ldC9nZXQtZmxvd2JpdGUtcHJvLmFhNzg3NjRkLWRmNmEtNGY3MC1hNTc3LTZkMzFkZmVmZmY3OC5jc3MiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjIwMTM4NDI3NTR9fX1dfQ__&amp;Signature=QLMaHJX7rqvmMm4f0JcA-UmywbgEA3-Q1KcqWHM78AiabdxFGcmBDrjp4tQQoyME8SrqpAUcjHJJKbdyuiPYk9Eig7ufGNWXFr-otZl4Ldcyrnut9O2WSUeQ9lrXkpaiKRO4QS2LmQWaYXvfnRmoyrxr~xrOoHL1xytbNirVSnsGO777qd9pLJfeRYrv93qsauRg2CMEUPQIBLxpzy40X-uNlttr5qNADafVelmj7Os4qteMcvSjurR3IBP0Khc~kfHhNH8owLV9i1ZcSAbJFFQWMFx6cC8~jcUM6NZbKMwrBrMWwzAJIwwl-5mzm9O8g3O4nrKM66Pt-tQT9dbZSw__&amp;Key-Pair-Id=K2J5W1U51CTOXP">
+  {# block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+  {% endblock #}
 
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}
-  </head>
+  {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+  {% endblock %}
+</head>
 
-  <body>
-    {% include 'common/flashes.html.twig' with {flashes: app.flashes} only %}
-    <main>
-        {% block main %}{% endblock %}
-    </main>
-  </body>
+<body class="bg-gray-50 dark:bg-gray-800">
+  {% include 'common/header.html.twig' %}
+  <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <div id="main-content" class="relative w-full max-w-screen-2xl mx-auto h-full overflow-y-auto bg-gray-50 dark:bg-gray-900">
+      <main>
+        <div class="px-4 pt-6 xl:px-0 xl:gap-4 dark:bg-gray-900">
+          {% include 'common/flashes.html.twig' with {flashes: app.flashes} only %}
+          {% block main %}{% endblock %}
+        </div>
+      </main>
+  {% include 'common/footer.html.twig' %}
+    </div>
+  </div>
+  <script src="https://d2s3ptptdai04x.cloudfront.net/get-flowbite-pro.3a42833e-c1a0-40b5-a511-339f3bf1d0ac.js?Expires=2013842761&amp;Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9kMnMzcHRwdGRhaTA0eC5jbG91ZGZyb250Lm5ldC9nZXQtZmxvd2JpdGUtcHJvLjNhNDI4MzNlLWMxYTAtNDBiNS1hNTExLTMzOWYzYmYxZDBhYy5qcyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MjAxMzg0Mjc2MX19fV19&amp;Signature=i3p7Clcnmlhj2beMG2jwRN-fnWLzYuIp4gwaLHwiXUGpZWJ77QnZJkJIyJOeDVlsah5Cn0HlTKbBqqpluQ8uRRRTnO1wAIsyW65wghQbnI7vbqviFZ5ji3L7ts-CXWmT~Ux3jr3OjYEfUNFQVVxNcJEJawaAg9YUTZaYmGq6Ci3vF2dz-aicRloHIhqqgRMYnVhaIbTjq6Xnmpdu5jBZClEeV~M1hKN23qclk92RGJEj~bZcyGhFsZBujCdDB9yFiqmqtFBooj8dfqsrfPsZWhBAvC53nlTtpgsGCkGAlU2aPsK59MWvKxfC066c8gRW01jHadF5gNm1ocMn9ZE8Sw__&amp;Key-Pair-Id=K2J5W1U51CTOXP"></script>
+<script src="https://flowbite-admin-dashboard.vercel.app//app.bundle.js"></script>
+</body>
 </html>

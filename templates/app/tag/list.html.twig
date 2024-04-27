@@ -7,30 +7,47 @@
 {% block main %}
     <h1>{{ 'tag.list.title'|trans({ '%title%': event.title }) }} ({{ paginatedTags.totalItems }})</h1>
     <a href="{{ path('app_tags_add', { uuid: event.uuid }) }}">{{ 'tag.add.title'|trans }}</a>
-    <table data-testid="tag-list">
-        <thead>
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table data-testid="tag-list" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th>{{ 'tag.list.title_name'|trans }}</th>
-                <th>{{ 'tag.list.startDate'|trans }}</th>
-                <th>{{ 'tag.list.endDate'|trans }}</th>
-                <th>{{ 'common.actions'|trans }}</th>
+                <th scope="col" class="px-6 py-3">
+                    {{ 'tag.list.title_name'|trans }}
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    {{ 'tag.list.startDate'|trans }}
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    {{ 'tag.list.endDate'|trans }}
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    {{ 'common.actions'|trans }}
+                </th>
             </tr>
         </thead>
         <tbody>
             {% for tag in paginatedTags.items %}
-                <tr id="block_tag_{{ tag.uuid }}">
-                    <td>{{ tag.title }}</td>
-                    <td>{{ app_datetime(tag.startDate) }}</td>
-                    <td>{{ app_datetime(tag.endDate) }}</td>
-                    <td>
-                        <a href="{{ path('app_tags_edit', { uuid: tag.uuid, eventUuid: event.uuid }) }}">{{ 'common.edit'|trans }}</a>
+                <tr id="block_tag_{{ tag.uuid }}" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ tag.title }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ app_datetime(tag.startDate) }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ app_datetime(tag.endDate) }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="{{ path('app_tags_edit', { uuid: tag.uuid, eventUuid: event.uuid }) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            {{ 'common.edit'|trans }}
+                        </a>
                         <form
                             method="delete"
                             action="{{ path('fragment_tag_delete', { eventUuid: event.uuid, uuid: tag.uuid }) }}"
                         >
-                            <button title="{{ 'common.delete'|trans }}">
-                                {{ 'common.delete'|trans }}
-                            </button>
+                            <button title="{{ 'common.delete'|trans }}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">{{ 'common.delete'|trans }}</button>
                             <input type="hidden" name="token" value="{{ csrf_token('delete-tag') }}" />
                         </form>
                     </td>
@@ -42,6 +59,7 @@
                     </td>
                 </tr>
             {% endfor %}
-        <tbody>
+        </tbody>
     </table>
+</div>
 {% endblock main %}
