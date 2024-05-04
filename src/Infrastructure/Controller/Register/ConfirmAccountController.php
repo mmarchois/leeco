@@ -11,19 +11,16 @@ use App\Domain\User\Exception\TokenNotFoundException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\FlashBagAwareSessionInterface;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 final readonly class ConfirmAccountController
 {
     public function __construct(
         private CommandBusInterface $commandBus,
         private UrlGeneratorInterface $urlGenerator,
-        private TranslatorInterface $translator,
     ) {
     }
 
@@ -32,11 +29,8 @@ final readonly class ConfirmAccountController
     {
         try {
             $this->commandBus->handle(new ConfirmAccountCommand($token));
-            /** @var FlashBagAwareSessionInterface */
-            $session = $request->getSession();
-            $session->getFlashBag()->add('success', $this->translator->trans('register.succeeded.verified'));
 
-            return new RedirectResponse($this->urlGenerator->generate('app_login'));
+            return new RedirectResponse($this->urlGenerator->generate('app_register_confirmed'));
         } catch (TokenNotFoundException) {
             throw new NotFoundHttpException();
         } catch (TokenExpiredException) {

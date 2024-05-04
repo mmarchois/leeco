@@ -10,3 +10,6 @@ import "./styles/app.scss";
 
 // start the Stimulus application
 import "./bootstrap";
+
+// start flowbite
+import "flowbite/dist/flowbite.turbo.js";

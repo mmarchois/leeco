@@ -44,7 +44,7 @@ final class LoginControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(302);
         $crawler = $client->followRedirect();
 
-        $this->assertSame('Vous devez valider votre compte grâce au mail de confirmation reçu.', $crawler->filter('p.error')->text());
+        $this->assertSame('Vous devez valider votre compte grâce au mail de confirmation reçu.', $crawler->filter('[data-testid="alert-danger"]')->text());
     }
 
     public function testLoginWithUnknownAccount(): void
@@ -63,7 +63,7 @@ final class LoginControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(302);
         $crawler = $client->followRedirect();
 
-        $this->assertSame('Identifiants invalides.', $crawler->filter('p.error')->text());
+        $this->assertSame('Identifiants invalides.', $crawler->filter('[data-testid="alert-danger"]')->text());
     }
 
     public function testLoggedLogin(): void

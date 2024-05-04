@@ -5,21 +5,27 @@
 {% endblock %}
 
 {% block main %}
-    <div class="j-container j-box j-stack" style="--box-padding: calc(3 * var(--w)) 0">
-        <div class="j-stack j-text-center">
-            <h1>{{ 'register.succeeded.title'|trans }}</h1>
+    <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-20 lg:py-16 lg:grid-cols-12">
+            <div class="w-full place-self-center lg:col-span-6">
+                <div class="p-6 mx-auto bg-white rounded-lg shadow dark:bg-gray-800 sm:max-w-xl sm:p-8">
+                    <h1 class="mb-2 text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
+                        {{ 'register.succeeded.title'|trans }}
+                    </h1>
+                    <p class="mt-4 text-sm font-light text-gray-500 dark:text-gray-300">
+                        {{ 'register.succeeded.description'|trans({'%email%':email }) }}
+                    </p>
+                    <p class="mt-4 text-sm font-light text-gray-500 dark:text-gray-300">
+                        {{ 'register.succeeded.email_not_received'|trans }}
+                    </p>
+                    <form method="POST" action="{{ path('app_resend_confirmation_mail', { email }) }}">
+                        <button type="submit" class="mt-4 text-primary-600 hover:underline dark:text-primary-500">{{ 'register.succeeded.send_link'|trans }}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mr-auto mt-5 place-self-center lg:col-span-6">
+                <img class="hidden mx-auto lg:flex" src="{{ asset('sign-in.svg')}}" alt="illustration">
+            </div>
         </div>
-
-        <p class="j-text-display">
-            {{ 'register.succeeded.description'|trans }}
-        </p>
-
-        <p class="j-text-small">
-            {{ 'register.succeeded.email_not_received'|trans }}
-        </p>
-
-        <form method="POST" action="{{ path('app_resend_confirmation_mail', { email }) }}">
-            <button type="submit" class="j-btn j-btn--action">{{ 'register.succeeded.send_link'|trans }}</button>
-        </form>
-    </div>
+    </section>
 {% endblock main %}

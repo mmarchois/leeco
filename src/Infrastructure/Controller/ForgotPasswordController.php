@@ -11,10 +11,8 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\FlashBagAwareSessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 final readonly class ForgotPasswordController
 {
@@ -23,7 +21,6 @@ final readonly class ForgotPasswordController
         private FormFactoryInterface $formFactory,
         private CommandBusInterface $commandBus,
         private UrlGeneratorInterface $urlGenerator,
-        private TranslatorInterface $translator,
     ) {
     }
 
@@ -37,11 +34,7 @@ final readonly class ForgotPasswordController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->commandBus->dispatchAsync($command);
 
-            /** @var FlashBagAwareSessionInterface */
-            $session = $request->getSession();
-            $session->getFlashBag()->add('success', $this->translator->trans('forgot_password.succeeded'));
-
-            return new RedirectResponse($this->urlGenerator->generate('app_forgot_password'));
+            return new RedirectResponse($this->urlGenerator->generate('app_forgot_password', ['send' => 1]));
         }
 
         return new Response(
