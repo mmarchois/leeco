@@ -5,16 +5,31 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ 'profile.edit.title'|trans }}</h1>
-    {{ form(form) }}
-    <a href="{{ path('app_edit_password') }}">{{ 'profile.password.title'|trans }}</a>
-    <form
-        method="delete"
-        action="{{ path('app_delete_account') }}"
-    >
-        <button title="{{ 'common.delete'|trans }}">
-            {{ 'profile.edit.delete_account'|trans }}
-        </button>
-        <input type="hidden" name="token" value="{{ csrf_token('delete-user-account') }}" />
-    </form>
+    {% include 'common/breadcrumb.html.twig' with {
+        items: [
+            { title: 'profile.title'|trans },
+        ]
+    } only %}
+    <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
+        <h2 class="mb-4 text-xl font-bold dark:text-white">{{ 'profile.edit.title'|trans }}</h2>
+        {% if app.request.get('success') %}
+            {% include 'common/alert/success.html.twig' with { title: 'profile.edit.success'|trans } %}
+        {% endif %}
+        {{ form(form) }}
+    </div>
+    <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
+        <h2 class="mb-4 text-xl font-bold dark:text-white">{{ 'profile.password.title'|trans }}</h2>
+        <a class="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" href="{{ path('app_edit_password') }}">{{ 'profile.password.title'|trans }}</a>
+    </div>
+    <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
+        <h2 class="mb-4 text-xl font-bold dark:text-white">{{ 'profile.edit.delete_account'|trans }}</h2>
+        {% include 'common/alert/danger.html.twig' with { title: 'profile.edit.delete_account.description'|trans } %}
+        <form method="delete" action="{{ path('app_delete_account') }}">
+            <button type="button" title="{{ 'common.delete'|trans }}" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                {{ 'profile.edit.delete_account'|trans }}
+            </button>
+            <input type="hidden" name="token" value="{{ csrf_token('delete-user-account') }}" />
+            {% include 'common/modal/delete.html.twig' with { modalId: 'deleteModal', title: 'profile.edit.confirm_delete_account'|trans } %}
+        </form>
+    </div>
 {% endblock main %}

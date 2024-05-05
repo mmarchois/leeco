@@ -36,7 +36,7 @@
             </trans-unit>
             <trans-unit id="forgot_password.subjet">
                 <source>forgot_password.subjet</source>
-                <target>Changer de mot de passe</target>
+                <target>Réinitialiser votre mot de passe</target>
             </trans-unit>
             <trans-unit id="forgot_password.title">
                 <source>forgot_password.title</source>

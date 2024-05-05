@@ -10,6 +10,10 @@
                 <source>common.baseline</source>
                 <target>Moment, l'application pour vivre vos évènements en direct avec vos amis.</target>
             </trans-unit>
+            <trans-unit id="common.logout">
+                <source>common.logout</source>
+                <target>Se déconnecter</target>
+            </trans-unit>
             <trans-unit id="common.save">
                 <source>common.save</source>
                 <target>Sauvegarder</target>
@@ -132,7 +136,7 @@
             </trans-unit>
             <trans-unit id="register.succeeded.email_not_received">
                 <source>register.succeeded.email_not_received</source>
-                <target>Si vous n'avez pas reçu d'email, vous pouvez en renvoyer un en cliquant sur le bouton ci-dessous.</target>
+                <target>Si vous n'avez pas reçu d'email, cliquez sur le lien ci-dessous.</target>
             </trans-unit>
             <trans-unit id="register.succeeded.send_link">
                 <source>register.succeeded.send_link</source>
@@ -154,14 +158,13 @@
                 <source>forgot_password.submit</source>
                 <target>Envoyer un lien de réinitialisation</target>
             </trans-unit>
-
             <trans-unit id="forgot_password.description">
                 <source>forgot_password.description</source>
                 <target>Entrez votre mail ci-dessous. Nous vous enverrons un lien de réinitialisation de votre mot de passe.</target>
             </trans-unit>
             <trans-unit id="forgot_password.succeeded">
                 <source>forgot_password.succeeded</source>
-                <target>Consultez votre courrier électronique pour trouver un lien vous permettant de réinitialiser votre mot de passe. S'il n'apparaît pas au bout de quelques minutes, vérifiez votre dossier de courrier indésirable.</target>
+                <target>Consultez votre boîte mail pour trouver un lien vous permettant de réinitialiser votre mot de passe.</target>
             </trans-unit>
             <trans-unit id="forgot_password.back_to_login">
                 <source>forgot_password.back_to_login</source>
@@ -194,6 +197,10 @@
             <trans-unit id="reset_password.token.error">
                 <source>reset_password.token.error</source>
                 <target>Le changement de mot de passe a échoué, veuillez faire une nouvelle demande.</target>
+            </trans-unit>
+            <trans-unit id="dashboard.title">
+                <source>dashboard.title</source>
+                <target>Mon espace</target>
             </trans-unit>
             <trans-unit id="event.list.title">
                 <source>event.list.title</source>
@@ -283,6 +290,10 @@
                 <source>participant.edit.title</source>
                 <target>Modifier le participant "%firstName% %lastName%"</target>
             </trans-unit>
+            <trans-unit id="profile.title">
+                <source>profile.title</source>
+                <target>Mon profil</target>
+            </trans-unit>
             <trans-unit id="profile.edit.title">
                 <source>profile.edit.title</source>
                 <target>Modifier mon profil</target>
@@ -303,9 +314,25 @@
                 <source>profile.password.title</source>
                 <target>Modifier mon mot de passe</target>
             </trans-unit>
+            <trans-unit id="profile.password.edit.success">
+                <source>profile.password.edit.success</source>
+                <target>Votre mot de passe a bien été mis à jour.</target>
+            </trans-unit>
             <trans-unit id="profile.edit.delete_account">
                 <source>profile.edit.delete_account</source>
                 <target>Supprimer mon compte</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.confirm_delete_account">
+                <source>profile.edit.confirm_delete_account</source>
+                <target>Êtes-vous sûr de vouloir supprimer votre compte ?</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.delete_account.description">
+                <source>profile.edit.delete_account.description</source>
+                <target>La suppression de votre compte est permanente et ne peut être annulée. Toutes vos données et tous vos paramètres seront immédiatement supprimés et ne pourront pas être récupérés par la suite.</target>
+            </trans-unit>
+            <trans-unit id="profile.edit.success">
+                <source>profile.edit.success</source>
+                <target>Votre profil a bien été mis à jour.</target>
             </trans-unit>
             <trans-unit id="tag.list">
                 <source>tag.list</source>
@@ -350,6 +377,18 @@
             <trans-unit id="tag.edit.title">
                 <source>tag.edit.title</source>
                 <target>Modifier le tag "%title%"</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.home">
+                <source>breadcrumb.home</source>
+                <target>Mon espace</target>
+            </trans-unit>
+            <trans-unit id="modal.delete.cancel">
+                <source>modal.delete.cancel</source>
+                <target>Non, annuler</target>
+            </trans-unit>
+            <trans-unit id="modal.delete.confirm">
+                <source>modal.delete.confirm</source>
+                <target>Oui, supprimer</target>
             </trans-unit>
         </body>
     </file>

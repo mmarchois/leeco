@@ -28,9 +28,8 @@ final class EditPasswordControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(302);
 
-        $client->followRedirect();
-        $this->assertResponseStatusCodeSame(200);
-        $this->assertRouteSame('app_dashboard');
+        $crawler = $client->followRedirect();
+        $this->assertSame('Votre mot de passe a bien été mis à jour.', $crawler->filter('[data-testid="alert-success"]')->text());
     }
 
     public function testOldWrongPassword(): void

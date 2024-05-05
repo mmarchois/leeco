@@ -15,7 +15,6 @@ final class EditProfileControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Modifier mon profil', $crawler->filter('h1')->text());
         $this->assertMetaTitle('Modifier mon profil - Moment', $crawler);
 
         $saveButton = $crawler->selectButton('Sauvegarder');
@@ -27,9 +26,8 @@ final class EditProfileControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(302);
 
-        $client->followRedirect();
-        $this->assertResponseStatusCodeSame(200);
-        $this->assertRouteSame('app_dashboard');
+        $crawler = $client->followRedirect();
+        $this->assertSame('Votre profil a bien été mis à jour.', $crawler->filter('[data-testid="alert-success"]')->text());
     }
 
     public function testEmptyValues(): void

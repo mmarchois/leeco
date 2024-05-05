@@ -1,14 +1,115 @@
 <header>
-    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <a href="{{ path('app_home') }}" class="flex items-center">
-                <img src="{{ asset('logo.png') }}" class="mr-3 h-6 sm:h-9" altalt="Moment logo" />
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ 'common.title'|trans }}</span>
-            </a>
-            <div class="flex items-center lg:order-2">
-                <a href="{{ path('app_login') }}" class="hidden lg:block text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">{{ 'login.title'|trans }}</a>
-                <a href="{{ path('app_register') }}" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ 'header.free_try'|trans }}</a>
+    {% if app.request.requestUri starts with '/app' %}
+        <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-900">
+            <div class="flex justify-between items-center">
+                <div class="flex justify-start items-center">
+                    <a href="{{ path('app_dashboard') }}" class="flex mr-2">
+                        <img src="{{ asset('logo.png') }}" class="h-8" alt="Moment Logo" />
+                        <span class="hidden ml-3 lg:block self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ 'common.title'|trans }}</span>
+                    </a>
+                    <div class="flex items-center sm:mb-0">
+                    <button id="dropdownUserNameButton" data-dropdown-toggle="dropdownUserName" data-dropdown-placement="bottom" class="flex justify-between items-center p-2 rounded-lg dark:bg-gray-800 dark:hover:bg-gray-700 hover:bg-gray-100 dark:hover-bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700" type="button">
+                        <span class="sr-only">Open user menu</span>
+                        <div class="flex items-center mr-2">
+                            <div class="text-left">
+                                <div class="text-sm font-semibold leading-none text-gray-900 dark:text-white">Mariage H&M</div>
+                            </div>
+                        </div>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5m0 6 4 4 4-4"/></svg>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownUserName" class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-placement="bottom">
+                        <a href="{{ path('app_events_add') }}" class="flex items-center py-3 px-4 rounded hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <div class="text-left">
+                                <div class="font-medium leading-none text-gray-900 dark:text-white mb-0.5 text-sm">+ {{ 'event.add.title'|trans }}</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
+            <div class="flex justify-between items-center lg:order-2">
+                <button id="theme-toggle" data-tooltip-target="tooltip-toggle" type="button" class="text-gray-500 inline-flex items-center justify-center dark:text-gray-400 hover:bg-gray-100 w-10 h-10 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                        <path d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-11a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm0 12a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM4.343 5.757a1 1 0 0 0 1.414-1.414L4.343 2.929a1 1 0 0 0-1.414 1.414l1.414 1.414Zm11.314 8.486a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM4 10a1 1 0 0 0-1-1H1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm15-1h-2a1 1 0 1 0 0 2h2a1 1 0 0 0 0-2ZM4.343 14.243l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414a1 1 0 0 0-1.414-1.414ZM14.95 6.05a1 1 0 0 0 .707-.293l1.414-1.414a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 .707 1.707Z"></path>
+                    </svg>
+                    <span class="sr-only">Toggle dark mode</span>
+                </button>
+                <button type="button" class="flex text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="userMenuDropdownButton" aria-expanded="false" data-dropdown-toggle="userMenuDropdown">
+                    <span class="sr-only">Open user menu</span>
+                    <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                        <span class="font-medium text-gray-600 dark:text-gray-300">{{ app.user.firstName|first ~ app.user.lastName|first }}</span>
+                    </div>
+                </button>
+                <!-- Dropdown menu -->
+                <div class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="userMenuDropdown">
+                    <div class="py-3 px-4">
+                        <span class="block text-sm font-semibold text-gray-900 dark:text-white">{{ app.user.firstName ~ ' ' ~ app.user.lastName }}</span>
+                        <span class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ app.user.username }}</span>
+                    </div>
+                    <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="userMenuDropdownButton">
+                        <li>
+                            <a href="{{ path('app_profile_edit') }}" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">{{ 'profile.title'|trans }}</a>
+                        </li>
+                    </ul>
+                    <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
+                        <li>
+                            <a href="{{ path('app_logout') }}" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ 'common.logout'|trans }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <button type="button" id="toggleMobileMenuButton" data-collapse-toggle="toggleMobileMenu" class="items-center ml-1 p-2 text-gray-500 rounded-lg md:ml-2 lg:hidden hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
+                    <span class="sr-only">Open menu</span>
+                    <svg class="w-[18px] h-[18px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/></svg>
+                </button>
+            </div>
+        </nav>
+        <nav id="toggleMobileMenu" class="hidden bg-white border-b border-gray-200 shadow-sm dark:bg-gray-900 lg:block dark:border-gray-800">
+            <div class="px-0 lg:px-6">
+                <div class="flex items-center">
+                    <ul class="flex flex-col mt-0 w-full text-sm font-medium lg:flex-row">
+                        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+                            <a href="#" class="block py-3 px-4 border-b-2 text-primary-600 hover:text-primary-600 dark:text-primary-500 dark:border-primary-500 border-primary-600" aria-current="page">Tableau de bord</a>
+                        </li>
+                        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+                            <a href="#" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Participants</a>
+                        </li>
+                        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+                            <a href="#" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Médias</a>
+                        </li>
+                        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+                            <a href="#" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Tags</a>
+                        </li>
+                        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+                            <a href="#" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">En direct</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {% else %}
+        <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+                <a href="{{ path('app_home') }}" class="flex items-center">
+                    <img src="{{ asset('logo.png') }}" class="mr-3 h-6 sm:h-9" altalt="Moment logo" />
+                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ 'common.title'|trans }}</span>
+                </a>
+                <div class="flex items-center lg:order-2">
+                    {% if app.user %}
+                        <a href="{{ path('app_dashboard') }}" class="justify-center items-center py-2 px-4 text-sm font-medium text-white bg-primary-700 rounded-lg sm:inline-flex hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                            <svg class="w-6 h-6 mr-1 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
+                            </svg>
+                            {{ 'dashboard.title'|trans }}
+                        </a>
+                    {% else %}
+                        <a href="{{ path('app_login') }}" class="hidden lg:block text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">{{ 'login.title'|trans }}</a>
+                        <a href="{{ path('app_register') }}" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ 'header.free_try'|trans }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    {% endif %}
 </header>
