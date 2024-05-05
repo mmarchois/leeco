@@ -16,8 +16,7 @@ final class ConfirmAccountControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(302);
         $crawler = $client->followRedirect();
         $this->assertResponseStatusCodeSame(200);
-        $this->assertRouteSame('app_login');
-        $this->assertEquals(['success' => ['Votre compte a bien été vérifié, vous pouvez maintenant vous connecter.']], $this->getFlashes($crawler));
+        $this->assertRouteSame('app_register_confirmed');
     }
 
     public function testExpiredToken(): void

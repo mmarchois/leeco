@@ -5,19 +5,30 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ 'register.title'|trans }}</h1>
-    <p>{{ 'common.form.mandatory_fields'|trans|raw }}</p>
-
-    {{ form_start(form) }}
-        {{ form_row(form.firstName, { row_attr: { class: 'j-input-group' } }) }}
-        {{ form_row(form.lastName, { row_attr: { class: 'j-input-group' } }) }}
-        {{ form_row(form.email, { row_attr: { class: 'j-input-group' } }) }}
-        {{ form_row(form.password.first, { row_attr: { class: 'j-input-group' } }) }}
-        {{ form_row(form.password.second, { row_attr: { class: 'j-input-group' } }) }}
-        {{ form_row(form.save, { attr: { class: 'j-btn j-btn--action' } }) }}
-    {{ form_end(form) }}
-    <p>
-        {{ 'register.already_registered'|trans }}
-        <a href="{{ path('app_login') }}">{{ 'login.title'|trans }}</a>
-    </p>
+    <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-20 lg:py-16 lg:grid-cols-12">
+            <div class="w-full place-self-center lg:col-span-6">
+                <div class="p-6 mx-auto bg-white rounded-lg shadow dark:bg-gray-800 sm:max-w-xl sm:p-8">
+                    <h1 class="mb-2 text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
+                        {{ 'register.title'|trans }}
+                    </h1>
+                    {{ form_start(form, { attr: {class: 'mt-8 space-y-6'}}) }}
+                        {{ form_row(form.firstName) }}
+                        {{ form_row(form.lastName) }}
+                        {{ form_row(form.email) }}
+                        {{ form_row(form.password.first) }}
+                        {{ form_row(form.password.second) }}
+                        {{ form_row(form.save) }}
+                    {{ form_end(form) }}
+                    <p class="mt-4 text-sm font-light text-gray-500 dark:text-gray-300">
+                        {{ 'register.already_registered'|trans }}
+                        <a href="{{ path('app_login') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">{{ 'login.title'|trans }}</a>
+                    </p>
+                </div>
+            </div>
+            <div class="mr-auto mt-5 place-self-center lg:col-span-6">
+                <img class="hidden mx-auto lg:flex" src="{{ asset('sign-in.svg')}}" alt="illustration">
+            </div>
+        </div>
+    </section>
 {% endblock main %}

@@ -13,10 +13,8 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\FlashBagAwareSessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 final readonly class ResetPasswordController
 {
@@ -25,16 +23,12 @@ final readonly class ResetPasswordController
         private CommandBusInterface $commandBus,
         private UrlGeneratorInterface $urlGenerator,
         private FormFactoryInterface $formFactory,
-        private TranslatorInterface $translator,
     ) {
     }
 
     #[Route('/reset-password/{token}', name: 'app_reset_password', methods: ['GET', 'POST'])]
     public function __invoke(Request $request, string $token): Response
     {
-        /** @var FlashBagAwareSessionInterface */
-        $session = $request->getSession();
-
         $command = new ResetPasswordCommand($token);
         $form = $this->formFactory->create(ResetPasswordFormType::class, $command);
         $form->handleRequest($request);
@@ -42,13 +36,13 @@ final readonly class ResetPasswordController
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $this->commandBus->handle($command);
-                $session->getFlashBag()->add('success', $this->translator->trans('reset_password.succeeded'));
 
-                return new RedirectResponse($this->urlGenerator->generate('app_login'));
+                return new RedirectResponse($this->urlGenerator->generate('app_login', ['reset' => 1]));
             } catch (TokenNotFoundException|TokenExpiredException) {
-                $session->getFlashBag()->add('error', $this->translator->trans('reset_password.token.error'));
-
-                return new RedirectResponse($this->urlGenerator->generate('app_forgot_password'));
+                return new RedirectResponse($this->urlGenerator->generate('app_reset_password', [
+                    'token' => $token,
+                    'error' => 1,
+                ]));
             }
         }
 

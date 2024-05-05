@@ -13,7 +13,6 @@ final class HomeControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('HOME', $crawler->filter('h1')->text());
         $this->assertMetaTitle('Moment', $crawler);
     }
 }

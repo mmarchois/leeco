@@ -9,8 +9,8 @@ use App\Application\Tag\Command\DeleteTagCommandHandler;
 use App\Domain\Event\Event;
 use App\Domain\Tag\Exception\TagNotBelongsToEventException;
 use App\Domain\Tag\Exception\TagNotFoundException;
-use App\Domain\Tag\Tag;
 use App\Domain\Tag\Repository\TagRepositoryInterface;
+use App\Domain\Tag\Tag;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
