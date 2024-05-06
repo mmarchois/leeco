@@ -43,7 +43,7 @@ final class EditProfileController
                 $user = $this->commandBus->handle($command);
                 $this->authenticatedUser->getSymfonyUser()->update($user);
 
-                return new RedirectResponse($this->urlGenerator->generate('app_dashboard'));
+                return new RedirectResponse($this->urlGenerator->generate('app_profile_edit', ['success' => 1]));
             } catch (UserAlreadyRegisteredException) {
                 $form->get('email')->addError(
                     new FormError(

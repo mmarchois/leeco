@@ -13,3 +13,5 @@ import "./bootstrap";
 
 // start flowbite
 import "flowbite/dist/flowbite.turbo.js";
+
+import "./dark-mode";

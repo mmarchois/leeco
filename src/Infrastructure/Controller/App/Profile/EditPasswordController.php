@@ -43,7 +43,7 @@ final class EditPasswordController
                 $user = $this->commandBus->handle($command);
                 $this->authenticatedUser->getSymfonyUser()->update($user);
 
-                return new RedirectResponse($this->urlGenerator->generate('app_dashboard'));
+                return new RedirectResponse($this->urlGenerator->generate('app_edit_password', ['success' => 1]));
             } catch (PasswordDoesntMatchException) {
                 $form->get('oldPassword')->addError(
                     new FormError(
