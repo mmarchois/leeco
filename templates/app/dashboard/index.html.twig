@@ -1,6 +1,8 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
+{% include 'common/breadcrumb.html.twig' with { items: [] } only %}
+
 <div class="dark:bg-gray-900 flex-1 p-4 grid grid-cols-1 md:grid-cols-2 gap-5">
     <h1>DASHBOARD</h1>
     <div class="border-2 border-dashed border-gray-300 rounded-xl dark:border-gray-600 h-96"></div>

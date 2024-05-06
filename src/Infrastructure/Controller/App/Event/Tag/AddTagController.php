@@ -71,6 +71,7 @@ final class AddTagController extends AbstractEventController
                 name: 'app/tag/add.html.twig',
                 context : [
                     'form' => $form->createView(),
+                    'event' => $event,
                 ],
             ),
             status: ($form->isSubmitted() && !$form->isValid()) || $commandFailed

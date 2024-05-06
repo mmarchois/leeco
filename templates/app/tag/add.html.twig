@@ -5,6 +5,14 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ 'tag.add.title'|trans }}</h1>
-    {{ form(form) }}
+    {% include 'common/breadcrumb.html.twig' with { items: [
+        { title: 'event.list.title'|trans, path: path('app_events_list') },
+        { title: event.title, path: path('app_events_dashboard', { uuid: event.uuid }) },
+        { title: 'tag.list'|trans, path: path('app_tags_list', { uuid: event.uuid }) },
+        { title: 'tag.add.title'|trans },
+    ] } only %}
+    <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
+        <h1 class="mb-4 text-xl font-bold dark:text-white">{{ 'tag.add.title'|trans }}</h1>
+        {{ form(form) }}
+    </div>
 {% endblock main %}

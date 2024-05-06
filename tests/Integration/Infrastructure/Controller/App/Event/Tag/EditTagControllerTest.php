@@ -15,8 +15,16 @@ final class EditTagControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Modifier le tag "Cérémonie religieuse"', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Modifier le tag "Cérémonie religieuse" - Moment', $crawler);
+        $this->assertSame('Modifier "Cérémonie religieuse"', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Modifier "Cérémonie religieuse" - Moment', $crawler);
+
+        $this->assertBreadcrumbStructure([
+            ['Mon espace', ['href' => '/app']],
+            ['Mes évènements', ['href' => '/app/events']],
+            ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
+            ['Tags', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/tags']],
+            ['Modifier "Cérémonie religieuse"', ['href' => null]],
+        ], $crawler);
 
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();

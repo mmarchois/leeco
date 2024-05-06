@@ -17,6 +17,11 @@ final class EditPasswordControllerTest extends AbstractWebTestCase
         $this->assertSecurityHeaders();
         $this->assertSame('Modifier mon mot de passe', $crawler->filter('h1')->text());
         $this->assertMetaTitle('Modifier mon mot de passe - Moment', $crawler);
+        $this->assertBreadcrumbStructure([
+            ['Mon espace', ['href' => '/app']],
+            ['Mon profil', ['href' => '/app/profile/edit']],
+            ['Modifier mon mot de passe', ['href' => null]],
+        ], $crawler);
 
         $saveButton = $crawler->selectButton('Changer mon mot de passe');
         $form = $saveButton->form();

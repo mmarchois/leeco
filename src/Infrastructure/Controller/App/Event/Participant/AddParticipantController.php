@@ -72,6 +72,7 @@ final class AddParticipantController extends AbstractEventController
                 name: 'app/participant/add.html.twig',
                 context : [
                     'form' => $form->createView(),
+                    'event' => $event,
                 ],
             ),
             status: ($form->isSubmitted() && !$form->isValid()) || $commandFailed

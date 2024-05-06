@@ -1,0 +1,87 @@
+{% set currentPage = app.request.get('page', 1) %}
+{% set queryParams = app.request.query.all %}
+{% set routeName = app.request.get('_route') %}
+
+<nav class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0" aria-label="Table navigation">
+    <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{ 'pagination.total'|trans({'%count%': pagination.totalItems }) }}</span>
+    {% if pagination.lastPage > 1 %}
+        <ul class="inline-flex items-stretch -space-x-px">
+            <li>
+                <a
+                    role="link"
+                    class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                    {% if currentPage > 1 %}
+                        href="{{ path(routeName, queryParams|merge({ page: currentPage-1 })) }}"
+                    {% else %}
+                        aria-disabled="true"
+                    {% endif %}
+                >
+                    <span class="sr-only">Previous</span>
+                    <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </li>
+            {% if pagination.hasFirstPageLandmark %}
+                <li>
+                    <a class="fr-pagination__link"
+                        title="{{ 'pagination.page'|trans({'%page%': 1}) }}"
+                        href="{{ path(routeName, queryParams|merge({ page: 1 })) }}"
+                    >
+                        1
+                    </a>
+                </li>
+            {% endif %}
+            {% if pagination.hasLeftTruncature %}
+                <li>
+                    <span class="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"> ... </span>
+                </li>
+            {% endif %}
+            {% for page in pagination.windowPages %}
+                <li>
+                    <a
+                        title="{{ 'pagination.page'|trans({'%page%': page}) }}"
+                        {% if page == currentPage %}
+                            aria-current="page"
+                            class="z-10 flex items-center justify-center px-3 py-2 text-sm leading-tight border text-primary-600 bg-primary-50 border-primary-300 hover:bg-primary-100 hover:text-primary-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                        {% else %}
+                            href="{{ path(routeName, queryParams|merge({ page })) }}"
+                            class="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                        {% endif %}
+                    >
+                        {{ page }}
+                    </a>
+                </li>
+            {% endfor %}
+            {% if pagination.hasRightTruncature %}
+                <li>
+                    <span class="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"> ... </span>
+                </li>
+            {% endif %}
+            {% if pagination.hasLastPageLandmark %}
+                <li>
+                    <a class="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                        title="{{ 'pagination.page'|trans({'%page%': pagination.lastPage }) }}"
+                        href="{{ path(routeName, queryParams|merge({ page: pagination.lastPage })) }}"
+                    >
+                        {{ pagination.lastPage }}
+                    </a>
+                </li>
+            {% endif %}
+            <li>
+                <a class="flex items-center justify-center h-full py-1.5 px-3 rounded-r-lg leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                    {% if currentPage + 1 <= pagination.lastPage %}
+                        href="{{ path(routeName, queryParams|merge({ page: currentPage + 1 })) }}"
+                    {% else %}
+                        aria-disabled="true"
+                    {% endif %}
+                >
+                    <span class="sr-only">Next</span>
+                    <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    {% endif %}
+</nav>

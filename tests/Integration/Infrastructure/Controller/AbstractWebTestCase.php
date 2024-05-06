@@ -53,4 +53,26 @@ abstract class AbstractWebTestCase extends WebTestCase
             $this->assertEmpty(array_diff($attrs, $actualAttrs));
         }
     }
+
+    protected function assertBreadcrumbStructure(array $expectedStructure, Crawler $crawler): void
+    {
+        $actualStructure = $crawler
+            ->filter('main nav li')
+            ->each(function (Crawler $node, int $i): array {
+                $href = null;
+                if (\count($node->filter('a')) > 0) {
+                    $href = $node->filter('a')->attr('href');
+                }
+
+                return [$node->text(), ['href' => $href]];
+            });
+
+        $this->assertSame(\count($expectedStructure), \count($actualStructure));
+
+        foreach ($expectedStructure as $index => [$text, $attrs]) {
+            [$actualText, $actualAttrs] = $actualStructure[$index];
+            $this->assertSame($text, $actualText);
+            $this->assertEmpty(array_diff($attrs, $actualAttrs));
+        }
+    }
 }

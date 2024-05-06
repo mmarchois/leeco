@@ -14,6 +14,11 @@ final class ListEventsControllerTest extends AbstractWebTestCase
         $crawler = $client->request('GET', '/app/events');
         $table = $crawler->filter('[data-testid="event-list"] tbody');
 
+        $this->assertBreadcrumbStructure([
+            ['Mon espace', ['href' => '/app']],
+            ['Mes évènements', ['href' => null]],
+        ], $crawler);
+
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertMetaTitle('Mes évènements - Moment', $crawler);

@@ -15,8 +15,16 @@ final class EditParticipantControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Modifier le participant "Tony & Corinne MARCHOIS"', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Modifier le participant "Tony & Corinne MARCHOIS" - Moment', $crawler);
+        $this->assertSame('Modifier "Tony & Corinne MARCHOIS"', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Modifier "Tony & Corinne MARCHOIS" - Moment', $crawler);
+
+        $this->assertBreadcrumbStructure([
+            ['Mon espace', ['href' => '/app']],
+            ['Mes évènements', ['href' => '/app/events']],
+            ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
+            ['Participants', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/participants']],
+            ['Modifier "Tony & Corinne MARCHOIS"', ['href' => null]],
+        ], $crawler);
 
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();

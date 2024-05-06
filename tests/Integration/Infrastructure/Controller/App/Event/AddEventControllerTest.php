@@ -18,6 +18,12 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $this->assertSame('Créer un évènement', $crawler->filter('h1')->text());
         $this->assertMetaTitle('Créer un évènement - Moment', $crawler);
 
+        $this->assertBreadcrumbStructure([
+            ['Mon espace', ['href' => '/app']],
+            ['Mes évènements', ['href' => '/app/events']],
+            ['Créer un évènement', ['href' => null]],
+        ], $crawler);
+
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();
         $form['event_form[title]'] = 'Mariage cousins';
