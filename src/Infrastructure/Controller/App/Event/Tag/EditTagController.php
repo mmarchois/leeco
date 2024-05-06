@@ -86,6 +86,7 @@ final class EditTagController extends AbstractEventController
                 context : [
                     'form' => $form->createView(),
                     'tag' => $tag,
+                    'event' => $event,
                 ],
             ),
             status: ($form->isSubmitted() && !$form->isValid()) || $commandFailed

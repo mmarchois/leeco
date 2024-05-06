@@ -15,8 +15,14 @@ final class EditEventControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Modifier l\'évènement "Mariage H&M"', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Modifier l\'évènement "Mariage H&M" - Moment', $crawler);
+        $this->assertSame('Modifier "Mariage H&M"', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Modifier "Mariage H&M" - Moment', $crawler);
+
+        $this->assertBreadcrumbStructure([
+            ['Mon espace', ['href' => '/app']],
+            ['Mes évènements', ['href' => '/app/events']],
+            ['Modifier "Mariage H&M"', ['href' => null]],
+        ], $crawler);
 
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();

@@ -86,6 +86,7 @@ final class EditParticipantController extends AbstractEventController
                 context : [
                     'form' => $form->createView(),
                     'participant' => $participant,
+                    'event' => $event,
                 ],
             ),
             status: ($form->isSubmitted() && !$form->isValid()) || $commandFailed

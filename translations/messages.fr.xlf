@@ -14,6 +14,10 @@
                 <source>common.logout</source>
                 <target>Se déconnecter</target>
             </trans-unit>
+            <trans-unit id="common.status">
+                <source>common.status</source>
+                <target>Status</target>
+            </trans-unit>
             <trans-unit id="common.save">
                 <source>common.save</source>
                 <target>Sauvegarder</target>
@@ -25,6 +29,10 @@
             <trans-unit id="common.go_back">
                 <source>common.go_back</source>
                 <target>Revenir en arrière</target>
+            </trans-unit>
+            <trans-unit id="common.search">
+                <source>common.search</source>
+                <target>Rechercher</target>
             </trans-unit>
             <trans-unit id="common.see">
                 <source>common.see</source>
@@ -45,6 +53,10 @@
             <trans-unit id="common.actions">
                 <source>common.actions</source>
                 <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="pagination.total">
+                <source>pagination.total</source>
+                <target>{0} Aucun résultat | {1} 1 résultat | ]1,Inf[ %count% résultats</target>
             </trans-unit>
             <trans-unit id="login.title">
                 <source>login.title</source>
@@ -232,11 +244,11 @@
             </trans-unit>
             <trans-unit id="event.edit.title">
                 <source>event.edit.title</source>
-                <target>Modifier l'évènement "%title%"</target>
+                <target>Modifier "%title%"</target>
             </trans-unit>
             <trans-unit id="participant.list.title">
                 <source>participant.list.title</source>
-                <target>Participants de l'évènement "%title%"</target>
+                <target>Participants</target>
             </trans-unit>
             <trans-unit id="participant.list">
                 <source>participant.list</source>
@@ -288,7 +300,7 @@
             </trans-unit>
             <trans-unit id="participant.edit.title">
                 <source>participant.edit.title</source>
-                <target>Modifier le participant "%firstName% %lastName%"</target>
+                <target>Modifier "%firstName% %lastName%"</target>
             </trans-unit>
             <trans-unit id="profile.title">
                 <source>profile.title</source>
@@ -338,10 +350,6 @@
                 <source>tag.list</source>
                 <target>Tags</target>
             </trans-unit>
-            <trans-unit id="tag.list.title">
-                <source>tag.list.title</source>
-                <target>Tags de l'évènement "%title%"</target>
-            </trans-unit>
             <trans-unit id="tag.list.title_name">
                 <source>tag.list.title_name</source>
                 <target>Tag</target>
@@ -376,7 +384,7 @@
             </trans-unit>
             <trans-unit id="tag.edit.title">
                 <source>tag.edit.title</source>
-                <target>Modifier le tag "%title%"</target>
+                <target>Modifier "%title%"</target>
             </trans-unit>
             <trans-unit id="breadcrumb.home">
                 <source>breadcrumb.home</source>

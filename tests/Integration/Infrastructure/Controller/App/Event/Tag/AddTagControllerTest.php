@@ -18,6 +18,14 @@ final class AddTagControllerTest extends AbstractWebTestCase
         $this->assertSame('Ajouter un tag', $crawler->filter('h1')->text());
         $this->assertMetaTitle('Ajouter un tag - Moment', $crawler);
 
+        $this->assertBreadcrumbStructure([
+            ['Mon espace', ['href' => '/app']],
+            ['Mes évènements', ['href' => '/app/events']],
+            ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
+            ['Tags', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/tags']],
+            ['Ajouter un tag', ['href' => null]],
+        ], $crawler);
+
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();
         $form['tag_form[title]'] = 'Scéance photo';

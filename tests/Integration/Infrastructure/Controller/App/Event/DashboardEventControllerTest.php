@@ -18,6 +18,12 @@ final class DashboardEventControllerTest extends AbstractWebTestCase
         $this->assertSame('Mariage H&M', $crawler->filter('h1')->text());
         $this->assertMetaTitle('Mariage H&M - Moment', $crawler);
 
+        $this->assertBreadcrumbStructure([
+            ['Mon espace', ['href' => '/app']],
+            ['Mes évènements', ['href' => '/app/events']],
+            ['Mariage H&M', ['href' => null]],
+        ], $crawler);
+
         $formDelete = $crawler->selectButton('Supprimer')->form();
         $this->assertSame($formDelete->getUri(), 'http://localhost/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/delete');
         $this->assertSame($formDelete->getMethod(), 'DELETE');

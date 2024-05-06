@@ -15,7 +15,11 @@ final class EditProfileControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertMetaTitle('Modifier mon profil - Moment', $crawler);
+        $this->assertMetaTitle('Mon profil - Moment', $crawler);
+        $this->assertBreadcrumbStructure([
+            ['Mon espace', ['href' => '/app']],
+            ['Mon profil', ['href' => null]],
+        ], $crawler);
 
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();

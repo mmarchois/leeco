@@ -16,17 +16,25 @@ final class ListParticipantsControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Participants de l\'évènement "Mariage H&M" (2)', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Participants de l\'évènement "Mariage H&M" - Moment', $crawler);
+        $this->assertSame('Participants', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Participants - Moment', $crawler);
+
+        $this->assertBreadcrumbStructure([
+            ['Mon espace', ['href' => '/app']],
+            ['Mes évènements', ['href' => '/app/events']],
+            ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
+            ['Participants', ['href' => null]],
+        ], $crawler);
 
         $this->assertSame(2, $table->filter('tr')->count());
 
         $tr1 = $table->filter('tr')->eq(0)->filter('td');
-        $link1 = $tr1->eq(4)->filter('a');
-        $this->assertSame('Tony & Corinne', $tr1->eq(0)->text());
-        $this->assertSame('MARCHOIS', $tr1->eq(1)->text());
+        $link1 = $tr1->eq(5)->filter('a');
+        $this->assertSame('MARCHOIS', $tr1->eq(0)->text());
+        $this->assertSame('Tony & Corinne', $tr1->eq(1)->text());
         $this->assertSame('tc.marchois@gmail.com', $tr1->eq(2)->text());
-        $this->assertSame('accessCode1 - Non envoyé', $tr1->eq(3)->text());
+        $this->assertSame('accessCode1', $tr1->eq(3)->text());
+        $this->assertSame('Non envoyé', $tr1->eq(4)->text());
         $this->assertSame('Modifier', $link1->eq(0)->text());
         $this->assertSame('http://localhost/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/participants/0faf6d38-6887-44b9-9896-7877e31c56c4/edit', $link1->eq(0)->link()->getUri());
 
@@ -35,11 +43,12 @@ final class ListParticipantsControllerTest extends AbstractWebTestCase
         $this->assertSame($formDelete1->getMethod(), 'DELETE');
 
         $tr2 = $table->filter('tr')->eq(1)->filter('td');
-        $link2 = $tr2->eq(4)->filter('a');
-        $this->assertSame('Floran', $tr2->eq(0)->text());
-        $this->assertSame('ROISIN', $tr2->eq(1)->text());
+        $link2 = $tr2->eq(5)->filter('a');
+        $this->assertSame('ROISIN', $tr2->eq(0)->text());
+        $this->assertSame('Floran', $tr2->eq(1)->text());
         $this->assertSame('floran.roisin@gmail.com', $tr2->eq(2)->text());
-        $this->assertSame('accessCode2 - Envoyé', $tr2->eq(3)->text());
+        $this->assertSame('accessCode2', $tr2->eq(3)->text());
+        $this->assertSame('Envoyé', $tr2->eq(4)->text());
         $this->assertSame('Modifier', $link2->eq(0)->text());
         $this->assertSame('http://localhost/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/participants/6f6973d5-6733-415e-bd35-432a6b50f8cf/edit', $link2->eq(0)->link()->getUri());
 
@@ -56,18 +65,19 @@ final class ListParticipantsControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Participants de l\'évènement "EVG Julien" (1)', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Participants de l\'évènement "EVG Julien" - Moment', $crawler);
+        $this->assertSame('Participants', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Participants - Moment', $crawler);
 
         $this->assertSame(1, $table->filter('tr')->count());
 
         $tr1 = $table->filter('tr')->eq(0)->filter('td');
-        $link1 = $tr1->eq(4)->filter('a');
+        $link1 = $tr1->eq(5)->filter('a');
 
-        $this->assertSame('Julien', $tr1->eq(0)->text());
-        $this->assertSame('MARCHOIS', $tr1->eq(1)->text());
+        $this->assertSame('MARCHOIS', $tr1->eq(0)->text());
+        $this->assertSame('Julien', $tr1->eq(1)->text());
         $this->assertSame('julien.marchois@gmail.com', $tr1->eq(2)->text());
-        $this->assertSame('accessCode3 - Non envoyé', $tr1->eq(3)->text());
+        $this->assertSame('accessCode3', $tr1->eq(3)->text());
+        $this->assertSame('Non envoyé', $tr1->eq(4)->text());
 
         $this->assertSame('Modifier', $link1->eq(0)->text());
         $this->assertSame('http://localhost/app/events/2203014c-5d51-4e20-b607-2b48ffb3f0c7/participants/e4095f02-1516-42b3-82d1-506f2e74f027/edit', $link1->eq(0)->link()->getUri());
