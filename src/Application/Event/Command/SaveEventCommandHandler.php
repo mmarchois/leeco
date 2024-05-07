@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Application\Event\Command;
 
-use App\Application\DateUtilsInterface;
 use App\Application\IdFactoryInterface;
 use App\Domain\Event\Event;
 use App\Domain\Event\Exception\EventAlreadyExistException;
@@ -18,7 +17,6 @@ final readonly class SaveEventCommandHandler
 {
     public function __construct(
         private IdFactoryInterface $idFactory,
-        private DateUtilsInterface $dateUtils,
         private UserRepositoryInterface $userRepository,
         private EventRepositoryInterface $eventRepository,
         private IsEventAlreadyExist $isEventAlreadyExist,
@@ -28,8 +26,6 @@ final readonly class SaveEventCommandHandler
     public function __invoke(SaveEventCommand $command): string
     {
         $title = trim($command->title);
-        $date = $command->date;
-        $expirationDate = $this->dateUtils->addDaysToDate($date, 30);
 
         // Update event
 
@@ -38,7 +34,7 @@ final readonly class SaveEventCommandHandler
                 throw new EventAlreadyExistException();
             }
 
-            $event->update($title, $date, $expirationDate);
+            $event->update($title, $command->startDate, $command->endDate);
 
             return $command->uuid;
         }
@@ -58,8 +54,8 @@ final readonly class SaveEventCommandHandler
             new Event(
                 uuid: $this->idFactory->make(),
                 title: $title,
-                date: $date,
-                expirationDate: $expirationDate,
+                startDate: $command->startDate,
+                endDate: $command->endDate,
                 owner: $user,
             ),
         );

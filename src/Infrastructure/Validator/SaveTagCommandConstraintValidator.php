@@ -38,7 +38,7 @@ final class SaveTagCommandConstraintValidator extends ConstraintValidator
                 ->addViolation();
         }
 
-        $eventDate = \DateTimeImmutable::createFromInterface($command->event->getDate())
+        $eventDate = \DateTimeImmutable::createFromInterface($command->event->getStartDate())
             ->setTimeZone($this->clientTimezone);
 
         if ($eventDate > $startDate) {

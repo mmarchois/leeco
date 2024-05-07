@@ -226,9 +226,17 @@
                 <source>event.list.event</source>
                 <target>Évènement</target>
             </trans-unit>
+            <trans-unit id="event.list.period">
+                <source>event.list.period</source>
+                <target>Période</target>
+            </trans-unit>
             <trans-unit id="event.list.date">
                 <source>event.list.date</source>
-                <target>Date d'ouverture</target>
+                <target>Le %date%</target>
+            </trans-unit>
+            <trans-unit id="event.list.dates">
+                <source>event.list.dates</source>
+                <target>Du %startDate% au %endDate%</target>
             </trans-unit>
             <trans-unit id="event.add.title">
                 <source>event.add.title</source>
@@ -238,13 +246,21 @@
                 <source>event.form.title</source>
                 <target>Nom de l'évènement</target>
             </trans-unit>
-            <trans-unit id="event.form.date">
-                <source>event.form.date</source>
+            <trans-unit id="event.form.startDate">
+                <source>event.form.startDate</source>
                 <target>Date d'ouverture</target>
             </trans-unit>
-            <trans-unit id="event.form.date.help">
-                <source>event.form.date.help</source>
-                <target>Afin d'optimiser l'engagement de vos participants, le lien vers l"application leur sera envoyé 5 jours avant le début de l'évènement.</target>
+            <trans-unit id="event.form.endDate">
+                <source>event.form.endDate</source>
+                <target>Date de clôture</target>
+            </trans-unit>
+            <trans-unit id="event.form.startDate.help">
+                <source>event.form.startDate.help</source>
+                <target>Les participants ne pourront pas se connecter avant cette date.</target>
+            </trans-unit>
+            <trans-unit id="event.form.endDate.help">
+                <source>event.form.endDate.help</source>
+                <target>Les participants ne pourront plus poster de contenu après cette date.</target>
             </trans-unit>
             <trans-unit id="event.edit.title">
                 <source>event.edit.title</source>

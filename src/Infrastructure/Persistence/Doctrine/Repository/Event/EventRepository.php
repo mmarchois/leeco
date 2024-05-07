@@ -38,11 +38,12 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
                 'NEW %s(
                     e.uuid,
                     e.title,
-                    e.date
+                    e.startDate,
+                    e.endDate
                 )',
                 EventView::class,
             ))
-            ->orderBy('e.date', 'DESC')
+            ->orderBy('e.startDate', 'DESC')
             ->where('e.owner = :userUuid')
             ->setParameter('userUuid', $userUuid)
             ->setFirstResult($pageSize * ($page - 1))

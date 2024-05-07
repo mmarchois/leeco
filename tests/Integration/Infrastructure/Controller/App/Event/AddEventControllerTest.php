@@ -27,13 +27,13 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();
         $form['event_form[title]'] = 'Mariage cousins';
-        $form['event_form[date]'] = '2035-10-14'; // Deliberately set a date far in the future
+        $form['event_form[startDate]'] = '2024-10-14';
+        $form['event_form[endDate]'] = '2024-10-14';
         $client->submit($form);
         $crawler = $client->followRedirect();
 
         $this->assertResponseStatusCodeSame(200);
-        $this->assertRouteSame('app_events_dashboard');
-        $this->assertSame('Mariage cousins', $crawler->filter('h1')->text());
+        $this->assertRouteSame('app_events_list');
     }
 
     public function testInvalidData(): void
@@ -46,21 +46,34 @@ final class AddEventControllerTest extends AbstractWebTestCase
 
         // Empty data
         $form['event_form[title]'] = '';
-        $form['event_form[date]'] = '';
+        $form['event_form[startDate]'] = '';
+        $form['event_form[endDate]'] = '';
         $crawler = $client->submit($form);
 
         $this->assertResponseStatusCodeSame(422);
         $this->assertSame('Cette valeur ne doit pas être vide.', $crawler->filter('#event_form_title_error')->text());
-        $this->assertSame('Cette valeur ne doit pas être vide.', $crawler->filter('#event_form_date_error')->text());
+        $this->assertSame('Cette valeur ne doit pas être vide.', $crawler->filter('#event_form_startDate_error')->text());
+        $this->assertSame('Cette valeur ne doit pas être vide.', $crawler->filter('#event_form_endDate_error')->text());
 
         // Invalid data
         $form['event_form[title]'] = str_repeat('a', 101);
-        $form['event_form[date]'] = 'abc';
+        $form['event_form[startDate]'] = 'abc';
+        $form['event_form[endDate]'] = 'abc';
         $crawler = $client->submit($form);
 
         $this->assertResponseStatusCodeSame(422);
         $this->assertSame('Cette chaîne est trop longue. Elle doit avoir au maximum 100 caractères.', $crawler->filter('#event_form_title_error')->text());
-        $this->assertSame('Veuillez entrer une date valide.', $crawler->filter('#event_form_date_error')->text());
+        $this->assertSame('Veuillez entrer une date valide.', $crawler->filter('#event_form_startDate_error')->text());
+        $this->assertSame('Veuillez entrer une date valide.', $crawler->filter('#event_form_endDate_error')->text());
+
+        // Invalid period
+        $form['event_form[title]'] = str_repeat('a', 101);
+        $form['event_form[startDate]'] = '2024-10-14';
+        $form['event_form[endDate]'] = '2024-10-10';
+        $crawler = $client->submit($form);
+
+        $this->assertResponseStatusCodeSame(422);
+        $this->assertSame('La date de fin doit être supérieure à la date de début.', $crawler->filter('#event_form_endDate_error')->text());
     }
 
     public function testEventAlreadyExist(): void
@@ -72,7 +85,8 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $form = $saveButton->form();
 
         $form['event_form[title]'] = 'Mariage H&M';
-        $form['event_form[date]'] = '2035-10-25'; // Deliberately set a date far in the future
+        $form['event_form[startDate]'] = '2035-10-25';
+        $form['event_form[endDate]'] = '2035-10-25';
         $crawler = $client->submit($form);
 
         $this->assertResponseStatusCodeSame(422);

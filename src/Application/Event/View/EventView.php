@@ -9,7 +9,8 @@ final readonly class EventView
     public function __construct(
         public string $uuid,
         public string $title,
-        public \DateTimeInterface $date,
+        public \DateTimeInterface $startDate,
+        public \DateTimeInterface $endDate,
     ) {
     }
 }

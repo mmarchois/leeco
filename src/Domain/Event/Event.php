@@ -11,8 +11,8 @@ class Event
     public function __construct(
         private string $uuid,
         private string $title,
-        private \DateTimeInterface $date,
-        private \DateTimeInterface $expirationDate,
+        private \DateTimeInterface $startDate,
+        private \DateTimeInterface $endDate,
         private User $owner,
     ) {
     }
@@ -27,14 +27,14 @@ class Event
         return $this->title;
     }
 
-    public function getDate(): \DateTimeInterface
+    public function getStartDate(): \DateTimeInterface
     {
-        return $this->date;
+        return $this->startDate;
     }
 
-    public function getExpirationDate(): \DateTimeInterface
+    public function getEndDate(): \DateTimeInterface
     {
-        return $this->expirationDate;
+        return $this->endDate;
     }
 
     public function getOwner(): User
@@ -44,11 +44,11 @@ class Event
 
     public function update(
         string $title,
-        \DateTimeInterface $date,
-        \DateTimeInterface $expirationDate,
+        \DateTimeInterface $startDate,
+        \DateTimeInterface $endDate,
     ): void {
         $this->title = $title;
-        $this->date = $date;
-        $this->expirationDate = $expirationDate;
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
     }
 }

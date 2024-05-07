@@ -23,9 +23,15 @@ final class EventFormType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'event.form.title',
             ])
-            ->add('date', DateType::class, [
-                'label' => 'event.form.date',
-                'help' => 'event.form.date.help',
+            ->add('startDate', DateType::class, [
+                'label' => 'event.form.startDate',
+                'help' => 'event.form.startDate.help',
+                'widget' => 'single_text',
+                'view_timezone' => $this->clientTimezone,
+            ])
+            ->add('endDate', DateType::class, [
+                'label' => 'event.form.endDate',
+                'help' => 'event.form.endDate.help',
                 'widget' => 'single_text',
                 'view_timezone' => $this->clientTimezone,
             ])
