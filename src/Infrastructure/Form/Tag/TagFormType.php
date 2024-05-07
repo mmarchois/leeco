@@ -25,12 +25,12 @@ final class TagFormType extends AbstractType
             ])
             ->add('startDate', DateTimeType::class, [
                 'label' => 'tag.form.startDate',
-                'widget' => 'choice',
+                'widget' => 'single_text',
                 'view_timezone' => $this->clientTimezone,
             ])
             ->add('endDate', DateTimeType::class, [
                 'label' => 'tag.form.endDate',
-                'widget' => 'choice',
+                'widget' => 'single_text',
                 'view_timezone' => $this->clientTimezone,
             ])
             ->add('save', SubmitType::class, [

@@ -29,17 +29,8 @@ final class EditTagControllerTest extends AbstractWebTestCase
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();
         $form['tag_form[title]'] = 'Cérémonie religieuse';
-        $form['tag_form[startDate][date][day]'] = '5';
-        $form['tag_form[startDate][date][month]'] = '1';
-        $form['tag_form[startDate][date][year]'] = '2019';
-        $form['tag_form[startDate][time][hour]'] = '18';
-        $form['tag_form[startDate][time][minute]'] = '0';
-
-        $form['tag_form[endDate][date][day]'] = '6';
-        $form['tag_form[endDate][date][month]'] = '1';
-        $form['tag_form[endDate][date][year]'] = '2019';
-        $form['tag_form[endDate][time][hour]'] = '20';
-        $form['tag_form[endDate][time][minute]'] = '0';
+        $form['tag_form[startDate]'] = '2019-05-01 18:00';
+        $form['tag_form[endDate]'] = '2019-05-01 20:00';
         $client->submit($form);
         $crawler = $client->followRedirect();
         $this->assertResponseStatusCodeSame(200);
@@ -64,32 +55,15 @@ final class EditTagControllerTest extends AbstractWebTestCase
 
         // Bad values
         $form['tag_form[title]'] = str_repeat('a', 101);
-        $form['tag_form[startDate][date][day]'] = '5';
-        $form['tag_form[startDate][date][month]'] = '1';
-        $form['tag_form[startDate][date][year]'] = '2019';
-        $form['tag_form[startDate][time][hour]'] = '18';
-        $form['tag_form[startDate][time][minute]'] = '0';
 
-        $form['tag_form[endDate][date][day]'] = '5';
-        $form['tag_form[endDate][date][month]'] = '1';
-        $form['tag_form[endDate][date][year]'] = '2019';
-        $form['tag_form[endDate][time][hour]'] = '10';
-        $form['tag_form[endDate][time][minute]'] = '0';
+        $form['tag_form[startDate]'] = '2019-05-01 18:00';
+        $form['tag_form[endDate]'] = '2019-05-01 10:00';
 
         $crawler = $client->submit($form);
         $this->assertResponseStatusCodeSame(422);
 
         $this->assertSame('Cette chaîne est trop longue. Elle doit avoir au maximum 100 caractères.', $crawler->filter('#tag_form_title_error')->text());
-        $this->assertSame('La date de fin doit être après le 05/01/2019.', $crawler->filter('#tag_form_endDate_error')->text());
-
-        // Tag before event start
-        $form['tag_form[startDate][date][year]'] = '2019';
-        $form['tag_form[startDate][date][day]'] = '1';
-        $form['tag_form[startDate][date][month]'] = '1';
-        $crawler = $client->submit($form);
-        $this->assertResponseStatusCodeSame(422);
-
-        $this->assertSame("La date de début doit être après le 05/01/2019 (date de début de l'évènement).", $crawler->filter('#tag_form_startDate_error')->text());
+        $this->assertSame('La date de fin doit être supérieure à la date de début.', $crawler->filter('#tag_form_endDate_error')->text());
     }
 
     public function testTagAlreadyExist(): void
@@ -101,16 +75,9 @@ final class EditTagControllerTest extends AbstractWebTestCase
         $form = $saveButton->form();
 
         $form['tag_form[title]'] = 'Dîner';
-        $form['tag_form[startDate][date][day]'] = '5';
-        $form['tag_form[startDate][date][month]'] = '1';
-        $form['tag_form[startDate][date][year]'] = '2019';
-        $form['tag_form[startDate][time][hour]'] = '18';
-        $form['tag_form[startDate][time][minute]'] = '0';
-        $form['tag_form[endDate][date][day]'] = '5';
-        $form['tag_form[endDate][date][month]'] = '1';
-        $form['tag_form[endDate][date][year]'] = '2019';
-        $form['tag_form[endDate][time][hour]'] = '20';
-        $form['tag_form[endDate][time][minute]'] = '0';
+
+        $form['tag_form[startDate]'] = '2019-05-01 18:00';
+        $form['tag_form[endDate]'] = '2019-05-01 20:00';
 
         $crawler = $client->submit($form);
 

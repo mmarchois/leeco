@@ -46,7 +46,7 @@ final class AddTagController extends AbstractEventController
     public function __invoke(Request $request, string $uuid): Response
     {
         $event = $this->getEvent($uuid);
-        $command = new SaveTagCommand($event);
+        $command = SaveTagCommand::create($event);
         $form = $this->formFactory->create(TagFormType::class, $command, [
             'action' => $this->router->generate('app_tags_add', ['uuid' => $uuid]),
         ]);

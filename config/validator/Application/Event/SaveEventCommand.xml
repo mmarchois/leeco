@@ -24,7 +24,7 @@
                 <option name="expression">
                     this.startDate &lt;= this.endDate
                 </option>
-                <option name="message">event.errors.startDateGreaterThanEndDate</option>
+                <option name="message">date.errors.startDateGreaterThanEndDate</option>
             </constraint>
          </property>
     </class>
