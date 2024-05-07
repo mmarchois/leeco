@@ -11,7 +11,8 @@ final class SaveEventCommand implements CommandInterface
 {
     public ?string $uuid = null;
     public ?string $title = null;
-    public ?\DateTimeInterface $date = null;
+    public ?\DateTimeInterface $startDate = null;
+    public ?\DateTimeInterface $endDate = null;
 
     public function __construct(
         public readonly string $userUuid,
@@ -24,7 +25,8 @@ final class SaveEventCommand implements CommandInterface
         $command = new self($event->getOwner()->getUuid(), $event);
         $command->uuid = $event->getUuid();
         $command->title = $event->getTitle();
-        $command->date = $event->getDate();
+        $command->startDate = $event->getStartDate();
+        $command->endDate = $event->getEndDate();
 
         return $command;
     }

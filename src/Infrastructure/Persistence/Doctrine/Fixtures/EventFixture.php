@@ -25,7 +25,7 @@ final class EventFixture extends Fixture implements DependentFixtureInterface
             'f1f992d3-3cf5-4eb2-9b83-f112b7234613',
             'Mariage H&M',
             new \DateTime('2019-01-05', $this->clientTimezone),
-            new \DateTime('2019-01-30', $this->clientTimezone),
+            new \DateTime('2019-01-07', $this->clientTimezone),
             $this->getReference('user'),
         );
 
@@ -33,7 +33,7 @@ final class EventFixture extends Fixture implements DependentFixtureInterface
             '2203014c-5d51-4e20-b607-2b48ffb3f0c7',
             'EVG Julien',
             new \DateTime('2023-05-05', $this->clientTimezone),
-            new \DateTime('2023-05-30', $this->clientTimezone),
+            new \DateTime('2023-05-05', $this->clientTimezone),
             $this->getReference('user'),
         );
 

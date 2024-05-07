@@ -17,9 +17,9 @@ final class GetEventsQueryHandlerTest extends TestCase
     {
         $eventRepository = $this->createMock(EventRepositoryInterface::class);
         $events = [
-            new EventView('33795ae7-395a-440a-9fa8-f72343d62eb0', 'Mariage H&M', new \DateTime('2019-01-05')),
-            new EventView('a273bde2-d872-4eec-973e-fcc23adfef75', 'Baptême Raphaël', new \DateTime('2020-01-01')),
-            new EventView('c2ebef0c-77e8-4586-aa5f-ae6faccdb73e', 'Baptême Baptiste', new \DateTime('2022-01-01')),
+            new EventView('33795ae7-395a-440a-9fa8-f72343d62eb0', 'Mariage H&M', new \DateTime('2019-01-05'), new \DateTime('2019-01-07')),
+            new EventView('a273bde2-d872-4eec-973e-fcc23adfef75', 'Baptême Raphaël', new \DateTime('2020-01-01'), new \DateTime('2020-01-01')),
+            new EventView('c2ebef0c-77e8-4586-aa5f-ae6faccdb73e', 'Baptême Baptiste', new \DateTime('2022-01-01'), new \DateTime('2022-01-01')),
         ];
 
         $eventRepository

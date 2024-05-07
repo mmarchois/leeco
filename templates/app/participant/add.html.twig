@@ -4,7 +4,7 @@
     {{ 'participant.add.title'|trans }} - {{ parent() }}
 {% endblock %}
 
-{% block sub_menu %}{% include 'common/event/menu.html.twig' with { uuid: event.uuid } only %}{% endblock %}
+{% block sub_menu %}{% include 'app/event/_menu.html.twig' with { uuid: event.uuid } only %}{% endblock %}
 
 {% block main %}
     {% include 'common/breadcrumb.html.twig' with { items: [

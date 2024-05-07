@@ -22,13 +22,9 @@
                 <source>profile.error.old_password</source>
                 <target>Votre ancien mot de passe ne correspond pas</target>
             </trans-unit>
-            <trans-unit id="tag.error.end_date_before_start_date">
-                <source>tag.error.end_date_before_start_date</source>
-                <target>La date de fin doit être après le {{ compared_value }}.</target>
-            </trans-unit>
-            <trans-unit id="start_date_after_event_start_date">
-                <source>tag.error.start_date_after_event_start_date</source>
-                <target>La date de début doit être après le {{ compared_value }} (date de début de l'évènement).</target>
+            <trans-unit id="date.errors.startDateGreaterThanEndDate">
+                <source>date.errors.startDateGreaterThanEndDate</source>
+                <target>La date de fin doit être supérieure à la date de début.</target>
             </trans-unit>
         </body>
     </file>

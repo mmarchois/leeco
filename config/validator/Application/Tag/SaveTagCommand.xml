@@ -20,7 +20,12 @@
             <constraint name="Type">
                 <option name="type">\DateTimeInterface</option>
             </constraint>
+            <constraint name="Expression">
+                <option name="expression">
+                    this.startDate &lt;= this.endDate
+                </option>
+                <option name="message">date.errors.startDateGreaterThanEndDate</option>
+            </constraint>
         </property>
-        <constraint name="App\Infrastructure\Validator\SaveTagCommandConstraint" />
     </class>
 </constraint-mapping>

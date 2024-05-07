@@ -20,12 +20,12 @@ final class SaveTagCommand implements CommandInterface
     ) {
     }
 
-    public static function create(Event $event, Tag $tag): self
+    public static function create(Event $event, ?Tag $tag = null): self
     {
         $command = new self($event, $tag);
-        $command->title = $tag->getTitle();
-        $command->startDate = $tag->getStartDate();
-        $command->endDate = $tag->getEndDate();
+        $command->title = $tag?->getTitle();
+        $command->startDate = $tag?->getStartDate() ?? $event->getStartDate();
+        $command->endDate = $tag?->getEndDate() ?? $event->getEndDate();
 
         return $command;
     }

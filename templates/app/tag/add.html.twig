@@ -4,7 +4,9 @@
     {{ 'tag.add.title'|trans }} - {{ parent() }}
 {% endblock %}
 
-{% block sub_menu %}{% include 'common/event/menu.html.twig' with { uuid: event.uuid } only %}{% endblock %}
+{% block sub_menu %}{% include 'app/event/_menu.html.twig' with { uuid: event.uuid } only %}{% endblock %}
+
+{% set period %}{% include 'app/event/_period.html.twig' with { startDate: event.startDate, endDate: event.endDate} only %}{% endset %}
 
 {% block main %}
     {% include 'common/breadcrumb.html.twig' with { items: [
@@ -15,6 +17,7 @@
     ] } only %}
     <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
         <h1 class="mb-4 text-xl font-bold dark:text-white">{{ 'tag.add.title'|trans }}</h1>
+        {% include 'common/alert/info.html.twig' with { title: 'tag.form.event_period'|trans({'%period%': period }) } only %}
         {{ form(form) }}
     </div>
 {% endblock main %}

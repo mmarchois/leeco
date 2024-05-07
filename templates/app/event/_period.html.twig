@@ -1,0 +1,5 @@
+{% if startDate == endDate %}
+    {{ 'event.list.date'|trans({'%date%': app_date(startDate)}) }}
+{% else %}
+    {{ 'event.list.dates'|trans({'%startDate%': app_date(startDate), '%endDate%': app_date(endDate) }) }}
+{% endif %}

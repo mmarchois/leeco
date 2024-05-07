@@ -226,9 +226,17 @@
                 <source>event.list.event</source>
                 <target>Évènement</target>
             </trans-unit>
+            <trans-unit id="event.list.period">
+                <source>event.list.period</source>
+                <target>Période</target>
+            </trans-unit>
             <trans-unit id="event.list.date">
                 <source>event.list.date</source>
-                <target>Date d'ouverture</target>
+                <target>le %date%</target>
+            </trans-unit>
+            <trans-unit id="event.list.dates">
+                <source>event.list.dates</source>
+                <target>du %startDate% au %endDate%</target>
             </trans-unit>
             <trans-unit id="event.add.title">
                 <source>event.add.title</source>
@@ -238,13 +246,21 @@
                 <source>event.form.title</source>
                 <target>Nom de l'évènement</target>
             </trans-unit>
-            <trans-unit id="event.form.date">
-                <source>event.form.date</source>
-                <target>Date d'ouverture</target>
+            <trans-unit id="event.form.startDate">
+                <source>event.form.startDate</source>
+                <target>Date de début</target>
             </trans-unit>
-            <trans-unit id="event.form.date.help">
-                <source>event.form.date.help</source>
-                <target>Afin d'optimiser l'engagement de vos participants, le lien vers l"application leur sera envoyé 5 jours avant le début de l'évènement.</target>
+            <trans-unit id="event.form.endDate">
+                <source>event.form.endDate</source>
+                <target>Date de fin</target>
+            </trans-unit>
+            <trans-unit id="event.form.startDate.help">
+                <source>event.form.startDate.help</source>
+                <target>Les invitations seront envoyés la veille de l'évènement.</target>
+            </trans-unit>
+            <trans-unit id="event.form.endDate.help">
+                <source>event.form.endDate.help</source>
+                <target>En fonction du plan choisi, les participants auront 5, 30 ou 60 jours après la fin de l'évènement pour récupérer les médias.</target>
             </trans-unit>
             <trans-unit id="event.edit.title">
                 <source>event.edit.title</source>
@@ -377,6 +393,10 @@
             <trans-unit id="tag.form.title">
                 <source>tag.form.title</source>
                 <target>Nom du tag</target>
+            </trans-unit>
+            <trans-unit id="tag.form.event_period">
+                <source>tag.form.event_period</source>
+                <target>Votre évènement a lieu %period%. Pensez à bien vérifier les dates de début / fin de vos tags.</target>
             </trans-unit>
             <trans-unit id="tag.form.startDate">
                 <source>tag.form.startDate</source>
