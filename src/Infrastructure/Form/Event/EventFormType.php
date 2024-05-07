@@ -25,6 +25,7 @@ final class EventFormType extends AbstractType
             ])
             ->add('date', DateType::class, [
                 'label' => 'event.form.date',
+                'help' => 'event.form.date.help',
                 'widget' => 'single_text',
                 'view_timezone' => $this->clientTimezone,
             ])

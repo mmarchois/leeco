@@ -5,7 +5,7 @@ module.exports = {
     './node_modules/flowbite/**/*.js',
   ],
   safelist: [],
-  darkMode: 'class',
+  darkMode: 'media',
   theme: {
     extend: {
       colors: {

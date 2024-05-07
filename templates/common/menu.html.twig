@@ -1,0 +1,27 @@
+{% set routeName = app.request.get('_route') %}
+{% set activeClass = 'block py-3 px-4 border-b-2 text-primary-600 hover:text-primary-600 dark:text-primary-500 dark:border-primary-500 border-primary-600' %}
+{% set defaultClass = 'block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600' %}
+
+<nav id="toggleMobileMenu" class="hidden bg-white border-b border-gray-200 shadow-sm dark:bg-gray-900 lg:block dark:border-gray-800">
+    <div class="px-0 lg:px-6">
+        <div class="flex items-center">
+            <ul class="flex flex-col mt-0 w-full text-sm font-medium lg:flex-row">
+                <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+                    <a href="{{ path('app_dashboard') }}" {% if 'app_dashboard' in routeName %} class="{{ activeClass}}" aria-current="page"{% else %}class="{{ defaultClass}}"{% endif %}>
+                        {{ 'dashboard.title'|trans }}
+                    </a>
+                </li>
+                <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+                    <a href="{{ path('app_events_list') }}" {% if 'app_events' in routeName %} class="{{ activeClass}}" aria-current="page"{% else %}class="{{ defaultClass}}"{% endif %}>
+                        {{ 'event.list.title'|trans }}
+                    </a>
+                </li>
+                <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+                    <a href="{{ path('app_profile_edit') }}" {% if 'app_profile' in routeName %} class="{{ activeClass}}" aria-current="page"{% else %}class="{{ defaultClass}}"{% endif %}>
+                        {{ 'profile.title'|trans }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

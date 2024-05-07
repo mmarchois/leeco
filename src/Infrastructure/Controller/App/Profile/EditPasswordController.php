@@ -30,7 +30,7 @@ final class EditPasswordController
     ) {
     }
 
-    #[Route('/profile/edit/password', name: 'app_edit_password', methods: ['GET', 'POST'])]
+    #[Route('/profile/edit/password', name: 'app_profile_edit_password', methods: ['GET', 'POST'])]
     public function __invoke(Request $request): Response
     {
         $user = $this->authenticatedUser->getUser();
@@ -43,7 +43,7 @@ final class EditPasswordController
                 $user = $this->commandBus->handle($command);
                 $this->authenticatedUser->getSymfonyUser()->update($user);
 
-                return new RedirectResponse($this->urlGenerator->generate('app_edit_password', ['success' => 1]));
+                return new RedirectResponse($this->urlGenerator->generate('app_profile_edit_password', ['success' => 1]));
             } catch (PasswordDoesntMatchException) {
                 $form->get('oldPassword')->addError(
                     new FormError(
