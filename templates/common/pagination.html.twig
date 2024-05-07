@@ -1,6 +1,7 @@
 {% set currentPage = app.request.get('page', 1) %}
-{% set queryParams = app.request.query.all %}
+{% set uuid = app.request.get('uuid', null) %}
 {% set routeName = app.request.get('_route') %}
+{% set attributes = uuid ? { uuid } : app.request.query.all %}
 
 <nav class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0" aria-label="Table navigation">
     <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{ 'pagination.total'|trans({'%count%': pagination.totalItems }) }}</span>
@@ -11,7 +12,7 @@
                     role="link"
                     class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                     {% if currentPage > 1 %}
-                        href="{{ path(routeName, queryParams|merge({ page: currentPage-1 })) }}"
+                        href="{{ path(routeName, attributes|merge({ page: currentPage-1 })) }}"
                     {% else %}
                         aria-disabled="true"
                     {% endif %}
@@ -26,7 +27,7 @@
                 <li>
                     <a class="fr-pagination__link"
                         title="{{ 'pagination.page'|trans({'%page%': 1}) }}"
-                        href="{{ path(routeName, queryParams|merge({ page: 1 })) }}"
+                        href="{{ path(routeName, attributes|merge({ page: 1 })) }}"
                     >
                         1
                     </a>
@@ -45,7 +46,7 @@
                             aria-current="page"
                             class="z-10 flex items-center justify-center px-3 py-2 text-sm leading-tight border text-primary-600 bg-primary-50 border-primary-300 hover:bg-primary-100 hover:text-primary-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
                         {% else %}
-                            href="{{ path(routeName, queryParams|merge({ page })) }}"
+                            href="{{ path(routeName, attributes|merge({ page })) }}"
                             class="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                         {% endif %}
                     >
@@ -62,7 +63,7 @@
                 <li>
                     <a class="flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                         title="{{ 'pagination.page'|trans({'%page%': pagination.lastPage }) }}"
-                        href="{{ path(routeName, queryParams|merge({ page: pagination.lastPage })) }}"
+                        href="{{ path(routeName, attributes|merge({ page: pagination.lastPage })) }}"
                     >
                         {{ pagination.lastPage }}
                     </a>
@@ -71,7 +72,7 @@
             <li>
                 <a class="flex items-center justify-center h-full py-1.5 px-3 rounded-r-lg leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                     {% if currentPage + 1 <= pagination.lastPage %}
-                        href="{{ path(routeName, queryParams|merge({ page: currentPage + 1 })) }}"
+                        href="{{ path(routeName, attributes|merge({ page: currentPage + 1 })) }}"
                     {% else %}
                         aria-disabled="true"
                     {% endif %}

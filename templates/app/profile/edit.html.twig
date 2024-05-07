@@ -4,6 +4,8 @@
     {{ 'profile.title'|trans }} - {{ parent() }}
 {% endblock %}
 
+{% block sub_menu %}{% include 'common/menu.html.twig' %}{% endblock %}
+
 {% block main %}
     {% include 'common/breadcrumb.html.twig' with {
         items: [
@@ -19,7 +21,7 @@
     </div>
     <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
         <h2 class="mb-4 text-xl font-bold dark:text-white">{{ 'profile.password.title'|trans }}</h2>
-        <a class="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" href="{{ path('app_edit_password') }}">{{ 'profile.password.title'|trans }}</a>
+        <a class="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" href="{{ path('app_profile_edit_password') }}">{{ 'profile.password.title'|trans }}</a>
     </div>
     <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
         <h2 class="mb-4 text-xl font-bold dark:text-white">{{ 'profile.edit.delete_account'|trans }}</h2>

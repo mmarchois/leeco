@@ -228,7 +228,7 @@
             </trans-unit>
             <trans-unit id="event.list.date">
                 <source>event.list.date</source>
-                <target>Date</target>
+                <target>Date d'ouverture</target>
             </trans-unit>
             <trans-unit id="event.add.title">
                 <source>event.add.title</source>
@@ -240,7 +240,11 @@
             </trans-unit>
             <trans-unit id="event.form.date">
                 <source>event.form.date</source>
-                <target>Date de l'évènement</target>
+                <target>Date d'ouverture</target>
+            </trans-unit>
+            <trans-unit id="event.form.date.help">
+                <source>event.form.date.help</source>
+                <target>Afin d'optimiser l'engagement de vos participants, le lien vers l"application leur sera envoyé 5 jours avant le début de l'évènement.</target>
             </trans-unit>
             <trans-unit id="event.edit.title">
                 <source>event.edit.title</source>
