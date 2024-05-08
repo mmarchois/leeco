@@ -32,12 +32,12 @@ final class DeleteEventController
     }
 
     #[Route(
-        '/events/{uuid}/delete',
+        '/events/{eventUuid}/delete',
         name: 'app_events_delete',
-        requirements: ['uuid' => Requirement::UUID],
+        requirements: ['eventUuid' => Requirement::UUID],
         methods: ['DELETE'],
     )]
-    public function __invoke(Request $request, string $uuid): RedirectResponse
+    public function __invoke(Request $request, string $eventUuid): RedirectResponse
     {
         $csrfToken = new CsrfToken('delete-event', $request->request->get('token'));
         if (!$this->csrfTokenManager->isTokenValid($csrfToken)) {
@@ -46,7 +46,7 @@ final class DeleteEventController
 
         try {
             $userUuid = $this->authenticatedUser->getUser()->getUuid();
-            $this->commandBus->handle(new DeleteEventCommand($uuid, $userUuid));
+            $this->commandBus->handle(new DeleteEventCommand($eventUuid, $userUuid));
 
             return new RedirectResponse(
                 url: $this->urlGenerator->generate('app_events_list'),

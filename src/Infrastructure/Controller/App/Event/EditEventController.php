@@ -37,17 +37,17 @@ final class EditEventController extends AbstractEventController
     }
 
     #[Route(
-        '/events/{uuid}/edit',
+        '/events/{eventUuid}/edit',
         name: 'app_events_edit',
-        requirements: ['uuid' => Requirement::UUID],
+        requirements: ['eventUuid' => Requirement::UUID],
         methods: ['GET', 'POST'],
     )]
-    public function __invoke(Request $request, string $uuid): Response
+    public function __invoke(Request $request, string $eventUuid): Response
     {
-        $event = $this->getEvent($uuid);
+        $event = $this->getEvent($eventUuid);
         $command = SaveEventCommand::create($event);
         $form = $this->formFactory->create(EventFormType::class, $command, [
-            'action' => $this->router->generate('app_events_edit', ['uuid' => $uuid]),
+            'action' => $this->router->generate('app_events_edit', ['eventUuid' => $eventUuid]),
         ]);
         $form->handleRequest($request);
         $commandFailed = false;

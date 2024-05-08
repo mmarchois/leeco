@@ -25,19 +25,19 @@ final class ListTagsController extends AbstractEventController
     }
 
     #[Route(
-        '/events/{uuid}/tags/{page}',
+        '/events/{eventUuid}/tags/{page}',
         name: 'app_tags_list',
-        requirements: ['page' => '\d+', 'uuid' => Requirement::UUID],
+        requirements: ['page' => '\d+', 'eventUuid' => Requirement::UUID],
         methods: ['GET'],
     )]
-    public function __invoke(Request $request, string $uuid, int $page = 1): Response
+    public function __invoke(Request $request, string $eventUuid, int $page = 1): Response
     {
         $pageSize = min($request->query->getInt('pageSize', 20), 50);
         if (0 === $pageSize) {
             throw new BadRequestHttpException();
         }
 
-        $event = $this->getEvent($uuid);
+        $event = $this->getEvent($eventUuid);
         $paginatedTags = $this->queryBus->handle(
             new GetTagsByEventQuery($event->getUuid(), $page, $pageSize),
         );

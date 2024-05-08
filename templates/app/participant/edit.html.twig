@@ -5,18 +5,17 @@
     {{ headTitle }} - {{ parent() }}
 {% endblock %}
 
-{% block sub_menu %}{% include 'app/event/_menu.html.twig' with { uuid: event.uuid } only %}{% endblock %}
-
 {% block main %}
     {% include 'common/breadcrumb.html.twig' with { items: [
         { title: 'event.list.title'|trans, path: path('app_events_list') },
-        { title: event.title, path: path('app_events_dashboard', { uuid: event.uuid }) },
-        { title: 'participant.list.title'|trans, path: path('app_participants_list', { uuid: event.uuid }) },
+        { title: event.title, path: path('app_events_dashboard', { eventUuid: event.uuid }) },
+        { title: 'participant.list.title'|trans, path: path('app_participants_list', { eventUuid: event.uuid }) },
         { title: headTitle },
     ] } only %}
 
     <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
         <h1 class="mb-4 text-xl font-bold dark:text-white">{{ headTitle }}</h1>
+        {% include 'common/alert/info.html.twig' with { title: 'participant.form.invitation'|trans } only %}
         {{ form(form) }}
     </div>
 {% endblock main %}

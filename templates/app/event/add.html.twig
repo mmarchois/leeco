@@ -4,8 +4,6 @@
     {{ 'event.add.title'|trans }} - {{ parent() }}
 {% endblock %}
 
-{% block sub_menu %}{% include 'common/menu.html.twig' %}{% endblock %}
-
 {% block main %}
     {% include 'common/breadcrumb.html.twig' with { items: [
         { title: 'event.list.title'|trans, path: path('app_events_list') },

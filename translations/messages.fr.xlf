@@ -214,9 +214,25 @@
                 <source>dashboard.title</source>
                 <target>Mon espace</target>
             </trans-unit>
+            <trans-unit id="event.delete.title">
+                <source>event.delete.title</source>
+                <target>Supprimer cet évènement</target>
+            </trans-unit>
+            <trans-unit id="event.delete.confirm">
+                <source>event.delete.confirm</source>
+                <target>Êtes-vous sûr de vouloir supprimer cet évènement ?</target>
+            </trans-unit>
+            <trans-unit id="event.delete.description">
+                <source>event.delete.description</source>
+                <target>La suppression de l'évènement est permanente et ne peut être annulée. Toutes vos données et tous vos paramètres seront immédiatement supprimés et ne pourront pas être récupérés par la suite.</target>
+            </trans-unit>
             <trans-unit id="event.list.title">
                 <source>event.list.title</source>
                 <target>Mes évènements</target>
+            </trans-unit>
+            <trans-unit id="event.dashboard">
+                <source>event.dashboard</source>
+                <target>Tableau de bord</target>
             </trans-unit>
             <trans-unit id="event.list.empty">
                 <source>event.list.empty</source>
@@ -318,6 +334,10 @@
                 <source>participant.form.email</source>
                 <target>Email</target>
             </trans-unit>
+            <trans-unit id="participant.form.invitation">
+                <source>participant.form.invitation</source>
+                <target>Les invitations contenant le code d'accès seront envoyés automatiquement la veille de votre évènement.</target>
+            </trans-unit>
             <trans-unit id="participant.edit.title">
                 <source>participant.edit.title</source>
                 <target>Modifier "%firstName% %lastName%"</target>
@@ -368,15 +388,15 @@
             </trans-unit>
             <trans-unit id="tag.list">
                 <source>tag.list</source>
-                <target>Tags</target>
+                <target>Catégories</target>
             </trans-unit>
             <trans-unit id="tag.list.title_name">
                 <source>tag.list.title_name</source>
-                <target>Tag</target>
+                <target>Catégorie</target>
             </trans-unit>
             <trans-unit id="tag.list.empty">
                 <source>tag.list.empty</source>
-                <target>Vous n'avez pas encore de tags sur cet évènement.</target>
+                <target>Vous n'avez pas encore de catégories sur cet évènement.</target>
             </trans-unit>
             <trans-unit id="tag.list.startDate">
                 <source>tag.list.startDate</source>
@@ -388,15 +408,15 @@
             </trans-unit>
             <trans-unit id="tag.add.title">
                 <source>tag.add.title</source>
-                <target>Ajouter un tag</target>
+                <target>Ajouter une catégorie</target>
             </trans-unit>
             <trans-unit id="tag.form.title">
                 <source>tag.form.title</source>
-                <target>Nom du tag</target>
+                <target>Nom de la catégorie</target>
             </trans-unit>
             <trans-unit id="tag.form.event_period">
                 <source>tag.form.event_period</source>
-                <target>Votre évènement a lieu %period%. Pensez à bien vérifier les dates de début / fin de vos tags.</target>
+                <target>Votre évènement a lieu %period%. Pensez à bien vérifier les dates de début / fin de vos catégories.</target>
             </trans-unit>
             <trans-unit id="tag.form.startDate">
                 <source>tag.form.startDate</source>

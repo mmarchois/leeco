@@ -17,6 +17,6 @@ final class DashboardController
     #[Route('/', name: 'app_dashboard', methods: ['GET'])]
     public function __invoke(): Response
     {
-        return new Response($this->twig->render('app/dashboard/index.html.twig'));
+        return new Response($this->twig->render('app/index.html.twig'));
     }
 }

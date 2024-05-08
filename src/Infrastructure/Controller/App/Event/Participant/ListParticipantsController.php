@@ -25,19 +25,19 @@ final class ListParticipantsController extends AbstractEventController
     }
 
     #[Route(
-        '/events/{uuid}/participants/{page}',
+        '/events/{eventUuid}/participants/{page}',
         name: 'app_participants_list',
-        requirements: ['page' => '\d+', 'uuid' => Requirement::UUID],
+        requirements: ['page' => '\d+', 'eventUuid' => Requirement::UUID],
         methods: ['GET'],
     )]
-    public function __invoke(Request $request, string $uuid, int $page = 1): Response
+    public function __invoke(Request $request, string $eventUuid, int $page = 1): Response
     {
         $pageSize = min($request->query->getInt('pageSize', 20), 50);
         if (0 === $pageSize) {
             throw new BadRequestHttpException();
         }
 
-        $event = $this->getEvent($uuid);
+        $event = $this->getEvent($eventUuid);
         $paginatedParticipants = $this->queryBus->handle(
             new GetParticipantsByEventQuery($event->getUuid(), $page, $pageSize),
         );
