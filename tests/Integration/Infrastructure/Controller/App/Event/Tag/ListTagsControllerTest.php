@@ -16,14 +16,14 @@ final class ListTagsControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Tags', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Tags - Moment', $crawler);
+        $this->assertSame('Catégories', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Catégories - Moment', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],
             ['Mes évènements', ['href' => '/app/events']],
             ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
-            ['Tags', ['href' => null]],
+            ['Catégories', ['href' => null]],
         ], $crawler);
 
         $this->assertSame(2, $table->filter('tr')->count());
@@ -52,11 +52,6 @@ final class ListTagsControllerTest extends AbstractWebTestCase
         $client = $this->login();
         $crawler = $client->request('GET', '/app/events/2203014c-5d51-4e20-b607-2b48ffb3f0c7/tags');
         $table = $crawler->filter('[data-testid="tag-list"] tbody');
-
-        $this->assertResponseStatusCodeSame(200);
-        $this->assertSecurityHeaders();
-        $this->assertSame('Tags', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Tags - Moment', $crawler);
 
         $this->assertSame(1, $table->filter('tr')->count());
 

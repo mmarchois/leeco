@@ -71,7 +71,7 @@ final class EditTagController extends AbstractEventController
             try {
                 $this->commandBus->handle($command);
 
-                return new RedirectResponse($this->urlGenerator->generate('app_tags_list', ['uuid' => $eventUuid]));
+                return new RedirectResponse($this->urlGenerator->generate('app_tags_list', ['eventUuid' => $eventUuid]));
             } catch (TagAlreadyExistException) {
                 $commandFailed = true;
                 $form->get('title')->addError(

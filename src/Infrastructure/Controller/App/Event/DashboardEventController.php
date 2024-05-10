@@ -21,14 +21,14 @@ final class DashboardEventController extends AbstractEventController
     }
 
     #[Route(
-        '/events/{uuid}',
+        '/events/{eventUuid}',
         name: 'app_events_dashboard',
-        requirements: ['uuid' => Requirement::UUID],
+        requirements: ['eventUuid' => Requirement::UUID],
         methods: ['GET'],
     )]
-    public function __invoke(string $uuid): Response
+    public function __invoke(string $eventUuid): Response
     {
-        $event = $this->getEvent($uuid);
+        $event = $this->getEvent($eventUuid);
 
         return new Response(
             content: $this->twig->render(

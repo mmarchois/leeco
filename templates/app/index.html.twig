@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ 'dashboard.title'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden mb-4">
+        <div class="p-4 mb-4 bg-white sm:p-6 xl:p-8 dark:bg-gray-800">
+            <h1 class="mb-4 text-xl font-bold dark:text-white">Bonjour, {{ app.user.firstName }} {{ app.user.lastName }}</h1>
+        </div>
+    </div>
+{% endblock %}

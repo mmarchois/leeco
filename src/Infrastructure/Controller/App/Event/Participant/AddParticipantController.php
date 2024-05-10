@@ -38,18 +38,18 @@ final class AddParticipantController extends AbstractEventController
     }
 
     #[Route(
-        '/events/{uuid}/participants/add',
+        '/events/{eventUuid}/participants/add',
         name: 'app_participants_add',
-        requirements: ['uuid' => Requirement::UUID],
+        requirements: ['eventUuid' => Requirement::UUID],
         methods: ['GET', 'POST'],
     )]
-    public function __invoke(Request $request, string $uuid): Response
+    public function __invoke(Request $request, string $eventUuid): Response
     {
-        $event = $this->getEvent($uuid);
+        $event = $this->getEvent($eventUuid);
 
         $command = new SaveParticipantCommand($event);
         $form = $this->formFactory->create(ParticipantFormType::class, $command, [
-            'action' => $this->router->generate('app_participants_add', ['uuid' => $uuid]),
+            'action' => $this->router->generate('app_participants_add', ['eventUuid' => $eventUuid]),
         ]);
         $form->handleRequest($request);
         $commandFailed = false;
@@ -58,7 +58,7 @@ final class AddParticipantController extends AbstractEventController
             try {
                 $this->commandBus->handle($command);
 
-                return new RedirectResponse($this->urlGenerator->generate('app_participants_list', ['uuid' => $uuid]));
+                return new RedirectResponse($this->urlGenerator->generate('app_participants_list', ['eventUuid' => $eventUuid]));
             } catch (ParticipantAlreadyExistException) {
                 $commandFailed = true;
                 $form->get('email')->addError(

@@ -4,8 +4,6 @@
     {{ 'event.list.title'|trans }} - {{ parent() }}
 {% endblock %}
 
-{% block sub_menu %}{% include 'common/menu.html.twig' %}{% endblock %}
-
 {% block main %}
     {% include 'common/breadcrumb.html.twig' with { items: [
         { title: 'event.list.title'|trans }
@@ -27,7 +25,7 @@
                     {% for event in paginatedEvents.items %}
                         <tr id="block_event_{{ event.uuid }}" class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center">
-                                {{ event.title }}
+                                <a href="{{ path('app_events_dashboard', { eventUuid: event.uuid }) }}">{{ event.title }}</a>
                             </td>
                             <td class="px-4 py-3">
                                 {% include 'app/event/_period.html.twig' with { startDate: event.startDate, endDate: event.endDate} only %}
@@ -41,10 +39,7 @@
                                 <div id="{{ event.uuid }}-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                     <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="{{ event.uuid }}-dropdown-button">
                                         <li>
-                                            <a href="{{ path('app_events_dashboard', { uuid: event.uuid }) }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ 'common.see'|trans }}</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ path('app_events_edit', { uuid: event.uuid }) }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ 'common.edit'|trans }}</a>
+                                            <a href="{{ path('app_events_dashboard', { eventUuid: event.uuid }) }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ 'event.dashboard'|trans }}</a>
                                         </li>
                                     </ul>
                                 </div>

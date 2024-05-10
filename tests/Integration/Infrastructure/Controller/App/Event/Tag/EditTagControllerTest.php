@@ -22,7 +22,7 @@ final class EditTagControllerTest extends AbstractWebTestCase
             ['Mon espace', ['href' => '/app']],
             ['Mes évènements', ['href' => '/app/events']],
             ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
-            ['Tags', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/tags']],
+            ['Catégories', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/tags']],
             ['Modifier "Cérémonie religieuse"', ['href' => null]],
         ], $crawler);
 

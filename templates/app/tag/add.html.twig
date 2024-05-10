@@ -4,15 +4,13 @@
     {{ 'tag.add.title'|trans }} - {{ parent() }}
 {% endblock %}
 
-{% block sub_menu %}{% include 'app/event/_menu.html.twig' with { uuid: event.uuid } only %}{% endblock %}
-
 {% set period %}{% include 'app/event/_period.html.twig' with { startDate: event.startDate, endDate: event.endDate} only %}{% endset %}
 
 {% block main %}
     {% include 'common/breadcrumb.html.twig' with { items: [
         { title: 'event.list.title'|trans, path: path('app_events_list') },
-        { title: event.title, path: path('app_events_dashboard', { uuid: event.uuid }) },
-        { title: 'tag.list'|trans, path: path('app_tags_list', { uuid: event.uuid }) },
+        { title: event.title, path: path('app_events_dashboard', { eventUuid: event.uuid }) },
+        { title: 'tag.list'|trans, path: path('app_tags_list', { eventUuid: event.uuid }) },
         { title: 'tag.add.title'|trans },
     ] } only %}
     <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">

@@ -4,12 +4,10 @@
     {{ 'tag.list'|trans }} - {{ parent() }}
 {% endblock %}
 
-{% block sub_menu %}{% include 'app/event/_menu.html.twig' with { uuid: event.uuid } only %}{% endblock %}
-
 {% block main %}
     {% include 'common/breadcrumb.html.twig' with { items: [
         { title: 'event.list.title'|trans, path: path('app_events_list') },
-        { title: event.title, path: path('app_events_dashboard', { uuid: event.uuid }) },
+        { title: event.title, path: path('app_events_dashboard', { eventUuid: event.uuid }) },
         { title: 'tag.list'|trans },
     ] } only %}
     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden mb-4">
@@ -42,15 +40,12 @@
                                             <a href="{{ path('app_tags_edit', { uuid: tag.uuid, eventUuid: event.uuid }) }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ 'common.edit'|trans }}</a>
                                         </li>
                                         <li>
-                                        <form
-                                            method="delete"
-                                            action="{{ path('fragment_tag_delete', { eventUuid: event.uuid, uuid: tag.uuid }) }}"
-                                        >
-                                            <button title="{{ 'common.delete'|trans }}">
-                                                {{ 'common.delete'|trans }}
-                                            </button>
-                                            <input type="hidden" name="token" value="{{ csrf_token('delete-tag') }}" />
-                                        </form>
+                                            <form method="delete" action="{{ path('fragment_tag_delete', { eventUuid: event.uuid, uuid: tag.uuid }) }}">
+                                                <button title="{{ 'common.delete'|trans }}">
+                                                    {{ 'common.delete'|trans }}
+                                                </button>
+                                                <input type="hidden" name="token" value="{{ csrf_token('delete-tag') }}" />
+                                            </form>
                                         </li>
                                     </ul>
                                 </div>

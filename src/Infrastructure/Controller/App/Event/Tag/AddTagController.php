@@ -38,17 +38,17 @@ final class AddTagController extends AbstractEventController
     }
 
     #[Route(
-        '/events/{uuid}/tags/add',
+        '/events/{eventUuid}/tags/add',
         name: 'app_tags_add',
-        requirements: ['uuid' => Requirement::UUID],
+        requirements: ['eventUuid' => Requirement::UUID],
         methods: ['GET', 'POST'],
     )]
-    public function __invoke(Request $request, string $uuid): Response
+    public function __invoke(Request $request, string $eventUuid): Response
     {
-        $event = $this->getEvent($uuid);
+        $event = $this->getEvent($eventUuid);
         $command = SaveTagCommand::create($event);
         $form = $this->formFactory->create(TagFormType::class, $command, [
-            'action' => $this->router->generate('app_tags_add', ['uuid' => $uuid]),
+            'action' => $this->router->generate('app_tags_add', ['eventUuid' => $eventUuid]),
         ]);
         $form->handleRequest($request);
         $commandFailed = false;
@@ -57,7 +57,7 @@ final class AddTagController extends AbstractEventController
             try {
                 $this->commandBus->handle($command);
 
-                return new RedirectResponse($this->urlGenerator->generate('app_tags_list', ['uuid' => $uuid]));
+                return new RedirectResponse($this->urlGenerator->generate('app_tags_list', ['eventUuid' => $eventUuid]));
             } catch (TagAlreadyExistException) {
                 $commandFailed = true;
                 $form->get('title')->addError(

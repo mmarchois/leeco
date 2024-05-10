@@ -71,7 +71,7 @@ final class EditParticipantController extends AbstractEventController
             try {
                 $this->commandBus->handle($command);
 
-                return new RedirectResponse($this->urlGenerator->generate('app_participants_list', ['uuid' => $eventUuid]));
+                return new RedirectResponse($this->urlGenerator->generate('app_participants_list', ['eventUuid' => $eventUuid]));
             } catch (ParticipantAlreadyExistException) {
                 $commandFailed = true;
                 $form->get('email')->addError(
