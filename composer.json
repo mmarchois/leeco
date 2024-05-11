@@ -12,6 +12,7 @@
         "league/flysystem-async-aws-s3": "^3.17",
         "league/flysystem-bundle": "^3.3",
         "league/flysystem-memory": "^3.18",
+        "lexik/jwt-authentication-bundle": "^3.0",
         "nelmio/security-bundle": "^3.0",
         "symfony/asset": "6.4.*",
         "symfony/console": "6.4.*",
