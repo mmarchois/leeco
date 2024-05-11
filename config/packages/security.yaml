@@ -24,9 +24,23 @@ security:
                 password_parameter: password
             logout:
                 path: app_logout
+        api_login:
+            pattern: ^/api/login
+            stateless: true
+            json_login:
+                check_path: /api/login_check
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+        api:
+            pattern:   ^/api
+            stateless: true
+            jwt: ~
+
     access_control:
-        - { path: ^/(_fragments|app), roles: ROLE_USER }
-        - { path: ^/, roles: PUBLIC_ACCESS }
+        - { path: ^/(_fragments|app),   roles: ROLE_USER }
+        - { path: ^/,                   roles: PUBLIC_ACCESS }
+        - { path: ^/api,                roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/login,          roles: PUBLIC_ACCESS }
 
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
