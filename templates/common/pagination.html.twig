@@ -1,6 +1,7 @@
 {% set currentPage = app.request.get('page', 1) %}
 {% set uuid = app.request.get('uuid', null) %}
 {% set attributes = uuid ? { uuid } : app.request.query.all %}
+{% set routeName = app.request.get('_route') %}
 
 <nav class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0" aria-label="Table navigation">
     <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{ 'pagination.total'|trans({'%count%': pagination.totalItems }) }}</span>

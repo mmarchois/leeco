@@ -25,19 +25,19 @@ final class ListEventsControllerTest extends AbstractWebTestCase
         $this->assertSame('Mes évènements', $crawler->filter('h1')->text());
         $this->assertSame(2, $table->filter('tr')->count());
 
-        $tr1 = $table->filter('tr')->eq(0)->filter('td');
+        $tr = $table->filter('tr')->eq(0)->filter('td');
+        $link = $tr->eq(2)->filter('a');
+        $this->assertSame('Mariage H&M', $tr->eq(0)->text());
+        $this->assertSame('du 05/01/2019 au 07/01/2019', $tr->eq(1)->text());
+        $this->assertSame('Tableau de bord', $link->eq(0)->text());
+        $this->assertSame('http://localhost/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613', $link->eq(0)->link()->getUri());
+
+        $tr1 = $table->filter('tr')->eq(1)->filter('td');
         $link1 = $tr1->eq(2)->filter('a');
         $this->assertSame('EVG Julien', $tr1->eq(0)->text());
         $this->assertSame('le 05/05/2023', $tr1->eq(1)->text());
         $this->assertSame('Tableau de bord', $link1->eq(0)->text());
         $this->assertSame('http://localhost/app/events/2203014c-5d51-4e20-b607-2b48ffb3f0c7', $link1->eq(0)->link()->getUri());
-
-        $tr2 = $table->filter('tr')->eq(1)->filter('td');
-        $link2 = $tr2->eq(2)->filter('a');
-        $this->assertSame('Mariage H&M', $tr2->eq(0)->text());
-        $this->assertSame('du 05/01/2019 au 07/01/2019', $tr2->eq(1)->text());
-        $this->assertSame('Tableau de bord', $link2->eq(0)->text());
-        $this->assertSame('http://localhost/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613', $link2->eq(0)->link()->getUri());
     }
 
     public function testListEventsWithOtherUser(): void
