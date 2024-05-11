@@ -56,7 +56,7 @@ final class EditEventController extends AbstractEventController
             try {
                 $uuid = $this->commandBus->handle($command);
 
-                return new RedirectResponse($this->urlGenerator->generate('app_events_list'));
+                return new RedirectResponse($this->urlGenerator->generate('app_events_dashboard', ['eventUuid' => $uuid]));
             } catch (EventAlreadyExistException) {
                 $commandFailed = true;
                 $form->get('title')->addError(

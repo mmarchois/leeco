@@ -21,7 +21,8 @@ final class EditEventControllerTest extends AbstractWebTestCase
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],
             ['Mes évènements', ['href' => '/app/events']],
-            ['Modifier "Mariage H&M"', ['href' => null]],
+            ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
+            ['Modifier', ['href' => null]],
         ], $crawler);
 
         $saveButton = $crawler->selectButton('Sauvegarder');
@@ -33,7 +34,7 @@ final class EditEventControllerTest extends AbstractWebTestCase
         $crawler = $client->followRedirect();
 
         $this->assertResponseStatusCodeSame(200);
-        $this->assertRouteSame('app_events_list');
+        $this->assertRouteSame('app_events_dashboard');
     }
 
     public function testInvalidData(): void

@@ -4,13 +4,17 @@
     {{ event.title }} - {{ parent() }}
 {% endblock %}
 
+{% block header %}
+    {% include 'app/event/_menu.html.twig' with { eventUuid: event.uuid, eventName: event.title } %}
+{% endblock %}
+
 {% block main %}
     {% include 'common/breadcrumb.html.twig' with { items: [
         { title: 'event.list.title'|trans, path: path('app_events_list') },
         { title: event.title },
     ] } only %}
 
-    <div class="mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
+    <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
         <div class="flex items-center justify-between space-x-4">
             <div class="flex-1 flex items-center space-x-3">
                 <h1 class="text-xl font-bold dark:text-white">{{ event.title }}</h1>

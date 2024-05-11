@@ -25,20 +25,15 @@
 
   <body class="bg-gray-50 dark:bg-gray-900">
     <header>
-      {% set routeName = app.request.get('_route') %}
-      {% set eventContext = 'app_tags' in routeName or 'app_participants' in routeName or 'app_events_dashboard' in routeName %}
-      {% set uuid = app.request.get('eventUuid') %}
-
-      {% if app.request.requestUri starts with '/app' %}
-          {% if eventContext %}
-              {% include 'common/menus/event.html.twig' with { uuid } %}
-          {% else %}
-              {% include 'common/menus/main.html.twig' %}
-          {% endif %}
-      {% else %}
-          {% include 'common/menus/not-connected.html.twig' %}
-      {% endif %}
-
+      {% block header %}
+        {% if app.request.requestUri starts with '/app' %}
+            {% if not app.request.get('eventUuid') %}
+                {% include 'common/menus/main.html.twig' %}
+            {% endif %}
+        {% else %}
+            {% include 'common/menus/not-connected.html.twig' %}
+        {% endif %}
+      {% endblock%}
     </header>
     <main class="pt-4 pl-4 pr-4">
         {% block main %}{% endblock %}
