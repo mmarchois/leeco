@@ -17,7 +17,7 @@ final class ListParticipantsControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Participants', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Participants - Moment', $crawler);
+        $this->assertMetaTitle('Participants - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],
@@ -66,7 +66,7 @@ final class ListParticipantsControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Participants', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Participants - Moment', $crawler);
+        $this->assertMetaTitle('Participants - Leeco', $crawler);
 
         $this->assertSame(1, $table->filter('tr')->count());
 

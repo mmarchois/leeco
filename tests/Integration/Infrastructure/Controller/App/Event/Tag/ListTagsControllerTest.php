@@ -17,7 +17,7 @@ final class ListTagsControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Catégories', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Catégories - Moment', $crawler);
+        $this->assertMetaTitle('Catégories - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],

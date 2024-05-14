@@ -14,7 +14,7 @@ final class LoginControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Se connecter', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Se connecter - Moment', $crawler);
+        $this->assertMetaTitle('Se connecter - Leeco', $crawler);
 
         $saveButton = $crawler->selectButton('Se connecter');
         $form = $saveButton->form();

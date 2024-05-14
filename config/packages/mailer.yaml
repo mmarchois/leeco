@@ -4,4 +4,4 @@ framework:
         envelope:
             sender: '%env(MAILER_SENDER)%'
         headers:
-            From: 'Moment <%env(MAILER_SENDER)%>'
+            From: 'Leeco <%env(MAILER_SENDER)%>'

@@ -16,7 +16,7 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Créer un évènement', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Créer un évènement - Moment', $crawler);
+        $this->assertMetaTitle('Créer un évènement - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],

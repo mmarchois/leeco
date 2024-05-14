@@ -13,10 +13,10 @@ final class HomeControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertMetaTitle('Moment', $crawler);
+        $this->assertMetaTitle('Leeco', $crawler);
 
         $this->assertNavStructure([
-            ['Moment', ['href' => '/']],
+            ['Leeco', ['href' => '/']],
             ['Se connecter', ['href' => '/login']],
             ['Essayer gratuitement', ['href' => '/register']],
         ], $crawler);
@@ -27,7 +27,7 @@ final class HomeControllerTest extends AbstractWebTestCase
         $client = $this->login();
         $crawler = $client->request('GET', '/');
         $this->assertNavStructure([
-            ['Moment', ['href' => '/']],
+            ['Leeco', ['href' => '/']],
             ['Mon espace', ['href' => '/app']],
         ], $crawler);
     }

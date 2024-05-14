@@ -21,7 +21,7 @@ final class ListEventsControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertMetaTitle('Mes évènements - Moment', $crawler);
+        $this->assertMetaTitle('Mes évènements - Leeco', $crawler);
         $this->assertSame('Mes évènements', $crawler->filter('h1')->text());
         $this->assertSame(2, $table->filter('tr')->count());
 

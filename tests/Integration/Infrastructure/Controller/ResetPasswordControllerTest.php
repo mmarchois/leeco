@@ -14,7 +14,7 @@ final class ResetPasswordControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Changer mon mot de passe', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Changer mon mot de passe - Moment', $crawler);
+        $this->assertMetaTitle('Changer mon mot de passe - Leeco', $crawler);
 
         $saveButton = $crawler->selectButton('Changer mon mot de passe');
         $form = $saveButton->form();

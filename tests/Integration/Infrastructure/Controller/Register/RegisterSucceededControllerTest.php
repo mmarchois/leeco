@@ -16,7 +16,7 @@ final class RegisterSucceededControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Vérifiez vos emails', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Vérifiez vos emails - Moment', $crawler);
+        $this->assertMetaTitle('Vérifiez vos emails - Leeco', $crawler);
     }
 
     public function testMissingEmail(): void

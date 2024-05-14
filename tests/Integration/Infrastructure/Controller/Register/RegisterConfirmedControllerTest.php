@@ -16,6 +16,6 @@ final class RegisterConfirmedControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Compte vérifié', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Compte vérifié - Moment', $crawler);
+        $this->assertMetaTitle('Compte vérifié - Leeco', $crawler);
     }
 }

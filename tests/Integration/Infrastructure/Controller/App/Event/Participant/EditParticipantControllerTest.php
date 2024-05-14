@@ -16,7 +16,7 @@ final class EditParticipantControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Modifier "Tony & Corinne MARCHOIS"', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Modifier "Tony & Corinne MARCHOIS" - Moment', $crawler);
+        $this->assertMetaTitle('Modifier "Tony & Corinne MARCHOIS" - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],

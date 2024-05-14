@@ -16,7 +16,7 @@ final class AddParticipantControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Ajouter un participant', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Ajouter un participant - Moment', $crawler);
+        $this->assertMetaTitle('Ajouter un participant - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],

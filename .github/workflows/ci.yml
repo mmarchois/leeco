@@ -8,9 +8,9 @@ jobs:
       postgresql:
         image: postgres:15.3-alpine
         env:
-          POSTGRES_USER: moment
-          POSTGRES_PASSWORD: moment
-          POSTGRES_DB: moment
+          POSTGRES_USER: leeco
+          POSTGRES_PASSWORD: leeco
+          POSTGRES_DB: leeco
         ports:
           - 5432:5432
 
@@ -61,7 +61,7 @@ jobs:
         # HACK: Symfony won't read from 'env: { DATABASE_URL: ... }', so we need to edit
         # .env directly.
         run: |
-          echo "DATABASE_URL=postgresql://moment:moment@localhost:5432/moment" >> .env
+          echo "DATABASE_URL=postgresql://leeco:leeco@localhost:5432/leeco" >> .env
           echo "REDIS_URL=redis://localhost:6379" >> .env
           echo "MAILER_DSN=smtp://localhost:1025" >> .env
           echo "APP_UPLOADS_SOURCE=memory.storage" >> .env

@@ -16,7 +16,7 @@ final class RegisterControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Créer un compte', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Créer un compte - Moment', $crawler);
+        $this->assertMetaTitle('Créer un compte - Leeco', $crawler);
 
         $saveButton = $crawler->selectButton('Créer mon compte');
         $form = $saveButton->form();

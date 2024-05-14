@@ -14,7 +14,7 @@ final class ForgotPasswordControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Mot de passe oublié ?', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Mot de passe oublié ? - Moment', $crawler);
+        $this->assertMetaTitle('Mot de passe oublié ? - Leeco', $crawler);
 
         $saveButton = $crawler->selectButton('Envoyer un lien de réinitialisation');
         $form = $saveButton->form();

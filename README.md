@@ -1,7 +1,7 @@
-# Moment
+# Leeco
 
-[![CI](https://github.com/mmarchois/moment/actions/workflows/ci.yml/badge.svg)](https://github.com/mmarchois/moment/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/mmarchois/moment/graph/badge.svg?token=6CID087H72)](https://codecov.io/gh/mmarchois/moment)
+[![CI](https://github.com/mmarchois/leeco/actions/workflows/ci.yml/badge.svg)](https://github.com/mmarchois/leeco/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/mmarchois/leeco/graph/badge.svg?token=6CID087H72)](https://codecov.io/gh/mmarchois/leeco)
 
 ## Environnement technique
 
@@ -19,7 +19,7 @@
 
 ℹ️ Vous devez avoir **[Docker](https://www.docker.com/)** et **[Docker Compose](https://docs.docker.com/compose/)** d'installés sur votre machine.
 
-Pour démarrer l'application (http://moment.localhost:8000) :
+Pour démarrer l'application (http://leeco.localhost:8000) :
 
 ```bash
 make install
@@ -30,3 +30,7 @@ ou lancez la commande suivante si le projet avait déjà été installé :
 ```bash
 make start
 ```
+
+## Application mobile
+
+[Voir le repository](https://github.com/mmarchois/leeco_app)

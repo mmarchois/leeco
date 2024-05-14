@@ -16,7 +16,7 @@ final class EditEventControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Modifier "Mariage H&M"', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Modifier "Mariage H&M" - Moment', $crawler);
+        $this->assertMetaTitle('Modifier "Mariage H&M" - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],

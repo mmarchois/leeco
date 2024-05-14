@@ -4,11 +4,11 @@
         <body>
             <trans-unit id="common.title">
                 <source>common.title</source>
-                <target>Moment</target>
+                <target>Leeco</target>
             </trans-unit>
             <trans-unit id="common.baseline">
                 <source>common.baseline</source>
-                <target>Moment, l'application pour vivre vos évènements en direct avec vos amis.</target>
+                <target>Leeco, l'application pour vivre vos évènements en direct avec vos amis.</target>
             </trans-unit>
             <trans-unit id="common.logout">
                 <source>common.logout</source>
