@@ -21,6 +21,7 @@ final class EventTest extends TestCase
         $event = new Event(
             uuid: '9cebe00d-04d8-48da-89b1-059f6b7bfe44',
             title: 'Mariage H&M',
+            accessCode: 'FR367876',
             startDate: $startDate,
             endDate: $endDate,
             owner: $user,
@@ -31,6 +32,7 @@ final class EventTest extends TestCase
         $this->assertSame($startDate, $event->getStartDate());
         $this->assertSame($endDate, $event->getEndDate());
         $this->assertSame($user, $event->getOwner());
+        $this->assertSame('FR367876', $event->getAccessCode());
 
         $event->update('Mariage A&A', $startDate2, $endDate2);
 

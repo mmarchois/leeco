@@ -7,6 +7,7 @@ namespace App\Tests\Unit\Application\Event\Command;
 use App\Application\Event\Command\SaveEventCommand;
 use App\Application\Event\Command\SaveEventCommandHandler;
 use App\Application\IdFactoryInterface;
+use App\Domain\Event\AccessCodeGenerator;
 use App\Domain\Event\Event;
 use App\Domain\Event\Exception\EventAlreadyExistException;
 use App\Domain\Event\Repository\EventRepositoryInterface;
@@ -23,6 +24,7 @@ final class SaveEventCommandHandlerTest extends TestCase
     private MockObject $userRepository;
     private MockObject $eventRepository;
     private MockObject $isEventAlreadyExist;
+    private MockObject $accessCodeGenerator;
 
     public function setUp(): void
     {
@@ -30,6 +32,7 @@ final class SaveEventCommandHandlerTest extends TestCase
         $this->userRepository = $this->createMock(UserRepositoryInterface::class);
         $this->eventRepository = $this->createMock(EventRepositoryInterface::class);
         $this->isEventAlreadyExist = $this->createMock(IsEventAlreadyExist::class);
+        $this->accessCodeGenerator = $this->createMock(AccessCodeGenerator::class);
     }
 
     public function testCreate(): void
@@ -62,6 +65,11 @@ final class SaveEventCommandHandlerTest extends TestCase
             ->method('make')
             ->willReturn('fc9df7ca-d73c-4e5d-a889-fd4833a4116e');
 
+        $this->accessCodeGenerator
+            ->expects(self::once())
+            ->method('generate')
+            ->willReturn('FR87898778');
+
         $this->eventRepository
             ->expects(self::once())
             ->method('add')
@@ -69,6 +77,7 @@ final class SaveEventCommandHandlerTest extends TestCase
                 new Event(
                     uuid: 'fc9df7ca-d73c-4e5d-a889-fd4833a4116e',
                     title: 'Mariage H&M',
+                    accessCode: 'FR87898778',
                     startDate: $startDate,
                     endDate: $endDate,
                     owner: $user,
@@ -94,6 +103,7 @@ final class SaveEventCommandHandlerTest extends TestCase
             $this->userRepository,
             $this->eventRepository,
             $this->isEventAlreadyExist,
+            $this->accessCodeGenerator,
         );
 
         $this->assertSame('fc9df7ca-d73c-4e5d-a889-fd4833a4116e', ($handler)($command));
@@ -117,6 +127,10 @@ final class SaveEventCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('make');
 
+        $this->accessCodeGenerator
+            ->expects(self::never())
+            ->method('generate');
+
         $this->eventRepository
             ->expects(self::never())
             ->method('add');
@@ -133,6 +147,7 @@ final class SaveEventCommandHandlerTest extends TestCase
             $this->userRepository,
             $this->eventRepository,
             $this->isEventAlreadyExist,
+            $this->accessCodeGenerator,
         );
 
         ($handler)($command);
@@ -165,6 +180,10 @@ final class SaveEventCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('findOneByUuid');
 
+        $this->accessCodeGenerator
+            ->expects(self::never())
+            ->method('generate');
+
         $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557');
         $command->title = '  Mariage H&M  '; // Voluntary add spaces
 
@@ -173,6 +192,7 @@ final class SaveEventCommandHandlerTest extends TestCase
             $this->userRepository,
             $this->eventRepository,
             $this->isEventAlreadyExist,
+            $this->accessCodeGenerator,
         );
 
         ($handler)($command);
@@ -211,6 +231,10 @@ final class SaveEventCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('add');
 
+        $this->accessCodeGenerator
+            ->expects(self::never())
+            ->method('generate');
+
         $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557', $event);
         $command->uuid = 'fc9df7ca-d73c-4e5d-a889-fd4833a4116e';
         $command->title = '  Mariage A&A  '; // Voluntary add spaces
@@ -222,6 +246,7 @@ final class SaveEventCommandHandlerTest extends TestCase
             $this->userRepository,
             $this->eventRepository,
             $this->isEventAlreadyExist,
+            $this->accessCodeGenerator,
         );
 
         $this->assertSame('fc9df7ca-d73c-4e5d-a889-fd4833a4116e', ($handler)($command));
@@ -258,6 +283,10 @@ final class SaveEventCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('add');
 
+        $this->accessCodeGenerator
+            ->expects(self::never())
+            ->method('generate');
+
         $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557', $event);
         $command->uuid = 'fc9df7ca-d73c-4e5d-a889-fd4833a4116e';
         $command->title = '  Mariage H&M  '; // Voluntary add spaces
@@ -269,6 +298,7 @@ final class SaveEventCommandHandlerTest extends TestCase
             $this->userRepository,
             $this->eventRepository,
             $this->isEventAlreadyExist,
+            $this->accessCodeGenerator,
         );
 
         $this->assertSame('fc9df7ca-d73c-4e5d-a889-fd4833a4116e', ($handler)($command));
@@ -305,6 +335,10 @@ final class SaveEventCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('add');
 
+        $this->accessCodeGenerator
+            ->expects(self::never())
+            ->method('generate');
+
         $command = new SaveEventCommand('91340bb8-50d7-4d88-bcd6-bb2612ae5557', $event);
         $command->uuid = 'fc9df7ca-d73c-4e5d-a889-fd4833a4116e';
         $command->title = '  Mariage A&A  '; // Voluntary add spaces
@@ -314,6 +348,7 @@ final class SaveEventCommandHandlerTest extends TestCase
             $this->userRepository,
             $this->eventRepository,
             $this->isEventAlreadyExist,
+            $this->accessCodeGenerator,
         );
 
         ($handler)($command);

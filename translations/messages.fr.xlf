@@ -230,6 +230,10 @@
                 <source>event.list.title</source>
                 <target>Mes évènements</target>
             </trans-unit>
+            <trans-unit id="event.list.accessCode">
+                <source>event.list.accessCode</source>
+                <target>Code d'accès</target>
+            </trans-unit>
             <trans-unit id="event.dashboard">
                 <source>event.dashboard</source>
                 <target>Tableau de bord</target>
@@ -276,71 +280,31 @@
             </trans-unit>
             <trans-unit id="event.form.endDate.help">
                 <source>event.form.endDate.help</source>
-                <target>En fonction du plan choisi, les participants auront 5, 30 ou 60 jours après la fin de l'évènement pour récupérer les médias.</target>
+                <target>En fonction du plan choisi, les guests auront 5, 30 ou 60 jours après la fin de l'évènement pour récupérer les médias.</target>
             </trans-unit>
             <trans-unit id="event.edit.title">
                 <source>event.edit.title</source>
                 <target>Modifier "%title%"</target>
             </trans-unit>
-            <trans-unit id="participant.list.title">
-                <source>participant.list.title</source>
-                <target>Participants</target>
+            <trans-unit id="guest.list.title">
+                <source>guest.list.title</source>
+                <target>Invités</target>
             </trans-unit>
-            <trans-unit id="participant.list">
-                <source>participant.list</source>
-                <target>Participants</target>
-            </trans-unit>
-            <trans-unit id="participant.list.firstName">
-                <source>participant.list.firstName</source>
+            <trans-unit id="guest.list.firstName">
+                <source>guest.list.firstName</source>
                 <target>Prénom</target>
             </trans-unit>
-            <trans-unit id="participant.list.lastName">
-                <source>participant.list.lastName</source>
+            <trans-unit id="guest.list.lastName">
+                <source>guest.list.lastName</source>
                 <target>Nom</target>
             </trans-unit>
-            <trans-unit id="participant.list.email">
-                <source>participant.list.email</source>
-                <target>Email</target>
+            <trans-unit id="guest.list.createdAt">
+                <source>guest.list.createdAt</source>
+                <target>Date d'inscription</target>
             </trans-unit>
-            <trans-unit id="participant.list.password">
-                <source>participant.list.password</source>
-                <target>Code d'accès</target>
-            </trans-unit>
-            <trans-unit id="participant.list.password.sent">
-                <source>participant.list.password.sent</source>
-                <target>Envoyé</target>
-            </trans-unit>
-            <trans-unit id="participant.list.password.unSent">
-                <source>participant.list.password.unSent</source>
-                <target>Non envoyé</target>
-            </trans-unit>
-            <trans-unit id="participant.list.empty">
-                <source>participant.list.empty</source>
-                <target>Vous n'avez pas encore de participant sur cet évènement.</target>
-            </trans-unit>
-            <trans-unit id="participant.add.title">
-                <source>participant.add.title</source>
-                <target>Ajouter un participant</target>
-            </trans-unit>
-            <trans-unit id="participant.form.firstName">
-                <source>participant.form.firstName</source>
-                <target>Prénom</target>
-            </trans-unit>
-            <trans-unit id="participant.form.lastName">
-                <source>participant.form.lastName</source>
-                <target>Nom</target>
-            </trans-unit>
-            <trans-unit id="participant.form.email">
-                <source>participant.form.email</source>
-                <target>Email</target>
-            </trans-unit>
-            <trans-unit id="participant.form.invitation">
-                <source>participant.form.invitation</source>
-                <target>Les invitations contenant le code d'accès seront envoyés automatiquement la veille de votre évènement.</target>
-            </trans-unit>
-            <trans-unit id="participant.edit.title">
-                <source>participant.edit.title</source>
-                <target>Modifier "%firstName% %lastName%"</target>
+            <trans-unit id="guest.list.empty">
+                <source>guest.list.empty</source>
+                <target>Vous n'avez pas encore d'invités qui ont rejoint l'évènement.</target>
             </trans-unit>
             <trans-unit id="profile.title">
                 <source>profile.title</source>

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Application\Event\Command;
 
 use App\Application\IdFactoryInterface;
+use App\Domain\Event\AccessCodeGenerator;
 use App\Domain\Event\Event;
 use App\Domain\Event\Exception\EventAlreadyExistException;
 use App\Domain\Event\Repository\EventRepositoryInterface;
@@ -20,6 +21,7 @@ final readonly class SaveEventCommandHandler
         private UserRepositoryInterface $userRepository,
         private EventRepositoryInterface $eventRepository,
         private IsEventAlreadyExist $isEventAlreadyExist,
+        private AccessCodeGenerator $accessCodeGenerator,
     ) {
     }
 
@@ -54,6 +56,7 @@ final readonly class SaveEventCommandHandler
             new Event(
                 uuid: $this->idFactory->make(),
                 title: $title,
+                accessCode: $this->accessCodeGenerator->generate(),
                 startDate: $command->startDate,
                 endDate: $command->endDate,
                 owner: $user,
