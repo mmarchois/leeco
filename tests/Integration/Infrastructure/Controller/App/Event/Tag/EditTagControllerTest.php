@@ -16,7 +16,7 @@ final class EditTagControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Modifier "Cérémonie religieuse"', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Modifier "Cérémonie religieuse" - Moment', $crawler);
+        $this->assertMetaTitle('Modifier "Cérémonie religieuse" - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],

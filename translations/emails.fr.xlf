@@ -4,7 +4,7 @@
         <body>
             <trans-unit id="common.team">
                 <source>common.team</source>
-                <target>L’équipe Moment.</target>
+                <target>L’équipe Leeco.</target>
             </trans-unit>
             <trans-unit id="common.best_regards">
                 <source>common.best_regards</source>
@@ -20,7 +20,7 @@
             </trans-unit>
             <trans-unit id="confirm_user_account.thanks">
                 <source>confirm_user_account.thanks</source>
-                <target>Merci d’avoir rejoint Moment !</target>
+                <target>Merci d’avoir rejoint Leeco !</target>
             </trans-unit>
             <trans-unit id="confirm_user_account.confirm_email">
                 <source>confirm_user_account.confirm_email</source>
@@ -32,7 +32,7 @@
             </trans-unit>
             <trans-unit id="confirm_user_account.help">
                 <source>confirm_user_account.help</source>
-                <target>Si vous rencontrez des difficultés pour vous connecter à votre compte, contactez-nous à contact@moment.com.</target>
+                <target>Si vous rencontrez des difficultés pour vous connecter à votre compte, contactez-nous à contact@leeco.com.</target>
             </trans-unit>
             <trans-unit id="forgot_password.subjet">
                 <source>forgot_password.subjet</source>

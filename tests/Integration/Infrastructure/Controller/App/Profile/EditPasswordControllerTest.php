@@ -16,7 +16,7 @@ final class EditPasswordControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Modifier mon mot de passe', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Modifier mon mot de passe - Moment', $crawler);
+        $this->assertMetaTitle('Modifier mon mot de passe - Leeco', $crawler);
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],
             ['Mon profil', ['href' => '/app/profile/edit']],

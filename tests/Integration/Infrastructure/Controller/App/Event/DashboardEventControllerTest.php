@@ -16,7 +16,7 @@ final class DashboardEventControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Mariage H&M', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Mariage H&M - Moment', $crawler);
+        $this->assertMetaTitle('Mariage H&M - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],

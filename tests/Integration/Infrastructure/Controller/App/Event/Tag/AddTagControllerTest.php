@@ -16,7 +16,7 @@ final class AddTagControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertSame('Ajouter une catégorie', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Ajouter une catégorie - Moment', $crawler);
+        $this->assertMetaTitle('Ajouter une catégorie - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],

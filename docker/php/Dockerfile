@@ -1,7 +1,7 @@
 FROM php:8.2-fpm
 
 # Set working dir
-WORKDIR /var/www/moment
+WORKDIR /var/www/leeco
 
 # Install dependencies
 RUN apt-get update \
