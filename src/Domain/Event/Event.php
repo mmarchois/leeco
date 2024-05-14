@@ -11,6 +11,7 @@ class Event
     public function __construct(
         private string $uuid,
         private string $title,
+        private string $accessCode,
         private \DateTimeInterface $startDate,
         private \DateTimeInterface $endDate,
         private User $owner,
@@ -25,6 +26,11 @@ class Event
     public function getTitle(): string
     {
         return $this->title;
+    }
+
+    public function getAccessCode(): string
+    {
+        return $this->accessCode;
     }
 
     public function getStartDate(): \DateTimeInterface

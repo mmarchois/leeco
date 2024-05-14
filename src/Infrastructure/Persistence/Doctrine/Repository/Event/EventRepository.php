@@ -38,6 +38,7 @@ final class EventRepository extends ServiceEntityRepository implements EventRepo
                 'NEW %s(
                     e.uuid,
                     e.title,
+                    e.accessCode,
                     e.startDate,
                     e.endDate
                 )',

@@ -45,8 +45,8 @@
                     </a>
                 </li>
                 <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-                    <a href="{{ path('app_participants_list', { eventUuid }) }}" {% if 'app_participants' in routeName %} class="{{ activeClass}}" aria-current="page"{% else %}class="{{ defaultClass}}"{% endif %}>
-                        {{ 'participant.list.title'|trans }}
+                    <a href="{{ path('app_guests_list', { eventUuid }) }}" {% if 'app_guests' in routeName %} class="{{ activeClass}}" aria-current="page"{% else %}class="{{ defaultClass}}"{% endif %}>
+                        {{ 'guest.list.title'|trans }}
                     </a>
                 </li>
                 <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">

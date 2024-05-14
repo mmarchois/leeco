@@ -28,7 +28,7 @@
                 </thead>
                 <tbody>
                     {% for tag in paginatedTags.items %}
-                        <tr id="block_participant_{{ tag.uuid }}" class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <tr id="block_guest_{{ tag.uuid }}" class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ tag.title }}</td>
                             <td class="px-4 py-3">{{ app_datetime(tag.startDate) }}</td>
                             <td class="px-4 py-3">{{ app_datetime(tag.endDate) }}</td>

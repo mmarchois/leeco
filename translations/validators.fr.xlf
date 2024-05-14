@@ -10,9 +10,9 @@
                 <source>event.error.already_exist</source>
                 <target>Un évènement avec ce nom existe déjà.</target>
             </trans-unit>
-            <trans-unit id="participant.error.already_exist">
-                <source>participant.error.already_exist</source>
-                <target>Ce participant est déjà sur l'évènement.</target>
+            <trans-unit id="guest.error.already_exist">
+                <source>guest.error.already_exist</source>
+                <target>Ce guest est déjà sur l'évènement.</target>
             </trans-unit>
             <trans-unit id="tag.error.already_exist">
                 <source>tag.error.already_exist</source>

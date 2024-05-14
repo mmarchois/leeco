@@ -15,6 +15,7 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-4 py-3 min-w-[14rem]">{{ 'event.list.event'|trans }}</th>
+                        <th scope="col" class="px-4 py-3 min-w-[14rem]">{{ 'event.list.accessCode'|trans }}</th>
                         <th scope="col" class="px-4 py-3 min-w-[10rem]">{{ 'event.list.period'|trans }}</th>
                         <th scope="col" class="px-4 py-3">
                             {{ 'common.actions'|trans }}
@@ -26,6 +27,9 @@
                         <tr id="block_event_{{ event.uuid }}" class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center">
                                 <a href="{{ path('app_events_dashboard', { eventUuid: event.uuid }) }}">{{ event.title }}</a>
+                            </td>
+                            <td class="px-4 py-3">
+                                {{ event.accessCode }}
                             </td>
                             <td class="px-4 py-3">
                                 {% include 'app/event/_period.html.twig' with { startDate: event.startDate, endDate: event.endDate} only %}
