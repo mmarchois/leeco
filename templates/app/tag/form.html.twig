@@ -1,13 +1,14 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}
-    {{ 'tag.add.title'|trans }} - {{ parent() }}
+    {{ tag is defined ? 'tag.edit.title'|trans({ '%title%': tag.title }) : 'tag.add.title'|trans }} - {{ parent() }}
 {% endblock %}
 
+{% set title = tag is defined ? 'tag.edit.title'|trans({ '%title%': tag.title }) : 'tag.add.title'|trans %}
 {% set period %}{% include 'app/event/_period.html.twig' with { startDate: event.startDate, endDate: event.endDate} only %}{% endset %}
 
-{% block header %}
-    {% include 'app/event/_menu.html.twig' with { eventUuid: event.uuid, eventName: event.title } %}
+{% block current_event %}
+    {% include 'app/event/_current.html.twig' with { event } only %}
 {% endblock %}
 
 {% block main %}
@@ -15,11 +16,14 @@
         { title: 'event.list.title'|trans, path: path('app_events_list') },
         { title: event.title, path: path('app_events_dashboard', { eventUuid: event.uuid }) },
         { title: 'tag.list'|trans, path: path('app_tags_list', { eventUuid: event.uuid }) },
-        { title: 'tag.add.title'|trans },
+        { title },
     ] } only %}
+
+    <div class="mb-8">
+        <h1 class="inline-block text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ title }}</h1>
+        <p class="mt-1 text-lg text-gray-500 dark:text-gray-400">{{ 'tag.form.event_period'|trans({'%period%': period }) }}</p>
+    </div>
     <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
-        <h1 class="mb-4 text-xl font-bold dark:text-white">{{ 'tag.add.title'|trans }}</h1>
-        {% include 'common/alert/info.html.twig' with { title: 'tag.form.event_period'|trans({'%period%': period }) } only %}
         {{ form(form) }}
     </div>
 {% endblock main %}

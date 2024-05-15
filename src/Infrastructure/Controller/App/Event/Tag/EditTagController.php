@@ -82,7 +82,7 @@ final class EditTagController extends AbstractEventController
 
         return new Response(
             content: $this->twig->render(
-                name: 'app/tag/edit.html.twig',
+                name: 'app/tag/form.html.twig',
                 context : [
                     'form' => $form->createView(),
                     'tag' => $tag,

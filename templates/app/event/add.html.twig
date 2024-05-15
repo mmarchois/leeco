@@ -9,8 +9,12 @@
         { title: 'event.list.title'|trans, path: path('app_events_list') },
         { title: 'event.add.title'|trans },
     ] } only %}
+
+    <div class="mb-8">
+        <h1 class="inline-block text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ 'event.add.title'|trans }}</h1>
+    </div>
+
     <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
-        <h1 class="mb-4 text-xl font-bold dark:text-white">{{ 'event.add.title'|trans }}</h1>
         {{ form(form) }}
     </div>
 {% endblock main %}

@@ -15,7 +15,7 @@ final class DashboardControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Bonjour, Mathieu MARCHOIS', $crawler->filter('h1')->text());
+        $this->assertSame('Bonjour, Mathieu.', $crawler->filter('h1')->text());
     }
 
     public function testWithoutAuthenticatedUser(): void

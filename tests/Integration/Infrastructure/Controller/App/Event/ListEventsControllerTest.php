@@ -30,7 +30,7 @@ final class ListEventsControllerTest extends AbstractWebTestCase
         $this->assertSame('Mariage H&M', $tr->eq(0)->text());
         $this->assertSame('FR123456789', $tr->eq(1)->text());
         $this->assertSame('du 05/01/2019 au 07/01/2019', $tr->eq(2)->text());
-        $this->assertSame('Tableau de bord', $link->eq(0)->text());
+        $this->assertSame('Voir', $link->eq(0)->text());
         $this->assertSame('http://localhost/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613', $link->eq(0)->link()->getUri());
 
         $tr1 = $table->filter('tr')->eq(1)->filter('td');
@@ -38,7 +38,7 @@ final class ListEventsControllerTest extends AbstractWebTestCase
         $this->assertSame('EVG Julien', $tr1->eq(0)->text());
         $this->assertSame('FR76556789', $tr1->eq(1)->text());
         $this->assertSame('le 05/05/2023', $tr1->eq(2)->text());
-        $this->assertSame('Tableau de bord', $link1->eq(0)->text());
+        $this->assertSame('Voir', $link1->eq(0)->text());
         $this->assertSame('http://localhost/app/events/2203014c-5d51-4e20-b607-2b48ffb3f0c7', $link1->eq(0)->link()->getUri());
     }
 
