@@ -214,6 +214,54 @@
                 <source>dashboard.title</source>
                 <target>Mon espace</target>
             </trans-unit>
+            <trans-unit id="dashboard.welcome">
+                <source>dashboard.welcome</source>
+                <target>Bonjour, %firstName%.</target>
+            </trans-unit>
+            <trans-unit id="dashboard.description">
+                <source>dashboard.description</source>
+                <target>Voici vos évènements à venir.</target>
+            </trans-unit>
+            <trans-unit id="dashboard.download.invitation">
+                <source>dashboard.download.invitation</source>
+                <target>Télécharger l'invitation</target>
+            </trans-unit>
+            <trans-unit id="dashboard.download.on">
+                <source>dashboard.download.on</source>
+                <target>Télécharger sur</target>
+            </trans-unit>
+            <trans-unit id="dashboard.participate.how">
+                <source>dashboard.participate.how</source>
+                <target>Comment ça marche ?</target>
+            </trans-unit>
+            <trans-unit id="dashboard.participate.install_app">
+                <source>dashboard.participate.install_app</source>
+                <target>Installer l'application</target>
+            </trans-unit>
+            <trans-unit id="dashboard.participate.download_app">
+                <source>dashboard.participate.download_app</source>
+                <target>Téléchargez l'application Leeco disponible sur Google Play ou l'Apple Store.</target>
+            </trans-unit>
+            <trans-unit id="dashboard.participate.access_to_event">
+                <source>dashboard.participate.access_to_event</source>
+                <target>Accéder à l'évènement</target>
+            </trans-unit>
+            <trans-unit id="dashboard.participate.access_to_event.description">
+                <source>dashboard.participate.access_to_event.description</source>
+                <target>Ouvrez Leeco sur votre téléphone, scannez le QR Code ou entrez le code de l'évènement puis saisissez vos prénom / nom.</target>
+            </trans-unit>
+            <trans-unit id="dashboard.participate.access_to_event.code">
+                <source>dashboard.participate.access_to_event.code</source>
+                <target>Code de l'évènement :</target>
+            </trans-unit>
+            <trans-unit id="dashboard.participate.contribute">
+                <source>dashboard.participate.contribute</source>
+                <target>Contribuer</target>
+            </trans-unit>
+            <trans-unit id="dashboard.participate.contribute.description">
+                <source>dashboard.participate.contribute.description</source>
+                <target>Une fois inscrit, vos invités pourront contribuer en postant des photos, des commentaires, des likes durant toute la durée de l'évènement.</target>
+            </trans-unit>
             <trans-unit id="event.delete.title">
                 <source>event.delete.title</source>
                 <target>Supprimer cet évènement</target>
@@ -229,6 +277,10 @@
             <trans-unit id="event.list.title">
                 <source>event.list.title</source>
                 <target>Mes évènements</target>
+            </trans-unit>
+            <trans-unit id="event.list.description">
+                <source>event.list.description</source>
+                <target>Retrouvez ici l'ensemble de vos évènements</target>
             </trans-unit>
             <trans-unit id="event.list.accessCode">
                 <source>event.list.accessCode</source>
@@ -276,11 +328,11 @@
             </trans-unit>
             <trans-unit id="event.form.startDate.help">
                 <source>event.form.startDate.help</source>
-                <target>Les invitations seront envoyés la veille de l'évènement.</target>
+                <target>Les invités pourront se connecter à partir de la date de début.</target>
             </trans-unit>
             <trans-unit id="event.form.endDate.help">
                 <source>event.form.endDate.help</source>
-                <target>En fonction du plan choisi, les guests auront 5, 30 ou 60 jours après la fin de l'évènement pour récupérer les médias.</target>
+                <target>A partir de de cette date, les invités auront 30 jours pour récupérer les médias.</target>
             </trans-unit>
             <trans-unit id="event.edit.title">
                 <source>event.edit.title</source>
@@ -289,6 +341,10 @@
             <trans-unit id="guest.list.title">
                 <source>guest.list.title</source>
                 <target>Invités</target>
+            </trans-unit>
+            <trans-unit id="guest.list.title.description">
+                <source>guest.list.title.description</source>
+                <target>Retrouvez ici la liste de vos invités qui ont créé leur compte sur l'application mobile.</target>
             </trans-unit>
             <trans-unit id="guest.list.firstName">
                 <source>guest.list.firstName</source>
@@ -302,17 +358,13 @@
                 <source>guest.list.createdAt</source>
                 <target>Date d'inscription</target>
             </trans-unit>
-            <trans-unit id="guest.list.empty">
-                <source>guest.list.empty</source>
-                <target>Vous n'avez pas encore d'invités qui ont rejoint l'évènement.</target>
-            </trans-unit>
             <trans-unit id="profile.title">
                 <source>profile.title</source>
                 <target>Mon profil</target>
             </trans-unit>
             <trans-unit id="profile.edit.title">
                 <source>profile.edit.title</source>
-                <target>Modifier mon profil</target>
+                <target>Informations générales</target>
             </trans-unit>
             <trans-unit id="profile.form.firstName">
                 <source>profile.form.firstName</source>
@@ -354,17 +406,25 @@
                 <source>tag.list</source>
                 <target>Catégories</target>
             </trans-unit>
+            <trans-unit id="tag.delete.confirm">
+                <source>tag.delete.confirm</source>
+                <target>Êtes-vous sûr de vouloir supprimer cette catégorie ?</target>
+            </trans-unit>
+            <trans-unit id="tag.list.description">
+                <source>tag.list.description</source>
+                <target>Retrouvez ici toutes vos catégories qui vous permettront de trier automatiquement les médias postés par vos invités.</target>
+            </trans-unit>
             <trans-unit id="tag.list.title_name">
                 <source>tag.list.title_name</source>
                 <target>Catégorie</target>
             </trans-unit>
-            <trans-unit id="tag.list.empty">
-                <source>tag.list.empty</source>
-                <target>Vous n'avez pas encore de catégories sur cet évènement.</target>
-            </trans-unit>
             <trans-unit id="tag.list.startDate">
                 <source>tag.list.startDate</source>
                 <target>Date de début</target>
+            </trans-unit>
+            <trans-unit id="tag.list.associate_media">
+                <source>tag.list.associate_media</source>
+                <target>Nb médias associés</target>
             </trans-unit>
             <trans-unit id="tag.list.endDate">
                 <source>tag.list.endDate</source>
@@ -372,7 +432,7 @@
             </trans-unit>
             <trans-unit id="tag.add.title">
                 <source>tag.add.title</source>
-                <target>Ajouter une catégorie</target>
+                <target>Créer une catégorie</target>
             </trans-unit>
             <trans-unit id="tag.form.title">
                 <source>tag.form.title</source>
@@ -380,7 +440,7 @@
             </trans-unit>
             <trans-unit id="tag.form.event_period">
                 <source>tag.form.event_period</source>
-                <target>Votre évènement a lieu %period%. Pensez à bien vérifier les dates de début / fin de vos catégories.</target>
+                <target>Votre évènement a lieu %period%. Pensez à bien vérifier les dates de votre catégorie.</target>
             </trans-unit>
             <trans-unit id="tag.form.startDate">
                 <source>tag.form.startDate</source>

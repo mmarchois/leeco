@@ -68,7 +68,7 @@ final class AddTagController extends AbstractEventController
 
         return new Response(
             content: $this->twig->render(
-                name: 'app/tag/add.html.twig',
+                name: 'app/tag/form.html.twig',
                 context : [
                     'form' => $form->createView(),
                     'event' => $event,

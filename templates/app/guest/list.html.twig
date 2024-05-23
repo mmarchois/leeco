@@ -4,8 +4,8 @@
     {{ 'guest.list.title'|trans({ '%title%': event.title }) }} - {{ parent() }}
 {% endblock %}
 
-{% block header %}
-    {% include 'app/event/_menu.html.twig' with { eventUuid: event.uuid, eventName: event.title } %}
+{% block current_event %}
+    {% include 'app/event/_current.html.twig' with { event } only %}
 {% endblock %}
 
 {% block main %}
@@ -14,8 +14,11 @@
         { title: event.title, path: path('app_events_dashboard', { eventUuid: event.uuid }) },
         { title: 'guest.list.title'|trans },
     ] } only %}
+    <div class="mb-8">
+        <h1 class="inline-block text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ 'guest.list.title'|trans }}</h1>
+        <p class="mt-1 text-lg text-gray-500 dark:text-gray-400">{{ 'guest.list.title.description'|trans }}</p>
+    </div>
     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden mb-4">
-        {% include 'app/guest/_head.html.twig' %}
         <div class="overflow-x-auto">
             <table data-testid="guest-list" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -53,12 +56,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </td>
-                        </tr>
-                    {% else %}
-                        <tr>
-                            <td class="px-4 py-3" colspan="4">
-                                {{ 'guest.list.empty'|trans }}
                             </td>
                         </tr>
                     {% endfor %}

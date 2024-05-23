@@ -23,19 +23,55 @@
     {% endblock %}
   </head>
 
+   {% set routeName = app.request.get('_route') %}
+   {% set isEventContext =  'app_guests' in routeName or 'app_events_dashboard' in routeName or 'app_tags' in routeName %}
+
   <body class="bg-gray-50 dark:bg-gray-900">
-    <header>
-      {% block header %}
-        {% if app.request.requestUri starts with '/app' %}
-            {% if not app.request.get('eventUuid') %}
-                {% include 'common/menus/main.html.twig' %}
+      <header class="sticky top-0 z-40 flex-none mx-auto w-full bg-gray-50 dark:{{ isEventContext ? 'bg-gray-900' : 'bg-gray-800' }}">
+        {% if app.user and app.request.requestUri starts with '/app' %}
+            <div class="w-full px-3 py-3 mx-auto lg:flex lg:justify-between max-w-8xl lg:px-3">
+                <div class="flex justify-between">
+                    <div class="flex items-center">
+                        <a href="{{ path('app_dashboard') }}" class="flex items-center justify-between">
+                            <img src="{{ asset('logo.png') }}" class="h-8" alt="Leeco Logo" />
+                            <span class="ml-3 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ 'common.title'|trans }}</span>
+                        </a>
+                        {% block current_event %}{% endblock %}
+                    </div>
+                    <div class="flex items-center lg:hidden">
+                        {% include 'common/menus/_user.html.twig' with { item : 0 } %}
+                    </div>
+                </div>
+                <div class="flex items-center w-full lg:w-auto hidden sm:flex" id="toggleMobileMenu">
+                    <ul class="flex flex-col py-2 lg:py-0 lg:flex-row lg:self-center w-full lg:w-auto">
+                        <li>
+                            <a href="{{ path('app_dashboard') }}" class="block py-2 text-sm font-medium text-gray-900 lg:px-3 lg:py-0 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500">{{ 'dashboard.title'|trans }}</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_events_list') }}" class="block py-2 text-sm font-medium text-gray-900 lg:px-3 lg:py-0 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500">{{ 'event.list.title'|trans }}</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 text-sm font-medium text-gray-900 lg:px-3 lg:py-0 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-500">
+                                Version pro
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="lg:self-center flex items-center mb-4 lg:mb-0">
+                        <div class="items-center hidden mr-3 lg:flex">
+                            <!-- user menu & burger menu -->
+                        {% include 'common/menus/_user.html.twig' with { item : 1 } %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if isEventContext and app.request.get('eventUuid') %}
+                {% include 'common/menus/_event.html.twig' with { eventUuid: app.request.get('eventUuid') } %}
             {% endif %}
         {% else %}
             {% include 'common/menus/not-connected.html.twig' %}
         {% endif %}
-      {% endblock%}
     </header>
-    <main class="pt-4 pl-4 pr-4">
+    <main class="px-4 my-6 mx-auto max-w-8xl lg:px-4">
         {% block main %}{% endblock %}
     </main>
     {% include 'common/footer.html.twig' %}

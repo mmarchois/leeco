@@ -4,8 +4,8 @@
     {{ 'event.edit.title'|trans({ '%title%': event.title }) }} - {{ parent() }}
 {% endblock %}
 
-{% block header %}
-    {% include 'app/event/_menu.html.twig' with { eventUuid: event.uuid, eventName: event.title } %}
+{% block current_event %}
+    {% include 'app/event/_current.html.twig' with { event } only %}
 {% endblock %}
 
 {% block main %}
@@ -15,8 +15,11 @@
         { title: 'common.edit'|trans },
     ] } only %}
 
+    <div class="mb-8">
+        <h1 class="inline-block text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ 'event.edit.title'|trans({ '%title%': event.title }) }}</h1>
+    </div>
+
     <div class="p-4 mb-4 bg-white rounded-lg shadow sm:p-6 xl:p-8 dark:bg-gray-800">
-        <h1 class="mb-4 text-xl font-bold dark:text-white">{{ 'event.edit.title'|trans({ '%title%': event.title }) }}</h1>
         {{ form(form) }}
     </div>
 {% endblock main %}

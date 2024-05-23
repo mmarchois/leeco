@@ -15,15 +15,15 @@ final class AddTagControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Ajouter une catégorie', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Ajouter une catégorie - Leeco', $crawler);
+        $this->assertSame('Créer une catégorie', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Créer une catégorie - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],
             ['Mes évènements', ['href' => '/app/events']],
             ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
             ['Catégories', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/tags']],
-            ['Ajouter une catégorie', ['href' => null]],
+            ['Créer une catégorie', ['href' => null]],
         ], $crawler);
 
         $saveButton = $crawler->selectButton('Sauvegarder');

@@ -3,7 +3,6 @@
   <entity name="App\Domain\Event\Event" table="event">
     <indexes>
         <index columns="title"/>
-        <index columns="access_code"/>
     </indexes>
     <id name="uuid" type="guid"/>
     <field name="title" type="string" length="100" nullable="false"/>
