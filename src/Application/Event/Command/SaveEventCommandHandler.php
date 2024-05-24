@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace App\Application\Event\Command;
 
+use App\Application\CommandBusInterface;
 use App\Application\IdFactoryInterface;
+use App\Application\Media\Command\SaveMediaCommand;
 use App\Domain\Event\AccessCodeGenerator;
 use App\Domain\Event\Event;
 use App\Domain\Event\Exception\EventAlreadyExistException;
 use App\Domain\Event\Repository\EventRepositoryInterface;
 use App\Domain\Event\Specification\IsEventAlreadyExist;
+use App\Domain\Media\MediaTypeEnum;
 use App\Domain\User\Exception\UserNotFoundException;
 use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Domain\User\User;
@@ -22,6 +25,7 @@ final readonly class SaveEventCommandHandler
         private EventRepositoryInterface $eventRepository,
         private IsEventAlreadyExist $isEventAlreadyExist,
         private AccessCodeGenerator $accessCodeGenerator,
+        private CommandBusInterface $commandBus,
     ) {
     }
 
@@ -37,6 +41,10 @@ final readonly class SaveEventCommandHandler
             }
 
             $event->update($title, $command->startDate, $command->endDate);
+
+            if ($command->file) {
+                $this->handleMedia($event, $command);
+            }
 
             return $command->uuid;
         }
@@ -63,6 +71,24 @@ final readonly class SaveEventCommandHandler
             ),
         );
 
+        if ($command->file) {
+            $this->handleMedia($event, $command);
+        }
+
         return $event->getUuid();
+    }
+
+    private function handleMedia(Event $event, SaveEventCommand $command): void
+    {
+        $media = $this->commandBus->handle(
+            new SaveMediaCommand(
+                event: $event,
+                file: $command->file,
+                type: MediaTypeEnum::EVENT_BANNER->value,
+                media: $event->getMedia(), // will be null on event creation
+            ),
+        );
+
+        $event->updateMedia($media);
     }
 }

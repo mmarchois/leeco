@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Unit\Domain\Event;
 
 use App\Domain\Event\Event;
+use App\Domain\Media\Media;
 use App\Domain\User\User;
 use PHPUnit\Framework\TestCase;
 
@@ -17,6 +18,8 @@ final class EventTest extends TestCase
         $startDate2 = new \DateTime('2023-09-17 18:00:00');
         $endDate2 = new \DateTime('2023-09-18 18:00:00');
         $user = $this->createMock(User::class);
+        $media = $this->createMock(Media::class);
+        $media2 = $this->createMock(Media::class);
 
         $event = new Event(
             uuid: '9cebe00d-04d8-48da-89b1-059f6b7bfe44',
@@ -25,6 +28,7 @@ final class EventTest extends TestCase
             startDate: $startDate,
             endDate: $endDate,
             owner: $user,
+            media: $media,
         );
 
         $this->assertSame('9cebe00d-04d8-48da-89b1-059f6b7bfe44', $event->getUuid());
@@ -33,11 +37,14 @@ final class EventTest extends TestCase
         $this->assertSame($endDate, $event->getEndDate());
         $this->assertSame($user, $event->getOwner());
         $this->assertSame('FR367876', $event->getAccessCode());
+        $this->assertSame($media, $event->getMedia());
 
         $event->update('Mariage A&A', $startDate2, $endDate2);
+        $event->updateMedia($media2);
 
         $this->assertSame('Mariage A&A', $event->getTitle());
         $this->assertSame($startDate2, $event->getStartDate());
         $this->assertSame($endDate2, $event->getEndDate());
+        $this->assertSame($media2, $event->getMedia());
     }
 }

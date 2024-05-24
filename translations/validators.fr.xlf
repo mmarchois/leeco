@@ -26,6 +26,10 @@
                 <source>date.errors.startDateGreaterThanEndDate</source>
                 <target>La date de fin doit être supérieure à la date de début.</target>
             </trans-unit>
+            <trans-unit id="file.error">
+                <source>file.error</source>
+                <target>Merci de fournir un format d'image valide (.jpg, .jpeg, .png, .webp)</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Integration\Infrastructure\Controller\App\Event;
 
 use App\Tests\Integration\Infrastructure\Controller\AbstractWebTestCase;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 final class AddEventControllerTest extends AbstractWebTestCase
 {
@@ -12,6 +13,11 @@ final class AddEventControllerTest extends AbstractWebTestCase
     {
         $client = $this->login();
         $crawler = $client->request('GET', '/app/events/add');
+
+        $uploadedFile = new UploadedFile(
+            __DIR__ . '/../../../../../fixtures/logo.png',
+            'logo.png',
+        );
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
@@ -29,6 +35,8 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $form['event_form[title]'] = 'Mariage cousins';
         $form['event_form[startDate]'] = '2024-10-14';
         $form['event_form[endDate]'] = '2024-10-14';
+        $form['event_form[file]'] = $uploadedFile;
+
         $client->submit($form);
         $crawler = $client->followRedirect();
 
@@ -44,16 +52,22 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $saveButton = $crawler->selectButton('Sauvegarder');
         $form = $saveButton->form();
 
+        $uploadedFile = new UploadedFile(
+            __DIR__ . '/../../../../../fixtures/CV_MARCHOIS_Mathieu.pdf',
+            'CV_MARCHOIS_Mathieu.pdf',
+        );
         // Empty data
         $form['event_form[title]'] = '';
         $form['event_form[startDate]'] = '';
         $form['event_form[endDate]'] = '';
+        $form['event_form[file]'] = $uploadedFile;
         $crawler = $client->submit($form);
 
         $this->assertResponseStatusCodeSame(422);
         $this->assertSame('Cette valeur ne doit pas être vide.', $crawler->filter('#event_form_title_error')->text());
         $this->assertSame('Cette valeur ne doit pas être vide.', $crawler->filter('#event_form_startDate_error')->text());
         $this->assertSame('Cette valeur ne doit pas être vide.', $crawler->filter('#event_form_endDate_error')->text());
+        $this->assertSame('Merci de fournir un format d\'image valide (.jpg, .jpeg, .png, .webp)', $crawler->filter('#event_form_file_error')->text());
 
         // Invalid data
         $form['event_form[title]'] = str_repeat('a', 101);

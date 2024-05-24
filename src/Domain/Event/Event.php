@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Event;
 
+use App\Domain\Media\Media;
 use App\Domain\User\User;
 
 class Event
@@ -15,6 +16,7 @@ class Event
         private \DateTimeInterface $startDate,
         private \DateTimeInterface $endDate,
         private User $owner,
+        private ?Media $media = null,
     ) {
     }
 
@@ -46,6 +48,16 @@ class Event
     public function getOwner(): User
     {
         return $this->owner;
+    }
+
+    public function getMedia(): ?Media
+    {
+        return $this->media;
+    }
+
+    public function updateMedia(Media $media): void
+    {
+        $this->media = $media;
     }
 
     public function update(
