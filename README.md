@@ -13,7 +13,7 @@
 - [PostgreSQL](https://www.postgresql.org/)
 - [Redis](https://redis.io/)
 - [Sendinblue](https://brevo.com)
-- [Scaleway S3](https://www.scaleway.com/fr/object-storage/)
+- [AWS S3]([https://www.scaleway.com/fr/object-storage/](https://aws.amazon.com/fr/s3/)
 
 ## Démarrage du projet
 
