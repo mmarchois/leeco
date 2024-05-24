@@ -1,19 +1,20 @@
 services:
-    scaleway_spaces_client:
-        class: 'AsyncAws\S3\S3Client'
-        arguments:
-            -  endpoint: '%env(SCALEWAY_SPACES_ENDPOINT)%'
-               accessKeyId: '%env(SCALEWAY_SPACES_ID)%'
-               accessKeySecret: '%env(SCALEWAY_SPACES_SECRET)%'
-               region: "fr-par"
+  Aws\S3\S3Client:
+    arguments:
+        - version: 'latest'
+          region: '%env(string:AWS_REGION)%'
+          credentials:
+            key: '%env(string:AWS_CREDENTIALS_KEY)%'
+            secret: '%env(string:AWS_CREDENTIALS_SECRET)%'
 
 flysystem:
     storages:
         cdn.storage:
-            adapter: 'asyncaws'
+            adapter: 'aws'
             options:
-                client: 'scaleway_spaces_client'
-                bucket: '%env(SCALEWAY_SPACES_BUCKET)%'
+                client: Aws\S3\S3Client
+                bucket: '%env(AWS_BUCKET)%'
+                streamReads: true
         memory.storage:
             adapter: 'memory'
         storage:

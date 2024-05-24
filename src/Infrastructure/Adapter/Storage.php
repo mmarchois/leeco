@@ -15,20 +15,20 @@ final class Storage implements StorageInterface
     ) {
     }
 
-    public function write(string $identifier, UploadedFile $file): string
+    public function write(string $folder, string $fileName, UploadedFile $file): string
     {
-        $path = sprintf('%s.%s', $identifier, $file->getClientOriginalExtension());
+        $path = sprintf('%s/%s.%s', $folder, $fileName, $file->getClientOriginalExtension());
         $this->storage->write($path, $file->getContent(), ['visibility' => 'public']);
 
         return $path;
     }
 
-    public function delete(string $identifier): void
+    public function delete(string $path): void
     {
-        if (!$this->storage->has($identifier)) {
+        if (!$this->storage->has($path)) {
             return;
         }
 
-        $this->storage->delete($identifier);
+        $this->storage->delete($path);
     }
 }

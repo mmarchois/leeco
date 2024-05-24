@@ -224,7 +224,7 @@
             </trans-unit>
             <trans-unit id="dashboard.download.invitation">
                 <source>dashboard.download.invitation</source>
-                <target>Télécharger l'invitation</target>
+                <target>Télécharger le QR Code</target>
             </trans-unit>
             <trans-unit id="dashboard.download.on">
                 <source>dashboard.download.on</source>
@@ -260,7 +260,7 @@
             </trans-unit>
             <trans-unit id="dashboard.participate.contribute.description">
                 <source>dashboard.participate.contribute.description</source>
-                <target>Une fois inscrit, vos invités pourront contribuer en postant des photos, des commentaires, des likes durant toute la durée de l'évènement.</target>
+                <target>Une fois inscrits, vos invités pourront contribuer en postant des photos, des commentaires, des likes durant toute la durée de l'évènement.</target>
             </trans-unit>
             <trans-unit id="event.delete.title">
                 <source>event.delete.title</source>
@@ -317,6 +317,14 @@
             <trans-unit id="event.form.title">
                 <source>event.form.title</source>
                 <target>Nom de l'évènement</target>
+            </trans-unit>
+            <trans-unit id="event.form.file">
+                <source>event.form.file</source>
+                <target>Photo de bannière</target>
+            </trans-unit>
+            <trans-unit id="event.form.file.help">
+                <source>event.form.file.help</source>
+                <target>Formats autorisés : .jpg, .jpeg, .png, .webp. Taille maximale : 1Mo</target>
             </trans-unit>
             <trans-unit id="event.form.startDate">
                 <source>event.form.startDate</source>
@@ -422,9 +430,17 @@
                 <source>tag.list.startDate</source>
                 <target>Date de début</target>
             </trans-unit>
-            <trans-unit id="tag.list.associate_media">
-                <source>tag.list.associate_media</source>
-                <target>Nb médias associés</target>
+            <trans-unit id="tag.list.nbMedia">
+                <source>tag.list.nbMedia</source>
+                <target>Médias</target>
+            </trans-unit>
+            <trans-unit id="tag.list.nbLike">
+                <source>tag.list.nbLike</source>
+                <target>J'aime</target>
+            </trans-unit>
+            <trans-unit id="tag.list.nbComment">
+                <source>tag.list.nbComment</source>
+                <target>Commentaires</target>
             </trans-unit>
             <trans-unit id="tag.list.endDate">
                 <source>tag.list.endDate</source>

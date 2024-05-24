@@ -6,6 +6,7 @@ namespace App\Infrastructure\Form\Event;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -34,6 +35,11 @@ final class EventFormType extends AbstractType
                 'help' => 'event.form.endDate.help',
                 'widget' => 'single_text',
                 'view_timezone' => $this->clientTimezone,
+            ])
+            ->add('file', FileType::class, [
+                'required' => false,
+                'label' => 'event.form.file',
+                'help' => 'event.form.file.help',
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'common.save',

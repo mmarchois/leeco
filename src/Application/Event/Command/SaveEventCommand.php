@@ -6,11 +6,13 @@ namespace App\Application\Event\Command;
 
 use App\Application\CommandInterface;
 use App\Domain\Event\Event;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 final class SaveEventCommand implements CommandInterface
 {
     public ?string $uuid = null;
     public ?string $title = null;
+    public ?UploadedFile $file = null;
     public ?\DateTimeInterface $startDate = null;
     public ?\DateTimeInterface $endDate = null;
 
