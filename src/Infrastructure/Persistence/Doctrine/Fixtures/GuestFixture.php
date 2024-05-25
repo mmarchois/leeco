@@ -44,6 +44,10 @@ final class GuestFixture extends Fixture implements DependentFixtureInterface
         $manager->persist($guest2);
         $manager->persist($guest3);
         $manager->flush();
+
+        $this->addReference('guest1', $guest1);
+        $this->addReference('guest2', $guest2);
+        $this->addReference('guest3', $guest3);
     }
 
     public function getDependencies(): array

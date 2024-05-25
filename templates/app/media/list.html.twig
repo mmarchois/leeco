@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ 'media.list.title'|trans }} - {{ parent() }}
+{% endblock %}
+
+{% block current_event %}
+    {% include 'app/event/_current.html.twig' with { event } only %}
+{% endblock %}
+
+{% block main %}
+    {% include 'common/breadcrumb.html.twig' with { items: [
+        { title: 'event.list.title'|trans, path: path('app_events_list') },
+        { title: event.title, path: path('app_events_dashboard', { eventUuid: event.uuid }) },
+        { title: 'media.list.title'|trans },
+    ] } only %}
+
+    <div class="mb-8">
+        <h1 class="inline-block text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ 'media.list.title'|trans }}</h1>
+        <p class="mt-1 text-lg text-gray-500 dark:text-gray-400">{{ 'media.list.description'|trans }}</p>
+    </div>
+
+    <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden mb-4">
+        <div class="overflow-x-auto">
+            <table data-testid="media-list" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-4 py-3 min-w-[3rem]">{{ 'media.list.media'|trans }}</th>
+                        <th scope="col" class="px-4 py-3 min-w-[3rem]">{{ 'media.list.nbLikes'|trans }}</th>
+                        <th scope="col" class="px-4 py-3 min-w-[3rem]">{{ 'media.list.nbComments'|trans }}</th>
+                        <th scope="col" class="px-4 py-3 min-w-[14rem]">{{ 'media.list.author'|trans }}</th>
+                        <th scope="col" class="px-4 py-3">{{ 'common.actions'|trans }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for media in paginatedMedias.items %}
+                        <tr id="block_media_{{ media.uuid }}" class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <td class="px-4 py-3"><img class="rounded" style="max-height: 100px" src="{{ media.path }}" /></td>
+                            <td class="px-4 py-3">0</td>
+                            <td class="px-4 py-3">0</td>
+                            <td class="px-4 py-3">{{ media.author }}</td>
+                            <td class="px-4 py-3"></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% include 'common/pagination.html.twig' with { pagination: paginatedMedias } %}
+    </div>
+{% endblock main %}
