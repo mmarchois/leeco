@@ -6,6 +6,6 @@ namespace App\Domain\Media;
 
 enum MediaTypeEnum: string
 {
-    case EVENT_BANNER = 'EVENT_BANNER';
-    case GUEST = 'GUEST';
+    case IMAGE = 'IMAGE';
+    case VIDEO = 'VIDEO';
 }

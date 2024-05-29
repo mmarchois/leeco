@@ -68,14 +68,14 @@ final class SaveMediaCommandHandlerTest extends TestCase
                 new Media(
                     uuid: '94e78189-64bd-46f9-9b7e-d729475af557',
                     path: '2e131626-40a5-42d0-857a-f285e1f2bb54/94e78189-64bd-46f9-9b7e-d729475af557.jpg',
-                    type: MediaTypeEnum::EVENT_BANNER->value,
+                    type: MediaTypeEnum::IMAGE->value,
                     createdAt: $createdAt,
                     event: $event,
                 ),
             )
             ->willReturn($createdMedia);
 
-        $command = new SaveMediaCommand($event, $this->file, MediaTypeEnum::EVENT_BANNER->value);
+        $command = new SaveMediaCommand($event, $this->file, MediaTypeEnum::IMAGE->value);
         $handler = new SaveMediaCommandHandler(
             $this->storage,
             $this->idFactory,
@@ -130,7 +130,7 @@ final class SaveMediaCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('add');
 
-        $command = new SaveMediaCommand($event, $this->file, MediaTypeEnum::EVENT_BANNER->value, $media);
+        $command = new SaveMediaCommand($event, $this->file, MediaTypeEnum::IMAGE->value, $media);
         $handler = new SaveMediaCommandHandler(
             $this->storage,
             $this->idFactory,

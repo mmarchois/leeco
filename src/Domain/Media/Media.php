@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Domain\Media;
 
 use App\Domain\Event\Event;
+use App\Domain\Guest\Guest;
 
 class Media
 {
@@ -14,6 +15,7 @@ class Media
         private string $type,
         private \DateTimeInterface $createdAt,
         private Event $event,
+        private ?Guest $guest = null,
     ) {
     }
 
@@ -30,6 +32,11 @@ class Media
     public function getType(): string
     {
         return $this->type;
+    }
+
+    public function getGuest(): ?Guest
+    {
+        return $this->guest;
     }
 
     public function getEvent(): Event

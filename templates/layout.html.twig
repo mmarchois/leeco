@@ -24,7 +24,7 @@
   </head>
 
    {% set routeName = app.request.get('_route') %}
-   {% set isEventContext =  'app_guests' in routeName or 'app_events_dashboard' in routeName or 'app_tags' in routeName %}
+   {% set isEventContext =  'app_guests' in routeName or 'app_medias' in routeName or 'app_events_dashboard' in routeName or 'app_tags' in routeName %}
 
   <body class="bg-gray-50 dark:bg-gray-900">
       <header class="sticky top-0 z-40 flex-none mx-auto w-full bg-gray-50 dark:{{ isEventContext ? 'bg-gray-900' : 'bg-gray-800' }}">

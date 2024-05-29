@@ -168,7 +168,7 @@ final class SaveEventCommandHandlerTest extends TestCase
                     new SaveMediaCommand(
                         event: $createdEvent,
                         file: $file,
-                        type: MediaTypeEnum::EVENT_BANNER->value,
+                        type: MediaTypeEnum::IMAGE->value,
                         media: null,
                     ),
                 ),
@@ -424,7 +424,7 @@ final class SaveEventCommandHandlerTest extends TestCase
                     new SaveMediaCommand(
                         event: $event,
                         file: $file,
-                        type: MediaTypeEnum::EVENT_BANNER->value,
+                        type: MediaTypeEnum::IMAGE->value,
                         media: $media,
                     ),
                 ),

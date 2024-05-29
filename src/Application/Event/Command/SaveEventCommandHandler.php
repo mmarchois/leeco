@@ -84,7 +84,7 @@ final readonly class SaveEventCommandHandler
             new SaveMediaCommand(
                 event: $event,
                 file: $command->file,
-                type: MediaTypeEnum::EVENT_BANNER->value,
+                type: MediaTypeEnum::IMAGE->value,
                 media: $event->getMedia(), // will be null on event creation
             ),
         );
