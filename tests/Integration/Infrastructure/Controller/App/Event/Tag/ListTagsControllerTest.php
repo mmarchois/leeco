@@ -31,11 +31,11 @@ final class ListTagsControllerTest extends AbstractWebTestCase
         $tr1 = $table->filter('tr')->eq(0)->filter('td');
         $link1 = $tr1->eq(6)->filter('a');
         $this->assertSame('Cérémonie religieuse', $tr1->eq(0)->text());
-        $this->assertSame('0', $tr1->eq(1)->text());
-        $this->assertSame('0', $tr1->eq(2)->text());
+        $this->assertSame('05/01/2019 à 19h00', $tr1->eq(1)->text());
+        $this->assertSame('05/01/2019 à 21h00', $tr1->eq(2)->text());
         $this->assertSame('0', $tr1->eq(3)->text());
-        $this->assertSame('05/01/2019 à 19h00', $tr1->eq(4)->text());
-        $this->assertSame('05/01/2019 à 21h00', $tr1->eq(5)->text());
+        $this->assertSame('0', $tr1->eq(4)->text());
+        $this->assertSame('0', $tr1->eq(5)->text());
 
         $this->assertSame('Modifier', $link1->eq(0)->text());
         $this->assertSame('http://localhost/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/tags/4d2bfad5-2e55-4059-ba43-783acb237772/edit', $link1->eq(0)->link()->getUri());
@@ -43,11 +43,11 @@ final class ListTagsControllerTest extends AbstractWebTestCase
         $tr2 = $table->filter('tr')->eq(1)->filter('td');
         $link2 = $tr2->eq(6)->filter('a');
         $this->assertSame('Dîner', $tr2->eq(0)->text());
-        $this->assertSame('0', $tr2->eq(1)->text());
-        $this->assertSame('0', $tr2->eq(2)->text());
+        $this->assertSame('05/01/2019 à 20h00', $tr2->eq(1)->text());
+        $this->assertSame('05/01/2019 à 22h00', $tr2->eq(2)->text());
         $this->assertSame('0', $tr2->eq(3)->text());
-        $this->assertSame('05/01/2019 à 20h00', $tr2->eq(4)->text());
-        $this->assertSame('05/01/2019 à 22h00', $tr2->eq(5)->text());
+        $this->assertSame('0', $tr2->eq(4)->text());
+        $this->assertSame('0', $tr2->eq(5)->text());
 
         $this->assertSame('Modifier', $link2->eq(0)->text());
         $this->assertSame('http://localhost/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/tags/95af7a78-8a14-4f82-b41a-66ef01cbd603/edit', $link2->eq(0)->link()->getUri());
@@ -64,11 +64,11 @@ final class ListTagsControllerTest extends AbstractWebTestCase
         $tr1 = $table->filter('tr')->eq(0)->filter('td');
         $link1 = $tr1->eq(6)->filter('a');
         $this->assertSame('Bubble foot', $tr1->eq(0)->text());
-        $this->assertSame('0', $tr1->eq(1)->text());
-        $this->assertSame('0', $tr1->eq(2)->text());
+        $this->assertSame('05/05/2023 à 08h00', $tr1->eq(1)->text());
+        $this->assertSame('10/05/2023 à 23h00', $tr1->eq(2)->text());
         $this->assertSame('0', $tr1->eq(3)->text());
-        $this->assertSame('05/05/2023 à 08h00', $tr1->eq(4)->text());
-        $this->assertSame('10/05/2023 à 23h00', $tr1->eq(5)->text());
+        $this->assertSame('0', $tr1->eq(4)->text());
+        $this->assertSame('0', $tr1->eq(5)->text());
 
         $this->assertSame('Modifier', $link1->eq(0)->text());
         $this->assertSame('http://localhost/app/events/2203014c-5d51-4e20-b607-2b48ffb3f0c7/tags/9abf583d-8128-4da1-a359-736cfd3d13db/edit', $link1->eq(0)->link()->getUri());

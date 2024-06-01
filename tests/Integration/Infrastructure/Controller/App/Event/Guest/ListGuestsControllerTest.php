@@ -16,14 +16,14 @@ final class ListGuestsControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Invités', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Invités - Leeco', $crawler);
+        $this->assertSame('Participants', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Participants - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],
             ['Mes évènements', ['href' => '/app/events']],
             ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
-            ['Invités', ['href' => null]],
+            ['Participants', ['href' => null]],
         ], $crawler);
 
         $this->assertSame(2, $table->filter('tr')->count());
@@ -32,6 +32,9 @@ final class ListGuestsControllerTest extends AbstractWebTestCase
         $this->assertSame('Marchois', $tr1->eq(0)->text());
         $this->assertSame('Corinne', $tr1->eq(1)->text());
         $this->assertSame('02/02/2023', $tr1->eq(2)->text());
+        $this->assertSame('0', $tr1->eq(3)->text());
+        $this->assertSame('0', $tr1->eq(4)->text());
+        $this->assertSame('0', $tr1->eq(5)->text());
 
         $formDelete1 = $tr1->selectButton('Supprimer')->form();
         $this->assertSame($formDelete1->getUri(), 'http://localhost/_fragments/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/guests/6f6973d5-6733-415e-bd35-432a6b50f8cf/delete');
@@ -41,6 +44,9 @@ final class ListGuestsControllerTest extends AbstractWebTestCase
         $this->assertSame('MARCHOIS', $tr2->eq(0)->text());
         $this->assertSame('Tony', $tr2->eq(1)->text());
         $this->assertSame('01/01/2023', $tr2->eq(2)->text());
+        $this->assertSame('0', $tr2->eq(3)->text());
+        $this->assertSame('0', $tr2->eq(4)->text());
+        $this->assertSame('0', $tr2->eq(5)->text());
 
         $formDelete2 = $tr2->selectButton('Supprimer')->form();
         $this->assertSame($formDelete2->getUri(), 'http://localhost/_fragments/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613/guests/0faf6d38-6887-44b9-9896-7877e31c56c4/delete');
@@ -60,6 +66,9 @@ final class ListGuestsControllerTest extends AbstractWebTestCase
         $this->assertSame('MARCHOIS', $tr1->eq(0)->text());
         $this->assertSame('Julien', $tr1->eq(1)->text());
         $this->assertSame('03/03/2023', $tr1->eq(2)->text());
+        $this->assertSame('0', $tr1->eq(3)->text());
+        $this->assertSame('0', $tr1->eq(4)->text());
+        $this->assertSame('0', $tr1->eq(5)->text());
 
         $formDelete1 = $tr1->selectButton('Supprimer')->form();
         $this->assertSame($formDelete1->getUri(), 'http://localhost/_fragments/events/2203014c-5d51-4e20-b607-2b48ffb3f0c7/guests/e4095f02-1516-42b3-82d1-506f2e74f027/delete');
