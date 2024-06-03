@@ -224,7 +224,15 @@
             </trans-unit>
             <trans-unit id="dashboard.download.invitation">
                 <source>dashboard.download.invitation</source>
-                <target>Télécharger le QR Code</target>
+                <target>Télécharger</target>
+            </trans-unit>
+            <trans-unit id="dashboard.participate.description">
+                <source>dashboard.participate.description</source>
+                <target>Imprimez vos badges d'invitations, ainsi personne n'oubliera de télécharger l'application.</target>
+            </trans-unit>
+            <trans-unit id="dashboard.participate.title">
+                <source>dashboard.participate.title</source>
+                <target>Participer à l'évènement</target>
             </trans-unit>
             <trans-unit id="dashboard.download.on">
                 <source>dashboard.download.on</source>
@@ -244,15 +252,15 @@
             </trans-unit>
             <trans-unit id="dashboard.participate.access_to_event">
                 <source>dashboard.participate.access_to_event</source>
-                <target>Accéder à l'évènement</target>
+                <target>Se connecter à l'évènement</target>
             </trans-unit>
             <trans-unit id="dashboard.participate.access_to_event.description">
                 <source>dashboard.participate.access_to_event.description</source>
-                <target>Ouvrez Leeco sur votre téléphone, scannez le QR Code ou entrez le code de l'évènement puis saisissez vos prénom / nom.</target>
+                <target>Ouvrez Leeco sur votre téléphone, scannez le QR Code ou entrez le code de l'évènement.</target>
             </trans-unit>
             <trans-unit id="dashboard.participate.access_to_event.code">
                 <source>dashboard.participate.access_to_event.code</source>
-                <target>Code de l'évènement :</target>
+                <target>Code :</target>
             </trans-unit>
             <trans-unit id="dashboard.participate.contribute">
                 <source>dashboard.participate.contribute</source>
@@ -260,7 +268,7 @@
             </trans-unit>
             <trans-unit id="dashboard.participate.contribute.description">
                 <source>dashboard.participate.contribute.description</source>
-                <target>Une fois inscrits, vos invités pourront contribuer en postant des photos, des commentaires, des likes durant toute la durée de l'évènement.</target>
+                <target>Une fois inscrits, vos participants pourront contribuer en postant des photos et interagir sur les posts pendant l'évènement.</target>
             </trans-unit>
             <trans-unit id="event.delete.title">
                 <source>event.delete.title</source>
@@ -320,7 +328,7 @@
             </trans-unit>
             <trans-unit id="event.form.file">
                 <source>event.form.file</source>
-                <target>Photo de bannière</target>
+                <target>Logo</target>
             </trans-unit>
             <trans-unit id="event.form.file.help">
                 <source>event.form.file.help</source>
@@ -336,11 +344,11 @@
             </trans-unit>
             <trans-unit id="event.form.startDate.help">
                 <source>event.form.startDate.help</source>
-                <target>Les invités pourront se connecter à partir de la date de début.</target>
+                <target>Les participants pourront se connecter à partir de la date de début.</target>
             </trans-unit>
             <trans-unit id="event.form.endDate.help">
                 <source>event.form.endDate.help</source>
-                <target>A partir de de cette date, les invités auront 30 jours pour récupérer les médias.</target>
+                <target>A partir de de cette date, les participants auront 30 jours pour récupérer les photos.</target>
             </trans-unit>
             <trans-unit id="event.edit.title">
                 <source>event.edit.title</source>
@@ -348,11 +356,11 @@
             </trans-unit>
             <trans-unit id="guest.list.title">
                 <source>guest.list.title</source>
-                <target>Invités</target>
+                <target>Participants</target>
             </trans-unit>
             <trans-unit id="guest.list.title.description">
                 <source>guest.list.title.description</source>
-                <target>Retrouvez ici la liste de vos invités qui ont créé leur compte sur l'application mobile.</target>
+                <target>Retrouvez ici la liste de vos participants qui ont créé leur compte sur l'application mobile.</target>
             </trans-unit>
             <trans-unit id="guest.list.firstName">
                 <source>guest.list.firstName</source>
@@ -412,7 +420,7 @@
             </trans-unit>
             <trans-unit id="media.list.title">
                 <source>media.list.title</source>
-                <target>Médias</target>
+                <target>Photos</target>
             </trans-unit>
             <trans-unit id="media.list.nbLikes">
                 <source>media.list.nbLikes</source>
@@ -432,7 +440,7 @@
             </trans-unit>
             <trans-unit id="media.list.description">
                 <source>media.list.description</source>
-                <target>Retrouvez ici les médias pris par vos invités</target>
+                <target>Retrouvez ici les photos pris par vos participants</target>
             </trans-unit>
             <trans-unit id="tag.list">
                 <source>tag.list</source>
@@ -444,7 +452,7 @@
             </trans-unit>
             <trans-unit id="tag.list.description">
                 <source>tag.list.description</source>
-                <target>Retrouvez ici toutes vos catégories qui vous permettront de trier automatiquement les médias postés par vos invités.</target>
+                <target>Retrouvez ici toutes vos catégories qui vous permettront de trier automatiquement les photos postés par vos participants.</target>
             </trans-unit>
             <trans-unit id="tag.list.title_name">
                 <source>tag.list.title_name</source>
@@ -456,7 +464,7 @@
             </trans-unit>
             <trans-unit id="tag.list.nbMedia">
                 <source>tag.list.nbMedia</source>
-                <target>Médias</target>
+                <target>Photos</target>
             </trans-unit>
             <trans-unit id="tag.list.nbLike">
                 <source>tag.list.nbLike</source>

@@ -26,17 +26,23 @@
                         <th scope="col" class="px-4 py-3 min-w-[10rem]">{{ 'guest.list.lastName'|trans }}</th>
                         <th scope="col" class="px-4 py-3 min-w-[10rem]">{{ 'guest.list.firstName'|trans }}</th>
                         <th scope="col" class="px-4 py-3 min-w-[10rem]">{{ 'guest.list.createdAt'|trans }}</th>
+                        <th scope="col" class="px-4 py-3 min-w-[3rem]">Médias</th>
+                        <th scope="col" class="px-4 py-3 min-w-[3rem]">Commentaires</th>
+                        <th scope="col" class="px-4 py-3 min-w-[3rem]">J'aime</th>
                         <th scope="col" class="px-4 py-3">{{ 'common.actions'|trans }}</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for guest in paginatedGuests.items %}
-                        <tr id="block_guest_{{ guest.uuid }}" class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <tr id="block_guest_{{ guest.uuid }}" class="hover:bg-gray-50 dark:hover:bg-gray-600 border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ guest.lastName }}</td>
                             <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{ guest.firstName }}
                             </td>
                             <td class="px-4 py-3">{{ app_date(guest.createdAt) }}</td>
+                            <td class="px-4 py-3">0</td>
+                            <td class="px-4 py-3">0</td>
+                            <td class="px-4 py-3">0</td>
                             <td class="px-4 py-3">
                                 <button id="{{ guest.uuid }}-dropdown-button" type="button" data-dropdown-toggle="{{ guest.uuid }}-dropdown" class="inline-flex items-center p-1 text-sm font-medium text-center text-gray-500 hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100">
                                     <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +51,6 @@
                                 </button>
                                 <div id="{{ guest.uuid }}-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                     <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="{{ guest.uuid }}-dropdown-button">
-
                                         <li>
                                             <form method="delete" action="{{ path('fragment_guest_delete', { eventUuid: event.uuid, uuid: guest.uuid }) }}">
                                                 <button title="{{ 'common.delete'|trans }}">

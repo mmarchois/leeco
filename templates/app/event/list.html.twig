@@ -37,7 +37,7 @@
                 </thead>
                 <tbody>
                     {% for event in paginatedEvents.items %}
-                        <tr id="block_event_{{ event.uuid }}" class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <tr id="block_event_{{ event.uuid }}" class="hover:bg-gray-50 dark:hover:bg-gray-600 border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center">
                                 <a href="{{ path('app_events_dashboard', { eventUuid: event.uuid }) }}">{{ event.title }}</a>
                             </td>

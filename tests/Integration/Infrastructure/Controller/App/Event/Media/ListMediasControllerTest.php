@@ -16,14 +16,14 @@ final class ListMediasControllerTest extends AbstractWebTestCase
 
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
-        $this->assertSame('Médias', $crawler->filter('h1')->text());
-        $this->assertMetaTitle('Médias - Leeco', $crawler);
+        $this->assertSame('Photos', $crawler->filter('h1')->text());
+        $this->assertMetaTitle('Photos - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
             ['Mon espace', ['href' => '/app']],
             ['Mes évènements', ['href' => '/app/events']],
             ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
-            ['Médias', ['href' => null]],
+            ['Photos', ['href' => null]],
         ], $crawler);
 
         $this->assertSame(1, $table->filter('tr')->count());

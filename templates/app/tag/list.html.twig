@@ -36,23 +36,23 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-4 py-3 min-w-[14rem]">{{ 'tag.list.title_name'|trans }}</th>
+                        <th scope="col" class="px-4 py-3 min-w-[10rem]">{{ 'tag.list.startDate'|trans }}</th>
+                        <th scope="col" class="px-4 py-3 min-w-[10rem]">{{ 'tag.list.endDate'|trans }}</th>
                         <th scope="col" class="px-4 py-3 min-w-[3rem]">{{ 'tag.list.nbMedia'|trans }}</th>
                         <th scope="col" class="px-4 py-3 min-w-[3rem]">{{ 'tag.list.nbLike'|trans }}</th>
                         <th scope="col" class="px-4 py-3 min-w-[3rem]">{{ 'tag.list.nbComment'|trans }}</th>
-                        <th scope="col" class="px-4 py-3 min-w-[10rem]">{{ 'tag.list.startDate'|trans }}</th>
-                        <th scope="col" class="px-4 py-3 min-w-[10rem]">{{ 'tag.list.endDate'|trans }}</th>
                         <th scope="col" class="px-4 py-3">{{ 'common.actions'|trans }}</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for tag in paginatedTags.items %}
-                        <tr id="block_tag_{{ tag.uuid }}" class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <tr id="block_tag_{{ tag.uuid }}" class="hover:bg-gray-50 dark:hover:bg-gray-600 border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ tag.title }}</td>
-                            <td class="px-4 py-3">0</td>
-                            <td class="px-4 py-3">0</td>
-                            <td class="px-4 py-3">0</td>
                             <td class="px-4 py-3">{{ app_datetime(tag.startDate) }}</td>
                             <td class="px-4 py-3">{{ app_datetime(tag.endDate) }}</td>
+                            <td class="px-4 py-3">0</td>
+                            <td class="px-4 py-3">0</td>
+                            <td class="px-4 py-3">0</td>
                             <td class="px-4 py-3">
                                 <a href="{{ path('app_tags_edit', { uuid: tag.uuid, eventUuid: event.uuid }) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">{{ 'common.edit'|trans }}</a>
                                 <form method="delete" action="{{ path('fragment_tag_delete', { eventUuid: event.uuid, uuid: tag.uuid }) }}">

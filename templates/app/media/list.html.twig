@@ -34,7 +34,7 @@
                 </thead>
                 <tbody>
                     {% for media in paginatedMedias.items %}
-                        <tr id="block_media_{{ media.uuid }}" class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <tr id="block_media_{{ media.uuid }}" class="hover:bg-gray-50 dark:hover:bg-gray-600 border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td class="px-4 py-3"><img class="rounded" style="max-height: 100px" src="{{ media.path }}" /></td>
                             <td class="px-4 py-3">0</td>
                             <td class="px-4 py-3">0</td>
