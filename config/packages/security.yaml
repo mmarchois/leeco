@@ -16,7 +16,7 @@ security:
                 secret:   '%kernel.secret%' # required
                 lifetime: 604800 # 1 week in seconds
             form_login:
-                default_target_path: app_dashboard
+                default_target_path: app_events_list
                 login_path: app_login
                 check_path: app_login
                 enable_csrf: true

@@ -14,15 +14,10 @@ final class ListEventsControllerTest extends AbstractWebTestCase
         $crawler = $client->request('GET', '/app/events');
         $table = $crawler->filter('[data-testid="event-list"] tbody');
 
-        $this->assertBreadcrumbStructure([
-            ['Mon espace', ['href' => '/app']],
-            ['Mes évènements', ['href' => null]],
-        ], $crawler);
-
         $this->assertResponseStatusCodeSame(200);
         $this->assertSecurityHeaders();
         $this->assertMetaTitle('Mes évènements - Leeco', $crawler);
-        $this->assertSame('Mes évènements', $crawler->filter('h1')->text());
+        $this->assertSame('Bonjour, Mathieu. Voici vos évènements.', $crawler->filter('h1')->text());
         $this->assertSame(2, $table->filter('tr')->count());
 
         $tr = $table->filter('tr')->eq(0)->filter('td');
@@ -75,7 +70,7 @@ final class ListEventsControllerTest extends AbstractWebTestCase
     public function testWithoutAuthenticatedUser(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/app');
+        $client->request('GET', '/app/events');
 
         $this->assertResponseRedirects('http://localhost/login', 302);
     }

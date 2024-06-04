@@ -28,7 +28,7 @@ final class HomeControllerTest extends AbstractWebTestCase
         $crawler = $client->request('GET', '/');
         $this->assertNavStructure([
             ['Leeco', ['href' => '/']],
-            ['Mon espace', ['href' => '/app']],
+            ['Mes évènements', ['href' => '/app/events']],
         ], $crawler);
     }
 }

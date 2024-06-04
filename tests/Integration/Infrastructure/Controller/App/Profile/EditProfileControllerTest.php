@@ -17,7 +17,6 @@ final class EditProfileControllerTest extends AbstractWebTestCase
         $this->assertSecurityHeaders();
         $this->assertMetaTitle('Mon profil - Leeco', $crawler);
         $this->assertBreadcrumbStructure([
-            ['Mon espace', ['href' => '/app']],
             ['Mon profil', ['href' => null]],
         ], $crawler);
 
