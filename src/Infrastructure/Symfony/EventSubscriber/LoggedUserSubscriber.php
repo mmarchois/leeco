@@ -38,7 +38,7 @@ final readonly class LoggedUserSubscriber implements EventSubscriberInterface
 
         if ($this->authenticatedUser->getUser()) {
             $event->setResponse(
-                new RedirectResponse($this->urlGenerator->generate('app_dashboard')),
+                new RedirectResponse($this->urlGenerator->generate('app_events_list')),
             );
         }
     }

@@ -19,7 +19,6 @@ final class DashboardEventControllerTest extends AbstractWebTestCase
         $this->assertMetaTitle('Mariage H&M - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
-            ['Mon espace', ['href' => '/app']],
             ['Mes évènements', ['href' => '/app/events']],
             ['Mariage H&M', ['href' => null]],
         ], $crawler);

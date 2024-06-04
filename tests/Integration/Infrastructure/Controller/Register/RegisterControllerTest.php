@@ -116,6 +116,6 @@ final class RegisterControllerTest extends AbstractWebTestCase
         $this->assertResponseStatusCodeSame(302);
         $client->followRedirect();
         $this->assertResponseStatusCodeSame(200);
-        $this->assertRouteSame('app_dashboard');
+        $this->assertRouteSame('app_events_list');
     }
 }

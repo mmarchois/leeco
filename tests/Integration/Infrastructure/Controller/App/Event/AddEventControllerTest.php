@@ -25,7 +25,6 @@ final class AddEventControllerTest extends AbstractWebTestCase
         $this->assertMetaTitle('Créer un évènement - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
-            ['Mon espace', ['href' => '/app']],
             ['Mes évènements', ['href' => '/app/events']],
             ['Créer un évènement', ['href' => null]],
         ], $crawler);

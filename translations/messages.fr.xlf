@@ -210,25 +210,21 @@
                 <source>reset_password.token.error</source>
                 <target>Le changement de mot de passe a échoué, veuillez faire une nouvelle demande.</target>
             </trans-unit>
-            <trans-unit id="dashboard.title">
-                <source>dashboard.title</source>
-                <target>Mon espace</target>
-            </trans-unit>
             <trans-unit id="dashboard.welcome">
                 <source>dashboard.welcome</source>
-                <target>Bonjour, %firstName%.</target>
+                <target>Bonjour, %firstName%. Voici vos évènements.</target>
             </trans-unit>
-            <trans-unit id="dashboard.description">
-                <source>dashboard.description</source>
-                <target>Voici vos évènements à venir.</target>
+            <trans-unit id="dashboard.download.print_invitation">
+                <source>dashboard.download.print_invitation</source>
+                <target>Imprimer les badges</target>
             </trans-unit>
-            <trans-unit id="dashboard.download.invitation">
-                <source>dashboard.download.invitation</source>
-                <target>Télécharger</target>
+            <trans-unit id="dashboard.download.send_invitation">
+                <source>dashboard.download.send_invitation</source>
+                <target>Envoyer les badges par email</target>
             </trans-unit>
             <trans-unit id="dashboard.participate.description">
                 <source>dashboard.participate.description</source>
-                <target>Imprimez vos badges d'invitations, ainsi personne n'oubliera de télécharger l'application.</target>
+                <target>Partagez le badge d'accès à vos invités pour qu'ils puissent participer à l'évènement.</target>
             </trans-unit>
             <trans-unit id="dashboard.participate.title">
                 <source>dashboard.participate.title</source>
@@ -440,7 +436,7 @@
             </trans-unit>
             <trans-unit id="media.list.description">
                 <source>media.list.description</source>
-                <target>Retrouvez ici les photos pris par vos participants</target>
+                <target>Retrouvez ici les photos prises par vos participants</target>
             </trans-unit>
             <trans-unit id="tag.list">
                 <source>tag.list</source>
@@ -501,10 +497,6 @@
             <trans-unit id="tag.edit.title">
                 <source>tag.edit.title</source>
                 <target>Modifier "%title%"</target>
-            </trans-unit>
-            <trans-unit id="breadcrumb.home">
-                <source>breadcrumb.home</source>
-                <target>Mon espace</target>
             </trans-unit>
             <trans-unit id="modal.delete.cancel">
                 <source>modal.delete.cancel</source>

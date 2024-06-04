@@ -20,7 +20,6 @@ final class ListMediasControllerTest extends AbstractWebTestCase
         $this->assertMetaTitle('Photos - Leeco', $crawler);
 
         $this->assertBreadcrumbStructure([
-            ['Mon espace', ['href' => '/app']],
             ['Mes évènements', ['href' => '/app/events']],
             ['Mariage H&M', ['href' => '/app/events/f1f992d3-3cf5-4eb2-9b83-f112b7234613']],
             ['Photos', ['href' => null]],
