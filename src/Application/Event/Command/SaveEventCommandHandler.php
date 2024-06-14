@@ -12,7 +12,7 @@ use App\Domain\Event\Event;
 use App\Domain\Event\Exception\EventAlreadyExistException;
 use App\Domain\Event\Repository\EventRepositoryInterface;
 use App\Domain\Event\Specification\IsEventAlreadyExist;
-use App\Domain\Media\MediaTypeEnum;
+use App\Domain\Media\MediaOriginEnum;
 use App\Domain\User\Exception\UserNotFoundException;
 use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Domain\User\User;
@@ -84,7 +84,7 @@ final readonly class SaveEventCommandHandler
             new SaveMediaCommand(
                 event: $event,
                 file: $command->file,
-                type: MediaTypeEnum::IMAGE->value,
+                origin: MediaOriginEnum::CAMERA->value,
                 media: $event->getMedia(), // will be null on event creation
             ),
         );

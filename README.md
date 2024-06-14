@@ -19,7 +19,7 @@
 
 ℹ️ Vous devez avoir **[Docker](https://www.docker.com/)** et **[Docker Compose](https://docs.docker.com/compose/)** d'installés sur votre machine.
 
-Pour démarrer l'application (http://leeco.localhost:8000) :
+Pour installer l'application, executez la commande suite :
 
 ```bash
 make install
@@ -31,6 +31,8 @@ ou lancez la commande suivante si le projet avait déjà été installé :
 make start
 ```
 
-## Application mobile
+## Applications
 
-[Voir le repository](https://github.com/mmarchois/leeco_app)
+- Web : http://leeco.localhost:8000
+- Mail catcher : http://leeco.localhost:1085
+- Mobile : https://github.com/mmarchois/leeco_app

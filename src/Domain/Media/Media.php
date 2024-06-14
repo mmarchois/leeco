@@ -12,7 +12,7 @@ class Media
     public function __construct(
         private string $uuid,
         private string $path,
-        private string $type,
+        private string $origin,
         private \DateTimeInterface $createdAt,
         private Event $event,
         private ?Guest $guest = null,
@@ -29,9 +29,9 @@ class Media
         return $this->path;
     }
 
-    public function getType(): string
+    public function getOrigin(): string
     {
-        return $this->type;
+        return $this->origin;
     }
 
     public function getGuest(): ?Guest

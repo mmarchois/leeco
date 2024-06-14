@@ -14,7 +14,7 @@ final readonly class SaveMediaCommand implements CommandInterface
     public function __construct(
         public Event $event,
         public UploadedFile $file,
-        public string $type,
+        public string $origin,
         public ?Media $media = null,
     ) {
     }

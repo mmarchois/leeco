@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Test\Unit\Infrastructure\Security;
+namespace App\Tests\Unit\Infrastructure\Security;
 
 use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Domain\User\User;

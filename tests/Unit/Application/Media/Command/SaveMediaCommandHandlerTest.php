@@ -11,7 +11,7 @@ use App\Application\Media\Command\SaveMediaCommandHandler;
 use App\Application\StorageInterface;
 use App\Domain\Event\Event;
 use App\Domain\Media\Media;
-use App\Domain\Media\MediaTypeEnum;
+use App\Domain\Media\MediaOriginEnum;
 use App\Domain\Media\Repository\MediaRepositoryInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -68,14 +68,14 @@ final class SaveMediaCommandHandlerTest extends TestCase
                 new Media(
                     uuid: '94e78189-64bd-46f9-9b7e-d729475af557',
                     path: '2e131626-40a5-42d0-857a-f285e1f2bb54/94e78189-64bd-46f9-9b7e-d729475af557.jpg',
-                    type: MediaTypeEnum::IMAGE->value,
+                    origin: MediaOriginEnum::CAMERA->value,
                     createdAt: $createdAt,
                     event: $event,
                 ),
             )
             ->willReturn($createdMedia);
 
-        $command = new SaveMediaCommand($event, $this->file, MediaTypeEnum::IMAGE->value);
+        $command = new SaveMediaCommand($event, $this->file, MediaOriginEnum::CAMERA->value);
         $handler = new SaveMediaCommandHandler(
             $this->storage,
             $this->idFactory,
@@ -130,7 +130,7 @@ final class SaveMediaCommandHandlerTest extends TestCase
             ->expects(self::never())
             ->method('add');
 
-        $command = new SaveMediaCommand($event, $this->file, MediaTypeEnum::IMAGE->value, $media);
+        $command = new SaveMediaCommand($event, $this->file, MediaOriginEnum::CAMERA->value, $media);
         $handler = new SaveMediaCommandHandler(
             $this->storage,
             $this->idFactory,
