@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Test\Unit\Infrastructure\Twig;
+namespace App\Tests\Unit\Infrastructure\Twig;
 
 use App\Infrastructure\Twig\AppExtension;
 use App\Tests\TimezoneHelper;

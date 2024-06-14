@@ -15,7 +15,7 @@ use App\Domain\Event\Exception\EventAlreadyExistException;
 use App\Domain\Event\Repository\EventRepositoryInterface;
 use App\Domain\Event\Specification\IsEventAlreadyExist;
 use App\Domain\Media\Media;
-use App\Domain\Media\MediaTypeEnum;
+use App\Domain\Media\MediaOriginEnum;
 use App\Domain\User\Exception\UserNotFoundException;
 use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Domain\User\User;
@@ -168,7 +168,7 @@ final class SaveEventCommandHandlerTest extends TestCase
                     new SaveMediaCommand(
                         event: $createdEvent,
                         file: $file,
-                        type: MediaTypeEnum::IMAGE->value,
+                        origin: MediaOriginEnum::CAMERA->value,
                         media: null,
                     ),
                 ),
@@ -424,7 +424,7 @@ final class SaveEventCommandHandlerTest extends TestCase
                     new SaveMediaCommand(
                         event: $event,
                         file: $file,
-                        type: MediaTypeEnum::IMAGE->value,
+                        origin: MediaOriginEnum::CAMERA->value,
                         media: $media,
                     ),
                 ),

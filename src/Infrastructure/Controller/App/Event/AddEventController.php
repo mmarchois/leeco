@@ -49,7 +49,7 @@ final class AddEventController
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
-                $uuid = $this->commandBus->handle($command);
+                $this->commandBus->handle($command);
 
                 return new RedirectResponse($this->urlGenerator->generate('app_events_list'));
             } catch (EventAlreadyExistException) {

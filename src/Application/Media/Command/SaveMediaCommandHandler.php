@@ -41,7 +41,7 @@ final readonly class SaveMediaCommandHandler
             new Media(
                 uuid: $uuid,
                 path: $path,
-                type: $command->type,
+                origin: $command->origin,
                 createdAt: $this->dateUtils->getNow(),
                 event: $command->event,
             ),

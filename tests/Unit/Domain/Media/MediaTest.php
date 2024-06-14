@@ -7,7 +7,7 @@ namespace App\Tests\Unit\Domain\Media;
 use App\Domain\Event\Event;
 use App\Domain\Guest\Guest;
 use App\Domain\Media\Media;
-use App\Domain\Media\MediaTypeEnum;
+use App\Domain\Media\MediaOriginEnum;
 use PHPUnit\Framework\TestCase;
 
 final class MediaTest extends TestCase
@@ -19,17 +19,17 @@ final class MediaTest extends TestCase
         $createdAt = new \DateTime('2023-01-01');
 
         $media = new Media(
-            '9cebe00d-04d8-48da-89b1-059f6b7bfe44',
-            '/path/to/media.jpg',
-            MediaTypeEnum::IMAGE->value,
-            $createdAt,
-            $event,
-            $guest,
+            uuid: '9cebe00d-04d8-48da-89b1-059f6b7bfe44',
+            path: '/path/to/media.jpg',
+            origin: MediaOriginEnum::CAMERA->value,
+            createdAt: $createdAt,
+            event: $event,
+            guest: $guest,
         );
 
         $this->assertSame('9cebe00d-04d8-48da-89b1-059f6b7bfe44', $media->getUuid());
         $this->assertSame('/path/to/media.jpg', $media->getPath());
-        $this->assertSame(MediaTypeEnum::IMAGE->value, $media->getType());
+        $this->assertSame(MediaOriginEnum::CAMERA->value, $media->getOrigin());
         $this->assertSame($event, $media->getEvent());
         $this->assertSame($createdAt, $media->getCreatedAt());
         $this->assertSame($guest, $media->getGuest());
