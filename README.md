@@ -19,7 +19,7 @@
 
 ℹ️ Vous devez avoir **[Docker](https://www.docker.com/)** et **[Docker Compose](https://docs.docker.com/compose/)** d'installés sur votre machine.
 
-Pour installer l'application, executez la commande suite :
+Pour installer l'application, executez la commande :
 
 ```bash
 make install
