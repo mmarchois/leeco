@@ -30,7 +30,7 @@ final class ListGuestsControllerTest extends AbstractWebTestCase
         $tr1 = $table->filter('tr')->eq(0)->filter('td');
         $this->assertSame('Marchois', $tr1->eq(0)->text());
         $this->assertSame('Corinne', $tr1->eq(1)->text());
-        $this->assertSame('02/02/2023', $tr1->eq(2)->text());
+        $this->assertSame('02/02/2023 à 01h00', $tr1->eq(2)->text());
         $this->assertSame('0', $tr1->eq(3)->text());
         $this->assertSame('0', $tr1->eq(4)->text());
         $this->assertSame('0', $tr1->eq(5)->text());
@@ -42,7 +42,7 @@ final class ListGuestsControllerTest extends AbstractWebTestCase
         $tr2 = $table->filter('tr')->eq(1)->filter('td');
         $this->assertSame('MARCHOIS', $tr2->eq(0)->text());
         $this->assertSame('Tony', $tr2->eq(1)->text());
-        $this->assertSame('01/01/2023', $tr2->eq(2)->text());
+        $this->assertSame('01/01/2023 à 01h00', $tr2->eq(2)->text());
         $this->assertSame('0', $tr2->eq(3)->text());
         $this->assertSame('0', $tr2->eq(4)->text());
         $this->assertSame('0', $tr2->eq(5)->text());
@@ -64,7 +64,7 @@ final class ListGuestsControllerTest extends AbstractWebTestCase
 
         $this->assertSame('MARCHOIS', $tr1->eq(0)->text());
         $this->assertSame('Julien', $tr1->eq(1)->text());
-        $this->assertSame('03/03/2023', $tr1->eq(2)->text());
+        $this->assertSame('03/03/2023 à 01h00', $tr1->eq(2)->text());
         $this->assertSame('0', $tr1->eq(3)->text());
         $this->assertSame('0', $tr1->eq(4)->text());
         $this->assertSame('0', $tr1->eq(5)->text());

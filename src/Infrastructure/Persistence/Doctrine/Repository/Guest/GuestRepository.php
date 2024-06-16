@@ -19,6 +19,13 @@ final class GuestRepository extends ServiceEntityRepository implements GuestRepo
         parent::__construct($registry, Guest::class);
     }
 
+    public function add(Guest $guest): Guest
+    {
+        $this->getEntityManager()->persist($guest);
+
+        return $guest;
+    }
+
     public function delete(Guest $guest): void
     {
         $this->getEntityManager()->remove($guest);
@@ -26,19 +33,19 @@ final class GuestRepository extends ServiceEntityRepository implements GuestRepo
 
     public function findGuestsByEvent(string $eventUuid, int $pageSize, int $page): array
     {
-        $qb = $this->createQueryBuilder('p')
+        $qb = $this->createQueryBuilder('g')
             ->select(sprintf(
                 'NEW %s(
-                    p.uuid,
-                    p.firstName,
-                    p.lastName,
-                    p.createdAt
+                    g.uuid,
+                    g.firstName,
+                    g.lastName,
+                    g.createdAt
                 )',
                 GuestView::class,
             ))
             ->where('e.uuid = :eventUuid')
-            ->innerJoin('p.event', 'e')
-            ->orderBy('p.createdAt', 'DESC')
+            ->innerJoin('g.event', 'e')
+            ->orderBy('g.createdAt', 'DESC')
             ->setParameters([
                 'eventUuid' => $eventUuid,
             ])
@@ -63,15 +70,30 @@ final class GuestRepository extends ServiceEntityRepository implements GuestRepo
 
     public function findOneByUuid(string $uuid): ?Guest
     {
-        return $this->createQueryBuilder('p')
-            ->select('p')
+        return $this->createQueryBuilder('g')
+            ->select('g')
             ->addSelect('e')
-            ->where('p.uuid = :uuid')
-            ->innerJoin('p.event', 'e')
+            ->where('g.uuid = :uuid')
+            ->innerJoin('g.event', 'e')
             ->setParameter('uuid', $uuid)
             ->setMaxResults(1)
             ->getQuery()
             ->getOneOrNullResult()
         ;
+    }
+
+    public function findOneByDeviceIdentifierAndEvent(string $deviceIdentifier, string $eventUuid): ?Guest
+    {
+        return $this->createQueryBuilder('g')
+            ->where('e.uuid = :eventUuid')
+            ->andWhere('g.deviceIdentifier = :deviceIdentifier')
+            ->innerJoin('g.event', 'e')
+            ->setParameters([
+                'eventUuid' => $eventUuid,
+                'deviceIdentifier' => $deviceIdentifier,
+            ])
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }
