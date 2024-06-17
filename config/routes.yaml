@@ -8,11 +8,11 @@ app_controllers:
     prefix: /app
     trailing_slash_on_root: false
 
-#api_controllers:
-#    resource: ../src/Infrastructure/Controller/Api
-#    type: attribute
-#    prefix: /api
-#    trailing_slash_on_root: false
+api_controllers:
+    resource: ../src/Infrastructure/Controller/Api
+    type: attribute
+    prefix: /api
+    trailing_slash_on_root: false
 
 fragment_controllers:
     resource: ../src/Infrastructure/Controller/Fragments

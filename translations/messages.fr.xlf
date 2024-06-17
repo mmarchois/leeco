@@ -368,7 +368,23 @@
             </trans-unit>
             <trans-unit id="guest.list.createdAt">
                 <source>guest.list.createdAt</source>
-                <target>Date d'inscription</target>
+                <target>Inscrit le</target>
+            </trans-unit>
+            <trans-unit id="guest.list.medias">
+                <source>guest.list.medias</source>
+                <target>Photos</target>
+            </trans-unit>
+            <trans-unit id="guest.list.like">
+                <source>guest.list.like</source>
+                <target>J'aime</target>
+            </trans-unit>
+            <trans-unit id="guest.list.comment">
+                <source>guest.list.comment</source>
+                <target>Commentaires</target>
+            </trans-unit>
+            <trans-unit id="guest.delete.confirm">
+                <source>guest.delete.confirm</source>
+                <target>Êtes-vous sûr de vouloir supprimer ce participant ?</target>
             </trans-unit>
             <trans-unit id="profile.title">
                 <source>profile.title</source>
@@ -376,7 +392,7 @@
             </trans-unit>
             <trans-unit id="profile.edit.title">
                 <source>profile.edit.title</source>
-                <target>Informations générales</target>
+                <target>Infoformations générales</target>
             </trans-unit>
             <trans-unit id="profile.form.firstName">
                 <source>profile.form.firstName</source>

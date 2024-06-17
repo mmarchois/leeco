@@ -15,12 +15,15 @@
                 <option name="max">100</option>
             </constraint>
         </property>
-        <property name="email">
+        <property name="deviceIdentifier">
             <constraint name="NotBlank" />
-            <constraint name="Email" />
             <constraint name="Length">
-                <option name="max">100</option>
+                <option name="max">50</option>
             </constraint>
+        </property>
+        <property name="eventUuid">
+            <constraint name="NotBlank" />
+            <constraint name="Uuid"/>
         </property>
     </class>
 </constraint-mapping>
